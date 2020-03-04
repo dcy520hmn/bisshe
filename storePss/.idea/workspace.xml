@@ -1,0 +1,855 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="61be1ebb-4faa-42f2-8603-40ea841ebc4e" name="Default Changelist" comment="毕业设计" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="salesystem" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Kotlin File" />
+        <option value="MyBatisMapper" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="E:/maven/apache-maven-3.5.2" />
+        <option name="userSettingsFile" value="E:\maven\apache-maven-3.5.2\conf\settings-myself.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1QeHL1MBMCnMiCoZyWB86UUG1zK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="compactDirectories" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\compileStudy\salesystem\src\main\resources\static\js\common" />
+      <recent name="D:\compileStudy\salesystem\src\main\resources\static\js\vue" />
+      <recent name="D:\compileStudy\salesystem\src\main\resources\public" />
+      <recent name="D:\compileStudy\salesystem\src\main\resources" />
+      <recent name="D:\compileStudy\salesystem\src\main\resources\static\pages\sale" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.keji.controller" />
+      <recent name="com.keji.service.imp" />
+      <recent name="com.keji.service" />
+      <recent name="com.keji.mapper" />
+      <recent name="com.keji.common.service.impl" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\QQFile\bishe\project2\salesystem\src\main\resources\public\pages\volunteer" />
+      <recent name="D:\QQFile\bishe\project2\salesystem\src\main\resources\com\keji\mapper" />
+      <recent name="C:\Users\李天笑\Desktop\project2\salesystem\src\main\resources\public\pages\statistics" />
+      <recent name="C:\Users\李天笑\Desktop\project2\salesystem\src\main\resources\static\js" />
+      <recent name="C:\Users\李天笑\Desktop\project1\salesystem\src\main\resources\public\pages\sale" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.StorePssApplication">
+    <configuration name="StorePssApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.keji.StorePssApplication" />
+      <module name="storePss" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.keji.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GatheringTest.dd" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="storePss" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.keji.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.keji" />
+      <option name="MAIN_CLASS_NAME" value="com.keji.GatheringTest" />
+      <option name="METHOD_NAME" value="dd" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderDetailTest.tt" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="storePss" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.keji.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.keji" />
+      <option name="MAIN_CLASS_NAME" value="com.keji.OrderDetailTest" />
+      <option name="METHOD_NAME" value="tt" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderDetailTest.ttt" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="storePss" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.keji.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.keji" />
+      <option name="MAIN_CLASS_NAME" value="com.keji.OrderDetailTest" />
+      <option name="METHOD_NAME" value="ttt" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderMapperTest.testFindUserByUserName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="storePss" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.keji.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.keji" />
+      <option name="MAIN_CLASS_NAME" value="com.keji.OrderMapperTest" />
+      <option name="METHOD_NAME" value="testFindUserByUserName" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderMapperTest.tt" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="storePss" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.keji.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.keji" />
+      <option name="MAIN_CLASS_NAME" value="com.keji.OrderMapperTest" />
+      <option name="METHOD_NAME" value="tt" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="saleSystem" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="storePss" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.keji.StorePssApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="com.intellij.dmserver.run.DMServerRunConfigurationType:id" factoryName="Spring dmServer (Local)" ALTERNATIVE_JRE_ENABLED="false">
+      <deployment />
+      <server-settings>
+        <option name="MBeanPort" value="9875" />
+        <option name="MBeanUserName" value="admin" />
+        <mbean-port>9875</mbean-port>
+        <mbean-user>admin</mbean-user>
+      </server-settings>
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="62287" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="JRebel Debug">
+        <option name="DEBUG_PORT" value="62288" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="DEBUG_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="DEBUG_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="DEBUG_OPTS" RunnerId="JRebel Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="DEBUG_OPTS" RunnerId="JRebel Executor">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="DEBUG_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.StorePssApplication" />
+      <item itemvalue="JUnit.OrderMapperTest.testFindUserByUserName" />
+      <item itemvalue="JUnit.OrderMapperTest.tt" />
+      <item itemvalue="JUnit.OrderDetailTest.tt" />
+      <item itemvalue="JUnit.GatheringTest.dd" />
+      <item itemvalue="JUnit.OrderDetailTest.ttt" />
+      <item itemvalue="Spring Boot.saleSystem" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.OrderDetailTest.ttt" />
+        <item itemvalue="JUnit.OrderMapperTest.tt" />
+        <item itemvalue="JUnit.OrderDetailTest.tt" />
+        <item itemvalue="JUnit.GatheringTest.dd" />
+        <item itemvalue="JUnit.OrderMapperTest.testFindUserByUserName" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>C:\Users\dcy\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="61be1ebb-4faa-42f2-8603-40ea841ebc4e" name="Default Changelist" comment="" />
+      <created>1566722476788</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1566722476788</updated>
+      <workItem from="1566722480558" duration="1617000" />
+      <workItem from="1566730347349" duration="2219000" />
+      <workItem from="1566732633806" duration="1785000" />
+      <workItem from="1566800940546" duration="3989000" />
+      <workItem from="1566805004588" duration="6015000" />
+      <workItem from="1566881176142" duration="3676000" />
+      <workItem from="1566890168349" duration="1831000" />
+      <workItem from="1566896613128" duration="14000" />
+      <workItem from="1566904200036" duration="10474000" />
+      <workItem from="1566951284616" duration="16605000" />
+      <workItem from="1566986754179" duration="3751000" />
+      <workItem from="1566992049547" duration="630000" />
+      <workItem from="1567075468731" duration="14377000" />
+      <workItem from="1567126730636" duration="20007000" />
+      <workItem from="1567174276269" duration="3567000" />
+      <workItem from="1567211131559" duration="10621000" />
+      <workItem from="1567231348117" duration="3080000" />
+      <workItem from="1567299417813" duration="8079000" />
+      <workItem from="1567320794162" duration="6806000" />
+      <workItem from="1567470644514" duration="525000" />
+      <workItem from="1567475040581" duration="1812000" />
+      <workItem from="1567503943867" duration="2929000" />
+      <workItem from="1567513537573" duration="4180000" />
+      <workItem from="1567583541856" duration="4278000" />
+      <workItem from="1567590340087" duration="1184000" />
+      <workItem from="1567599006777" duration="781000" />
+      <workItem from="1567644798509" duration="3410000" />
+      <workItem from="1567734713818" duration="657000" />
+      <workItem from="1567749285336" duration="737000" />
+      <workItem from="1567750059884" duration="383000" />
+      <workItem from="1567750521774" duration="394000" />
+      <workItem from="1567750960539" duration="638000" />
+      <workItem from="1567824288608" duration="1224000" />
+      <workItem from="1567842666396" duration="2670000" />
+      <workItem from="1567857038423" duration="846000" />
+      <workItem from="1567860919978" duration="2631000" />
+      <workItem from="1567939392971" duration="574000" />
+      <workItem from="1567940028616" duration="3347000" />
+      <workItem from="1567943668569" duration="3416000" />
+      <workItem from="1567947123084" duration="4306000" />
+      <workItem from="1567988944296" duration="7977000" />
+      <workItem from="1567997174337" duration="8775000" />
+      <workItem from="1568035685972" duration="2571000" />
+      <workItem from="1568039217941" duration="45000" />
+      <workItem from="1568080013075" duration="2483000" />
+      <workItem from="1568082758197" duration="11012000" />
+      <workItem from="1568094109056" duration="18515000" />
+      <workItem from="1568121068141" duration="693000" />
+      <workItem from="1568121793187" duration="220000" />
+      <workItem from="1568122055773" duration="992000" />
+      <workItem from="1568124093365" duration="306000" />
+      <workItem from="1568124466473" duration="131000" />
+      <workItem from="1568171643463" duration="2629000" />
+      <workItem from="1568189560738" duration="4662000" />
+      <workItem from="1568194669274" duration="1084000" />
+      <workItem from="1568614788003" duration="72000" />
+      <workItem from="1568630012387" duration="6671000" />
+      <workItem from="1578470428647" duration="2307000" />
+      <workItem from="1578557553735" duration="924000" />
+      <workItem from="1578618234649" duration="97000" />
+      <workItem from="1578618377544" duration="595000" />
+      <workItem from="1580454589367" duration="1493000" />
+      <workItem from="1580800421041" duration="24000" />
+      <workItem from="1581237637700" duration="623000" />
+      <workItem from="1581595849427" duration="183000" />
+      <workItem from="1581677524828" duration="833000" />
+      <workItem from="1582249575590" duration="85000" />
+      <workItem from="1582369378639" duration="1370000" />
+      <workItem from="1582425146103" duration="596000" />
+      <workItem from="1582510530891" duration="941000" />
+      <workItem from="1582620624123" duration="4251000" />
+      <workItem from="1582624929491" duration="98000" />
+      <workItem from="1582625058020" duration="5840000" />
+      <workItem from="1582707404086" duration="10548000" />
+      <workItem from="1583220606910" duration="1372000" />
+      <workItem from="1583225998323" duration="53000" />
+      <workItem from="1583226134272" duration="3417000" />
+      <workItem from="1583302029258" duration="100000" />
+      <workItem from="1583302163810" duration="1032000" />
+    </task>
+    <task id="LOCAL-00001">
+      <created>1567749646213</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1567749646213</updated>
+    </task>
+    <task id="LOCAL-00002">
+      <created>1567749877974</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1567749877974</updated>
+    </task>
+    <task id="LOCAL-00003">
+      <created>1567750138616</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1567750138616</updated>
+    </task>
+    <task id="LOCAL-00004">
+      <created>1567750647200</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1567750647200</updated>
+    </task>
+    <task id="LOCAL-00005">
+      <created>1567750717697</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1567750717697</updated>
+    </task>
+    <task id="LOCAL-00006">
+      <created>1567750893894</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1567750893894</updated>
+    </task>
+    <task id="LOCAL-00007">
+      <created>1567824621793</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1567824621793</updated>
+    </task>
+    <task id="LOCAL-00008">
+      <created>1567825028297</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1567825028297</updated>
+    </task>
+    <task id="LOCAL-00009">
+      <created>1567843066112</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1567843066112</updated>
+    </task>
+    <task id="LOCAL-00010">
+      <created>1567940664626</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1567940664626</updated>
+    </task>
+    <task id="LOCAL-00011">
+      <created>1568006515902</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1568006515902</updated>
+    </task>
+    <task id="LOCAL-00012">
+      <created>1568036131459</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1568036131459</updated>
+    </task>
+    <task id="LOCAL-00013">
+      <created>1568080601177</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1568080601177</updated>
+    </task>
+    <task id="LOCAL-00014">
+      <created>1568107051946</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1568107051946</updated>
+    </task>
+    <task id="LOCAL-00015">
+      <created>1568107064500</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1568107064500</updated>
+    </task>
+    <task id="LOCAL-00016">
+      <created>1568107072509</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1568107072510</updated>
+    </task>
+    <task id="LOCAL-00017">
+      <created>1568107089734</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1568107089734</updated>
+    </task>
+    <task id="LOCAL-00018">
+      <created>1568107099853</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1568107099853</updated>
+    </task>
+    <task id="LOCAL-00019">
+      <created>1568107108881</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1568107108881</updated>
+    </task>
+    <task id="LOCAL-00020">
+      <created>1568107139429</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1568107139429</updated>
+    </task>
+    <task id="LOCAL-00021">
+      <created>1568107150642</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1568107150642</updated>
+    </task>
+    <task id="LOCAL-00022">
+      <created>1568107160336</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1568107160336</updated>
+    </task>
+    <task id="LOCAL-00023">
+      <created>1568107176039</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1568107176039</updated>
+    </task>
+    <task id="LOCAL-00024">
+      <created>1568107187834</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1568107187834</updated>
+    </task>
+    <task id="LOCAL-00025">
+      <created>1568107198846</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1568107198846</updated>
+    </task>
+    <task id="LOCAL-00026">
+      <created>1568107214758</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1568107214758</updated>
+    </task>
+    <task id="LOCAL-00027">
+      <created>1568107236043</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1568107236043</updated>
+    </task>
+    <task id="LOCAL-00028">
+      <created>1568107259451</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1568107259451</updated>
+    </task>
+    <task id="LOCAL-00029">
+      <created>1568109824535</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1568109824535</updated>
+    </task>
+    <task id="LOCAL-00030">
+      <created>1568123048760</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1568123048760</updated>
+    </task>
+    <task id="LOCAL-00031" summary="毕业设计">
+      <created>1583227185412</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1583227185413</updated>
+    </task>
+    <task id="LOCAL-00032" summary="毕业设计">
+      <created>1583227999656</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1583227999656</updated>
+    </task>
+    <task id="LOCAL-00033" summary="毕业设计">
+      <created>1583228215703</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1583228215703</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.log" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/../.." />
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+    <MESSAGE value="毕业设计" />
+    <option name="LAST_COMMIT_MESSAGE" value="毕业设计" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="137" y="27" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582630016252">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="137" y="27" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1582630016252" />
+    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser" timestamp="1582623889363">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1582623889363" />
+    <state x="363" y="107" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1582510817717">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="363" y="107" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.738@0.0.1366.738" timestamp="1582510817717" />
+    <state x="467" y="236" width="431" height="272" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1582622411582">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="467" y="236" width="431" height="272" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.738@0.0.1366.738" timestamp="1582622411582" />
+    <state x="403" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1582718807261">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="403" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.738@0.0.1366.738" timestamp="1582718807261" />
+    <state x="182" y="68" key="CommitChangelistDialog2" timestamp="1583236215543">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="182" y="68" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1583236215543" />
+    <state x="129" y="62" key="DiffContextDialog" timestamp="1583227212242">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="129" y="62" key="DiffContextDialog/0.0.1366.738@0.0.1366.738" timestamp="1583227212242" />
+    <state x="440" y="113" key="FileChooserDialogImpl" timestamp="1583303286849">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="440" y="113" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1583303286849" />
+    <state width="1323" height="393" key="GridCell.Tab.0.bottom" timestamp="1583236283040">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="393" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1583236283040" />
+    <state width="1323" height="393" key="GridCell.Tab.0.center" timestamp="1583236283040">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="393" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1583236283040" />
+    <state width="1323" height="393" key="GridCell.Tab.0.left" timestamp="1583236283040">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="393" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1583236283040" />
+    <state width="1323" height="393" key="GridCell.Tab.0.right" timestamp="1583236283040">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="393" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1583236283040" />
+    <state width="1323" height="393" key="GridCell.Tab.1.bottom" timestamp="1583225909798">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="393" key="GridCell.Tab.1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1583225909798" />
+    <state width="1323" height="393" key="GridCell.Tab.1.center" timestamp="1583225909798">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="393" key="GridCell.Tab.1.center/0.0.1366.738@0.0.1366.738" timestamp="1583225909798" />
+    <state width="1323" height="393" key="GridCell.Tab.1.left" timestamp="1583225909798">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="393" key="GridCell.Tab.1.left/0.0.1366.738@0.0.1366.738" timestamp="1583225909798" />
+    <state width="1323" height="393" key="GridCell.Tab.1.right" timestamp="1583225909798">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="393" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1583225909798" />
+    <state x="163" y="0" key="SettingsEditor" timestamp="1583303242797">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="163" y="0" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1583303242797" />
+    <state x="275" y="105" key="Vcs.Push.Dialog.v2" timestamp="1583236179571">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="275" y="105" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1583236179571" />
+    <state x="484" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1582630429164">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="484" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.738@0.0.1366.738" timestamp="1582630429164" />
+    <state x="370" y="124" width="626" height="490" key="find.popup" timestamp="1582630448343">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="370" y="124" width="626" height="490" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1582630448343" />
+    <state x="57" y="73" key="new project wizard" timestamp="1581596031007">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="57" y="73" key="new project wizard/0.0.1366.738@0.0.1366.738" timestamp="1581596031007" />
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1582711087533">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1582711087533" />
+    <state x="484" y="275" key="svn.passwordDialog" timestamp="1583226637918">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="484" y="275" key="svn.passwordDialog/0.0.1366.738@0.0.1366.738" timestamp="1583226637918" />
+    <state x="513" y="163" key="svn.repositoryBrowser" timestamp="1583226723805">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="513" y="163" key="svn.repositoryBrowser/0.0.1366.738@0.0.1366.738" timestamp="1583226723805" />
+    <state x="496" y="144" key="svn4idea.import.options" timestamp="1583226693540">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="496" y="144" key="svn4idea.import.options/0.0.1366.738@0.0.1366.738" timestamp="1583226693540" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/keji/dao/UserDaoTest.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/keji/service/GoodsServiceTest.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/keji/dao/CustomerMappTest.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/keji/controller/StatisticsController.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/main/resources/public/pages/baseMessage/goodMessage.html</url>
+          <line>144</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>new BigDecimal(batch.getNum()).multiply(batch.getProductPrice());</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>batch.getProductPrice();</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>new BigDecimal(batch.getNum());</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>iterator.next();</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>iterator.hasNext();</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>order.toString();</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="mavenExecuteGoalHistory">
+    <option value="$PROJECT_DIR$" />
+    <option value="clean package" />
+  </component>
+</project>

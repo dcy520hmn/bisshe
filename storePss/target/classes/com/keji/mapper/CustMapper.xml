@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.keji.mapper.CustMapper">
+   
+    <!--查询所有客户信息-->
+    <select id="findAllVolunteerPojo" resultType="VolunteerPojo">
+      select * from volunteer
+    </select>
+
+    <!--通过客户编号查询一条客户信息-->
+    <select id="findVolunteerPojoById" resultType="VolunteerPojo">
+        select * from volunteer where id = #{id}
+    </select>
+
+    <!--添加一条客户信息-->
+    <insert id="addVolunteerPojo" parameterType="com.keji.pojo.VolunteerPojo">
+        insert into volunteer(name) values(#{name})
+    </insert>
+
+    <!--通过客户编号修改一条客户信息-->
+    <update id="updateVolunteerPojoById" parameterType="com.keji.pojo.VolunteerPojo">
+        update volunteer set name = #{name}
+        where id = #{id}
+    </update>
+
+    <!--删除一条客户信息-->
+    <delete id="delVolunteerPojoById">
+        delete from volunteer where id = #{id}
+    </delete>
+
+    <!--根据客户名称查询客户-->
+    <select id="findVolunteerByName" resultType="VolunteerPojo">
+        select * from where volunteer where name like '%#{name}%'
+    </select>
+</mapper>
