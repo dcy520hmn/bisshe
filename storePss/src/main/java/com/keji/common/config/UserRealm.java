@@ -1,7 +1,7 @@
 package com.keji.common.config;
 
-import com.keji.pojo.UserInfo;
-import com.keji.service.UserService;
+import com.keji.pojo.authority.UserInfo;
+import com.keji.service.authority.UserService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;

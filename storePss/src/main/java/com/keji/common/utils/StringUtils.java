@@ -1,6 +1,5 @@
 package com.keji.common.utils;
 
-import com.keji.pojo.Authority;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

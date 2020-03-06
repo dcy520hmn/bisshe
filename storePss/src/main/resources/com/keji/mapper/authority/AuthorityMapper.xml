@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.keji.mapper.authority.AuthorityMapper">
+
+    <resultMap id="authorityMap" type="authority">
+        <id property="id" column="auth_id"/>
+        <result property="name" column="auth_name"/>
+        <result property="describe" column="auth_describe"/>
+        <result property="path" column="auth_path"/>
+        <result property="parId" column="auth_parent_id"/>
+        <association property="parentAuthority"  javaType="authority">
+            <id property="id" column="p_auth_id"/>
+            <result property="name" column="p_auth_name"/>
+            <result property="describe" column="p_auth_describe"/>
+            <result property="path" column="p_auth_path"/>
+            <result property="parId" column="p_auth_parent_id"/>
+        </association>
+    </resultMap>
+
+    <!--查询出所有的权限-->
+    <select id="findAllAuthority" resultMap="authorityMap">
+        SELECT * FROM t_auth
+        WHERE auth_parent_id != 0
+        AND auth_id NOT IN (SELECT ra_authId t_role_auth FROM t_role_auth WHERE ra_roleId=#{id})
+    </select>
+
+    <!--通过id查询权限-->
+    <select id="findAuthorityById" resultMap="authorityMap">
+        SELECT * FROM t_auth WHERE auth_id = #{id}
+    </select>
+
+
+    <select id="findAuthority" resultMap="authorityMap">
+        SELECT A.*,B.auth_id as p_auth_id,B.auth_name as p_auth_name,B.auth_describe as p_auth_describe,B.auth_parent_id as p_auth_parent_id,B.auth_path as p_auth_path
+        FROM t_auth A LEFT JOIN t_auth B ON A.auth_parent_id = B.auth_id
+        <where>
+            <if test="authName != null and authName !='' ">
+                and A.auth_name like '%'#{authName}'%'
+            </if>
+            <if test="parentId != null">
+                and A.auth_parent_id = #{parentId}
+            </if>
+        </where>
+    </select>
+</mapper>

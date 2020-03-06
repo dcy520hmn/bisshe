@@ -70,4 +70,13 @@ role = {
     roleNum:""
 }
 
+/*权限*/
+auth = {
+    id:"",
+    authName:"",
+    authDesc:"",
+    authPath:"",
+    authParentId:""
+}
+
 
