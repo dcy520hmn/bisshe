@@ -1,273 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="61be1ebb-4faa-42f2-8603-40ea841ebc4e" name="Default Changelist" comment="毕业设计">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/keji/common/utils/PageResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/keji/mapper/baseMessage/TProviderServiceMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/keji/pojo/baseMessage/TProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/TProviderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/impl/TProviderServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/pages/sysSetting/role-add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/pages/sysSetting/role-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_4_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_1_3_0.xml" beforeDir="false" />
+    <list default="true" id="61be1ebb-4faa-42f2-8603-40ea841ebc4e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/keji/controller/baseMessage/TProviderController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/pages/baseMessage/provider-list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/log.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/StorePssApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/StorePssApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/common/config/UserRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/common/config/UserRealm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/common/utils/StringUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/common/utils/StringUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/controller/AuthorityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/controller/authority/AuthorityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/controller/CustController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/controller/CustomerController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/controller/DeptController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/controller/DeptStatisticsController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/controller/EmpController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/controller/GatheringController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/controller/authority/IndexController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/controller/OrderController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/controller/OrderDetailController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/controller/PositionController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/controller/ProductController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/controller/ProductStatisticsController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/controller/RefundController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/controller/RepositoryController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/controller/authority/RoleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/controller/SalaryBillsController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/controller/SupplierController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/controller/authority/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/mapper/AuthorityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/mapper/authority/AuthorityMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/mapper/CustMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/mapper/CustomerMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/mapper/DeptMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/mapper/DeptStatisticsMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/mapper/EmpMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/mapper/GatheringMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/mapper/OrderDetailMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/mapper/OrderMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/mapper/PositionMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/mapper/ProductMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/mapper/ProductStatisticsMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/mapper/RepositoryMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/mapper/RoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/mapper/authority/RoleMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/mapper/SalaryBillsMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/mapper/SupplierMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/mapper/authority/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/Authority.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/pojo/authority/Authority.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/Batch.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/Customer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/Dept.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/DeptStatistics.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/Emp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/Gathering.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/Order.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/OrderDetail.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/Position.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/Product.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/ProductStatistics.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/PurchaseDetail.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/RePurchaseDetail.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/ReStockOrder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/Repository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/pojo/authority/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/SalaryBills.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/StockOrder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/Supplier.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/UserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/pojo/authority/UserInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/VolunteerPojo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/AuthorityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/authority/AuthorityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/CustService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/CustomerService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/DeptService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/DeptStatisticsService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/EmpService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/GatheringService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/OrderDetailService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/OrderService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/PositionService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/ProductService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/ProductStatisticsService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/RepositoryService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/authority/RoleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/SalaryBillsService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/SupplierService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/authority/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/imp/AuthorityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/authority/imp/AuthorityServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/imp/CustServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/imp/CustomerServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/imp/DeptServiceimpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/imp/DeptStatisticsServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/imp/EmpServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/imp/GatheringServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/imp/OrderDetailServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/imp/OrderServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/imp/PositionServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/imp/ProductServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/imp/ProductStatisticsServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/imp/RepostitoryServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/imp/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/authority/imp/RoleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/imp/SalaryBillsServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/imp/SupplierServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/imp/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/authority/imp/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/AuthorityMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/authority/AuthorityMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/CustMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/DeptMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/EmpMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/GatheringMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/OrderDetailMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/OrderMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/PositionMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/ProductMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/ProductStatisticsMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/RepositoryMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/RoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/authority/RoleMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/SalaryBillsMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/SupplierMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/authority/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/userManager/role-add.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/sysSetting/auth-add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/userManager/role-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/sysSetting/auth-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/userManager/role-permission-add.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/sysSetting/role-permission-add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/userManager/role-show.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/sysSetting/role-show.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/userManager/user-add.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/sysSetting/user-add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/userManager/user-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/sysSetting/user-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/userManager/user-role-add.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/sysSetting/user-role-add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/userManager/user-show.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/sysSetting/user-show.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/userManager/user_update.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/sysSetting/user_update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/baseMessage/TProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/pojo/baseMessage/TProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/TProviderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/TProviderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/impl/TProviderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/impl/TProviderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/baseMessage/customerMessage.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/sysSetting/auth-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/sysSetting/auth-list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/common/entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/common/entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/keji/GatheringTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/keji/OrderMapperTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storePss.iml" beforeDir="false" afterPath="$PROJECT_DIR$/storePss.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/StorePssApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/keji/StorePssApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/common/config/UserRealm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/keji/common/config/UserRealm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/common/utils/StringUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/keji/common/utils/StringUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/controller/AuthorityController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/controller/CustController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/controller/CustomerController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/controller/DeptController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/controller/DeptStatisticsController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/controller/EmpController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/controller/GatheringController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/controller/IndexController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/controller/OrderController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/controller/OrderDetailController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/controller/PositionController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/controller/ProductController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/controller/ProductStatisticsController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/controller/RefundController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/controller/RepositoryController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/controller/RoleController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/controller/SalaryBillsController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/controller/SupplierController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/controller/UserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/mapper/AuthorityMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/mapper/AuthorityMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/mapper/CustMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/mapper/CustMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/mapper/CustomerMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/mapper/DeptMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/mapper/DeptMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/mapper/DeptStatisticsMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/mapper/EmpMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/mapper/EmpMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/mapper/GatheringMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/mapper/GatheringMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/mapper/OrderDetailMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/mapper/OrderDetailMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/mapper/OrderMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/mapper/OrderMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/mapper/PositionMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/mapper/PositionMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/mapper/ProductMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/mapper/ProductMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/mapper/ProductStatisticsMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/mapper/ProductStatisticsMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/mapper/RepositoryMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/mapper/RepositoryMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/mapper/RoleMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/mapper/RoleMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/mapper/SalaryBillsMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/mapper/SalaryBillsMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/mapper/SupplierMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/mapper/SupplierMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/mapper/UserMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/mapper/UserMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/pojo/Authority.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/pojo/Batch.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/pojo/Customer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/pojo/Dept.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/pojo/DeptStatistics.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/pojo/Emp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/pojo/Gathering.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/pojo/Order.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/pojo/OrderDetail.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/pojo/Position.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/pojo/Product.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/pojo/ProductStatistics.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/pojo/PurchaseDetail.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/pojo/RePurchaseDetail.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/pojo/ReStockOrder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/pojo/Repository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/pojo/Role.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/pojo/SalaryBills.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/pojo/StockOrder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/pojo/Supplier.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/pojo/UserInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/pojo/VolunteerPojo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/AuthorityService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/CustService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/CustomerService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/DeptService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/DeptStatisticsService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/EmpService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/GatheringService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/OrderDetailService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/OrderService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/PositionService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/ProductService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/ProductStatisticsService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/RepositoryService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/RoleService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/SalaryBillsService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/SupplierService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/UserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/imp/AuthorityServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/imp/CustServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/imp/CustomerServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/imp/DeptServiceimpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/imp/DeptStatisticsServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/imp/EmpServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/imp/GatheringServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/imp/OrderDetailServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/imp/OrderServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/imp/PositionServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/imp/ProductServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/imp/ProductStatisticsServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/imp/RepostitoryServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/imp/RoleServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/imp/SalaryBillsServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/imp/SupplierServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/imp/UserServiceImpl$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/imp/UserServiceImpl$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/service/imp/UserServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/pages/userManager/role-add.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/pages/userManager/role-list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/pages/userManager/role-permission-add.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/pages/userManager/role-show.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/pages/userManager/user-add.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/pages/userManager/user-list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/pages/userManager/user-role-add.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/pages/userManager/user-show.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/pages/userManager/user_update.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/pages/baseMessage/customerMessage.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/static/js/common/entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/common/entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/keji/GatheringTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/keji/OrderMapperTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -313,7 +59,7 @@
         <item name="MySQL for 5.1 - bishe@127.0.0.1" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="bishe: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="t_auth: table" type="285a2a93:MysqlImplModel$Table" />
+        <item name="t_provider: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -371,7 +117,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/public/pages/sysSetting" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/public/pages/baseMessage" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -388,12 +134,12 @@
     <property name="settings.editor.selected.configurable" value="project.propCompiler" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\QQFile\bishe\project2\storePss\src\main\resources\com\keji\mapper\role" />
-      <recent name="D:\compileStudy\salesystem\src\main\resources\static\js\common" />
-      <recent name="D:\compileStudy\salesystem\src\main\resources\static\js\vue" />
-      <recent name="D:\compileStudy\salesystem\src\main\resources\public" />
-      <recent name="D:\compileStudy\salesystem\src\main\resources" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\QQFile\bishe\project2\storePss\src\main\resources\public\pages\baseMessage" />
+      <recent name="D:\QQFile\bishe\project2\storePss\src\main\resources\public\pages\sysSetting" />
+      <recent name="D:\QQFile\bishe\project2\salesystem\src\main\resources\public\pages\volunteer" />
+      <recent name="D:\QQFile\bishe\project2\salesystem\src\main\resources\com\keji\mapper" />
+      <recent name="C:\Users\李天笑\Desktop\project2\salesystem\src\main\resources\public\pages\statistics" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.keji.common.utils" />
@@ -402,12 +148,12 @@
       <recent name="com.keji.service" />
       <recent name="com.keji.mapper" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\QQFile\bishe\project2\storePss\src\main\resources\public\pages\sysSetting" />
-      <recent name="D:\QQFile\bishe\project2\salesystem\src\main\resources\public\pages\volunteer" />
-      <recent name="D:\QQFile\bishe\project2\salesystem\src\main\resources\com\keji\mapper" />
-      <recent name="C:\Users\李天笑\Desktop\project2\salesystem\src\main\resources\public\pages\statistics" />
-      <recent name="C:\Users\李天笑\Desktop\project2\salesystem\src\main\resources\static\js" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\QQFile\bishe\project2\storePss\src\main\resources\com\keji\mapper\role" />
+      <recent name="D:\compileStudy\salesystem\src\main\resources\static\js\common" />
+      <recent name="D:\compileStudy\salesystem\src\main\resources\static\js\vue" />
+      <recent name="D:\compileStudy\salesystem\src\main\resources\public" />
+      <recent name="D:\compileStudy\salesystem\src\main\resources" />
     </key>
   </component>
   <component name="RunManager" selected="Application.StorePssApplication">
@@ -730,7 +476,8 @@
       <workItem from="1583375109573" duration="616000" />
       <workItem from="1583375923961" duration="21959000" />
       <workItem from="1583411724937" duration="3727000" />
-      <workItem from="1583457768198" duration="7683000" />
+      <workItem from="1583457768198" duration="9383000" />
+      <workItem from="1583561027016" duration="6085000" />
     </task>
     <task id="LOCAL-00001">
       <created>1567749646213</created>
@@ -977,7 +724,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583313539648</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="权限功能">
+      <created>1583494429750</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1583494429750</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -994,7 +748,8 @@
     </ignored-roots>
     <MESSAGE value="毕业设计" />
     <MESSAGE value="修改数据库连接" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改数据库连接" />
+    <MESSAGE value="权限功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="权限功能" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="62" key="#HTTP_Proxy" timestamp="1583376098822">
@@ -1005,10 +760,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="137" y="27" width="1165" height="683" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1583397019235" />
-    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser" timestamp="1583392826996">
+    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser" timestamp="1583561723431">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1583392826996" />
+    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1583561723431" />
     <state x="363" y="107" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1582510817717">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -1017,18 +772,18 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="490" y="297" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1366.738@0.0.1366.738" timestamp="1583377631709" />
-    <state x="467" y="236" width="431" height="272" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1582622411582">
+    <state x="467" y="236" width="431" height="272" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1583561938481">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="467" y="236" width="431" height="272" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.738@0.0.1366.738" timestamp="1582622411582" />
+    <state x="467" y="236" width="431" height="272" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.738@0.0.1366.738" timestamp="1583561938481" />
     <state x="403" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1582718807261">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="403" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.738@0.0.1366.738" timestamp="1582718807261" />
-    <state x="182" y="68" key="CommitChangelistDialog2" timestamp="1583313538488">
+    <state x="0" y="68" key="CommitChangelistDialog2" timestamp="1583494417766">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="182" y="68" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1583313538488" />
+    <state x="0" y="68" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1583494417766" />
     <state x="129" y="62" key="DiffContextDialog" timestamp="1583227212242">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -1037,22 +792,22 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="440" y="113" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1583411141164" />
-    <state width="1306" height="219" key="GridCell.Tab.0.bottom" timestamp="1583494082501">
+    <state width="1323" height="269" key="GridCell.Tab.0.bottom" timestamp="1583566700263">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1306" height="219" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1583494082501" />
-    <state width="1306" height="219" key="GridCell.Tab.0.center" timestamp="1583494082501">
+    <state width="1323" height="269" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1583566700263" />
+    <state width="1323" height="269" key="GridCell.Tab.0.center" timestamp="1583566700263">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1306" height="219" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1583494082501" />
-    <state width="1306" height="219" key="GridCell.Tab.0.left" timestamp="1583494082500">
+    <state width="1323" height="269" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1583566700263" />
+    <state width="1323" height="269" key="GridCell.Tab.0.left" timestamp="1583566700262">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1306" height="219" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1583494082500" />
-    <state width="1306" height="219" key="GridCell.Tab.0.right" timestamp="1583494082501">
+    <state width="1323" height="269" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1583566700262" />
+    <state width="1323" height="269" key="GridCell.Tab.0.right" timestamp="1583566700263">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1306" height="219" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1583494082501" />
+    <state width="1323" height="269" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1583566700263" />
     <state width="1323" height="393" key="GridCell.Tab.1.bottom" timestamp="1583225909798">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -1081,34 +836,38 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="163" y="0" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1583397309074" />
-    <state x="275" y="105" key="Vcs.Push.Dialog.v2" timestamp="1583380010495">
+    <state x="275" y="105" key="Vcs.Push.Dialog.v2" timestamp="1583567130920">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="105" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1583380010495" />
+    <state x="275" y="105" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1583567130920" />
+    <state width="691" height="377" key="XDebugger.FullValuePopup" timestamp="1583565838592">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="691" height="377" key="XDebugger.FullValuePopup/0.0.1366.738@0.0.1366.738" timestamp="1583565838592" />
     <state x="263" y="27" key="com.intellij.database.dbimport.ImportDialog" timestamp="1583392444129">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="263" y="27" key="com.intellij.database.dbimport.ImportDialog/0.0.1366.738@0.0.1366.738" timestamp="1583392444129" />
-    <state x="92" y="92" width="1182" height="554" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1583394069657">
+    <state x="92" y="92" width="1182" height="554" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1583562298243">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="92" y="92" width="1182" height="554" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.738@0.0.1366.738" timestamp="1583394069657" />
+    <state x="92" y="92" width="1182" height="554" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.738@0.0.1366.738" timestamp="1583562298243" />
     <state x="484" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1583395426269">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="484" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.738@0.0.1366.738" timestamp="1583395426269" />
-    <state x="370" y="124" width="626" height="490" key="find.popup" timestamp="1583414855692">
+    <state x="370" y="124" width="626" height="490" key="find.popup" timestamp="1583565356641">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="370" y="124" width="626" height="490" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1583414855692" />
+    <state x="370" y="124" width="626" height="490" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1583565356641" />
     <state x="57" y="73" key="new project wizard" timestamp="1581596031007">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="57" y="73" key="new project wizard/0.0.1366.738@0.0.1366.738" timestamp="1581596031007" />
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1583461365618">
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1583562316211">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1583461365618" />
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1583562316211" />
     <state x="484" y="275" key="svn.passwordDialog" timestamp="1583226637918">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -1146,14 +905,25 @@
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/keji/controller/authority/AuthorityController.java</url>
-          <line>47</line>
+          <url>file://$PROJECT_DIR$/src/main/java/com/keji/controller/baseMessage/TProviderController.java</url>
+          <line>64</line>
           <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/impl/TProviderServiceImpl.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/main/resources/public/pages/baseMessage/goodMessage.html</url>
           <line>144</line>
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/main/resources/public/pages/baseMessage/provider-list.html</url>
+          <line>97</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

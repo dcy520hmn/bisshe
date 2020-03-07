@@ -1,7 +1,10 @@
 package com.keji.service.baseMessage;
 
+import com.github.pagehelper.PageInfo;
 import com.keji.common.utils.PageResult;
 import com.keji.pojo.baseMessage.TProvider;
+
+import java.util.Map;
 
 /**
  * @version V1.0
@@ -11,5 +14,11 @@ import com.keji.pojo.baseMessage.TProvider;
  * @date:
  */
 public interface TProviderService {
-    PageResult<TProvider> queryBrandByPageAndSort(Integer pageNum, Integer pageSize, String messagerName,  String provideName);
+    PageInfo<TProvider> queryProvider(Map params);
+
+    int insertProvider(TProvider tProvider);
+
+    int deleteProvider(Integer[] id);
+
+    int updateProvider(TProvider tProvider);
 }
