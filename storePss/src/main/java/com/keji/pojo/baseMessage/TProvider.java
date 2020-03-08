@@ -17,7 +17,7 @@ public class TProvider implements Serializable {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
   private String attribute;
-  private long areaId;
+  private String areaId;
   private String areaName;
   private String name;
   private String shortName;

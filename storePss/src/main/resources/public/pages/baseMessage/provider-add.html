@@ -1,0 +1,328 @@
+<html>
+<head>
+    <!-- 页面meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>社区商店进销存系统</title>
+    <meta name="description" content="AdminLTE2定制版">
+    <meta name="keywords" content="AdminLTE2定制版">
+
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta
+            content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
+            name="viewport">
+
+
+    <link rel="stylesheet"
+          href="/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet"
+          href="/plugins/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet"
+          href="/plugins/iCheck/square/blue.css">
+    <link rel="stylesheet"
+          href="/plugins/morris/morris.css">
+    <link rel="stylesheet"
+          href="/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+    <link rel="stylesheet"
+          href="/plugins/datepicker/datepicker3.css">
+    <link rel="stylesheet"
+          href="/plugins/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet"
+          href="/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+    <link rel="stylesheet"
+          href="/plugins/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet"
+          href="/plugins/treeTable/jquery.treetable.css">
+    <link rel="stylesheet"
+          href="/plugins/treeTable/jquery.treetable.theme.default.css">
+    <link rel="stylesheet"
+          href="/plugins/select2/select2.css">
+    <link rel="stylesheet"
+          href="/plugins/colorpicker/bootstrap-colorpicker.min.css">
+    <link rel="stylesheet"
+          href="/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
+    <link rel="stylesheet"
+          href="/plugins/adminLTE/css/AdminLTE.css">
+    <link rel="stylesheet"
+          href="/plugins/adminLTE/css/skins/_all-skins.min.css">
+    <link rel="stylesheet"
+          href="/css/style.css">
+    <link rel="stylesheet"
+          href="/plugins/ionslider/ion.rangeSlider.css">
+    <link rel="stylesheet"
+          href="/plugins/ionslider/ion.rangeSlider.skinNice.css">
+    <link rel="stylesheet"
+          href="/plugins/bootstrap-slider/slider.css">
+    <link rel="stylesheet"
+          href="/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
+    <link rel="stylesheet" href="/css/vueDefine.css">
+</head>
+
+<body class="hold-transition skin-purple sidebar-mini">
+
+
+<!-- 内容头部 -->
+<section class="content-header">
+    <h1>
+        系统设置
+        <small>权限添加</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i
+                class="fa fa-dashboard"></i> 首页</a></li>
+        <li><a href="#">系统设置</a></li>
+        <li class="active">权限添加</li>
+    </ol>
+</section>
+<!-- 内容头部 /-->
+
+<div id="div1" v-cloak>
+    <!-- 正文区域 -->
+    <section class="content"> <!--产品信息-->
+        <div class="panel panel-default">
+            <div class="panel-heading">权限信息</div>
+            <div class="row data-type">
+
+                <div class="col-md-2 title">省</div>
+                <div class="col-md-2 data">
+                    <select class="form-control" v-model="selectArea.provinceId"  @click="loadArea(selectArea.provinceId,'city')">
+                        <option v-for="opt in area.provinces" :value="opt.value">{{opt.text}}</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 title">市</div>
+                <div class="col-md-2 data">
+                    <select class="form-control" v-model="selectArea.cityId" @click="loadArea(selectArea.cityId,'district')">
+                        <option v-for="opt in area.cities" :value="opt.value">{{opt.text}}</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 title">区/县</div>
+                <div class="col-md-2 data">
+                    <select class="form-control"  v-model="selectArea.districtId    ">
+                        <option v-for="opt in area.districts" :value="opt.value">{{opt.text}}</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 title">供货商名称</div>
+                <div class="col-md-2 data">
+                    <input type="text" class="form-control" name="name"
+                           placeholder="供货商名称" v-model="provider.name" value="">
+                </div>
+
+                <div class="col-md-2 title">供货商简称</div>
+                <div class="col-md-2 data">
+                    <input type="text" class="form-control" name="shortName"
+                           placeholder="供货商简称" v-model="provider.shortName" value="">
+                </div>
+
+                <div class="col-md-2 title">联系人名称</div>
+                <div class="col-md-2 data">
+                    <input type="text" class="form-control" name="messageName"
+                           placeholder="联系人名称" v-model="provider.messageName" value="">
+                </div>
+
+                <div class="col-md-2 title">联系人电话</div>
+                <div class="col-md-2 data">
+                    <input type="text" class="form-control" name="messagePhone"
+                           placeholder="联系人电话" v-model="provider.messagePhone" value="">
+                </div>
+
+                <div class="col-md-2 title">供货商地址</div>
+                <div class="col-md-2 data">
+                    <input type="text" class="form-control" name="address"
+                           placeholder="供货商地址" v-model="provider.address" value="">
+                </div>
+
+                <div class="col-md-2 title">开户银行</div>
+                <div class="col-md-2 data">
+                    <input type="text" class="form-control" name="bank"
+                           placeholder="开户银行" v-model="provider.bank" value="">
+                </div>
+
+                <div class="col-md-2 title">账号</div>
+                <div class="col-md-2 data">
+                    <input type="text" class="form-control" name="account"
+                           placeholder="账号" v-model="provider.account" value="">
+                </div>
+
+
+                <div class="col-md-2 title">法人代表</div>
+                <div class="col-md-2 data">
+                    <input type="text" class="form-control" name="present"
+                           placeholder="法人代表" v-model="provider.present" value="">
+                </div>
+
+
+                <div class="col-md-2 title">邮编</div>
+                <div class="col-md-2 data">
+                    <input type="text" class="form-control" name="postcode"
+                           placeholder="邮编" v-model="provider.postcode" value="">
+                </div>
+
+
+                <div class="col-md-2 title">Email</div>
+                <div class="col-md-2 data">
+                    <input type="text" class="form-control" name="email"
+                           placeholder="邮箱" v-model="provider.email" value="">
+                </div>
+            </div>
+        </div>
+        <!--订单信息/--> <!--工具栏-->
+        <div class="box-tools text-center">
+            <button type="button" @click="save" class="btn bg-maroon">保存</button>
+            <button type="button" class="btn bg-default"
+                    onclick="history.back(-1);">返回
+            </button>
+        </div>
+        <!--工具栏/-->
+    </section>
+    <!-- 正文区域 /-->
+</div>
+<!-- 内容区域 /-->
+
+
+<script
+        src="/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="/js/vue/axios-0.18.0.js"></script>
+<script src="/js/vue/vuejs-2.5.16.js"></script>
+<script src="/js/common/entity.js"></script>
+<script>
+    new Vue({
+        el: "#div1",
+
+        data: {
+            provider: provider,
+            area: {provinces: [], cities: [], districts: []},
+            selectArea: {provinceId: "", cityId: "", districtId: ""},
+            options: []
+        },
+
+        methods: {
+            //加载区域
+            loadArea(parentId, type) {
+                _this = this;
+                axios.get("/area/findAreaByParentId",
+                    {
+                        params:{parentId: parentId}
+                    }
+                ).then(function (res) {
+                    if (res.data.code == 0) {
+                        var ret = res.data.data;
+                        switch (type) {
+                            case "province":
+                                for (let i = 0; i < ret.length; i++) {
+                                    var province = new Object();
+                                    province.text = ret[i].province;
+                                    province.value = ret[i].id;
+                                    _this.area.provinces.push(province);
+                                }
+                                break;
+                            case "city":
+                                for (let i = 0; i < ret.length; i++) {
+                                    var city = new Object();
+                                    city.text = ret[i].city;
+                                    city.value = ret[i].id;
+                                    _this.area.cities.push(city);
+                                }
+                                break;
+                            case "district":
+                                for (let i = 0; i < ret.length; i++) {
+                                    var district = new Object();
+                                    district.text = ret[i].district;
+                                    district.value = ret[i].id;
+                                    _this.area.districts.push(district);
+                                }
+                                break;
+                        }
+                    }
+                });
+            },
+
+            //进行验证
+            saveCheck(){
+                var ret = false;
+                if (this.selectArea.provinceId == "") {
+                    alert("省不能为空");
+                    return ret;
+                }
+                if (this.selectArea.cityId == "") {
+                    alert("市不能为空");
+                    return ret;
+                }
+                if (this.selectArea.districtId == "") {
+                    alert("区县不能为空");
+                    return ret;
+                }
+
+                if (this.provider.name == null || this.provider.name.trim().length === 0) {
+                    alert("供货商名称不能为空");
+                    return ret;
+                }
+                if (this.provider.shortName == null || this.provider.shortName.trim().length === 0) {
+                    alert("供货商简称不能为空");
+                    return ret;
+                }
+                if (this.provider.messageName == null || this.provider.messageName.trim().length === 0) {
+                    alert("联系人名称不能为空");
+                    return  ret;
+                }
+                if (!phoneReg.test(this.provider.messagePhone)) {
+                    alert("手机格式不正确")
+                    return ret;
+                }
+                if (this.provider.address == null || this.provider.address.trim().length === 0) {
+                    alert("供货商地址不能为空");
+                    return  ret;
+                }
+                if (this.provider.bank == null || this.provider.bank.trim().length === 0) {
+                    alert("开户银行不能为空");
+                    return  ret;
+                }
+                if (this.provider.account == null || this.provider.account.trim().length === 0) {
+                    alert("银行账户不能为空");
+                    return  ret;
+                }
+                if (this.provider.present == null || this.provider.present.trim().length === 0) {
+                    alert("法人代表不能为空");
+                    return  ret;
+                }
+                if (this.provider.postcode == null || this.provider.postcode.trim().length === 0) {
+                    alert("邮编不能为空");
+                    return  ret;
+                }
+                if (!emailReg.test(this.provider.email)) {
+                    alert("邮箱格式不对");
+                    return  ret;
+                }
+                return true;
+            },
+
+            //进行保存
+            save() {
+                if(this.saveCheck()){
+                    let _this = this;
+                    provider.areaId = _this.selectArea.provinceId+","+_this.selectArea.cityId+","+_this.selectArea.districtId;
+                    axios.post("/provider/insert", _this.provider).then(function (res) {
+                        if (res.data.data > 0) {
+                            alert("添加成功");
+                            location.href = "provider-list.html";
+                        } else {
+                            alert("添加失败");
+                        }
+                    });
+                }
+            },
+        },
+
+        created: function () {
+            this.loadArea(1,"province");
+        }
+    });
+</script>
+
+</body>
+
+</html>
