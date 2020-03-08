@@ -88,7 +88,7 @@
                 <div class="col-md-2 title">省</div>
                 <div class="col-md-2 data">
                     <select v-show="type!=1" class="form-control" v-model="selectArea.provinceId"
-                            @click="loadArea(selectArea.provinceId,'city')">
+                            @click="loadArea(selectArea.provinceId,'city',this.area)">
                         <option v-for="opt in area.provinces" :value="opt.value">{{opt.text}}</option>
                     </select>
                     <input v-show="type==1" type="text" class="form-control" name="name"
@@ -98,7 +98,7 @@
                 <div class="col-md-2 title">市</div>
                 <div class="col-md-2 data">
                     <select v-show="type!=1" class="form-control" v-model="selectArea.cityId"
-                            @click="loadArea(selectArea.cityId,'district')">
+                            @click="loadArea(selectArea.cityId,'district',this.area)">
                         <option v-for="opt in area.cities" :value="opt.value">{{opt.text}}</option>
                     </select>
                     <input v-show="type==1" type="text" class="form-control" name="name"
@@ -204,16 +204,15 @@
 
         data: {
             provider: provider,
-            area: {provinces: [], cities: [], districts: []},
-            selectArea: {provinceId: "", cityId: "", districtId: "",provinceName:"",cityName:"",districtName:""},
-            options: [],
+            area: area,
+            selectArea: selectArea,
             displayMessage: "",
             type:""
         },
         created: function () {
              this.type = getUrlKey('type');
             if (this.type == 0) {
-                this.loadArea(1, "province");
+                this.loadArea(1, "province",this.area);
                 this.displayMessage = '保存';
             } else if (this.type == 1) {
                 $("#operation").hide();
@@ -227,43 +226,8 @@
 
         methods: {
             //加载区域
-            loadArea(parentId, type) {
-                _this = this;
-                axios.get("/area/findAreaByParentId",
-                    {
-                        params: {parentId: parentId}
-                    }
-                ).then(function (res) {
-                    if (res.data.code == 0) {
-                        var ret = res.data.data;
-                        switch (type) {
-                            case "province":
-                                for (let i = 0; i < ret.length; i++) {
-                                    var province = new Object();
-                                    province.text = ret[i].province;
-                                    province.value = ret[i].id;
-                                    _this.area.provinces.push(province);
-                                }
-                                break;
-                            case "city":
-                                for (let i = 0; i < ret.length; i++) {
-                                    var city = new Object();
-                                    city.text = ret[i].city;
-                                    city.value = ret[i].id;
-                                    _this.area.cities.push(city);
-                                }
-                                break;
-                            case "district":
-                                for (let i = 0; i < ret.length; i++) {
-                                    var district = new Object();
-                                    district.text = ret[i].district;
-                                    district.value = ret[i].id;
-                                    _this.area.districts.push(district);
-                                }
-                                break;
-                        }
-                    }
-                });
+            loadArea(parentId, type,area) {
+                loadAreaCommon(parentId, type,area)
             },
 
             //根据供应商id查询供应商
@@ -277,22 +241,7 @@
                     if (res.data.code == 0) {
                         var ret = res.data.data.list[0];
                         _this.provider = res.data.data.list[0];
-                        var areaIds = ret.areaId.split('.');
-                        $.ajaxSettings.async = false;
-                        $.post("/area/findAreaByIds", {"ids": ""+areaIds+""}, function (res) {
-                            var resJson = JSON.parse(res);
-                            if (resJson.code == 0) {
-                                var ret = resJson.data;
-                                _this.selectArea.provinceId = ret[0].id;
-                                _this.selectArea.provinceName = ret[0].province;
-                                _this.selectArea.cityId = ret[1].id;
-                                _this.selectArea.cityName = ret[1].city;
-                                _this.selectArea.districtId = ret[2].id;
-                                _this.selectArea.districtName = ret[2].district;
-                                console.log( _this.selectArea);
-                            }
-                        });
-                        $.ajaxSettings.async = true;
+                        getArea(_this.provider.areaId,_this.selectArea);
                     }
                 });
             },

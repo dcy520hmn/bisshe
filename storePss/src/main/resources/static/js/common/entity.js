@@ -103,4 +103,8 @@ phoneReg = /^[1][3,4,5,7,8][0-9]{9}$/;
 //邮箱正则
 emailReg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
 
+//区域
+area= {provinces: [], cities: [], districts: []},
 
+//选择的区域
+selectArea= {provinceId: "", cityId: "", districtId: "",provinceName:"",cityName:"",districtName:""}
