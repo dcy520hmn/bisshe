@@ -32,4 +32,15 @@ public class AreaServiceImpl implements AreaService {
         }
         return areas;
     }
+
+    @Override
+    public List<Area> findAreaByIds(List ids) {
+        List<Area> areas = null;
+        Example example = new Example(Area.class);
+        if(ids!=null){
+            example.createCriteria().andIn("id",ids);
+        }
+        areas =  areaMapper.selectByExample(example);
+        return areas;
+    }
 }

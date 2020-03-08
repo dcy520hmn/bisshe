@@ -13,4 +13,6 @@ import java.util.List;
  */
 public interface AreaService {
     List<Area> findAreaByParentId(Integer parentId);
+
+    List<Area> findAreaByIds(List  ids);
 }

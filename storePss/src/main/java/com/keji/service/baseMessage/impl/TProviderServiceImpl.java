@@ -3,12 +3,14 @@ package com.keji.service.baseMessage.impl;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.keji.common.utils.StringUtils;
 import com.keji.mapper.baseMessage.TProviderServiceMapper;
 import com.keji.pojo.baseMessage.TProvider;
 import com.keji.service.baseMessage.TProviderService;
 import org.apache.commons.collections.MapUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.Map;
 
@@ -34,7 +36,12 @@ public class TProviderServiceImpl implements TProviderService {
     @Override
     public PageInfo<TProvider> queryProvider(Map params)  {
         PageHelper.startPage(MapUtils.getInteger(params,"pageNum"),MapUtils.getInteger(params,"pageSize"));
-        Page<TProvider> providerPage = (Page<TProvider>) tProviderServiceMapper.selectAll();
+        Example example = new Example(TProvider.class);
+        Integer id = MapUtils.getInteger(params,"providerId");
+        if(StringUtils.isNotEmpty(id)){
+            example.createCriteria().andEqualTo("id",id);
+        }
+        Page<TProvider> providerPage = (Page<TProvider>) tProviderServiceMapper.selectByExample(example);
         PageInfo<TProvider> pageInfo = new PageInfo<>(providerPage);
         return pageInfo;
     }

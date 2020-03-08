@@ -85,7 +85,6 @@
         </div>
 
         <div class="box-body">
-
             <!-- 数据表格 -->
             <div class="table-box">
 
@@ -94,7 +93,7 @@
                     <div class="form-group form-inline">
                         <div class="btn-group">
                             <button type="button" class="btn btn-default" title="新建"
-                                    onclick="location.href='provider-add.html'">
+                                    onclick="location.href='provider-d.html?type=0'">
                                 <i class="fa fa-file-o"></i> 增加
                             </button>
                             <button type="button" class="btn btn-default" title="删除" @click="deleteProvider"><i
@@ -114,7 +113,6 @@
                     </div>
                 </div>
                 <!--工具栏/-->
-
                 <!--数据列表-->
                 <table id="dataList"
                        class="table table-bordered table-striped table-hover dataTable">
@@ -137,7 +135,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr v-for="(provider) in  pageInfo.list">
+                    <tr v-for="(provider) in  pageInfo.list" @dblclick="openDetail(provider.id)">
                         <td><input name="ids" v-model="deleteId" :value="provider.id" type="checkbox"></td>
                         <td>{{provider.id}}</td>
                         <td>{{provider.attribute}}</td>
@@ -166,7 +164,6 @@
                 </tfoot>-->
                 </table>
                 <!--数据列表/-->
-
             </div>
             <!-- 数据表格 /-->
 
@@ -208,7 +205,6 @@
         <!-- /.box-footer-->
 
     </div>
-
 </section>
 <!-- 正文区域 /-->
 
@@ -240,7 +236,6 @@
                 ).then(function (res) {
                     if(res.data.code==0){
                         _this.pageInfo = res.data.data;
-                        console.log(_this.pageInfo.list);
                     }
                 });
             },
@@ -260,8 +255,8 @@
             toAddProvider(authId) {
                 return "auth-permission-add.html?authId=" + authId + "";
             },
-            detailRole(authId) {
-                return "auth-show.html?authId=" + authId + "";
+            openDetail(providerId) {
+                return location.href="provider-d.html?type=1&providerId=" + providerId + "";
             }
         },
 
