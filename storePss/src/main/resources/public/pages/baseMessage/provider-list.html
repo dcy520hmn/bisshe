@@ -99,6 +99,9 @@
                             <button type="button" class="btn btn-default" title="删除" @click="deleteProvider"><i
                                     class="fa fa-trash-o"></i> 删除
                             </button>
+                            <button type="button" class="btn btn-default" title="修改" @click="updateProvider"><i
+                                    class="fa fa-trash-o"></i> 修改
+                            </button>
                             <button type="button" class="btn btn-default" title="刷新"
                                     onclick="window.location.reload();"><i class="fa fa-refresh"></i> 刷新
                             </button>
@@ -108,7 +111,7 @@
                 <div class="box-tools pull-right">
                     <div class="has-feedback">
                         <input type="text" class="form-control input-sm"
-                               placeholder="权限名称" v-model="searchProviderName"> <span
+                               placeholder="供货商简称" v-model="searchProviderName"> <span
                             class="glyphicon glyphicon-search form-control-feedback"></span>
                     </div>
                 </div>
@@ -136,7 +139,7 @@
                     </thead>
                     <tbody>
                     <tr v-for="(provider) in  pageInfo.list" @dblclick="openDetail(provider.id)">
-                        <td><input name="ids" v-model="deleteId" :value="provider.id" type="checkbox"></td>
+                        <td><input name="ids" v-model="selectId" :value="provider.id" type="checkbox"></td>
                         <td>{{provider.id}}</td>
                         <td>{{provider.attribute}}</td>
                         <td>{{provider.areaName}}</td>
@@ -152,16 +155,6 @@
                         <td>{{provider.email}}</td>
                     </tr>
                     </tbody>
-                    <!--
-                <tfoot>
-                <tr>
-                <th>Rendering engine</th>
-                <th>Browser</th>
-                <th>Platform(s)</th>
-                <th>Engine version</th>
-                <th>CSS grade</th>
-                </tr>
-                </tfoot>-->
                 </table>
                 <!--数据列表/-->
             </div>
@@ -224,7 +217,7 @@
                 {text: '8', value: '8'},
                 {text: '10', value: '10'},
             ],
-            deleteId: [],
+            selectId: [],
             searchProviderName: ""
         },
         methods: {
@@ -232,17 +225,27 @@
 
                 _this = this;
                 axios.post("/provider/findProvider",
-                        {pageNum: pageNum, pageSize: pageSize, name: searchProviderName}
+                        {pageNum: pageNum, pageSize: pageSize, shortName: searchProviderName}
                 ).then(function (res) {
                     if(res.data.code==0){
                         _this.pageInfo = res.data.data;
                     }
                 });
             },
+
+            openDetail(providerId) {
+                return location.href="provider-d.html?type=1&providerId=" + providerId + "";
+            },
+
             deleteProvider() {
                 let _this = this;
+                console.log(this.selectId);
+                if(this.selectId.length<=0){
+                    alert("请选中供应商");
+                    return;
+                }
                 if(confirm("确定删除吗？")){
-                    axios.post("/provider/delete", _this.deleteId).then(function (res) {
+                    axios.post("/provider/delete", _this.selectId).then(function (res) {
                         if (res.data.data > 0) {
                             alert("删除成功");
                             window.location.reload();
@@ -252,11 +255,18 @@
                     })
                 }
             },
+
+            updateProvider(){
+                let _this = this;
+                if(this.selectId.length<=0){
+                    alert("请选中供应商");
+                    return;
+                }
+                return location.href="provider-d.html?type=1&providerId=" + this.selectId[0] + "";
+            },
+
             toAddProvider(authId) {
                 return "auth-permission-add.html?authId=" + authId + "";
-            },
-            openDetail(providerId) {
-                return location.href="provider-d.html?type=1&providerId=" + providerId + "";
             }
         },
 

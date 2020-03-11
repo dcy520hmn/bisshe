@@ -38,8 +38,12 @@ public class TProviderServiceImpl implements TProviderService {
         PageHelper.startPage(MapUtils.getInteger(params,"pageNum"),MapUtils.getInteger(params,"pageSize"));
         Example example = new Example(TProvider.class);
         Integer id = MapUtils.getInteger(params,"providerId");
+        String shortName = MapUtils.getString(params,"shortName");
         if(StringUtils.isNotEmpty(id)){
             example.createCriteria().andEqualTo("id",id);
+        }
+        if(StringUtils.isNotEmpty(shortName)){
+            example.createCriteria().andLike("shortName",shortName);
         }
         Page<TProvider> providerPage = (Page<TProvider>) tProviderServiceMapper.selectByExample(example);
         PageInfo<TProvider> pageInfo = new PageInfo<>(providerPage);

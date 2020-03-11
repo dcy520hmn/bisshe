@@ -87,31 +87,25 @@
 
                 <div class="col-md-2 title">省</div>
                 <div class="col-md-2 data">
-                    <select v-show="type!=1" class="form-control" v-model="selectArea.provinceId"
+                    <select  class="form-control" v-model="selectArea.provinceId"
                             @click="loadArea(selectArea.provinceId,'city',this.area)">
                         <option v-for="opt in area.provinces" :value="opt.value">{{opt.text}}</option>
                     </select>
-                    <input v-show="type==1" type="text" class="form-control" name="name"
-                           placeholder="省" v-model="selectArea.provinceName">
                 </div>
 
                 <div class="col-md-2 title">市</div>
                 <div class="col-md-2 data">
-                    <select v-show="type!=1" class="form-control" v-model="selectArea.cityId"
+                    <select  class="form-control" v-model="selectArea.cityId"
                             @click="loadArea(selectArea.cityId,'district',this.area)">
                         <option v-for="opt in area.cities" :value="opt.value">{{opt.text}}</option>
                     </select>
-                    <input v-show="type==1" type="text" class="form-control" name="name"
-                           placeholder="市" v-model="selectArea.cityName">
                 </div>
 
                 <div class="col-md-2 title">区/县</div>
                 <div class="col-md-2 data">
-                    <select  v-show="type!=1" class="form-control" v-model="selectArea.districtId    ">
+                    <select class="form-control" v-model="selectArea.districtId"  @click="show1()">
                         <option v-for="opt in area.districts" :value="opt.value">{{opt.text}}</option>
                     </select>
-                    <input v-show="type==1" type="text" class="form-control" name="name"
-                           placeholder="区/县" v-model="selectArea.districtName">
                 </div>
 
                 <div class="col-md-2 title">供货商名称</div>
@@ -180,7 +174,8 @@
         </div>
         <!--订单信息/--> <!--工具栏-->
         <div class="box-tools text-center">
-            <button type="button" @click="save" id="operation" class="btn bg-maroon">{{displayMessage}}</button>
+            <button v-show="this.type==0" type="button" @click="save" id="operation" class="btn bg-maroon">保存</button>
+            <button v-show="this.type==1" type="button" @click="update" class="btn bg-maroon">修改</button>
             <button type="button" class="btn bg-default"
                     onclick="history.back(-1);">返回
             </button>
@@ -206,28 +201,22 @@
             provider: provider,
             area: area,
             selectArea: selectArea,
-            displayMessage: "",
-            type:""
+            type: ""
         },
         created: function () {
-             this.type = getUrlKey('type');
-            if (this.type == 0) {
-                this.loadArea(1, "province",this.area);
-                this.displayMessage = '保存';
-            } else if (this.type == 1) {
-                $("#operation").hide();
-                var formList = $(".form-control");
-                for (let i = 0; i < formList.length; i++) {
-                    $(formList[i]).attr("readonly", "readonly");
-                }
+            this.type = getUrlKey('type');
+            if (this.type == 0) {//新增
+                this.loadArea(1, "province", this.area);
+            } else if (this.type == 1) {//修改、详情
                 this.findProvider(getUrlKey('providerId'));
             }
         },
 
         methods: {
+
             //加载区域
-            loadArea(parentId, type,area) {
-                loadAreaCommon(parentId, type,area)
+            loadArea(parentId, type, area) {
+                loadAreaCommon(parentId, type, area)
             },
 
             //根据供应商id查询供应商
@@ -241,7 +230,11 @@
                     if (res.data.code == 0) {
                         var ret = res.data.data.list[0];
                         _this.provider = res.data.data.list[0];
-                        getArea(_this.provider.areaId,_this.selectArea);
+                        getTheProviderArea(_this.provider.areaId, _this.selectArea);
+                        var areaIds = _this.provider.areaId.split(".");
+                        _this.loadArea(1, "province",this.area);
+                        _this.loadArea(areaIds[0], "city",this.area);
+                        _this.loadArea(areaIds[1], "district",this.area);
                     }
                 });
             },
@@ -305,6 +298,26 @@
                 return true;
             },
 
+            //更新
+            update() {
+                if(confirm("是否修改")) {
+                    if (this.saveCheck()) {
+                        let _this = this;
+                        console.log(_this.selectArea);
+                        console.log(_this.selectArea.districtId);
+                        _this.provider.areaId = _this.selectArea.provinceId + "." + _this.selectArea.cityId + "." + _this.selectArea.districtId;
+                        axios.post("/provider/update", _this.provider).then(function (res) {
+                            if (res.data.data > 0) {
+                                alert("修改成功");
+                                location.href = "provider-list.html";
+                            } else {
+                                alert("修改失败");
+                            }
+                        });
+                    }
+                }
+            },
+
             //进行保存
             save() {
                 if (this.saveCheck()) {
@@ -320,6 +333,8 @@
                     });
                 }
             },
+
+
         }
 
     });

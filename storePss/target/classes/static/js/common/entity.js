@@ -107,4 +107,4 @@ emailReg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
 area= {provinces: [], cities: [], districts: []},
 
 //选择的区域
-selectArea= {provinceId: "", cityId: "", districtId: "",provinceName:"",cityName:"",districtName:""}
+selectArea= {provinceId: "", cityId: "", districtId: ""}
