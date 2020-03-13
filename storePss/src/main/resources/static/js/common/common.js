@@ -58,3 +58,37 @@ function loadAreaCommon(parentId, type, area) {
         });
     }
 }
+
+/**
+ * 通用加载商品类别
+ * @param parentCode
+ */
+function loadGoodClass(parentCode,type,goodClass) {
+    if((goodClass.bigClasses.length <= 0 && type == 0)||(goodClass.midClasses.length <= 0 && type == 1)||(goodClass.littleClasses.length <= 0 && type == 2)){
+        axios.post("/goodClass/findGoodClass",
+            {
+                parentCode:parentCode
+            }
+        ).then(function (res) {
+            if (res.data.code == 0) {
+                var ret = res.data.data;
+                for (let i = 0; i < ret.length; i++) {
+                    var obj = new Object();
+                    obj.value = ret[i].code;
+                    obj.text = ret[i].name;
+                    switch (type) {
+                        case 0:
+                            goodClass.bigClasses.push(obj);
+                            break;
+                        case 1:
+                            goodClass.midClasses.push(obj);
+                            break;
+                        case 2:
+                            goodClass.littleClasses.push(obj);
+                            break;
+                    }
+                }
+            }
+        })
+    }
+}

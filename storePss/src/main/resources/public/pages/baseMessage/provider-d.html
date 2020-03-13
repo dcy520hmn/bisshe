@@ -66,14 +66,14 @@
 <!-- 内容头部 -->
 <section class="content-header">
     <h1>
-        系统设置
-        <small>权限添加</small>
+        基本信息
+       <small>供应商信息</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i
                 class="fa fa-dashboard"></i> 首页</a></li>
-        <li><a href="#">系统设置</a></li>
-        <li class="active">权限添加</li>
+        <li><a href="#">基本信息</a></li>
+        <li class="active">供应商信息</li>
     </ol>
 </section>
 <!-- 内容头部 /-->
@@ -82,7 +82,6 @@
     <!-- 正文区域 -->
     <section class="content"> <!--产品信息-->
         <div class="panel panel-default">
-            <div class="panel-heading">权限信息</div>
             <div class="row data-type">
 
                 <div class="col-md-2 title">省</div>
@@ -303,8 +302,6 @@
                 if(confirm("是否修改")) {
                     if (this.saveCheck()) {
                         let _this = this;
-                        console.log(_this.selectArea);
-                        console.log(_this.selectArea.districtId);
                         _this.provider.areaId = _this.selectArea.provinceId + "." + _this.selectArea.cityId + "." + _this.selectArea.districtId;
                         axios.post("/provider/update", _this.provider).then(function (res) {
                             if (res.data.data > 0) {

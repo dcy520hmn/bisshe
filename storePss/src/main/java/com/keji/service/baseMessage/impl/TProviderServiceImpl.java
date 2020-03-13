@@ -4,7 +4,7 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.keji.common.utils.StringUtils;
-import com.keji.mapper.baseMessage.TProviderServiceMapper;
+import com.keji.mapper.baseMessage.ProvideServiceMapper;
 import com.keji.pojo.baseMessage.TProvider;
 import com.keji.service.baseMessage.TProviderService;
 import org.apache.commons.collections.MapUtils;
@@ -25,7 +25,7 @@ import java.util.Map;
 public class TProviderServiceImpl implements TProviderService {
 
     @Autowired
-    private TProviderServiceMapper tProviderServiceMapper;
+    private ProvideServiceMapper tProviderServiceMapper;
 
     /**
      * 查询供应商

@@ -69,13 +69,7 @@ role = {
 }
 
 /*权限*/
-auth = {
-    id: "",
-    authName: "",
-    authDesc: "",
-    authPath: "",
-    authParentId: ""
-}
+auth = {id: "", authName: "", authDesc: "", authPath: "", authParentId: ""}
 
 /*供应商*/
 provider = {
@@ -96,15 +90,29 @@ provider = {
     state: "",
 }
 
+//商品信息
+    good = {id:"",helpNum:"",gClass:"",type:"",size:"",name:"",unit:"",max:"",min:"",prePrice:"",cost:"",remark:"",state:""}
+
 
 //手机验证码正则
-phoneReg = /^[1][3,4,5,7,8][0-9]{9}$/;
+phoneReg = /^[1][3,4,5,7,8][0-9]{9}$/
 
 //邮箱正则
-emailReg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+emailReg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/
+
+//整数正则
+num = /^-?\d+$/
+
+//价格正则
+price =  /^(([^0][0-9]+|0)\.([0-9]{1,2})$)|^([^0][0-9]+|0)$/
+
 
 //区域
-area= {provinces: [], cities: [], districts: []},
+area = {provinces: [], cities: [], districts: []}
+selectArea = {provinceId: "", cityId: "", districtId: ""}
 
-//选择的区域
-selectArea= {provinceId: "", cityId: "", districtId: ""}
+//选择商品类别
+goodClass = {bigClasses:[],midClasses:[],littleClasses:[]}
+selectGoodClass = {bigClassCode:"",midClassCode:"",littleClassCode:""}
+
+

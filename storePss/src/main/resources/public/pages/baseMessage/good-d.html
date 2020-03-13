@@ -1,0 +1,338 @@
+<html>
+<head>
+    <!-- 页面meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>社区商店进销存系统</title>
+    <meta name="description" content="AdminLTE2定制版">
+    <meta name="keywords" content="AdminLTE2定制版">
+
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta
+            content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
+            name="viewport">
+
+
+    <link rel="stylesheet"
+          href="/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet"
+          href="/plugins/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet"
+          href="/plugins/iCheck/square/blue.css">
+    <link rel="stylesheet"
+          href="/plugins/morris/morris.css">
+    <link rel="stylesheet"
+          href="/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+    <link rel="stylesheet"
+          href="/plugins/datepicker/datepicker3.css">
+    <link rel="stylesheet"
+          href="/plugins/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet"
+          href="/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+    <link rel="stylesheet"
+          href="/plugins/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet"
+          href="/plugins/treeTable/jquery.treetable.css">
+    <link rel="stylesheet"
+          href="/plugins/treeTable/jquery.treetable.theme.default.css">
+    <link rel="stylesheet"
+          href="/plugins/select2/select2.css">
+    <link rel="stylesheet"
+          href="/plugins/colorpicker/bootstrap-colorpicker.min.css">
+    <link rel="stylesheet"
+          href="/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
+    <link rel="stylesheet"
+          href="/plugins/adminLTE/css/AdminLTE.css">
+    <link rel="stylesheet"
+          href="/plugins/adminLTE/css/skins/_all-skins.min.css">
+    <link rel="stylesheet"
+          href="/css/style.css">
+    <link rel="stylesheet"
+          href="/plugins/ionslider/ion.rangeSlider.css">
+    <link rel="stylesheet"
+          href="/plugins/ionslider/ion.rangeSlider.skinNice.css">
+    <link rel="stylesheet"
+          href="/plugins/bootstrap-slider/slider.css">
+    <link rel="stylesheet"
+          href="/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
+    <link rel="stylesheet" href="/css/vueDefine.css">
+</head>
+
+<body class="hold-transition skin-purple sidebar-mini">
+
+
+<!-- 内容头部 -->
+<section class="content-header">
+    <h1>
+        基本信息
+       <small>商品信息</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i
+                class="fa fa-dashboard"></i> 首页</a></li>
+        <li><a href="#">基本信息</a></li>
+        <li class="active">商品信息</li>
+    </ol>
+</section>
+<!-- 内容头部 /-->
+
+<div id="div1" v-cloak>
+    <!-- 正文区域 -->
+    <section class="content"> <!--产品信息-->
+        <div class="panel panel-default">
+            <div class="row data-type">
+
+                <div class="col-md-2 title">商品大类</div>
+                <div class="col-md-2 data">
+                    <select  class="form-control" v-model="selectGoodClass.bigClassCode"
+                             @click="loadGoodClass(selectGoodClass.bigClassCode,1,this.goodClass)">
+                        <option v-for="opt in goodClass.bigClasses" :value="opt.value">{{opt.text}}</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 title">商品中类</div>
+                <div class="col-md-2 data">
+                    <select  class="form-control" v-model="selectGoodClass.midClassCode"
+                             @click="loadGoodClass(selectGoodClass.midClassCode,2,this.goodClass)">
+                        <option v-for="opt in goodClass.midClasses" :value="opt.value">{{opt.text}}</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 title">商品小类</div>
+                <div class="col-md-2 data">
+                    <select class="form-control" v-model="selectGoodClass.littleClassCode">
+                        <option v-for="opt in goodClass.littleClasses" :value="opt.value">{{opt.text}}</option>
+                    </select>
+                </div>
+
+
+                <div class="col-md-2 title">商品名</div>
+                <div class="col-md-2 data">
+                    <input type="text" class="form-control" name="name"
+                           placeholder="供货商名称" v-model="good.name">
+                </div>
+
+                <div class="col-md-2 title">助记码</div>
+                <div class="col-md-2 data">
+                    <input type="text" class="form-control" name="helpNum"
+                           placeholder="供货商简称" v-model="good.helpNum">
+                </div>
+
+
+                <div class="col-md-2 title">商品型号</div>
+                <div class="col-md-2 data">
+                    <input type="text" class="form-control" name="type"
+                           placeholder="商品型号" v-model="good.type">
+                </div>
+
+                <div class="col-md-2 title">商品规格</div>
+                <div class="col-md-2 data">
+                    <input type="text" class="form-control" name="size"
+                           placeholder="商品规格" v-model="good.size">
+                </div>
+
+                <div class="col-md-2 title">计量单位</div>
+                <div class="col-md-2 data">
+                    <input type="text" class="form-control" name="unit"
+                           placeholder="计量单位" v-model="good.unit">
+                </div>
+
+                <div class="col-md-2 title">库存上限</div>
+                <div class="col-md-2 data">
+                    <input type="text" class="form-control" name="max"
+                           placeholder="库存上限" v-model="good.max">
+                </div>
+
+                <div class="col-md-2 title">库存下限</div>
+                <div class="col-md-2 data">
+                    <input type="text" class="form-control" name="min"
+                           placeholder="库存下限" v-model="good.min">
+                </div>
+
+
+                <div class="col-md-2 title">预设售价</div>
+                <div class="col-md-2 data">
+                    <input type="text" class="form-control" name="prePrice"
+                           placeholder="预设售价" v-model="good.prePrice">
+                </div>
+
+
+                <div class="col-md-2 title">成本价</div>
+                <div class="col-md-2 data">
+                    <input type="text" class="form-control" name="cost"
+                           placeholder="成本价" v-model="good.cost">
+                </div>
+
+
+                <div class="col-md-2 title">备注</div>
+                <div class="col-md-2 data">
+                    <input type="text" class="form-control" name="remark"
+                           placeholder="备注" v-model="good.remark">
+                </div>
+            </div>
+        </div>
+        <!--订单信息/--> <!--工具栏-->
+        <div class="box-tools text-center">
+            <button v-show="this.type==0" type="button" @click="save" id="operation" class="btn bg-maroon">保存</button>
+            <button v-show="this.type==1" type="button" @click="update" class="btn bg-maroon">修改</button>
+            <button type="button" class="btn bg-default"
+                    onclick="history.back(-1);">返回
+            </button>
+        </div>
+        <!--工具栏/-->
+    </section>
+    <!-- 正文区域 /-->
+</div>
+<!-- 内容区域 /-->
+
+
+<script
+        src="/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="/js/vue/axios-0.18.0.js"></script>
+<script src="/js/vue/vuejs-2.5.16.js"></script>
+<script src="/js/common/common.js"></script>
+<script src="/js/common/entity.js"></script>
+<script>
+    new Vue({
+        el: "#div1",
+
+        data: {
+            good: good,
+            goodClass: goodClass,
+            selectGoodClass: selectGoodClass,
+            type: ""
+        },
+
+        created: function () {
+            this.type = getUrlKey('type');
+            if (this.type == 0) {//新增
+                this.loadGoodClass('0', 0, this.goodClass);
+            } else if (this.type == 1) {//修改、详情
+                this.findGood(getUrlKey('goodId'));
+            }
+        },
+
+        methods: {
+
+            //进行验证
+            saveCheck() {
+                var ret = false;
+                if (this.selectGoodClass.bigClassCode == "") {
+                    alert("商品大类能为空");
+                    return ret;
+                }
+                if (this.selectGoodClass.midClassCode == "") {
+                    alert("商品中类能为空");
+                    return ret;
+                }
+                if (this.selectGoodClass.littleClassCode == "") {
+                    alert("商品小类能为空");
+                    return ret;
+                }
+
+                if (this.good.name == null || this.good.name.trim().length === 0) {
+                    alert("商品名称不能为空");
+                    return ret;
+                }
+                if (this.good.helpNum == null || this.good.helpNum.trim().length === 0) {
+                    alert("商品助记码不能为空");
+                    return ret;
+                }
+                if (this.good.type == null || this.good.type.trim().length === 0) {
+                    alert("商品型号不能为空");
+                    return ret;
+                }
+                if (this.good.size == null || this.good.size.trim().length === 0) {
+                    alert("商品规格不能为空");
+                    return ret;
+                }
+                if (this.good.unit == null || this.good.unit.trim().length === 0) {
+                    alert("计量单位不能为空");
+                    return ret;
+                }
+
+                if (!num.test(this.good.max)) {
+                    alert("库存上线格式不对");
+                    return ret;
+                }
+                if (!num.test(this.good.min)) {
+                    alert("库存下线格式不对");
+                    return ret;
+                }
+
+                if(!price.test(this.good.prePrice)){
+                    alert("预设售价格式不对")
+                    return  ret;
+                }
+
+                if(!price.test(this.good.cost)){
+                    alert("成本价格式不对")
+                    return  ret;
+                }
+                return true;
+            },
+
+            //根据供应商id查询供应商
+            findGood(goodId) {
+                var _this = this;
+                axios.post("/good/findGood", {
+                    pageNum: '1',
+                    pageSize: '10',
+                    goodId: goodId
+                }).then(function (res) {
+                    if (res.data.code == 0) {
+                        var ret = res.data.data.list[0];
+                        _this.good = res.data.data.list[0];
+                    }
+                });
+            },
+
+            loadGoodClass(parentCode,type,goodClass){
+                loadGoodClass(parentCode,type,goodClass)
+            },
+            //更新
+            update() {
+                if(confirm("是否修改")) {
+                    if (this.saveCheck()) {
+                        let _this = this;
+                        axios.post("/good/update", _this.good).then(function (res) {
+                            if (res.data.data > 0) {
+                                alert("修改成功");
+                                location.href = "good-list.html";
+                            } else {
+                                alert("修改失败");
+                            }
+                        });
+                    }
+                }
+            },
+
+            //进行保存
+            save() {
+                if (true) {
+                    let _this = this;
+                    console.log(this.selectGoodClass);
+                    _this.good.gClass = _this.selectGoodClass.bigClassCode+"."+ _this.selectGoodClass.midClassCode+"."+ _this.selectGoodClass.littleClassCode;
+                    console.log(_this.good);
+                    axios.post("/good/insert", _this.good).then(function (res) {
+                        if (res.data.data > 0) {
+                            alert("添加成功");
+                            location.href = "good-list.html";
+                        } else {
+                            alert("添加失败");
+                        }
+                    });
+                }
+            },
+
+
+        }
+
+    });
+</script>
+
+</body>
+
+</html>
