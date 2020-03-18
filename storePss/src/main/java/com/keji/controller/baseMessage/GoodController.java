@@ -27,8 +27,8 @@ public class GoodController extends BaseController {
     private GoodService goodService;
 
     @RequestMapping("/findGood")
-    public String findProvider(@RequestBody  Map params){
-        PageInfo<Good> pageInfo = goodService.queryProvider(params);
+    public String findGood(@RequestBody  Map params){
+        PageInfo<Good> pageInfo = goodService.queryGood(params);
         return dealQueryResult(pageInfo,pageInfo);
     }
 
@@ -39,7 +39,7 @@ public class GoodController extends BaseController {
      */
     @RequestMapping("/insert")
     public String insertAuth(@RequestBody Good authority){
-        int ret =  goodService.insertProvider(authority);
+        int ret =  goodService.insertGood(authority);
         return dealQueryResult(ret,ret);
     };
 
@@ -50,7 +50,7 @@ public class GoodController extends BaseController {
      */
     @RequestMapping("/update")
     public String updateAuth(@RequestBody Good authority){
-        int ret =  goodService.updateProvider(authority);
+        int ret =  goodService.updateGood(authority);
         return dealQueryResult(ret,ret);
     }
 
@@ -61,7 +61,7 @@ public class GoodController extends BaseController {
      */
     @RequestMapping("/delete")
     public String deleteAuth(@RequestBody Integer[] ids){
-        int ret =  goodService.deleteProvider(ids);
+        int ret =  goodService.deleteGood(ids);
         return dealQueryResult(ret,ret);
     }
 }

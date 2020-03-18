@@ -13,11 +13,11 @@ import java.util.Map;
  * @date:
  */
 public interface GoodService {
-    PageInfo<Good> queryProvider(Map params);
+    PageInfo<Good> queryGood(Map params);
 
-    int insertProvider(Good good);
+    int insertGood(Good good);
 
-    int deleteProvider(Integer[] id);
+    int deleteGood(Integer[] id);
 
-    int updateProvider(Good good);
+    int updateGood(Good good);
 }

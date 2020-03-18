@@ -102,7 +102,7 @@
 
                 <div class="col-md-2 title">区/县</div>
                 <div class="col-md-2 data">
-                    <select class="form-control" v-model="selectArea.districtId"  @click="show1()">
+                    <select class="form-control" v-model="selectArea.districtId">
                         <option v-for="opt in area.districts" :value="opt.value">{{opt.text}}</option>
                     </select>
                 </div>

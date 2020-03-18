@@ -29,16 +29,16 @@ public class GoodServiceImpl implements GoodService {
     private GoodMapper goodsMapper;
 
     @Override
-    public PageInfo<Good> queryProvider(Map params) {
+    public PageInfo<Good> queryGood(Map params) {
         PageHelper.startPage(MapUtils.getInteger(params,"pageNum"),MapUtils.getInteger(params,"pageSize"));
         Example example = new Example(Good.class);
         Integer id = MapUtils.getInteger(params,"providerId");
-        String shortName = MapUtils.getString(params,"shortName");
+        String helpNum = MapUtils.getString(params,"helpNum");
         if(StringUtils.isNotEmpty(id)){
             example.createCriteria().andEqualTo("id",id);
         }
-        if(StringUtils.isNotEmpty(shortName)){
-            example.createCriteria().andLike("shortName",shortName);
+        if(StringUtils.isNotEmpty(helpNum)){
+            example.createCriteria().andLike("helpNum",helpNum);
         }
         Page<Good> providerPage = (Page<Good>) goodsMapper.selectByExample(example);
         PageInfo<Good> pageInfo = new PageInfo<>(providerPage);
@@ -46,12 +46,12 @@ public class GoodServiceImpl implements GoodService {
     }
 
     @Override
-    public int insertProvider(Good good) {
+    public int insertGood(Good good) {
         return goodsMapper.insert(good);
     }
 
     @Override
-    public int deleteProvider(Integer[] ids) {
+    public int deleteGood(Integer[] ids) {
         int result = 0;
         if(ids != null){
             for (Integer id : ids) {
@@ -62,7 +62,7 @@ public class GoodServiceImpl implements GoodService {
     }
 
     @Override
-    public int updateProvider(Good good) {
+    public int updateGood(Good good) {
         return goodsMapper.updateByPrimaryKey(good);
     }
 }

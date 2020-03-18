@@ -91,7 +91,7 @@ provider = {
 }
 
 //商品信息
-    good = {id:"",helpNum:"",gClass:"",type:"",size:"",name:"",unit:"",max:"",min:"",prePrice:"",cost:"",remark:"",state:""}
+good = {id:"",helpNum:"",gClass:"",type:"",size:"",name:"",unit:"",max:"",min:"",prePrice:"",cost:"",remark:"",state:"",className:""}
 
 
 //手机验证码正则

@@ -14,6 +14,7 @@ public class Good {
   private String helpNum;
   @Column(name = "class")
   private String gClass;
+  private String className;
   private String type;
   private String size;
   private String name;
@@ -24,13 +25,20 @@ public class Good {
   private Double cost;
   private Integer remark;
   private long state;
-
   public Integer getId() {
     return id;
   }
 
   public void setId(Integer id) {
     this.id = id;
+  }
+
+  public String getClassName() {
+    return className;
+  }
+
+  public void setClassName(String className) {
+    this.className = className;
   }
 
   public String getHelpNum() {

@@ -111,7 +111,7 @@
                 <div class="box-tools pull-right">
                     <div class="has-feedback">
                         <input type="text" class="form-control input-sm"
-                               placeholder="供货商简称" v-model="searchGoodName"> <span
+                               placeholder="商品简称" v-model="searchGoodName"> <span
                             class="glyphicon glyphicon-search form-control-feedback"></span>
                     </div>
                 </div>
@@ -124,7 +124,7 @@
                         <td></td>
                         <th class="sorting_asc">商品编码</th>
                         <th class="sorting_desc">商品名</th>
-                        <th class="sorting_desc">助记码</th>
+                        <th class="sorting_desc">商品简称</th>
                         <th class="text-center">商品类别</th>
                         <th class="text-center">商品型号</th>
                         <th class="text-center">商品规格</th>
@@ -142,7 +142,7 @@
                         <td>{{good.id}}</td>
                         <td>{{good.name}}</td>
                         <td>{{good.helpNum}}</td>
-                        <td>{{good.gClass}}</td>
+                        <td>{{good.className}}</td>
                         <td>{{good.type}}</td>
                         <td>{{good.size}}</td>
                         <td>{{good.unit}}</td>
@@ -223,7 +223,7 @@
 
                 _this = this;
                 axios.post("/good/findGood",
-                        {pageNum: pageNum, pageSize: pageSize, shortName: searchGoodName}
+                        {pageNum: pageNum, pageSize: pageSize, helpNum: searchGoodName}
                 ).then(function (res) {
                     if(res.data.code==0){
                         _this.pageInfo = res.data.data;

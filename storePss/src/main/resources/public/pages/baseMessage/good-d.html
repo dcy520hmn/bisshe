@@ -86,7 +86,7 @@
 
                 <div class="col-md-2 title">商品大类</div>
                 <div class="col-md-2 data">
-                    <select  class="form-control" v-model="selectGoodClass.bigClassCode"
+                    <select id="big"  class="form-control" v-model="selectGoodClass.bigClassCode"
                              @click="loadGoodClass(selectGoodClass.bigClassCode,1,this.goodClass)">
                         <option v-for="opt in goodClass.bigClasses" :value="opt.value">{{opt.text}}</option>
                     </select>
@@ -94,7 +94,7 @@
 
                 <div class="col-md-2 title">商品中类</div>
                 <div class="col-md-2 data">
-                    <select  class="form-control" v-model="selectGoodClass.midClassCode"
+                    <select  id="mid" class="form-control" v-model="selectGoodClass.midClassCode"
                              @click="loadGoodClass(selectGoodClass.midClassCode,2,this.goodClass)">
                         <option v-for="opt in goodClass.midClasses" :value="opt.value">{{opt.text}}</option>
                     </select>
@@ -102,7 +102,7 @@
 
                 <div class="col-md-2 title">商品小类</div>
                 <div class="col-md-2 data">
-                    <select class="form-control" v-model="selectGoodClass.littleClassCode">
+                    <select id="lettle" class="form-control" v-model="selectGoodClass.littleClassCode">
                         <option v-for="opt in goodClass.littleClasses" :value="opt.value">{{opt.text}}</option>
                     </select>
                 </div>
@@ -111,13 +111,13 @@
                 <div class="col-md-2 title">商品名</div>
                 <div class="col-md-2 data">
                     <input type="text" class="form-control" name="name"
-                           placeholder="供货商名称" v-model="good.name">
+                           placeholder="商品名称" v-model="good.name">
                 </div>
 
-                <div class="col-md-2 title">助记码</div>
+                <div class="col-md-2 title">商品简称</div>
                 <div class="col-md-2 data">
                     <input type="text" class="form-control" name="helpNum"
-                           placeholder="供货商简称" v-model="good.helpNum">
+                           placeholder="商品简称" v-model="good.helpNum">
                 </div>
 
 
@@ -274,7 +274,7 @@
                 return true;
             },
 
-            //根据供应商id查询供应商
+            //根据商品id查询商品
             findGood(goodId) {
                 var _this = this;
                 axios.post("/good/findGood", {
@@ -285,6 +285,15 @@
                     if (res.data.code == 0) {
                         var ret = res.data.data.list[0];
                         _this.good = res.data.data.list[0];
+                        var classArr = _this.good.gClass.split(".");
+                        selectGoodClass.bigClassCode = classArr[0];
+                        selectGoodClass.midClassCode = classArr[1];
+                        selectGoodClass.littleClassCode = classArr[2];
+                        console.log(selectGoodClass);
+                        this.loadGoodClass('0', 0, this.goodClass);
+                        this.loadGoodClass(classArr[0], 1, this.goodClass);
+                        this.loadGoodClass(classArr[1], 2, this.goodClass);
+                        console.log(goodClass);
                     }
                 });
             },
@@ -311,11 +320,11 @@
 
             //进行保存
             save() {
-                if (true) {
+                if (this.saveCheck()) {
                     let _this = this;
                     console.log(this.selectGoodClass);
                     _this.good.gClass = _this.selectGoodClass.bigClassCode+"."+ _this.selectGoodClass.midClassCode+"."+ _this.selectGoodClass.littleClassCode;
-                    console.log(_this.good);
+                    _this.good.className = $("#big option:selected").text()+'/'+$("#mid option:selected").text()+"/"+$("#lettle option:selected").text();
                     axios.post("/good/insert", _this.good).then(function (res) {
                         if (res.data.data > 0) {
                             alert("添加成功");
@@ -326,9 +335,8 @@
                     });
                 }
             },
-
-
         }
+
 
     });
 </script>
