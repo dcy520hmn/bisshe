@@ -92,7 +92,8 @@ provider = {
 
 //商品信息
 good = {id:"",helpNum:"",gClass:"",type:"",size:"",name:"",unit:"",max:"",min:"",prePrice:"",cost:"",remark:"",state:"",className:""}
-
+//部门信息
+dept = {id:"",deptName:"",areaCode:"",deptAddress:"",state:""}
 
 //手机验证码正则
 phoneReg = /^[1][3,4,5,7,8][0-9]{9}$/

@@ -47,8 +47,8 @@
 
     <!--增加用户-->
     <insert id="addUser">
-        INSERT INTO t_user(user_loginName,user_loginPwd,user_describe,user_tellnum,user_statu)
-        VALUES (#{userName},#{password},#{describe},#{phoneNumber},#{status})
+        INSERT INTO t_user(user_loginName,user_loginPwd)
+        VALUES (#{userName},#{password})
     </insert>
 
     <!--根据id删除用户-->

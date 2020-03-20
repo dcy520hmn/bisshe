@@ -24,7 +24,6 @@ public class UserInfo implements Serializable {
     private Date updateDate;//更新日期
     private Integer deleteStatus;//删除状态
     private Integer modifierId;//修改人id
-    private String phoneNumber;//用户电话
     private Integer status;//用户的启用状态
     private List<Role> roles;
 }

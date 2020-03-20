@@ -31,7 +31,7 @@ public class TProviderServiceImpl implements TProviderService {
      * 查询供应商
      * @param params
      * @return
-     * @ 
+     * @
      */
     @Override
     public PageInfo<TProvider> queryProvider(Map params)  {
