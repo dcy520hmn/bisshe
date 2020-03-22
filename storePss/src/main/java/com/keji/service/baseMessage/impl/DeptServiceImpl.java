@@ -7,11 +7,13 @@ import com.keji.common.utils.StringUtils;
 import com.keji.mapper.baseMessage.DeptMapper;
 import com.keji.pojo.baseMessage.Dept;
 import com.keji.service.baseMessage.DeptService;
+import com.keji.service.baseMessage.EmpService;
 import org.apache.commons.collections.MapUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -27,6 +29,9 @@ public class DeptServiceImpl implements DeptService {
 
     @Autowired
     private DeptMapper deptMapper;
+
+    @Autowired
+    private EmpService empService;
 
     @Override
     public List<Dept> queryAllDept() {
@@ -57,11 +62,20 @@ public class DeptServiceImpl implements DeptService {
 
     @Override
     public int deleteDept(Integer[] ids) {
-        int result = 0;
+        for (int i = 0; i < ids.length; i++) {
+            Map params = new HashMap();
+            params.put("deptId",ids[i]);
+            List ret = (List)empService.queryEmp(params);
+            if(ret.size()>0){
+                return ids[i];
+            }
+        }
+        int result = -1;
         if(ids != null){
             for (Integer id : ids) {
                 result =  deptMapper.deleteByPrimaryKey(id);
             }
+            result = 0;
         }
         return result;
     }

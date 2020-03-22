@@ -226,11 +226,13 @@
                 }
                 if(confirm("确定删除吗？")){
                     axios.post("/dept/delete", _this.selectId).then(function (res) {
-                        if (res.data.data > 0) {
+                        if (res.data.data == 0) {
                             alert("删除成功");
                             window.location.reload();
-                        } else {
+                        } else if((res.data.data == -1)){
                             alert("删除失败");
+                        }else{
+                            alert("删除失败！部门编号："+res.data.data+"下，存在员工");
                         }
                     })
                 }

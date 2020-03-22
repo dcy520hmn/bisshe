@@ -14,7 +14,7 @@ import java.util.Map;
  * @date:
  */
 public interface EmpService {
-    PageInfo<Emp> queryEmp(Map params);
+    Object queryEmp(Map params);
 
     int insertEmp(Map params);
 

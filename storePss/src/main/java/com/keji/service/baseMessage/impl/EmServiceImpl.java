@@ -1,20 +1,27 @@
 package com.keji.service.baseMessage.impl;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.keji.common.utils.MapUtil;
 import com.keji.mapper.authority.UserMapper;
 import com.keji.mapper.baseMessage.EmpMapper;
 import com.keji.pojo.authority.UserInfo;
+import com.keji.pojo.baseMessage.Dept;
 import com.keji.pojo.baseMessage.Emp;
 import com.keji.service.baseMessage.EmpService;
 import org.apache.commons.collections.MapUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import tk.mybatis.mapper.entity.Example;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -34,8 +41,23 @@ public class EmServiceImpl implements EmpService {
     private UserMapper userMapper;
 
     @Override
-    public PageInfo<Emp> queryEmp(Map params) {
-        return null;
+    public Object queryEmp(Map params) {
+        Example example = new Example(Emp.class);
+        Integer deptId = MapUtils.getIntValue(params,"deptId");
+        if(deptId!=null){
+            example.createCriteria().andEqualTo("deptId",deptId);
+        }
+        Integer pageNum = MapUtils.getInteger(params,"pageNum");
+        Integer pageSize = MapUtils.getInteger(params,"pageSize");
+        if(pageNum!=null && pageSize!=null){
+            PageHelper.startPage(MapUtils.getInteger(params,"pageNum"),MapUtils.getInteger(params,"pageSize"));
+            Page<Emp> providerPage = (Page<Emp>) empMapper.selectByExample(example);
+            PageInfo<Emp> pageInfo = new PageInfo<>(providerPage);
+            return pageInfo;
+        }else{
+            List ret = empMapper.selectByExample(example);
+            return ret;
+        }
     }
 
     /**
