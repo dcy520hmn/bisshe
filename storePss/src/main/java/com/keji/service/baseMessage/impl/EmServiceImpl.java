@@ -49,13 +49,18 @@ public class EmServiceImpl implements EmpService {
     public int insertEmp(Map params) {
         int ret = 0;
         try {
+            //检测用户名是否存在
+            UserInfo haveUserInfo = userMapper.findUserByUserName(MapUtils.getString(params,"userName"));
+            if(haveUserInfo != null){
+                return -1;
+            }
             Emp emp = new Emp();
             emp.setAddress(MapUtils.getString(params, "address"));
             emp.setAreaCode(MapUtils.getString(params, "areaCode"));
-            emp.setBirthday(new SimpleDateFormat("yyyy-MM-dd").parse(MapUtils.getString(params, "birthday")));
+            emp.setBirthday(new SimpleDateFormat("yyyy年MM月dd日").parse(MapUtils.getString(params, "birthday")));
             emp.setDeptId(MapUtils.getLongValue(params, "deptId"));
             emp.setGender(MapUtils.getString(params, "gender"));
-            emp.setHireDate(new SimpleDateFormat("yyyy-MM-dd").parse(MapUtils.getString(params, "hireDate")));
+            emp.setHireDate(new SimpleDateFormat("yyyy年MM月dd日").parse(MapUtils.getString(params, "hireDate")));
             emp.setIdentity(MapUtils.getString(params, "identity"));
             emp.setName(MapUtils.getString(params, "name"));
             emp.setPhone(MapUtils.getString(params, "phone"));
@@ -66,9 +71,10 @@ public class EmServiceImpl implements EmpService {
             String userName = MapUtils.getString(params, "userName");
             //加密处理
             ByteSource credentialsSalt = ByteSource.Util.bytes(userName);
-            Object password = new SimpleHash("MD5", MapUtils.getString(params, "password"), credentialsSalt, 1024);
+            SimpleHash password = new SimpleHash("MD5", MapUtils.getString(params, "password"), credentialsSalt, 1024);
             userInfo.setUserName(userName);
-            userInfo.setPassword((String)password);
+            userInfo.setPassword(password.toString());
+            userInfo.setEmpId(emp.getId());
             ret  =  userMapper.addUser(userInfo);
         } catch (ParseException e) {
             e.printStackTrace();

@@ -66,15 +66,15 @@
 <!-- 内容头部 -->
 <section class="content-header">
     <h1>
-        用户管理
-        <small>用户表单</small>
+        员工管理
+        <small>员工表单</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="/index.jsp"><i
                 class="fa fa-dashboard"></i> 首页</a></li>
         <li><a
-                href="/user/findAll.do">用户管理</a></li>
-        <li class="active">用户表单</li>
+                href="/user/findAll.do">员工管理</a></li>
+        <li class="active">员工表单</li>
     </ol>
 </section>
 <!-- 内容头部 /-->
@@ -87,75 +87,88 @@
 
         <div  class="panel panel-default">
             <form id="form1">
-                <div class="panel-heading">用户信息</div>
+                <div class="panel-heading">员工信息</div>
                 <div class="row data-type">
 
                     <div  class="col-md-2 title">用户名</div>
                     <div class="col-md-4 data">
-                        <input v-model="userInfo.userName" type="text" class="form-control" name="username"
-                               placeholder="用户名称" value="">
+                        <input v-model="empForm.userName" type="text" class="form-control" name="empForm.userName"
+                               placeholder="用户名" value="">
                     </div>
                     <div class="col-md-2 title">密码</div>
                     <div class="col-md-4 data">
-                        <input v-model="userInfo.password"  type="password" class="form-control" name="password"
+                        <input v-model="empForm.password"  type="password" class="form-control" name="password"
                                placeholder="密码" value="">
                     </div>
                     <div  class="col-md-2 title">真实姓名</div>
                     <div class="col-md-4 data">
-                        <input v-model="userInfo.userName" type="text" class="form-control" name="username"
-                               placeholder="用户名称" value="">
+                        <input v-model="empForm.name" type="text" class="form-control" name="name"
+                               placeholder="真实姓名" value="">
                     </div>
                     <div  class="col-md-2 title">性别</div>
                     <div class="col-md-4 data">
-                        <input v-model="userInfo.userName" type="text" class="form-control" name="username"
-                               placeholder="用户名称" value="">
+                        <select  class="form-control" v-model="empForm.gender">
+                            <option v-for="gender in  selectGender" :value="gender.value">{{gender.text}}</option>
+                        </select>
                     </div>
                     <div  class="col-md-2 title">出生日期</div>
                     <div class="col-md-4 data">
-                        <input v-model="userInfo.userName" type="text" class="form-control" name="username"
-                               placeholder="用户名称" value="">
+                        <div class="input-group date">
+                            <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                            <input type="text" class="form-control pull-right" id="datepicker">
+                        </div>
                     </div>
                     <div  class="col-md-2 title">身份证号</div>
                     <div class="col-md-4 data">
-                        <input v-model="userInfo.userName" type="text" class="form-control" name="username"
-                               placeholder="用户名称" value="">
+                        <input v-model="empForm.identity" type="text" class="form-control" name="identity"
+                               placeholder="身份证号" value="">
                     </div>
                     <div  class="col-md-2 title">联系电话</div>
                     <div class="col-md-4 data">
-                        <input v-model="userInfo.userName" type="text" class="form-control" name="username"
-                               placeholder="用户名称" value="">
+                        <input v-model="empForm.phone" type="text" class="form-control" name="phone"
+                               placeholder="联系电话" value="">
                     </div>
                     <div  class="col-md-2 title">户籍所在地</div>
                     <div class="col-md-4 data">
-                        <input v-model="userInfo.userName" type="text" class="form-control" name="username"
-                               placeholder="用户名称" value="">
+                        <select  id="province" style="width: 100px;" v-model="selectArea.provinceId"
+                                 @click="loadArea(selectArea.provinceId,'city',this.area)">
+                            <option v-for="opt in area.provinces" :value="opt.value">{{opt.text}}</option>
+                        </select>
+                        <select  id="city"  style="width: 100px;"  v-model="selectArea.cityId"
+                                 @click="loadArea(selectArea.cityId,'district',this.area)">
+                            <option v-for="opt in area.cities" :value="opt.value">{{opt.text}}</option>
+                        </select>
+                        <select id="district"  style="width: 100px;"  v-model="selectArea.districtId">
+                            <option v-for="opt in area.districts" :value="opt.value">{{opt.text}}</option>
+                        </select>
                     </div>
                     <div  class="col-md-2 title">详细地址</div>
                     <div class="col-md-4 data">
-                        <input v-model="userInfo.userName" type="text" class="form-control" name="username"
-                               placeholder="用户名称" value="">
+                        <input v-model="empForm.address" type="text" class="form-control" name="username"
+                               placeholder="详细地址" value="">
                     </div>
                     <div  class="col-md-2 title">入职日期</div>
                     <div class="col-md-4 data">
-                        <input v-model="userInfo.userName" type="text" class="form-control" name="username"
-                               placeholder="用户名称" value="">
+                        <div class="input-group date">
+                            <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                            <input type="text" class="form-control pull-right" id="datepicker1">
+                        </div>
                     </div>
                     <div  class="col-md-2 title">所属部门</div>
                     <div class="col-md-4 data">
-                        <input v-model="userInfo.userName" type="text" class="form-control" name="username"
-                               placeholder="用户名称" value="">
-                    </div>
-                    <div  class="col-md-2 title">所属部门</div>
-                    <div class="col-md-4 data">
-                        <input v-model="userInfo.userName" type="text" class="form-control" name="username"
-                               placeholder="用户名称" value="">
+                        <select v-model="empForm.deptId" class="form-control">
+                            <option v-for="dept in depts" :value="dept.value">{{dept.text}}</option>
+                        </select>
                     </div>
                     <div  class="col-md-2 title">薪资</div>
                     <div class="col-md-4 data">
-                        <input v-model="userInfo.userName" type="text" class="form-control" name="username"
-                               placeholder="用户名称" value="">
+                        <input v-model="empForm.salary" type="text" class="form-control" name="username"
+                               placeholder="薪资" value="">
                     </div>
-
                 </div>
             </form>
         </div>
@@ -221,62 +234,134 @@
 <script src="/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
 <script src="/js/vue/axios-0.18.0.js"></script>
 <script src="/js/vue/vuejs-2.5.16.js"></script>
+<script src="/js/common/common.js"></script>
 <script src="/js/common/entity.js"></script>
 <script>
-    $(document).ready(function () {
-        // 选择框
-        $(".select2").select2();
-
-        // WYSIHTML5编辑器
-        $(".textarea").wysihtml5({
-            locale: 'zh-CN'
+    $(document).ready(function() {
+        //Date picker
+        $('#datepicker').datepicker({
+            autoclose: true,
+            language: 'zh-CN'
+        });
+        //Date picker
+        $('#datepicker1').datepicker({
+            autoclose: true,
+            language: 'zh-CN'
         });
     });
-
-    // 设置激活菜单
-    function setSidebarActive(tagUri) {
-        var liObj = $("#" + tagUri);
-        if (liObj.length > 0) {
-            liObj.parent().parent().addClass("active");
-            liObj.addClass("active");
-        }
-    }
 </script>
 
 <script>
     new Vue({
         el:"#div1",
         data:{
-            userInfo:user,
-            options: [
-                {text: '关闭', value: '0'},
-                {text: '开启', value: '1'},
-            ]
+            empForm:empForm,
+            selectGender:selectGender,
+            area: area,
+            selectArea: selectArea,
+            depts:[]
+        },
+        created: function () {
+            this.type = getUrlKey('type');
+            if (this.type == 0) {//新增
+                this.loadArea(1, "province", this.area);
+                this.loadDept();
+            } else if (this.type == 1) {//修改、详情
+                this.findDept(getUrlKey('deptId'));
+            }
         },
         methods:{
-            save(){
-                let _this = this;
-                if(this.userInfo.userName==""){
+            //加载部门
+            loadDept(){
+                var _this = this;
+                axios.get("/dept/findAllDept",).then(function (res) {
+                    deptList = res.data.data;
+                    console.log(res);
+                    for (let i = 0; i < deptList.length; i++) {
+                        var dept = new Object();
+                        dept.value = deptList[i].id;
+                        dept.text = deptList[i].deptName;
+                        _this.depts.push(dept);
+                    }
+                });
+            },
+            //加载区域
+            loadArea(parentId, type, area) {
+                loadAreaCommon(parentId, type, area)
+            },
+
+            check(obj,text){
+                var ret = false;
+                if (checkForm(this.empForm.userName,reg_null)) {
                     alert("用户名不能为空");
-                    return;
+                    return ret;
                 }
-                if(this.userInfo.password==""){
+                if (checkForm(this.empForm.password,reg_null)) {
                     alert("密码不能为空");
+                    return ret;
+                }
+                if (checkForm(this.empForm.name,reg_null)) {
+                    alert("真实姓名不能为空");
+                    return ret;
+                }
+                if (checkForm(this.empForm.gender,reg_null)) {
+                    alert("性别不能为空");
+                    return ret;
+                }
+                if (checkForm($("#datepicker").val(),reg_null)) {
+                    alert("出生日期不能为空");
+                    return ret;
+                }
+                if (!checkForm(this.empForm.identity,reg_identity)) {
+                    alert("身份证格式错误");
+                    return ret;
+                }
+                if (!checkForm(this.empForm.phone,phoneReg)) {
+                    alert("手机格式错误");
+                    return ret;
+                }
+
+                if (this.selectArea.provinceId == "") {
+                    alert("省不能为空");
+                    return ret;
+                }
+                if (this.selectArea.cityId == "") {
+                    alert("市不能为空");
+                    return ret;
+                }
+                if (this.selectArea.districtId == "") {
+                    alert("区县不能为空");
+                    return ret;
+                }
+                if (checkForm($("#datepicker1").val(),reg_null)) {
+                    alert("入职日期不能为空");
+                    return ret;
+                }
+                if (checkForm(this.empForm.deptId,reg_null)) {
+                    alert("所属部门不能为空");
+                    return ret;
+                }
+                if (!checkForm(this.empForm.salary,price)) {
+                    alert("薪资格式不正确");
+                    return ret;
+                }
+                return true;
+            },
+
+            save(){
+                if(!this.check()){
                     return;
                 }
-                if(this.userInfo.describe==""){
-                    alert("描述不能为空");
-                    return;
-                }
-                if(this.userInfo.phoneNumber==""){
-                    alert("手机号不能为空");
-                    return;
-                }
-                axios.post("/user/addUser",_this.userInfo).then(function (res) {
+                var _this = this;
+                _this.empForm.areaCode = _this.selectArea.provinceId+"."+_this.selectArea.cityId+"."+_this.selectArea.districtId;
+                _this.empForm.birthday = $("#datepicker").val();
+                _this.empForm.hireDate = $("#datepicker1").val();
+                axios.post("/emp/insert",_this.empForm).then(function (res) {
                     if(res.data.data>0){
-                        location.href="user-list.html";
+                        alert("添加成功");
+                        location.href="emp-list.html";
                     }else  if(res.data.data==-1){
-                        alert("该用户已存在");
+                        alert("用户名已存在");
                     }else{
                         alert("参数有误");
                     }

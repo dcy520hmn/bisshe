@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -26,6 +27,11 @@ public class DeptServiceImpl implements DeptService {
 
     @Autowired
     private DeptMapper deptMapper;
+
+    @Override
+    public List<Dept> queryAllDept() {
+        return deptMapper.selectAll();
+    }
 
     @Override
     public PageInfo<Dept> queryDept(Map params) {

@@ -112,3 +112,9 @@ function findGoodClass(parentCode, arr) {
         }
     })
 }
+
+//表单检测
+function checkForm(obj,reg) {
+    console.log(obj+","+reg+":"+reg.test(obj));
+    return reg.test(obj);
+}
