@@ -1,6 +1,10 @@
 package com.keji.pojo.baseMessage;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Table(name = "t_emp")
@@ -11,18 +15,51 @@ public class Emp {
   private Integer id;
   private String name;
   private String gender;
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy年MM月dd日", timezone = "GMT+8")
   private Date birthday;
   private String identity;
   private String phone;
   private String address;
   @Column(name = "areaCode")
   private String areaCode;
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy年MM月dd日", timezone = "GMT+8")
   @Column(name = "hiredate")
   private Date hireDate;
   @Column(name = "deptId")
   private long deptId;
   private Double salary;
   private long sate;
+
+  @Transient
+  private Dept dept;
+  @Transient
+  private String birthdayStr;
+  @Transient
+  private String hireDateStr;
+
+  public String getBirthdayStr() {
+    return birthdayStr;
+  }
+
+  public void setBirthdayStr(String birthdayStr) {
+    this.birthdayStr = birthdayStr;
+  }
+
+  public String getHireDateStr() {
+    return hireDateStr;
+  }
+
+  public void setHireDateStr(String hireDateStr) {
+    this.hireDateStr = hireDateStr;
+  }
+
+  public Dept getDept() {
+    return dept;
+  }
+
+  public void setDept(Dept dept) {
+    this.dept = dept;
+  }
 
   public Integer getId() {
     return id;
@@ -54,6 +91,7 @@ public class Emp {
 
   public void setBirthday(Date birthday) {
     this.birthday = birthday;
+    setBirthdayStr(new SimpleDateFormat("yyyy年MM月dd日").format(birthday));
   }
 
   public String getIdentity() {
@@ -94,6 +132,7 @@ public class Emp {
 
   public void setHireDate(Date hireDate) {
     this.hireDate = hireDate;
+    setHireDateStr(new SimpleDateFormat("yyyy年MM月dd日").format(hireDate));
   }
 
   public long getDeptId() {
@@ -119,4 +158,6 @@ public class Emp {
   public void setSate(long sate) {
     this.sate = sate;
   }
+
+
 }

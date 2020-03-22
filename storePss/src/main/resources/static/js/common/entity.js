@@ -115,16 +115,19 @@ empForm = {
     name: "",
     gender: "",
     birthday: "",
+    birthdayStr:"",
     identity: "",
     phone: "",
     address: "",
     areaCode: "",
     hireDate: "",
+    hireDateStr: "",
     deptId: "",
     salary: "",
     sate: "",
     userName: "",
-    password: ""
+    password: "",
+    dept:""
 }
 //性别下拉选
 selectGender = [{value: '男', text: '男'}, {value: '女', text: '女'}]

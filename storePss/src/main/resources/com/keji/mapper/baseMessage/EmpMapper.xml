@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.keji.mapper.baseMessage.EmpMapper">
+    <resultMap id="empMap" type="emp">
+        <id column="userId" property="id"/>
+        <result column="name" property="name"/>
+        <result column="gender" property="gender"/>
+        <result column="birthday" property="birthday"/>
+        <result column="identity" property="identity"/>
+        <result column="phone" property="phone"/>
+        <result column="address" property="address"/>
+        <result column="empAreaCode" property="areaCode"/>
+        <result column="hiredate" property="hireDate"/>
+        <result column="salary" property="salary"/>
+        <result column="sate" property="sate"/>
+        <collection property="dept" ofType="dept">
+            <id column="deptId" property="id"/>
+            <result column="deptName" property="deptName"/>
+            <result column="deptAddress" property="deptAddress"/>
+            <result column="areaCode" property="areaCode"/>
+            <result column="state" property="state"/>
+        </collection>
+    </resultMap>
+
+    <select id="findUserByConditions" resultMap="empMap">
+        SELECT emp.id AS userId,emp.identity,emp.address,emp.areaCode AS empAreaCode,emp.birthday,emp.gender,emp.hiredate,emp.name,emp.phone,emp.salary,emp.sate,
+        dept.*
+        FROM t_emp emp
+        LEFT JOIN  t_dept dept
+        ON emp.deptId = dept.deptId
+        <where>
+            <if test="deptId != null  and deptId != '' ">
+                AND emp.deptId = #{deptId}
+            </if>
+            <if test="empId !=null and empId != ''">
+                AND emp.id = #{empId}
+            </if>
+        </where>
+    </select>
+</mapper>

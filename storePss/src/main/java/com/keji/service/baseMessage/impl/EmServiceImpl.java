@@ -3,21 +3,17 @@ package com.keji.service.baseMessage.impl;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.keji.common.utils.MapUtil;
 import com.keji.mapper.authority.UserMapper;
 import com.keji.mapper.baseMessage.EmpMapper;
 import com.keji.pojo.authority.UserInfo;
-import com.keji.pojo.baseMessage.Dept;
 import com.keji.pojo.baseMessage.Emp;
 import com.keji.service.baseMessage.EmpService;
 import org.apache.commons.collections.MapUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import tk.mybatis.mapper.entity.Example;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -41,23 +37,13 @@ public class EmServiceImpl implements EmpService {
     private UserMapper userMapper;
 
     @Override
-    public Object queryEmp(Map params) {
-        Example example = new Example(Emp.class);
+    public PageInfo<Emp> queryEmp(Map params) {
+        PageHelper.startPage(MapUtils.getInteger(params, "pageNum"), MapUtils.getInteger(params, "pageSize"));
         Integer deptId = MapUtils.getIntValue(params,"deptId");
-        if(deptId!=null){
-            example.createCriteria().andEqualTo("deptId",deptId);
-        }
-        Integer pageNum = MapUtils.getInteger(params,"pageNum");
-        Integer pageSize = MapUtils.getInteger(params,"pageSize");
-        if(pageNum!=null && pageSize!=null){
-            PageHelper.startPage(MapUtils.getInteger(params,"pageNum"),MapUtils.getInteger(params,"pageSize"));
-            Page<Emp> providerPage = (Page<Emp>) empMapper.selectByExample(example);
-            PageInfo<Emp> pageInfo = new PageInfo<>(providerPage);
-            return pageInfo;
-        }else{
-            List ret = empMapper.selectByExample(example);
-            return ret;
-        }
+        Integer empId = MapUtils.getIntValue(params,"empId");
+        Page<Emp> providerPage = (Page<Emp>) empMapper.findUserByConditions(deptId,empId);
+        PageInfo<Emp> pageInfo = new PageInfo<>(providerPage);
+        return pageInfo;
     }
 
     /**
@@ -72,8 +58,8 @@ public class EmServiceImpl implements EmpService {
         int ret = 0;
         try {
             //检测用户名是否存在
-            UserInfo haveUserInfo = userMapper.findUserByUserName(MapUtils.getString(params,"userName"));
-            if(haveUserInfo != null){
+            UserInfo haveUserInfo = userMapper.findUserByUserName(MapUtils.getString(params, "userName"));
+            if (haveUserInfo != null) {
                 return -1;
             }
             Emp emp = new Emp();
@@ -97,7 +83,7 @@ public class EmServiceImpl implements EmpService {
             userInfo.setUserName(userName);
             userInfo.setPassword(password.toString());
             userInfo.setEmpId(emp.getId());
-            ret  =  userMapper.addUser(userInfo);
+            ret = userMapper.addUser(userInfo);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -105,22 +91,18 @@ public class EmServiceImpl implements EmpService {
     }
 
     @Override
-    public int deleteEmp(Integer[] id) {
-        return 0;
+    public int deleteEmp(Integer[] ids) {
+        int result = 0;
+        if(ids != null){
+            for (Integer id : ids) {
+                result =  empMapper.deleteByPrimaryKey(id);
+            }
+        }
+        return result;
     }
 
     @Override
     public int updateEmp(Emp emp) {
-        return 0;
-    }
-
-    public static void main(String[] args) {
-        String hashAlgorithmName = "MD5";//加密方式
-        Object crdentials = "123456";//密码原值
-        int hashIterations = 1024;//加密1024次
-        ByteSource credentialsSalt = ByteSource.Util.bytes("admin");
-        System.out.println(credentialsSalt);
-        Object result = new SimpleHash(hashAlgorithmName, credentialsSalt, hashIterations);
-        System.out.println(result);
+        return  empMapper.updateByPrimaryKey(emp);
     }
 }

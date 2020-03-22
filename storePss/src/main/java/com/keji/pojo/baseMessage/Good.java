@@ -10,20 +10,32 @@ public class Good {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "gID")
   private Integer id;
+  @Column(name = "gHelpNum")
   private String helpNum;
-  @Column(name = "class")
+  @Column(name = "gClass")
   private String gClass;
+  @Column(name = "gClassName")
   private String className;
+  @Column(name = "gType")
   private String type;
+  @Column(name = "gSize")
   private String size;
+  @Column(name = "gName")
   private String name;
+  @Column(name = "gUnit")
   private String unit;
+  @Column(name = "gMax")
   private Integer max;
+  @Column(name = "gMin")
   private Integer min;
+  @Column(name = "gPrePrice")
   private Integer prePrice;
+  @Column(name = "gCost")
   private Double cost;
-  private Integer remark;
+  @Column(name = "gRemark")
+  private String remark;
   private long state;
   public Integer getId() {
     return id;
@@ -121,11 +133,11 @@ public class Good {
     this.cost = cost;
   }
 
-  public Integer getRemark() {
+  public String getRemark() {
     return remark;
   }
 
-  public void setRemark(Integer remark) {
+  public void setRemark(String remark) {
     this.remark = remark;
   }
 

@@ -3,7 +3,6 @@ package com.keji.service.baseMessage;
 import com.github.pagehelper.PageInfo;
 import com.keji.pojo.baseMessage.Emp;
 
-import java.text.ParseException;
 import java.util.Map;
 
 /**
@@ -14,7 +13,7 @@ import java.util.Map;
  * @date:
  */
 public interface EmpService {
-    Object queryEmp(Map params);
+    PageInfo<Emp> queryEmp(Map params);
 
     int insertEmp(Map params);
 

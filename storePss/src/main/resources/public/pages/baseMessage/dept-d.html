@@ -220,7 +220,6 @@
                         let _this = this;
                         _this.dept.areaCode = _this.selectArea.provinceId + "." + _this.selectArea.cityId + "." + _this.selectArea.districtId;
                         _this.dept.deptAddress=$("#province option:selected").text()+ $("#city option:selected").text()+ $("#district option:selected").text()+_this.addressDetail;
-                        console.log(_this.dept);
                         axios.post("/dept/update", _this.dept).then(function (res) {
                             if (res.data.data > 0) {
                                 alert("修改成功");
