@@ -127,7 +127,9 @@ empForm = {
     sate: "",
     userName: "",
     password: "",
-    dept:""
+    dept:"",
+    roleId:"",
+    roleList:""
 }
 //性别下拉选
 selectGender = [{value: '男', text: '男'}, {value: '女', text: '女'}]

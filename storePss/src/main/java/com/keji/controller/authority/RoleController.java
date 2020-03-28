@@ -33,7 +33,7 @@ public class RoleController extends BaseController {
      */
     @RequestMapping("/findAllRole")
     public String findAllRole(Integer pageNum,Integer pageSize){
-        if(StringUtils.isNotEmpty(pageNum)&&StringUtils.isNotEmpty(pageNum)){
+        if(StringUtils.isNotEmpty(pageNum)&&StringUtils.isNotEmpty(pageSize)){
             PageInfo<Role> pageInfo  = roleService.findAllRole(pageNum,pageSize);
             return dealQueryResult(pageInfo,pageInfo);
         }else{

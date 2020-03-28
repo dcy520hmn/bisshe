@@ -4,6 +4,7 @@ package com.keji.service.authority;
 import com.github.pagehelper.PageInfo;
 import com.keji.pojo.authority.Authority;
 import com.keji.pojo.authority.UserInfo;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -62,6 +63,4 @@ public interface UserService  {
      * @return 增加结果
      */
     Integer addRole(Integer userId,List<Integer> roleIds);
-
-
 }

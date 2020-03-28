@@ -38,8 +38,8 @@ public class EmpController extends BaseController {
     };
 
     @RequestMapping("/update")
-    public String update(@RequestBody Emp emp){
-        int ret = empService.updateEmp(emp);
+    public String update(@RequestBody Map params){
+        int ret = empService.updateEmp(params);
         return dealQueryResult(ret,ret);
     }
 

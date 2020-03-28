@@ -46,7 +46,7 @@
     </select>
 
     <!--增加用户-->
-    <insert id="addUser">
+    <insert id="addUser"  useGeneratedKeys="true" keyProperty="id" parameterType="com.keji.pojo.authority.UserInfo">
         INSERT INTO t_user(user_loginName,user_loginPwd,emp_id)
         VALUES (#{userName},#{password},#{empId})
     </insert>
@@ -67,5 +67,11 @@
         INSERT INTO t_user_role(ur_userId,ur_roleId) VALUES(#{userId},#{roleId})
     </insert>
 
+    <select id="findUserByEmpId" resultMap="userMap">
+        SELECT * FROM t_user WHERE emp_id = #{empId}
+    </select>
 
+    <update id="updateUserRole">
+        UPDATE  t_user_role SET ur_roleId = #{roleId} WHERE ur_userId = #{userId}
+    </update>
 </mapper>

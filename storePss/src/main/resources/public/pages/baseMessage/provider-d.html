@@ -221,9 +221,15 @@
                         _this.provider = res.data.data.list[0];
                         getTheProviderArea(_this.provider.areaId, _this.selectArea);
                         var areaIds = _this.provider.areaId.split(".");
-                        _this.loadArea(1, "province",this.area);
-                        _this.loadArea(areaIds[0], "city",this.area);
-                        _this.loadArea(areaIds[1], "district",this.area);
+                        _this.loadArea(1, "province", this.area);
+                        if(areaIds[0]=='2'||
+                            areaIds[0]=='19'||
+                            areaIds[0]=='857'){
+                            _this.loadArea(areaIds[0], "z", this.area);
+                        }else{
+                            _this.loadArea(areaIds[0], "city", this.area);
+                        }
+                        _this.loadArea(areaIds[1], "district", this.area);
                     }
                 });
             },

@@ -19,5 +19,5 @@ public interface EmpService {
 
     int deleteEmp(Integer[] id);
 
-    int updateEmp(Emp emp);
+    int updateEmp(Map params);
 }

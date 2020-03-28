@@ -1,11 +1,13 @@
 package com.keji.pojo.baseMessage;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.keji.pojo.authority.Role;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Table(name = "t_emp")
 public class Emp {
@@ -33,9 +35,19 @@ public class Emp {
   @Transient
   private Dept dept;
   @Transient
+  private List<Role> roleList;
+  @Transient
   private String birthdayStr;
   @Transient
   private String hireDateStr;
+
+  public List<Role> getRoleList() {
+    return roleList;
+  }
+
+  public void setRoleList(List<Role> roleList) {
+    this.roleList = roleList;
+  }
 
   public String getBirthdayStr() {
     return birthdayStr;

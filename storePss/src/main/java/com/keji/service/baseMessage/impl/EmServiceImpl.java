@@ -3,6 +3,7 @@ package com.keji.service.baseMessage.impl;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.keji.common.utils.StringUtils;
 import com.keji.mapper.authority.UserMapper;
 import com.keji.mapper.baseMessage.EmpMapper;
 import com.keji.pojo.authority.UserInfo;
@@ -39,9 +40,9 @@ public class EmServiceImpl implements EmpService {
     @Override
     public PageInfo<Emp> queryEmp(Map params) {
         PageHelper.startPage(MapUtils.getInteger(params, "pageNum"), MapUtils.getInteger(params, "pageSize"));
-        Integer deptId = MapUtils.getIntValue(params,"deptId");
-        Integer empId = MapUtils.getIntValue(params,"empId");
-        Page<Emp> providerPage = (Page<Emp>) empMapper.findUserByConditions(deptId,empId);
+        Integer deptId = MapUtils.getIntValue(params, "deptId");
+        Integer empId = MapUtils.getIntValue(params, "empId");
+        Page<Emp> providerPage = (Page<Emp>) empMapper.findUserByConditions(deptId, empId);
         PageInfo<Emp> pageInfo = new PageInfo<>(providerPage);
         return pageInfo;
     }
@@ -62,6 +63,7 @@ public class EmServiceImpl implements EmpService {
             if (haveUserInfo != null) {
                 return -1;
             }
+            //添加员工
             Emp emp = new Emp();
             emp.setAddress(MapUtils.getString(params, "address"));
             emp.setAreaCode(MapUtils.getString(params, "areaCode"));
@@ -74,7 +76,7 @@ public class EmServiceImpl implements EmpService {
             emp.setPhone(MapUtils.getString(params, "phone"));
             emp.setSalary(MapUtils.getDoubleValue(params, "salary"));
             empMapper.insert(emp);
-
+            //注册用户
             UserInfo userInfo = new UserInfo();
             String userName = MapUtils.getString(params, "userName");
             //加密处理
@@ -83,7 +85,9 @@ public class EmServiceImpl implements EmpService {
             userInfo.setUserName(userName);
             userInfo.setPassword(password.toString());
             userInfo.setEmpId(emp.getId());
-            ret = userMapper.addUser(userInfo);
+            userMapper.addUser(userInfo);
+            ret = userMapper.addRole(userInfo.getId(), MapUtils.getInteger(params, "roleId"));
+            //增加权限
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -93,16 +97,37 @@ public class EmServiceImpl implements EmpService {
     @Override
     public int deleteEmp(Integer[] ids) {
         int result = 0;
-        if(ids != null){
+        if (ids != null) {
             for (Integer id : ids) {
-                result =  empMapper.deleteByPrimaryKey(id);
+                result = empMapper.deleteByPrimaryKey(id);
             }
         }
         return result;
     }
 
     @Override
-    public int updateEmp(Emp emp) {
-        return  empMapper.updateByPrimaryKey(emp);
+    @Transactional
+    public int updateEmp(Map params) {
+        int ret = 0;
+        try {
+            Emp emp = new Emp();
+            emp.setId(MapUtils.getInteger(params, "id"));
+            emp.setAddress(MapUtils.getString(params, "address"));
+            emp.setAreaCode(MapUtils.getString(params, "areaCode"));
+            emp.setBirthday(new SimpleDateFormat("yyyy年MM月dd日").parse(MapUtils.getString(params, "birthday")));
+            emp.setDeptId(MapUtils.getLongValue(params, "deptId"));
+            emp.setGender(MapUtils.getString(params, "gender"));
+            emp.setHireDate(new SimpleDateFormat("yyyy年MM月dd日").parse(MapUtils.getString(params, "hireDate")));
+            emp.setIdentity(MapUtils.getString(params, "identity"));
+            emp.setName(MapUtils.getString(params, "name"));
+            emp.setPhone(MapUtils.getString(params, "phone"));
+            emp.setSalary(MapUtils.getDoubleValue(params, "salary"));
+            empMapper.updateByPrimaryKey(emp);
+            UserInfo userInfo = userMapper.findUserByEmpId(emp.getId());
+            ret = userMapper.updateUserRole(userInfo.getId(), MapUtils.getInteger(params, "roleId"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ret;
     }
 }

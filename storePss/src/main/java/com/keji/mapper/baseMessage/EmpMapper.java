@@ -20,4 +20,6 @@ import java.util.List;
 @Repository
 public interface EmpMapper extends Mapper<Emp> {
     Page<Emp> findUserByConditions(@Param("deptId") Integer deptId,@Param("empId") Integer empId);
+
+    int updateEmp(Emp emp);
 }

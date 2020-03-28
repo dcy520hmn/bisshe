@@ -54,4 +54,16 @@ public interface UserMapper {
      * @return 增加结果
      */
     Integer addRole(@Param("userId") Integer userId,@Param("roleId") Integer roleId);
+
+    /**
+     * 根据员工id查询用户
+     * @return
+     */
+    UserInfo findUserByEmpId(@Param("empId") Integer empId);
+
+    /**
+     * 跟新用户权限
+     * @return
+     */
+    Integer updateUserRole(@Param("userId") Integer userId,@Param("roleId") Integer roleId);
 }

@@ -23,14 +23,24 @@
             <result column="areaCode" property="areaCode"/>
             <result column="state" property="state"/>
         </collection>
+        <collection property="roleList" ofType="Role">
+            <id column="role_roleId" property="id"/>
+            <result column="role_roleName" property="roleName"/>
+        </collection>
     </resultMap>
 
     <select id="findUserByConditions" resultMap="empMap">
         SELECT emp.id AS userId,emp.identity,emp.address,emp.areaCode AS empAreaCode,emp.birthday,emp.gender,emp.hiredate,emp.name,emp.phone,emp.salary,emp.sate,
-        dept.*
+        dept.*,role.role_roleId,role.role_roleName
         FROM t_emp emp
         LEFT JOIN  t_dept dept
         ON emp.deptId = dept.deptId
+        LEFT JOIN t_user tuser
+        ON tuser.emp_id = emp.id
+        LEFT JOIN t_user_role tur
+        ON tur.ur_userId = tuser.user_id
+        LEFT JOIn t_role role
+        ON role.role_roleId = tur.ur_roleId
         <where>
             <if test="deptId != null  and deptId != '' ">
                 AND emp.deptId = #{deptId}
@@ -40,4 +50,5 @@
             </if>
         </where>
     </select>
+
 </mapper>

@@ -165,8 +165,8 @@
                         </div>
                         <div class="col-md-2 title">所属职务</div>
                         <div class="col-md-4 data">
-                            <select v-model="empForm.deptId" class="form-control">
-                                <option v-for="dept in depts" :value="dept.value">{{dept.text}}</option>
+                            <select v-model="empForm.roleId" class="form-control">
+                                <option v-for="role in roles" :value="role.value">{{role.text}}</option>
                             </select>
                         </div>
                         <div class="col-md-2 title">薪资</div>
@@ -253,21 +253,43 @@
             selectGender: selectGender,
             area: area,
             selectArea: selectArea,
-            depts: []
+            depts: [],
+            roles:[],
         },
         created: function () {
             this.type = getUrlKey('type');
             if (this.type == 0) {//新增
                 this.loadArea(1, "province", this.area);
                 this.loadDept();
+                this.loadRole();
             } else if (this.type == 1) {//修改、详情
                 this.findEmp(getUrlKey('empId'));
             }
         },
         methods: {
+            //加载所属职务
 
+            loadRole() {
+                var _this = this;
+                axios.get("/role/findAllRole",{
+                    params:{
+                        pageNum: 1,
+                        pageSize: 10
+                    }
+                }).then(function (res) {
+                    var roleList = res.data.data.list;
+                    var role = new Object();
+                    _this.roles.push(role)
+                    for (let i = 0; i < roleList.length; i++) {
+                        var role = new Object();
+                        role.value = roleList[i].id;
+                        role.text = roleList[i].roleName;
+                        _this.roles.push(role);
+                    }
+                });
+            },
             //加载部门
-            loadDept() {
+            loadDept(){
                 var _this = this;
                 axios.get("/dept/findAllDept",).then(function (res) {
                     deptList = res.data.data;
@@ -279,6 +301,7 @@
                     }
                 });
             },
+
             //加载区域
             loadArea(parentId, type, area) {
                 loadAreaCommon(parentId, type, area)
@@ -354,12 +377,23 @@
                         //初始化区域
                         getTheProviderArea(_this.empForm.areaCode,_this.selectArea);
                         var areaIds = _this.empForm.areaCode.split(".");
-                        loadAreaCommon(1, "province",_this.area);
-                        loadAreaCommon(areaIds[0], "city",_this.area);
-                        loadAreaCommon(areaIds[1], "district",_this.area);
+                        _this.loadArea(1, "province", this.area);
+                        if(areaIds[0]=='2'||
+                            areaIds[0]=='19'||
+                            areaIds[0]=='857'){
+                            _this.loadArea(areaIds[0], "z", this.area);
+                        }else{
+                            _this.loadArea(areaIds[0], "city", this.area);
+                        }
+                        _this.loadArea(areaIds[1], "district", this.area);
                         //初始化所属部门
                         _this.empForm.deptId = _this.empForm.dept.id;
                         _this.loadDept();
+                        //初始化职务
+                        if(_this.empForm.roleList.length>0){
+                            _this.empForm.roleId = _this.empForm.roleList[0].id;
+                        }
+                        _this.loadRole();
                     }
                 })
             },
