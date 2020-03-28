@@ -83,89 +83,79 @@
     <section class="content"> <!--产品信息-->
         <div class="panel panel-default">
             <div class="row data-type">
-
-                <div class="col-md-2 title">省</div>
-                <div class="col-md-2 data">
-                    <select  class="form-control" v-model="selectArea.provinceId"
-                            @click="loadArea(selectArea.provinceId,'city',this.area)">
+                <div class="col-md-2 title">所在区域</div>
+                <div class="col-md-4 data">
+                    <select id="province" style="width: 100px;" v-model="selectArea.provinceId">
                         <option v-for="opt in area.provinces" :value="opt.value">{{opt.text}}</option>
                     </select>
-                </div>
-
-                <div class="col-md-2 title">市</div>
-                <div class="col-md-2 data">
-                    <select  class="form-control" v-model="selectArea.cityId"
+                    <select id="city" style="width: 100px;" v-model="selectArea.cityId"
                             @click="loadArea(selectArea.cityId,'district',this.area)">
                         <option v-for="opt in area.cities" :value="opt.value">{{opt.text}}</option>
                     </select>
-                </div>
-
-                <div class="col-md-2 title">区/县</div>
-                <div class="col-md-2 data">
-                    <select class="form-control" v-model="selectArea.districtId">
+                    <select id="district" style="width: 100px;" v-model="selectArea.districtId">
                         <option v-for="opt in area.districts" :value="opt.value">{{opt.text}}</option>
                     </select>
                 </div>
 
                 <div class="col-md-2 title">供货商名称</div>
-                <div class="col-md-2 data">
+                <div class="col-md-4 data">
                     <input type="text" class="form-control" name="name"
                            placeholder="供货商名称" v-model="provider.name">
                 </div>
 
                 <div class="col-md-2 title">供货商简称</div>
-                <div class="col-md-2 data">
+                <div class="col-md-4 data">
                     <input type="text" class="form-control" name="shortName"
                            placeholder="供货商简称" v-model="provider.shortName">
                 </div>
 
                 <div class="col-md-2 title">联系人名称</div>
-                <div class="col-md-2 data">
+                <div class="col-md-4 data">
                     <input type="text" class="form-control" name="messageName"
                            placeholder="联系人名称" v-model="provider.messageName">
                 </div>
 
                 <div class="col-md-2 title">联系人电话</div>
-                <div class="col-md-2 data">
+                <div class="col-md-4 data">
                     <input type="text" class="form-control" name="messagePhone"
                            placeholder="联系人电话" v-model="provider.messagePhone">
                 </div>
 
                 <div class="col-md-2 title">供货商地址</div>
-                <div class="col-md-2 data">
+                <div class="col-md-4 data">
                     <input type="text" class="form-control" name="address"
                            placeholder="供货商地址" v-model="provider.address">
                 </div>
 
                 <div class="col-md-2 title">开户银行</div>
-                <div class="col-md-2 data">
+                <div class="col-md-4 data">
                     <input type="text" class="form-control" name="bank"
                            placeholder="开户银行" v-model="provider.bank">
                 </div>
 
                 <div class="col-md-2 title">账号</div>
-                <div class="col-md-2 data">
+                <div class="col-md-4 data">
                     <input type="text" class="form-control" name="account"
                            placeholder="账号" v-model="provider.account">
                 </div>
 
 
                 <div class="col-md-2 title">法人代表</div>
-                <div class="col-md-2 data">
+                <div class="col-md-4 data">
                     <input type="text" class="form-control" name="present"
                            placeholder="法人代表" v-model="provider.present">
                 </div>
 
 
                 <div class="col-md-2 title">邮编</div>
-                <div class="col-md-2 data">
+                <div class="col-md-4 data">
                     <input type="text" class="form-control" name="postcode"
                            placeholder="邮编" v-model="provider.postcode">
                 </div>
 
 
                 <div class="col-md-2 title">Email</div>
-                <div class="col-md-2 data">
+                <div class="col-md-4 data">
                     <input type="text" class="form-control" name="email"
                            placeholder="邮箱" v-model="provider.email">
                 </div>
@@ -193,7 +183,7 @@
 <script src="/js/common/common.js"></script>
 <script src="/js/common/entity.js"></script>
 <script>
-    new Vue({
+   var vm =  new Vue({
         el: "#div1",
 
         data: {
@@ -247,10 +237,6 @@
                 }
                 if (this.selectArea.cityId == "") {
                     alert("市不能为空");
-                    return ret;
-                }
-                if (this.selectArea.districtId == "") {
-                    alert("区县不能为空");
                     return ret;
                 }
 
@@ -336,7 +322,18 @@
 
     });
 </script>
-
+<script>
+    $(document).ready(function () {
+        $('#province').click(function () {
+            var pId = this.value;
+            if(pId == 2 || pId == 19 || pId == 857){
+                vm.loadArea(pId,'z',vm.area)
+            }else{
+                vm.loadArea(pId,'city',vm.area)
+            }
+        });
+    });
+</script>
 </body>
 
 </html>

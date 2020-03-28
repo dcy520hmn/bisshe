@@ -132,8 +132,7 @@
                         </div>
                         <div class="col-md-2 title">户籍所在地</div>
                         <div class="col-md-4 data">
-                            <select id="province" style="width: 100px;" v-model="selectArea.provinceId"
-                                    @click="loadArea(selectArea.provinceId,'city',this.area)">
+                            <select id="province" style="width: 100px;" v-model="selectArea.provinceId">
                                 <option v-for="opt in area.provinces" :value="opt.value">{{opt.text}}</option>
                             </select>
                             <select id="city" style="width: 100px;" v-model="selectArea.cityId"
@@ -159,6 +158,12 @@
                             </div>
                         </div>
                         <div class="col-md-2 title">所属部门</div>
+                        <div class="col-md-4 data">
+                            <select v-model="empForm.deptId" class="form-control">
+                                <option v-for="dept in depts" :value="dept.value">{{dept.text}}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 title">所属职务</div>
                         <div class="col-md-4 data">
                             <select v-model="empForm.deptId" class="form-control">
                                 <option v-for="dept in depts" :value="dept.value">{{dept.text}}</option>
@@ -238,23 +243,10 @@
 <script src="/js/vue/vuejs-2.5.16.js"></script>
 <script src="/js/common/common.js"></script>
 <script src="/js/common/entity.js"></script>
-<script>
-    $(document).ready(function () {
-        //Date picker
-        $('#datepicker').datepicker({
-            autoclose: true,
-            language: 'zh-CN'
-        });
-        //Date picker
-        $('#datepicker1').datepicker({
-            autoclose: true,
-            language: 'zh-CN'
-        });
-    });
-</script>
+
 
 <script>
-    new Vue({
+  var vm =  new Vue({
         el: "#div1",
         data: {
             empForm: empForm,
@@ -331,10 +323,6 @@
                     alert("市不能为空");
                     return ret;
                 }
-                if (this.selectArea.districtId == "") {
-                    alert("区县不能为空");
-                    return ret;
-                }
                 if (checkForm($("#datepicker1").val(), reg_null)) {
                     alert("入职日期不能为空");
                     return ret;
@@ -378,9 +366,9 @@
 
             //更新
             update(){
-                // if (!this.check()) {
-                //     return;
-                // }
+                if (!this.check()) {
+                    return;
+                }
                 if(confirm("是否修改")) {
                     var _this = this;
                     _this.empForm.areaCode = _this.selectArea.provinceId + "." + _this.selectArea.cityId + "." + _this.selectArea.districtId;
@@ -419,6 +407,30 @@
         }
     })
     ;
+</script>
+
+<script>
+    $(document).ready(function () {
+        //Date picker
+        $('#datepicker').datepicker({
+            autoclose: true,
+            language: 'zh-CN'
+        });
+        //Date picker
+        $('#datepicker1').datepicker({
+            autoclose: true,
+            language: 'zh-CN'
+        });
+
+        $('#province').click(function () {
+            var pId = this.value;
+            if(pId == 2 || pId == 19 || pId == 857){
+                vm.loadArea(pId,'z',vm.area)
+            }else{
+                vm.loadArea(pId,'city',vm.area)
+            }
+        });
+    });
 </script>
 </body>
 

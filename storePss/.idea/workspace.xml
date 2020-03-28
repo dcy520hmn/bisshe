@@ -2,24 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61be1ebb-4faa-42f2-8603-40ea841ebc4e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/baseMessage/EmpMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/log.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/controller/baseMessage/EmpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/controller/baseMessage/EmpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/mapper/baseMessage/EmpMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/mapper/baseMessage/EmpMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/baseMessage/Emp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/pojo/baseMessage/Emp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/baseMessage/Good.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/pojo/baseMessage/Good.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/baseMessage/TProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/pojo/baseMessage/TProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/EmpService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/EmpService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/impl/EmServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/impl/EmServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/baseMessage/Dept.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/pojo/baseMessage/Dept.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/baseMessage/dept-d.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/baseMessage/dept-d.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/baseMessage/dept-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/baseMessage/dept-list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/baseMessage/emp-d.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/baseMessage/emp-d.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/baseMessage/emp-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/baseMessage/emp-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/baseMessage/provider-d.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/baseMessage/provider-d.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/common/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/common/common.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/common/entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/common/entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storePss.iml" beforeDir="false" afterPath="$PROJECT_DIR$/storePss.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/static/js/common/entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/common/entity.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -510,7 +504,10 @@
       <workItem from="1584580523639" duration="9633000" />
       <workItem from="1584685122827" duration="10808000" />
       <workItem from="1584750721499" duration="11377000" />
-      <workItem from="1584837407204" duration="20941000" />
+      <workItem from="1584837407204" duration="23139000" />
+      <workItem from="1585116211068" duration="256000" />
+      <workItem from="1585356710069" duration="106000" />
+      <workItem from="1585356868704" duration="11961000" />
     </task>
     <task id="LOCAL-00001">
       <created>1567749646213</created>
@@ -834,7 +831,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584841040507</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="表之间的对应">
+      <created>1584867422139</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1584867422139</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -862,7 +866,8 @@
     <MESSAGE value="完成密码加密" />
     <MESSAGE value="员工添加完成" />
     <MESSAGE value="部门删除功能修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="部门删除功能修改" />
+    <MESSAGE value="表之间的对应" />
+    <option name="LAST_COMMIT_MESSAGE" value="表之间的对应" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="62" key="#HTTP_Proxy" timestamp="1583376098822">
@@ -877,10 +882,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="398" y="178" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.738@0.0.1366.738" timestamp="1584842148528" />
-    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser" timestamp="1584846425712">
+    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser" timestamp="1585378743158">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1584846425712" />
+    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1585378743158" />
     <state x="363" y="107" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1583908263253">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -897,10 +902,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="403" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.738@0.0.1366.738" timestamp="1584085682116" />
-    <state x="0" y="68" key="CommitChangelistDialog2" timestamp="1584841033901">
+    <state x="0" y="68" key="CommitChangelistDialog2" timestamp="1585379245783">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="0" y="68" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1584841033901" />
+    <state x="0" y="68" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1585379245783" />
     <state x="129" y="62" key="DiffContextDialog" timestamp="1583227212242">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -909,22 +914,22 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="440" y="113" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1584606981969" />
-    <state width="1323" height="227" key="GridCell.Tab.0.bottom" timestamp="1584866154324">
+    <state width="1323" height="73" key="GridCell.Tab.0.bottom" timestamp="1585379176634">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="227" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1584866154324" />
-    <state width="1323" height="227" key="GridCell.Tab.0.center" timestamp="1584866154323">
+    <state width="1323" height="73" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1585379176634" />
+    <state width="1323" height="73" key="GridCell.Tab.0.center" timestamp="1585379176634">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="227" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1584866154323" />
-    <state width="1323" height="227" key="GridCell.Tab.0.left" timestamp="1584866154323">
+    <state width="1323" height="73" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1585379176634" />
+    <state width="1323" height="73" key="GridCell.Tab.0.left" timestamp="1585379176634">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="227" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1584866154323" />
-    <state width="1323" height="227" key="GridCell.Tab.0.right" timestamp="1584866154324">
+    <state width="1323" height="73" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1585379176634" />
+    <state width="1323" height="73" key="GridCell.Tab.0.right" timestamp="1585379176634">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="227" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1584866154324" />
+    <state width="1323" height="73" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1585379176634" />
     <state width="1323" height="393" key="GridCell.Tab.1.bottom" timestamp="1583225909798">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -953,10 +958,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="163" y="0" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1583572083843" />
-    <state x="275" y="105" key="Vcs.Push.Dialog.v2" timestamp="1584867364400">
+    <state x="275" y="105" key="Vcs.Push.Dialog.v2" timestamp="1585379271413">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="105" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1584867364400" />
+    <state x="275" y="105" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1585379271413" />
     <state width="691" height="377" key="XDebugger.FullValuePopup" timestamp="1584756907580">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -989,10 +994,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="57" y="73" key="new project wizard/0.0.1366.738@0.0.1366.738" timestamp="1583580541551" />
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1584860409895">
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1585378799986">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1584860409895" />
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1585378799986" />
     <state x="484" y="275" key="svn.passwordDialog" timestamp="1583226637918">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

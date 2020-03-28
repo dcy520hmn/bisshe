@@ -12,7 +12,7 @@ function getTheProviderArea(areaIds, selectArea) {
             var ret = resJson.data;
             selectArea.provinceId = ret[0].id;
             selectArea.cityId = ret[1].id;
-            selectArea.districtId = ret[2].id;
+            selectArea.districtId = ret[2]==null?"":ret[2].id;
         }
     });
 }
@@ -30,16 +30,31 @@ function loadAreaCommon(parentId, type, area) {
     var _this = this;
     switch (type) {
         case 'province':
-            area.provinces.splice(0,area.provinces.length);
+            //清除数据
+            area.cities.splice(0,area.cities.length);
+            area.districts.splice(0,area.districts.length);
+            _this.selectArea.cityId = "";
+            _this.selectArea.districtId = "";
             findArea(parentId,type,area.provinces);
             break;
         case 'city':
+            //清除数据
             area.cities.splice(0,area.cities.length);
+            area.districts.splice(0,area.districts.length);
+            _this.selectArea.districtId = "";
             findArea(parentId,type,area.cities);
             break;
         case 'district':
             area.districts.splice(0,area.districts.length);
             findArea(parentId,type,area.districts);
+            break;
+        case 'z':
+            //清除数据
+            area.cities.splice(0,area.cities.length);
+            area.districts.splice(0,area.districts.length);
+            _this.selectArea.cityId = "";
+            _this.selectArea.districtId = "";
+            findArea(parentId,type,area.cities);
             break;
     }
 }
@@ -64,6 +79,9 @@ function findArea(parentId, type, arr) {
                         obj.text = ret[i].city;
                         break;
                     case 'district':
+                        obj.text = ret[i].district;
+                        break;
+                    case 'z':
                         obj.text = ret[i].district;
                         break;
                 }

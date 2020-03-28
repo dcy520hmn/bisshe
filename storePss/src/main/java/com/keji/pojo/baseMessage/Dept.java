@@ -16,10 +16,21 @@ public class Dept {
     @Column(name = "deptAddress")
     private String deptAddress;
 
-    @Column(name = "areaCode")
+    @Column(name = "deptAreaCode")
     private String areaCode;
 
+    @Column(name = "deptAreaName")
+    private String deptAreaName;
     private long state;
+
+
+    public String getDeptAreaName() {
+        return deptAreaName;
+    }
+
+    public void setDeptAreaName(String deptAreaName) {
+        this.deptAreaName = deptAreaName;
+    }
 
     public long getId() {
         return id;

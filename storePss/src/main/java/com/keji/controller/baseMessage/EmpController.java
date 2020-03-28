@@ -43,4 +43,9 @@ public class EmpController extends BaseController {
         return dealQueryResult(ret,ret);
     }
 
+    @RequestMapping("/delete")
+    public String delete(@RequestBody Integer[] ids){
+        int ret = empService.deleteEmp(ids);
+        return dealQueryResult(ret,ret);
+    }
 }

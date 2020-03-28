@@ -108,7 +108,7 @@ good = {
     className: ""
 }
 //部门信息
-dept = {id: "", deptName: "", areaCode: "", deptAddress: "", state: ""}
+dept = {id: "", deptName: "", areaCode: "", deptAreaName:"",deptAddress: "", state: ""}
 //员工表单信息
 empForm = {
     id: "",
@@ -134,7 +134,7 @@ selectGender = [{value: '男', text: '男'}, {value: '女', text: '女'}]
 
 //区域
 area = {provinces: [], cities: [], districts: []}
-selectArea = {provinceId: "", cityId: "", districtId: ""}
+    selectArea = {provinceId: "", cityId: "", districtId: ""}
 
 //选择商品类别
 goodClass = {bigClasses: [], midClasses: [], littleClasses: []}

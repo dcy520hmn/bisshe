@@ -67,7 +67,7 @@
 <section class="content-header">
     <h1>
         基本信息
-       <small>部门信息</small>
+        <small>部门信息</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i
@@ -85,38 +85,29 @@
             <div class="row data-type">
 
                 <div class="col-md-2 title">部门名称</div>
-                <div class="col-md-2 data">
+                <div class="col-md-4 data">
                     <input type="text" class="form-control" name="deptName"
                            placeholder="部门名称" v-model="dept.deptName"/>
                 </div>
 
-                <div class="col-md-2 title">省</div>
-                <div class="col-md-2 data">
-                    <select  id="province"  class="form-control" v-model="selectArea.provinceId"
-                            @click="loadArea(selectArea.provinceId,'city',this.area)">
+                <div class="col-md-2 title">所在地区域</div>
+                <div class="col-md-4 data">
+                    <select id="province" style="width: 100px;" v-model="selectArea.provinceId">
                         <option v-for="opt in area.provinces" :value="opt.value">{{opt.text}}</option>
                     </select>
-                </div>
-
-                <div class="col-md-2 title">市</div>
-                <div class="col-md-2 data">
-                    <select  id="city"  class="form-control" v-model="selectArea.cityId"
+                    <select id="city" style="width: 100px;" v-model="selectArea.cityId"
                             @click="loadArea(selectArea.cityId,'district',this.area)">
                         <option v-for="opt in area.cities" :value="opt.value">{{opt.text}}</option>
                     </select>
-                </div>
-
-                <div class="col-md-2 title">区/县</div>
-                <div class="col-md-2 data">
-                    <select id="district" class="form-control" v-model="selectArea.districtId">
+                    <select id="district" style="width: 100px;" v-model="selectArea.districtId">
                         <option v-for="opt in area.districts" :value="opt.value">{{opt.text}}</option>
                     </select>
                 </div>
 
                 <div class="col-md-2 title">详细地址</div>
-                <div class="col-md-2 data">
+                <div class="col-md-4 data">
                     <input type="text" class="form-control" name="name"
-                           placeholder="详细地址" v-model="addressDetail">
+                           placeholder="详细地址" v-model="dept.deptAddress">
                 </div>
 
             </div>
@@ -143,7 +134,7 @@
 <script src="/js/common/common.js"></script>
 <script src="/js/common/entity.js"></script>
 <script>
-    new Vue({
+    var vm = new Vue({
         el: "#div1",
 
         data: {
@@ -151,7 +142,6 @@
             area: area,
             selectArea: selectArea,
             type: "",
-            addressDetail:""
         },
         created: function () {
             this.type = getUrlKey('type');
@@ -180,12 +170,17 @@
                     if (res.data.code == 0) {
                         var ret = res.data.data.list[0];
                         _this.dept = res.data.data.list[0];
-                        _this.addressDetail = _this.dept.deptAddress;
                         getTheProviderArea(_this.dept.areaCode, _this.selectArea);
                         var areaIds = _this.dept.areaCode.split(".");
-                        _this.loadArea(1, "province",this.area);
-                        _this.loadArea(areaIds[0], "city",this.area);
-                        _this.loadArea(areaIds[1], "district",this.area);
+                        _this.loadArea(1, "province", this.area);
+                        if(areaIds[0]=='2'||
+                            areaIds[0]=='19'||
+                            areaIds[0]=='857'){
+                            _this.loadArea(areaIds[0], "z", this.area);
+                        }else{
+                            _this.loadArea(areaIds[0], "city", this.area);
+                        }
+                        _this.loadArea(areaIds[1], "district", this.area);
                     }
                 });
             },
@@ -201,10 +196,6 @@
                     alert("市不能为空");
                     return ret;
                 }
-                if (this.selectArea.districtId == "") {
-                    alert("区县不能为空");
-                    return ret;
-                }
 
                 if (this.dept.deptName == null || this.dept.deptName.trim().length === 0) {
                     alert("部门不能为空");
@@ -215,11 +206,11 @@
 
             //更新
             update() {
-                if(confirm("是否修改")) {
+                if (confirm("是否修改")) {
                     if (this.saveCheck()) {
                         let _this = this;
                         _this.dept.areaCode = _this.selectArea.provinceId + "." + _this.selectArea.cityId + "." + _this.selectArea.districtId;
-                        _this.dept.deptAddress=$("#province option:selected").text()+ $("#city option:selected").text()+ $("#district option:selected").text()+_this.addressDetail;
+                        _this.dept.deptAreaName = $("#province option:selected").text() + $("#city option:selected").text() + $("#district option:selected").text();
                         axios.post("/dept/update", _this.dept).then(function (res) {
                             if (res.data.data > 0) {
                                 alert("修改成功");
@@ -236,8 +227,8 @@
             save() {
                 if (this.saveCheck()) {
                     let _this = this;
-                    dept.areaCode = _this.selectArea.provinceId + "." + _this.selectArea.cityId + "." + _this.selectArea.districtId;
-                    _this.dept.deptAddress=$("#province option:selected").text()+ $("#city option:selected").text()+ $("#district option:selected").text()+_this.addressDetail;
+                    _this.dept.areaCode = _this.selectArea.provinceId + "." + _this.selectArea.cityId + "." + _this.selectArea.districtId;
+                    _this.dept.deptAreaName = $("#province option:selected").text() + $("#city option:selected").text() + $("#district option:selected").text();
                     axios.post("/dept/insert", _this.dept).then(function (res) {
                         if (res.data.data > 0) {
                             alert("添加成功");
@@ -254,7 +245,18 @@
 
     });
 </script>
-
+<script>
+    $(document).ready(function () {
+        $('#province').click(function () {
+            var pId = this.value;
+            if (pId == 2 || pId == 19 || pId == 857) {
+                vm.loadArea(pId, 'z', vm.area)
+            } else {
+                vm.loadArea(pId, 'city', vm.area)
+            }
+        });
+    });
+</script>
 </body>
 
 </html>

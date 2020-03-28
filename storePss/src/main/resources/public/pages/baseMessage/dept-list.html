@@ -132,7 +132,7 @@
                         <td><input name="ids" v-model="selectId" :value="dept.id" type="checkbox"></td>
                         <td>{{dept.id}}</td>
                         <td>{{dept.deptName}}</td>
-                        <td>{{dept.deptAddress}}</td>
+                        <td>{{dept.deptAreaName+dept.deptAddress}}</td>
                     </tr>
                     </tbody>
                 </table>
@@ -219,7 +219,6 @@
 
             deleteDept() {
                 let _this = this;
-                console.log(this.selectId);
                 if(this.selectId.length<=0){
                     alert("请选中商品");
                     return;
