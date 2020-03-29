@@ -320,7 +320,6 @@
             save() {
                 if (this.saveCheck()) {
                     let _this = this;
-                    console.log(this.selectGoodClass);
                     _this.good.gClass = _this.selectGoodClass.bigClassCode+"."+ _this.selectGoodClass.midClassCode+"."+ _this.selectGoodClass.littleClassCode;
                     _this.good.className = $("#big option:selected").text()+'/'+$("#mid option:selected").text()+"/"+$("#lettle option:selected").text();
                     axios.post("/good/insert", _this.good).then(function (res) {

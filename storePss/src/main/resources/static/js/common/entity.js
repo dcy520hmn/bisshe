@@ -131,6 +131,15 @@ empForm = {
     roleId:"",
     roleList:""
 }
+
+//仓库
+repository = {
+    id:"",
+    name:"",
+    code:"",
+    remark:""
+}
+
 //性别下拉选
 selectGender = [{value: '男', text: '男'}, {value: '女', text: '女'}]
 
