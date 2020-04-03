@@ -8,7 +8,7 @@ public class Dept {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "deptId")
-    private long id;
+    private Integer id;
 
     @Column(name = "deptName")
     private String deptName;
@@ -21,7 +21,7 @@ public class Dept {
 
     @Column(name = "deptAreaName")
     private String deptAreaName;
-    private long state;
+    private Integer state;
 
 
     public String getDeptAreaName() {
@@ -32,11 +32,11 @@ public class Dept {
         this.deptAreaName = deptAreaName;
     }
 
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -64,11 +64,11 @@ public class Dept {
         this.areaCode = areaCode;
     }
 
-    public long getState() {
+    public Integer getState() {
         return state;
     }
 
-    public void setState(long state) {
+    public void setState(Integer state) {
         this.state = state;
     }
 }

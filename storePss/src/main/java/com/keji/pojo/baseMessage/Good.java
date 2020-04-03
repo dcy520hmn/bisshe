@@ -36,7 +36,7 @@ public class Good {
   private Double cost;
   @Column(name = "gRemark")
   private String remark;
-  private long state;
+  private Integer state;
   public Integer getId() {
     return id;
   }
@@ -141,11 +141,11 @@ public class Good {
     this.remark = remark;
   }
 
-  public long getState() {
+  public Integer getState() {
     return state;
   }
 
-  public void setState(long state) {
+  public void setState(Integer state) {
     this.state = state;
   }
 }

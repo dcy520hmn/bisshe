@@ -15,6 +15,16 @@ public class Repository {
   private String code;
   @Column(name = "rRemark")
   private String remark;
+  @Column(name = "state")
+  private Integer state;
+
+  public Integer getState() {
+    return state;
+  }
+
+  public void setState(Integer state) {
+    this.state = state;
+  }
 
   public long getId() {
     return id;

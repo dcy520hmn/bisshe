@@ -41,6 +41,6 @@ public class TProvider implements Serializable {
   @Column(name = "pEmail")
   private String email;
   @Column(name = "state")
-  private long state;
+  private Integer state;
 
 }

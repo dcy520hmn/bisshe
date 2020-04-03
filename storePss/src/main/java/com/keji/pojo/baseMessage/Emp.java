@@ -28,9 +28,9 @@ public class Emp {
   @Column(name = "hiredate")
   private Date hireDate;
   @Column(name = "deptId")
-  private long deptId;
+  private Integer deptId;
   private Double salary;
-  private long sate;
+  private Integer sate;
 
   @Transient
   private Dept dept;
@@ -147,11 +147,11 @@ public class Emp {
     setHireDateStr(new SimpleDateFormat("yyyy年MM月dd日").format(hireDate));
   }
 
-  public long getDeptId() {
+  public Integer getDeptId() {
     return deptId;
   }
 
-  public void setDeptId(long deptId) {
+  public void setDeptId(Integer deptId) {
     this.deptId = deptId;
   }
 
@@ -163,11 +163,11 @@ public class Emp {
     this.salary = salary;
   }
 
-  public long getSate() {
+  public Integer getSate() {
     return sate;
   }
 
-  public void setSate(long sate) {
+  public void setSate(Integer sate) {
     this.sate = sate;
   }
 

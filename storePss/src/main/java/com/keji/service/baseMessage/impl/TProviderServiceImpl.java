@@ -45,6 +45,7 @@ public class TProviderServiceImpl implements TProviderService {
         if(StringUtils.isNotEmpty(shortName)){
             example.createCriteria().andLike("shortName",shortName);
         }
+        example.createCriteria().andEqualTo("state",1);
         Page<TProvider> providerPage = (Page<TProvider>) tProviderServiceMapper.selectByExample(example);
         PageInfo<TProvider> pageInfo = new PageInfo<>(providerPage);
         return pageInfo;
@@ -60,7 +61,11 @@ public class TProviderServiceImpl implements TProviderService {
         int result = 0;
         if(ids != null){
             for (Integer id : ids) {
-                result =  tProviderServiceMapper.deleteByPrimaryKey(id);
+                TProvider tProvider = new  TProvider();
+                tProvider.setState(0);
+                Example example = new Example(TProvider.class);
+                example.createCriteria().andEqualTo("id",id);
+                result = tProviderServiceMapper.updateByExampleSelective(tProvider,example);
             }
         }
         return result;

@@ -1,20 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="61be1ebb-4faa-42f2-8603-40ea841ebc4e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/keji/controller/baseMessage/RepositoryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/keji/mapper/baseMessage/RepositoryMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/keji/pojo/baseMessage/Repository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/RepositoryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/impl/RepositoryServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/pages/baseMessage/repository-d.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/pages/baseMessage/repository-list.html" afterDir="false" />
+    <list default="true" id="61be1ebb-4faa-42f2-8603-40ea841ebc4e" name="Default Changelist" comment="仓库基础信息完成">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/keji/mapper/repository/GoodsRepositoryInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/keji/pojo/repository/GoodRepositoryInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/repository/findGoodsRepositoryInfo.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/purchaseOrder-d.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/purchaseOrder-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/purchaseOrderDetail-d.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/pages/repository/goodsRepositoryInfo-list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/log.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/baseMessage/good-d.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/baseMessage/good-d.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/baseMessage/good-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/baseMessage/good-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/common/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/common/common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/StorePssApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/StorePssApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/baseMessage/Dept.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/pojo/baseMessage/Dept.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/baseMessage/Emp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/pojo/baseMessage/Emp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/baseMessage/Good.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/pojo/baseMessage/Good.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/baseMessage/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/pojo/baseMessage/Repository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/baseMessage/TProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/pojo/baseMessage/TProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/impl/DeptServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/impl/DeptServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/impl/EmServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/impl/EmServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/impl/GoodServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/impl/GoodServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/impl/RepositoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/impl/RepositoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/impl/TProviderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/impl/TProviderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/baseMessage/EmpMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/baseMessage/EmpMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/baseMessage/dept-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/baseMessage/dept-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/cust/cust-list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/repository-add.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/repository-del.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/repository-inquiry.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/view.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/salary/all-admin-dataform.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/salary/dealsalary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/salary/querysalary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/salary/sendSalary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/sale/cashierDesk.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/sale/closeAnAccount.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/sale/directList.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/sale/directSale.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/sale/refund.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/sale/reserve.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/common/entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/common/entity.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/pages/cust/cust-list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/pages/purchase/repository-add.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/pages/purchase/repository-del.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/pages/purchase/repository-inquiry.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/pages/purchase/view.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/pages/salary/all-admin-dataform.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/pages/salary/dealsalary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/pages/salary/querysalary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/pages/salary/sendSalary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/pages/sale/cashierDesk.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/pages/sale/closeAnAccount.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/pages/sale/directList.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/pages/sale/directSale.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/pages/sale/refund.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/pages/sale/reserve.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/static/js/common/entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/common/entity.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,6 +97,13 @@
         <item name="MySQL for 5.1 - bishe@127.0.0.1" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="bishe: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="MySQL for 5.1 - bishe@127.0.0.1" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="bishe: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="t_repository: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -113,7 +162,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/public/pages/baseMessage" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/public/pages/repository" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -130,12 +179,12 @@
     <property name="settings.editor.selected.configurable" value="project.propCompiler" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\QQFile\bishe\project2\storePss\src\main\resources\com\keji\mapper\role" />
-      <recent name="D:\compileStudy\salesystem\src\main\resources\static\js\common" />
-      <recent name="D:\compileStudy\salesystem\src\main\resources\static\js\vue" />
-      <recent name="D:\compileStudy\salesystem\src\main\resources\public" />
-      <recent name="D:\compileStudy\salesystem\src\main\resources" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\QQFile\bishe\project2\storePss\src\main\resources\public\pages\repository" />
+      <recent name="D:\QQFile\bishe\project2\storePss\src\main\resources\public\pages\purchase" />
+      <recent name="D:\QQFile\bishe\project2\storePss\src\main\resources\public\pages\baseMessage" />
+      <recent name="D:\QQFile\bishe\project2\storePss\src\main\java\com\keji\pojo\authority" />
+      <recent name="D:\QQFile\bishe\project2\storePss\src\main\java\com\keji\service\area" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.keji.controller.baseMessage" />
@@ -144,12 +193,12 @@
       <recent name="com.keji.mapper.baseMessage" />
       <recent name="com.keji.common.utils" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\QQFile\bishe\project2\storePss\src\main\resources\public\pages\baseMessage" />
-      <recent name="D:\QQFile\bishe\project2\storePss\src\main\java\com\keji\pojo\authority" />
-      <recent name="D:\QQFile\bishe\project2\storePss\src\main\java\com\keji\service\area" />
-      <recent name="D:\QQFile\bishe\project2\storePss\src\main\resources\public\pages\sysSetting" />
-      <recent name="D:\QQFile\bishe\project2\salesystem\src\main\resources\public\pages\volunteer" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\QQFile\bishe\project2\storePss\src\main\resources\com\keji\mapper\role" />
+      <recent name="D:\compileStudy\salesystem\src\main\resources\static\js\common" />
+      <recent name="D:\compileStudy\salesystem\src\main\resources\static\js\vue" />
+      <recent name="D:\compileStudy\salesystem\src\main\resources\public" />
+      <recent name="D:\compileStudy\salesystem\src\main\resources" />
     </key>
   </component>
   <component name="RunManager" selected="Application.StorePssApplication">
@@ -495,14 +544,17 @@
       <workItem from="1585116211068" duration="256000" />
       <workItem from="1585356710069" duration="106000" />
       <workItem from="1585356868704" duration="19706000" />
-      <workItem from="1585446092689" duration="2730000" />
-    </task>
-    <task id="LOCAL-00001">
-      <created>1567749646213</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1567749646213</updated>
+      <workItem from="1585446092689" duration="9187000" />
+      <workItem from="1585535611337" duration="2327000" />
+      <workItem from="1585633753604" duration="3704000" />
+      <workItem from="1585657968260" duration="14000" />
+      <workItem from="1585658572939" duration="1036000" />
+      <workItem from="1585711569392" duration="319000" />
+      <workItem from="1585720320129" duration="2750000" />
+      <workItem from="1585809315110" duration="5541000" />
+      <workItem from="1585896465230" duration="19000" />
+      <workItem from="1585896624356" duration="357000" />
+      <workItem from="1585897159298" duration="3671000" />
     </task>
     <task id="LOCAL-00002">
       <created>1567749877974</created>
@@ -840,7 +892,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585386949506</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="仓库基础信息完成">
+      <created>1585449306737</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1585449306737</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -871,7 +930,8 @@
     <MESSAGE value="表之间的对应" />
     <MESSAGE value="区域、部门区域功能改善" />
     <MESSAGE value="员工增删改查完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="员工增删改查完成" />
+    <MESSAGE value="仓库基础信息完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="仓库基础信息完成" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="62" key="#HTTP_Proxy" timestamp="1583376098822">
@@ -886,18 +946,18 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="398" y="178" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.738@0.0.1366.738" timestamp="1585447546877" />
-    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser" timestamp="1585448092735">
+    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser" timestamp="1585899815374">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1585448092735" />
+    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1585899815374" />
     <state x="363" y="107" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1585446136405">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="363" y="107" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.738@0.0.1366.738" timestamp="1585446136405" />
-    <state x="490" y="297" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1583377631709">
+    <state x="490" y="297" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1585812524434">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="490" y="297" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1366.738@0.0.1366.738" timestamp="1583377631709" />
+    <state x="490" y="297" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1366.738@0.0.1366.738" timestamp="1585812524434" />
     <state x="467" y="236" width="444" height="272" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1584087163231">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -906,10 +966,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="403" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.738@0.0.1366.738" timestamp="1584085682116" />
-    <state x="0" y="68" key="CommitChangelistDialog2" timestamp="1585449273461">
+    <state x="0" y="68" key="CommitChangelistDialog2" timestamp="1585449314764">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="0" y="68" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1585449273461" />
+    <state x="0" y="68" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1585449314764" />
     <state x="129" y="62" key="DiffContextDialog" timestamp="1583227212242">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -918,22 +978,22 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="440" y="113" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1585446378406" />
-    <state width="1323" height="150" key="GridCell.Tab.0.bottom" timestamp="1585449273500">
+    <state width="1323" height="265" key="GridCell.Tab.0.bottom" timestamp="1585900482071">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="150" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1585449273500" />
-    <state width="1323" height="150" key="GridCell.Tab.0.center" timestamp="1585449273500">
+    <state width="1323" height="265" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1585900482071" />
+    <state width="1323" height="265" key="GridCell.Tab.0.center" timestamp="1585900482071">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="150" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1585449273500" />
-    <state width="1323" height="150" key="GridCell.Tab.0.left" timestamp="1585449273500">
+    <state width="1323" height="265" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1585900482071" />
+    <state width="1323" height="265" key="GridCell.Tab.0.left" timestamp="1585900482071">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="150" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1585449273500" />
-    <state width="1323" height="150" key="GridCell.Tab.0.right" timestamp="1585449273500">
+    <state width="1323" height="265" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1585900482071" />
+    <state width="1323" height="265" key="GridCell.Tab.0.right" timestamp="1585900482071">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="150" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1585449273500" />
+    <state width="1323" height="265" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1585900482071" />
     <state width="1323" height="393" key="GridCell.Tab.1.bottom" timestamp="1583225909798">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -962,10 +1022,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="163" y="0" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1583572083843" />
-    <state x="275" y="105" key="Vcs.Push.Dialog.v2" timestamp="1585449282493">
+    <state x="275" y="105" key="Vcs.Push.Dialog.v2" timestamp="1585900884699">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="105" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1585449282493" />
+    <state x="275" y="105" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1585900884699" />
     <state width="691" height="377" key="XDebugger.FullValuePopup" timestamp="1585386499811">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -974,26 +1034,26 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="263" y="27" key="com.intellij.database.dbimport.ImportDialog/0.0.1366.738@0.0.1366.738" timestamp="1583392444129" />
-    <state x="92" y="92" width="1182" height="550" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1584865171935">
+    <state x="92" y="92" width="1182" height="550" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1585720936295">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="92" y="92" width="1182" height="550" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.738@0.0.1366.738" timestamp="1584865171935" />
+    <state x="92" y="92" width="1182" height="550" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.738@0.0.1366.738" timestamp="1585720936295" />
     <state x="484" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584089191462">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="484" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.738@0.0.1366.738" timestamp="1584089191462" />
-    <state x="477" y="287" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584094007284">
+    <state x="477" y="287" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585812713212">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="477" y="287" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1584094007284" />
+    <state x="477" y="287" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1585812713212" />
     <state x="237" y="108" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1584686461668">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="237" y="108" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1366.738@0.0.1366.738" timestamp="1584686461668" />
-    <state x="370" y="124" width="626" height="490" key="find.popup" timestamp="1585448625391">
+    <state x="370" y="124" width="626" height="490" key="find.popup" timestamp="1585812741650">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="370" y="124" width="626" height="490" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1585448625391" />
+    <state x="370" y="124" width="626" height="490" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1585812741650" />
     <state x="57" y="73" key="new project wizard" timestamp="1583580541551">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -1002,10 +1062,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1585386048151" />
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1585378799986">
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1585897192589">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1585378799986" />
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1585897192589" />
     <state x="484" y="275" key="svn.passwordDialog" timestamp="1583226637918">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -1049,13 +1109,28 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/impl/EmServiceImpl.java</url>
-          <line>61</line>
+          <line>63</line>
           <option name="timeStamp" value="54" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/impl/EmServiceImpl.java</url>
-          <line>112</line>
+          <line>118</line>
           <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/impl/TProviderServiceImpl.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/impl/RepositoryServiceImpl.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/impl/TProviderServiceImpl.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="64" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/main/resources/public/pages/baseMessage/goodMessage.html</url>

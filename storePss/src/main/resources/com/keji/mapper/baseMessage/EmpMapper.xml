@@ -33,9 +33,9 @@
         SELECT emp.id AS userId,emp.identity,emp.address,emp.areaCode AS empAreaCode,emp.birthday,emp.gender,emp.hiredate,emp.name,emp.phone,emp.salary,emp.sate,
         dept.*,role.role_roleId,role.role_roleName
         FROM t_emp emp
-        LEFT JOIN  t_dept dept
-        ON emp.deptId = dept.deptId
-        LEFT JOIN t_user tuser
+        JOIN  t_dept dept
+        ON emp.deptId = dept.deptId AND dept.state = 1
+        JOIN t_user tuser
         ON tuser.emp_id = emp.id
         LEFT JOIN t_user_role tur
         ON tur.ur_userId = tuser.user_id

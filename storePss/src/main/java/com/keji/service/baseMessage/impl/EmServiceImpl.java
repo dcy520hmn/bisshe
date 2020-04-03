@@ -8,6 +8,7 @@ import com.keji.mapper.authority.UserMapper;
 import com.keji.mapper.baseMessage.EmpMapper;
 import com.keji.pojo.authority.UserInfo;
 import com.keji.pojo.baseMessage.Emp;
+import com.keji.pojo.baseMessage.Good;
 import com.keji.service.baseMessage.EmpService;
 import org.apache.commons.collections.MapUtils;
 import org.apache.shiro.crypto.hash.SimpleHash;
@@ -15,6 +16,7 @@ import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import tk.mybatis.mapper.entity.Example;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -42,7 +44,7 @@ public class EmServiceImpl implements EmpService {
         PageHelper.startPage(MapUtils.getInteger(params, "pageNum"), MapUtils.getInteger(params, "pageSize"));
         Integer deptId = MapUtils.getIntValue(params, "deptId");
         Integer empId = MapUtils.getIntValue(params, "empId");
-        Page<Emp> providerPage = (Page<Emp>) empMapper.findUserByConditions(deptId, empId);
+        Page<Emp> providerPage =  empMapper.findUserByConditions(deptId, empId);
         PageInfo<Emp> pageInfo = new PageInfo<>(providerPage);
         return pageInfo;
     }
@@ -68,7 +70,7 @@ public class EmServiceImpl implements EmpService {
             emp.setAddress(MapUtils.getString(params, "address"));
             emp.setAreaCode(MapUtils.getString(params, "areaCode"));
             emp.setBirthday(new SimpleDateFormat("yyyy年MM月dd日").parse(MapUtils.getString(params, "birthday")));
-            emp.setDeptId(MapUtils.getLongValue(params, "deptId"));
+            emp.setDeptId(MapUtils.getInteger(params, "deptId"));
             emp.setGender(MapUtils.getString(params, "gender"));
             emp.setHireDate(new SimpleDateFormat("yyyy年MM月dd日").parse(MapUtils.getString(params, "hireDate")));
             emp.setIdentity(MapUtils.getString(params, "identity"));
@@ -99,7 +101,11 @@ public class EmServiceImpl implements EmpService {
         int result = 0;
         if (ids != null) {
             for (Integer id : ids) {
-                result = empMapper.deleteByPrimaryKey(id);
+                Emp emp = new Emp();
+                emp.setSate(0);
+                Example example = new Example(Emp.class);
+                example.createCriteria().andEqualTo("id",id);
+                result = empMapper.updateByExampleSelective(emp,example);
             }
         }
         return result;
@@ -115,7 +121,7 @@ public class EmServiceImpl implements EmpService {
             emp.setAddress(MapUtils.getString(params, "address"));
             emp.setAreaCode(MapUtils.getString(params, "areaCode"));
             emp.setBirthday(new SimpleDateFormat("yyyy年MM月dd日").parse(MapUtils.getString(params, "birthday")));
-            emp.setDeptId(MapUtils.getLongValue(params, "deptId"));
+            emp.setDeptId(MapUtils.getInteger(params, "deptId"));
             emp.setGender(MapUtils.getString(params, "gender"));
             emp.setHireDate(new SimpleDateFormat("yyyy年MM月dd日").parse(MapUtils.getString(params, "hireDate")));
             emp.setIdentity(MapUtils.getString(params, "identity"));

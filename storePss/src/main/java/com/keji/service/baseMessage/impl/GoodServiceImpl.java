@@ -7,6 +7,7 @@ import com.keji.common.utils.StringUtils;
 import com.keji.mapper.baseMessage.GoodMapper;
 import com.keji.pojo.baseMessage.Good;
 import com.keji.pojo.baseMessage.Good;
+import com.keji.pojo.baseMessage.TProvider;
 import com.keji.service.baseMessage.GoodService;
 import org.apache.commons.collections.MapUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,7 @@ public class GoodServiceImpl implements GoodService {
         if(StringUtils.isNotEmpty(helpNum)){
             example.createCriteria().andLike("helpNum",helpNum);
         }
+        example.createCriteria().andEqualTo("state",1);
         Page<Good> providerPage = (Page<Good>) goodsMapper.selectByExample(example);
         PageInfo<Good> pageInfo = new PageInfo<>(providerPage);
         return pageInfo;
@@ -55,7 +57,11 @@ public class GoodServiceImpl implements GoodService {
         int result = 0;
         if(ids != null){
             for (Integer id : ids) {
-                result =  goodsMapper.deleteByPrimaryKey(id);
+                Good good = new Good();
+                good.setState(0);
+                Example example = new Example(Good.class);
+                example.createCriteria().andEqualTo("id",id);
+                result = goodsMapper.updateByExampleSelective(good,example);
             }
         }
         return result;

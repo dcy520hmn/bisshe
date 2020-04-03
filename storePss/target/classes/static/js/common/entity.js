@@ -87,7 +87,7 @@ provider = {
     present: "",
     postcode: "",
     email: "",
-    state: "",
+    state: 1,
 }
 
 //商品信息
@@ -104,11 +104,11 @@ good = {
     prePrice: "",
     cost: "",
     remark: "",
-    state: "",
+    state: 1,
     className: ""
 }
 //部门信息
-dept = {id: "", deptName: "", areaCode: "", deptAreaName:"",deptAddress: "", state: ""}
+dept = {id: "", deptName: "", areaCode: "", deptAreaName:"",deptAddress: "", state: 1}
 //员工表单信息
 empForm = {
     id: "",
@@ -137,7 +137,8 @@ repository = {
     id:"",
     name:"",
     code:"",
-    remark:""
+    remark:"",
+    state:1
 }
 
 //性别下拉选

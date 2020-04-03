@@ -5,6 +5,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.keji.common.utils.StringUtils;
 import com.keji.mapper.baseMessage.RepositoryMapper;
+import com.keji.pojo.baseMessage.Good;
 import com.keji.pojo.baseMessage.Repository;
 import com.keji.service.baseMessage.RepositoryService;
 import org.apache.commons.collections.MapUtils;
@@ -35,6 +36,7 @@ public class RepositoryServiceImpl implements RepositoryService {
         if(StringUtils.isNotEmpty(code)){
             example.createCriteria().andLike("rCode",code);
         }
+        example.createCriteria().andEqualTo("state",1);
         Page<Repository> providerPage = (Page<Repository>) repositoryMapper.selectByExample(example);
         PageInfo<Repository> pageInfo = new PageInfo<>(providerPage);
         return pageInfo;
@@ -50,7 +52,11 @@ public class RepositoryServiceImpl implements RepositoryService {
         int result = 0;
         if(ids != null){
             for (Integer id : ids) {
-                result =  repositoryMapper.deleteByPrimaryKey(id);
+                Repository repository = new Repository();
+                repository.setState(0);
+                Example example = new Example(Repository.class);
+                example.createCriteria().andEqualTo("id",id);
+                result =  repositoryMapper.updateByExampleSelective(repository,example);
             }
         }
         return result;

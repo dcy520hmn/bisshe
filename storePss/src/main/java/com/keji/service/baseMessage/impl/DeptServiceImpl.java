@@ -6,6 +6,7 @@ import com.github.pagehelper.PageInfo;
 import com.keji.common.utils.StringUtils;
 import com.keji.mapper.baseMessage.DeptMapper;
 import com.keji.pojo.baseMessage.Dept;
+import com.keji.pojo.baseMessage.Good;
 import com.keji.service.baseMessage.DeptService;
 import com.keji.service.baseMessage.EmpService;
 import org.apache.commons.collections.MapUtils;
@@ -44,6 +45,7 @@ public class DeptServiceImpl implements DeptService {
         Example example = new Example(Dept.class);
         Integer id = MapUtils.getInteger(params,"deptId");
         String deptName = MapUtils.getString(params,"deptName");
+        example.createCriteria().andEqualTo("state",1);
         if(StringUtils.isNotEmpty(id)){
             example.createCriteria().andEqualTo("id",id);
         }
@@ -62,20 +64,15 @@ public class DeptServiceImpl implements DeptService {
 
     @Override
     public int deleteDept(Integer[] ids) {
-        for (int i = 0; i < ids.length; i++) {
-            Map params = new HashMap();
-            params.put("deptId",ids[i]);
-            List ret = (List)empService.queryEmp(params);
-            if(ret.size()>0){
-                return ids[i];
-            }
-        }
-        int result = -1;
+        int result = 0;
         if(ids != null){
             for (Integer id : ids) {
-                result =  deptMapper.deleteByPrimaryKey(id);
+                Dept dept = new Dept();
+                dept.setState(0);
+                Example example = new Example(Dept.class);
+                example.createCriteria().andEqualTo("id",id);
+                result = deptMapper.updateByExampleSelective(dept,example);
             }
-            result = 0;
         }
         return result;
     }
