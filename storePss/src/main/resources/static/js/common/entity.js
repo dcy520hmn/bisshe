@@ -1,21 +1,4 @@
-/*商品pojo*/
-goods = {
-    id: "",
-    name: "",
-    alert: "",
-    specification: "",
-    unit: "",
-    origan: "",
-    remark: "",
-    createDate: "",
-    updateDate: "",
-    isDelete: "",
-    modifier: "",
-    selling: "",
-    repositoryNumber: ""
-},
-
-    /*分页pojo*/
+ /*分页pojo*/
     pageInfo = {
         list: [],
         pageNum: 1,
@@ -108,14 +91,14 @@ good = {
     className: ""
 }
 //部门信息
-dept = {id: "", deptName: "", areaCode: "", deptAreaName:"",deptAddress: "", state: 1}
+dept = {id: "", deptName: "", areaCode: "", deptAreaName: "", deptAddress: "", state: 1}
 //员工表单信息
 empForm = {
     id: "",
     name: "",
     gender: "",
     birthday: "",
-    birthdayStr:"",
+    birthdayStr: "",
     identity: "",
     phone: "",
     address: "",
@@ -127,18 +110,18 @@ empForm = {
     sate: "",
     userName: "",
     password: "",
-    dept:"",
-    roleId:"",
-    roleList:""
+    dept: "",
+    roleId: "",
+    roleList: ""
 }
 
 //仓库
 repository = {
-    id:"",
-    name:"",
-    code:"",
-    remark:"",
-    state:1
+    id: "",
+    name: "",
+    code: "",
+    remark: "",
+    state: 1
 }
 
 //性别下拉选
@@ -146,12 +129,21 @@ selectGender = [{value: '男', text: '男'}, {value: '女', text: '女'}]
 
 //区域
 area = {provinces: [], cities: [], districts: []}
-    selectArea = {provinceId: "", cityId: "", districtId: ""}
+selectArea = {provinceId: "", cityId: "", districtId: ""}
 
 //选择商品类别
 goodClass = {bigClasses: [], midClasses: [], littleClasses: []}
 selectGoodClass = {bigClassCode: "", midClassCode: "", littleClassCode: ""}
 
+//商品库存信息
+goodStockInfo = {
+    id:"",
+    number:"",
+    total:"",
+    provider:provider,
+    good:good,
+    repository:repository
+}
 
 //手机验证码正则
 phoneReg = /^[1][3,4,5,7,8][0-9]{9}$/
@@ -169,5 +161,5 @@ price = /^(([^0][0-9]+|0)\.([0-9]{1,2})$)|^([^0][0-9]+|0)$/
 reg_null = /^\s*$/g
 
 //身份证正则
-reg_identity=/^[1-9][0-9]{5}([1][9][0-9]{2}|[2][0][0|1][0-9])([0][1-9]|[1][0|1|2])([0][1-9]|[1|2][0-9]|[3][0|1])[0-9]{3}([0-9]|[X])$/;
+reg_identity = /^[1-9][0-9]{5}([1][9][0-9]{2}|[2][0][0|1][0-9])([0][1-9]|[1][0|1|2])([0][1-9]|[1|2][0-9]|[3][0|1])[0-9]{3}([0-9]|[X])$/;
 

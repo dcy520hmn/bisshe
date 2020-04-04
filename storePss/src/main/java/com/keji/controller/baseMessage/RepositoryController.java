@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -29,6 +30,12 @@ public class RepositoryController extends BaseController {
     public String findRepository(@RequestBody  Map params){
         PageInfo<Repository> pageInfo = repositoryService.queryRepository(params);
         return dealQueryResult(pageInfo,pageInfo);
+    }
+
+    @RequestMapping("/findRepositoryByNoPage")
+    public String findRepository(){
+        List<Repository> info = repositoryService.queryRepositoryByNoPage();
+        return dealQueryResult(info,info);
     }
 
     /**

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -33,6 +34,11 @@ public class TProviderController extends BaseController {
         return dealQueryResult(pageInfo,pageInfo);
     }
 
+    @RequestMapping("/findProviderByNoPage")
+    public String findProviderByNoPage(){
+        List<TProvider> ret = tProviderService.queryProviderByNoPage();
+        return dealQueryResult(ret,ret);
+    }
     /**
      * 增加供应商
      * @param authority

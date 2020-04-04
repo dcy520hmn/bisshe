@@ -3,6 +3,7 @@ package com.keji.service.baseMessage;
 import com.github.pagehelper.PageInfo;
 import com.keji.pojo.baseMessage.Repository;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -14,6 +15,8 @@ import java.util.Map;
  */
 public interface RepositoryService {
     PageInfo<Repository> queryRepository(Map params);
+
+    List<Repository> queryRepositoryByNoPage();
 
     int insertRepository(Repository good);
 

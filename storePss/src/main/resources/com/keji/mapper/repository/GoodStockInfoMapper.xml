@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.keji.mapper.repository.GoodStockInfoMapper">
+    <resultMap id="goodStockInfo" type="goodStockInfo">
+
+        <id property="id" column="tgrId"/>
+        <result property="number" column="iniStoNum"/>
+        <result property="total" column="total"/>
+        <!--仓库-->
+        <association property="repository" javaType="repository">
+            <id property="id" column="rId"/>
+            <result property="name" column="rName"/>
+        </association>
+
+        <!--商品-->
+        <association property="good" javaType="good">
+            <id property="id" column="gID"/>
+            <result property="className" column="gClassName"/>
+            <result property="size" column="gSize"/>
+            <result property="type" column="gType"/>
+            <result property="name" column="gName"/>
+            <result property="cost" column="gCost"/>
+            <result property="max" column="gMax"/>
+            <result property="min" column="gMin"/>
+        </association>
+
+        <!--供应商-->
+        <association property="tProvider" javaType="tProvider">
+            <id property="id" column="pId"/>
+            <result property="name" column="pName"/>
+        </association>
+    </resultMap>
+
+    <select id="findGoodStockInfo" resultMap="goodStockInfo">
+        SELECT tgr.tgrId,tgr.iniStoNum,total.total,tr.rId,tr.rName,tg.gID,tg.gClassName,tg.gSize,tg.gType,tg.gName,tg.gCost,tg.gMin,tg.gMax,tp.pId,tp.pName
+        FROM t_goods_repsoritory tgr
+        JOIN t_repository tr on tgr.rId = tr.rId AND tr.state = 1
+        JOIN t_goods tg on tgr.gID = tg.gID AND tg.state = 1
+        JOIN t_provider tp on tgr.posId = tp.pId AND tp.state = 1
+        JOIN (
+            SELECT gid,SUM(iniStoNum) total
+            FROM  t_goods_repsoritory
+            GROUP BY gid
+        ) total ON total.gid = tgr.gID
+        <where>
+            <if test="rId != null  and rId != '' ">
+                AND tr.rId = #{rId}
+            </if>
+            <if test="posId != null  and posId != '' ">
+                AND tp.posId = #{posId}
+            </if>
+            <if test="gName != null  and gName != '' ">
+                AND tg.gName LIKE '%${gName}%'
+            </if>
+            <if test="gHelpName != null  and  gHelpName!= '' ">
+                AND tg.gHelpNum LIKE  '%${gHelpName}%'
+            </if>
+            <if test="selectStockState != null  and selectStockState == 1">
+                AND tgr.iniStoNum >= tg.gMax
+            </if>
+            <if test="selectStockState != null and selectStockState == 0">
+                AND (tgr.iniStoNum >= tg.gMin AND tgr.iniStoNum &lt; tg.gMax)
+            </if>
+            <if test="selectStockState != null  and selectStockState == -1">
+                AND (tgr.iniStoNum &lt; tg.gMin)
+            </if>
+        </where>
+    </select>
+
+</mapper>

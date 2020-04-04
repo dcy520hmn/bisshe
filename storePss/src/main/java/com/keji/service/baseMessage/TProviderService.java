@@ -4,6 +4,7 @@ import com.github.pagehelper.PageInfo;
 import com.keji.common.utils.PageResult;
 import com.keji.pojo.baseMessage.TProvider;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -15,6 +16,8 @@ import java.util.Map;
  */
 public interface TProviderService {
     PageInfo<TProvider> queryProvider(Map params);
+
+    List<TProvider> queryProviderByNoPage();
 
     int insertProvider(TProvider tProvider);
 

@@ -2,12 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61be1ebb-4faa-42f2-8603-40ea841ebc4e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/keji/controller/repository/GoodsRepositoryInfoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/repository/GoodsRepositoryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/repository/impl/GoodsRepositoryServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/mapper/repository/GoodsRepositoryInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/mapper/repository/GoodsRepositoryInfoMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/repository/findGoodsRepositoryInfo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/repository/findGoodsRepositoryInfo.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/log.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/controller/baseMessage/RepositoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/controller/baseMessage/RepositoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/controller/baseMessage/TProviderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/controller/baseMessage/TProviderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/controller/repository/GoodsRepositoryInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/controller/repository/GoodStockInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/mapper/repository/GoodsRepositoryInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/mapper/repository/GoodStockInfoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/repository/GoodRepositoryInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/pojo/stock/GoodStockInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/RepositoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/RepositoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/TProviderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/TProviderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/impl/RepositoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/impl/RepositoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/impl/TProviderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/impl/TProviderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/repository/GoodsRepositoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/repository/GoodStockInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/repository/impl/GoodsRepositoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/repository/impl/GoodStockInfoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/repository/findGoodsRepositoryInfo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/repository/GoodStockInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/repository/goodsRepositoryInfo-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/stock/goodStockInfo-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/sysSetting/auth-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/sysSetting/auth-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/common/entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/common/entity.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/log4j.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/common/entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/common/entity.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -504,14 +521,10 @@
       <workItem from="1585809315110" duration="5541000" />
       <workItem from="1585896465230" duration="19000" />
       <workItem from="1585896624356" duration="357000" />
-      <workItem from="1585897159298" duration="5273000" />
-    </task>
-    <task id="LOCAL-00003">
-      <created>1567750138616</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1567750138616</updated>
+      <workItem from="1585897159298" duration="5308000" />
+      <workItem from="1585962774577" duration="6840000" />
+      <workItem from="1585985487372" duration="8934000" />
+      <workItem from="1586005611584" duration="3076000" />
     </task>
     <task id="LOCAL-00004">
       <created>1567750647200</created>
@@ -849,7 +862,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585900936861</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="商品库存后台完成">
+      <created>1585902469731</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1585902469732</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -882,7 +902,8 @@
     <MESSAGE value="员工增删改查完成" />
     <MESSAGE value="仓库基础信息完成" />
     <MESSAGE value="增加状态" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加状态" />
+    <MESSAGE value="商品库存后台完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="商品库存后台完成" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="62" key="#HTTP_Proxy" timestamp="1583376098822">
@@ -897,10 +918,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="398" y="178" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.738@0.0.1366.738" timestamp="1585447546877" />
-    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser" timestamp="1585901725213">
+    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser" timestamp="1585991055769">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1585901725213" />
+    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1585991055769" />
     <state x="363" y="107" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1585446136405">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -913,14 +934,14 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="467" y="236" width="444" height="272" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.738@0.0.1366.738" timestamp="1584087163231" />
-    <state x="403" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1584085682116">
+    <state x="403" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1585965104118">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="403" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.738@0.0.1366.738" timestamp="1584085682116" />
-    <state x="0" y="68" key="CommitChangelistDialog2" timestamp="1585900931286">
+    <state x="403" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.738@0.0.1366.738" timestamp="1585965104118" />
+    <state x="0" y="68" key="CommitChangelistDialog2" timestamp="1585902466577">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="0" y="68" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1585900931286" />
+    <state x="0" y="68" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1585902466577" />
     <state x="129" y="62" key="DiffContextDialog" timestamp="1583227212242">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -929,22 +950,22 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="440" y="113" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1585446378406" />
-    <state width="1323" height="265" key="GridCell.Tab.0.bottom" timestamp="1585900482071">
+    <state width="1323" height="2" key="GridCell.Tab.0.bottom" timestamp="1586007954909">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="265" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1585900482071" />
-    <state width="1323" height="265" key="GridCell.Tab.0.center" timestamp="1585900482071">
+    <state width="1323" height="2" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1586007954909" />
+    <state width="1323" height="2" key="GridCell.Tab.0.center" timestamp="1586007954909">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="265" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1585900482071" />
-    <state width="1323" height="265" key="GridCell.Tab.0.left" timestamp="1585900482071">
+    <state width="1323" height="2" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1586007954909" />
+    <state width="1323" height="2" key="GridCell.Tab.0.left" timestamp="1586007954987">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="265" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1585900482071" />
-    <state width="1323" height="265" key="GridCell.Tab.0.right" timestamp="1585900482071">
+    <state width="1323" height="2" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1586007954987" />
+    <state width="1323" height="2" key="GridCell.Tab.0.right" timestamp="1586007955005">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="265" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1585900482071" />
+    <state width="1323" height="2" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1586007955005" />
     <state width="1323" height="393" key="GridCell.Tab.1.bottom" timestamp="1583225909798">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -973,14 +994,18 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="163" y="0" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1583572083843" />
-    <state x="275" y="105" key="Vcs.Push.Dialog.v2" timestamp="1585902451081">
+    <state x="404" y="110" width="540" height="524" key="StructurePopup" timestamp="1585992696149">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="105" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1585902451080" />
-    <state width="691" height="377" key="XDebugger.FullValuePopup" timestamp="1585386499811">
+    <state x="404" y="110" width="540" height="524" key="StructurePopup/0.0.1366.738@0.0.1366.738" timestamp="1585992696149" />
+    <state x="275" y="105" key="Vcs.Push.Dialog.v2" timestamp="1586008770035">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="691" height="377" key="XDebugger.FullValuePopup/0.0.1366.738@0.0.1366.738" timestamp="1585386499811" />
+    <state x="275" y="105" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1586008770035" />
+    <state width="691" height="377" key="XDebugger.FullValuePopup" timestamp="1585967748873">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="691" height="377" key="XDebugger.FullValuePopup/0.0.1366.738@0.0.1366.738" timestamp="1585967748873" />
     <state x="263" y="27" key="com.intellij.database.dbimport.ImportDialog" timestamp="1583392444129">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -1001,10 +1026,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="237" y="108" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1366.738@0.0.1366.738" timestamp="1584686461668" />
-    <state x="370" y="124" width="626" height="490" key="find.popup" timestamp="1585812741650">
+    <state x="370" y="124" width="626" height="490" key="find.popup" timestamp="1585993887880">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="370" y="124" width="626" height="490" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1585812741650" />
+    <state x="370" y="124" width="626" height="490" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1585993887880" />
     <state x="57" y="73" key="new project wizard" timestamp="1583580541551">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -1013,10 +1038,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1585386048151" />
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1585901541546">
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1585990008282">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1585901541546" />
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1585990008282" />
     <state x="484" y="275" key="svn.passwordDialog" timestamp="1583226637918">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -1069,19 +1094,14 @@
           <option name="timeStamp" value="60" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/impl/TProviderServiceImpl.java</url>
-          <line>60</line>
-          <option name="timeStamp" value="62" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/impl/RepositoryServiceImpl.java</url>
-          <line>46</line>
+          <line>54</line>
           <option name="timeStamp" value="63" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/impl/TProviderServiceImpl.java</url>
-          <line>55</line>
-          <option name="timeStamp" value="64" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/keji/service/repository/impl/GoodStockInfoServiceImpl.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="80" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/main/resources/public/pages/baseMessage/goodMessage.html</url>
@@ -1090,6 +1110,12 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="selectStockState" />
+        <watch expression="goodsRepositoryInfoMapper" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="mavenExecuteGoalHistory">
     <option value="$PROJECT_DIR$" />

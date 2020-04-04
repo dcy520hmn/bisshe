@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -26,6 +27,7 @@ public class TProviderServiceImpl implements TProviderService {
 
     @Autowired
     private ProvideServiceMapper tProviderServiceMapper;
+
 
     /**
      * 查询供应商
@@ -49,6 +51,14 @@ public class TProviderServiceImpl implements TProviderService {
         Page<TProvider> providerPage = (Page<TProvider>) tProviderServiceMapper.selectByExample(example);
         PageInfo<TProvider> pageInfo = new PageInfo<>(providerPage);
         return pageInfo;
+    }
+
+    @Override
+    public List<TProvider> queryProviderByNoPage() {
+        Example example = new Example(TProvider.class);
+        example.createCriteria().andEqualTo("state",1);
+        List<TProvider> ret = tProviderServiceMapper.selectByExample(example);
+        return ret;
     }
 
     @Override

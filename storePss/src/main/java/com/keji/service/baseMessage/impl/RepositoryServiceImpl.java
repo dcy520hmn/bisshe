@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -40,6 +41,13 @@ public class RepositoryServiceImpl implements RepositoryService {
         Page<Repository> providerPage = (Page<Repository>) repositoryMapper.selectByExample(example);
         PageInfo<Repository> pageInfo = new PageInfo<>(providerPage);
         return pageInfo;
+    }
+
+    @Override
+    public List<Repository> queryRepositoryByNoPage() {
+        Example example = new Example(Repository.class);
+        example.createCriteria().andEqualTo("state",1);
+        return repositoryMapper.selectByExample(example);
     }
 
     @Override
