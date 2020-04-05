@@ -135,3 +135,19 @@ function findGoodClass(parentCode, arr) {
 function checkForm(obj,reg) {
     return reg.test(obj);
 }
+
+//弹出窗口
+function Modalshow(url, title, w, h, type, upload) {
+    layer.open({
+        type: 2,
+        area: [($(window).width() * 0.9) + 'px', ($(window).height() - 50) + 'px'],
+        anim: 4,
+        fix: false, //不固定
+        maxmin: true,
+        shadeClose: false,
+        shade: 0.4,
+        title: title,
+        content: url,
+        skin: 'layer-myskin'
+    });
+}

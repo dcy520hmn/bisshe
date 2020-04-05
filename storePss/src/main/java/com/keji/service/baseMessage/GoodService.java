@@ -3,6 +3,7 @@ package com.keji.service.baseMessage;
 import com.github.pagehelper.PageInfo;
 import com.keji.pojo.baseMessage.Good;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -14,6 +15,8 @@ import java.util.Map;
  */
 public interface GoodService {
     PageInfo<Good> queryGood(Map params);
+
+    List<Good> queryGoodByNoPage(Map params);
 
     int insertGood(Good good);
 

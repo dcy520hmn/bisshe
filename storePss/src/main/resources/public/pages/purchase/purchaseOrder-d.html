@@ -115,8 +115,12 @@
                         <div class="form-group form-inline">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default" title="商品选择"
-                                        onclick=openNewWin("purchaseOrderDetail-d.html","商品选择")>
-                                    <i class="fa fa-file-o"></i> 新增
+                                        onclick=Modalshow("goodStockInfo-list.html","商品选择")>
+                                    <i class="fa fa-file-o"></i> 商品选择
+                                </button>
+                                <button type="button" class="btn btn-default" title="删除"
+                                        onclick=Modalshow("goodStockInfo-d.html?type=0","新增")><i
+                                        class="fa fa-trash-o"></i> 新增
                                 </button>
                                 <button type="button" class="btn btn-default" title="删除" @click="deleteDept"><i
                                         class="fa fa-trash-o"></i> 删除
@@ -124,14 +128,10 @@
                                 <button type="button" class="btn btn-default" title="修改" @click="updateDept"><i
                                         class="fa fa-trash-o"></i> 修改
                                 </button>
+                                <button type="button" class="btn btn-default" title="刷新"
+                                        onclick="window.location.reload();"><i class="fa fa-refresh"></i> 刷新
+                                </button>
                             </div>
-                        </div>
-                    </div>
-                    <div class="box-tools pull-right">
-                        <div class="has-feedback">
-                            <input type="text" class="form-control input-sm"
-                                   placeholder="商品简称" v-model="searchDeptName"> <span
-                                class="glyphicon glyphicon-search form-control-feedback"></span>
                         </div>
                     </div>
                     <!--工具栏/-->
@@ -208,8 +208,8 @@
             <!-- /.box-footer-->
         </div>
         <div class="box-tools text-center">
-            <button v-show="this.type==0" type="button" @click="save" id="operation" class="btn bg-maroon">保存</button>
-            <button v-show="this.type==1" type="button" @click="update" class="btn bg-maroon">修改</button>
+            <button v-show="this.type==0" type="button" id="operation" class="btn bg-maroon">保存</button>
+            <button v-show="this.type==1" type="button" class="btn bg-maroon">修改</button>
             <button type="button" class="btn bg-default"
                     onclick="history.back(-1);">返回
             </button>
@@ -227,13 +227,12 @@
 <script src="/js/vue/vuejs-2.5.16.js"></script>
 <script src="/js/common/common.js"></script>
 <script src="/js/common/entity.js"></script>
+<script src="/layui/layui.all.js"></script>
 <script>
-    function openNewWin(url, title) {
 
-    }
 </script>
 <script>
-    new Vue({
+   var vm =  new Vue({
         el: "#div1",
         data: {
             dept: dept,
@@ -245,52 +244,57 @@
                 {text: '10', value: '10'},
             ],
             selectId: [],
-            searchDeptName: ""
+            searchDeptName: "",
+            type: ""
         },
         methods: {
-            getAllDeptByPage(pageNum, pageSize, searchDeptName) {
 
+            getValue(obj){
+                console.log(obj);
+            },
+
+            getAllDeptByPage(pageNum, pageSize, searchDeptName) {
                 _this = this;
                 axios.post("/dept/findDept",
                     {pageNum: pageNum, pageSize: pageSize, helpNum: searchDeptName}
                 ).then(function (res) {
-                    if(res.data.code==0){
+                    if (res.data.code == 0) {
                         _this.pageInfo = res.data.data;
                     }
                 });
             },
 
             openDetail(deptId) {
-                return location.href="purchaseOrder-d.html?type=1&deptId=" + deptId + "";
+                return location.href = "purchaseOrder-d.html?type=1&deptId=" + deptId + "";
             },
 
             deleteDept() {
                 let _this = this;
-                if(this.selectId.length<=0){
+                if (this.selectId.length <= 0) {
                     alert("请选中商品");
                     return;
                 }
-                if(confirm("确定删除吗？")){
+                if (confirm("确定删除吗？")) {
                     axios.post("/dept/delete", _this.selectId).then(function (res) {
                         if (res.data.data == 0) {
                             alert("删除成功");
                             window.location.reload();
-                        } else if((res.data.data == -1)){
+                        } else if ((res.data.data == -1)) {
                             alert("删除失败");
-                        }else{
-                            alert("删除失败！部门编号："+res.data.data+"下，存在员工");
+                        } else {
+                            alert("删除失败！部门编号：" + res.data.data + "下，存在员工");
                         }
                     })
                 }
             },
 
-            updateDept(){
+            updateDept() {
                 let _this = this;
-                if(this.selectId.length<=0){
+                if (this.selectId.length <= 0) {
                     alert("请选中部门");
                     return;
                 }
-                return location.href="purchaseOrder-d.html?type=1&deptId=" + this.selectId[0] + "";
+                return location.href = "purchaseOrder-d.html?type=1&deptId=" + this.selectId[0] + "";
             },
 
             toAddDept(authId) {
@@ -298,15 +302,16 @@
             }
         },
 
-        watch:{
-            searchDeptName:{
-                handler(){
+        watch: {
+            searchDeptName: {
+                handler() {
                     this.getAllDeptByPage(this.pageInfo.pageNum, this.pageInfo.pageSize, this.searchDeptName);
                 },
-                deep:true
+                deep: true
             },
         },
         created() {
+            this.type = getUrlKey('type');
             this.getAllDeptByPage(this.pageInfo.pageNum, this.pageInfo.pageSize, this.searchDeptName);
         }
     });

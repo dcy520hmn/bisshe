@@ -124,6 +124,33 @@ repository = {
     state: 1
 }
 
+//采购订单
+purchaseOrder = {
+    id:"",
+    createDate:"",
+    provider:"",
+    operationEmp:"",
+    price:"",
+    createEmp:"",
+    remark:"",
+    sate:"",
+    purchaseOrderDetailList:[]
+}
+
+//采购订单详情
+ purchaseOrderDetail = {
+     id:"",
+     repository:repository,
+     good:good,
+     gooNum:"",
+     gooTax:"",
+     gooTaxPrc:"",
+     gooOtherPrice:"",
+     gooTotalPrice:"",
+     gooRemark:"",
+ }
+
+
 //性别下拉选
 selectGender = [{value: '男', text: '男'}, {value: '女', text: '女'}]
 

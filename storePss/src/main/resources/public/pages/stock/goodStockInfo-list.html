@@ -267,7 +267,6 @@
             //获得所有的商品库存信息
             getAllGoodStockByPage:  function(pageNum, pageSize, rId, posId, gName, gHelpName,selectStockState) {
                 _this = this;
-                console.log(selectStockState);
                 axios.post("/goodStockInfo/query",
                     {pageNum: pageNum, pageSize: pageSize, rId: rId, posId: posId, gName: gName, gHelpName: gHelpName,selectStockState:selectStockState}
                 ).then(function (res) {
