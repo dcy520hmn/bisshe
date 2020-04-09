@@ -119,7 +119,7 @@
                                     <i class="fa fa-file-o"></i> 商品选择
                                 </button>
                                 <button type="button" class="btn btn-default" title="删除"
-                                        onclick=Modalshow("goodStockInfo-d.html?type=0","新增")><i
+                                        onclick=Modalshow("goodPurInfo-d.html?type=0","新增")><i
                                         class="fa fa-trash-o"></i> 新增
                                 </button>
                                 <button type="button" class="btn btn-default" title="删除" @click="deleteDept"><i
@@ -143,26 +143,37 @@
                             <td></td>
                             <th class="sorting_asc">行号</th>
                             <th class="sorting_desc">仓库</th>
+                            <th class="sorting_desc">商品名称</th>
                             <th class="sorting_desc">商品编号</th>
                             <th class="sorting_desc">商品型号</th>
                             <th class="sorting_desc">规格</th>
-                            <th class="sorting_desc">商品名称</th>
                             <th class="sorting_desc">单位</th>
-                            <th class="sorting_desc">数量</th>
-                            <th class="sorting_desc">含税单价</th>
-                            <th class="sorting_desc">税率（%）</th>
                             <th class="sorting_desc">单价</th>
+                            <th class="sorting_desc">数量</th>
+                            <th class="sorting_desc">税率（%）</th>
+                            <th class="sorting_desc">含税单价</th>
                             <th class="sorting_desc">其它金额</th>
                             <th class="sorting_desc">应付金额</th>
                             <th class="sorting_desc">备注</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr v-for="(dept) in  pageInfo.list" @dblclick="openDetail(dept.id)">
-                            <td><input name="ids" v-model="selectId" :value="dept.id" type="checkbox"></td>
-                            <td>{{dept.id}}</td>
-                            <td>{{dept.deptName}}</td>
-                            <td>{{dept.deptAreaName+dept.deptAddress}}</td>
+                        <tr v-for="(goodPurInfo) in  goodPurInfoList" @dblclick="">
+                            <td><input name="ids" v-model="selectId" :value="goodPurInfo.id" type="checkbox"></td>
+                            <td>{{goodPurInfo.id}}</td>
+                            <td>{{goodPurInfo.repository.name}}</td>
+                            <td>{{goodPurInfo.good.name}}</td>
+                            <td>{{goodPurInfo.good.id}}</td>
+                            <td>{{goodPurInfo.good.type}}</td>
+                            <td>{{goodPurInfo.good.size}}</td>
+                            <td>{{goodPurInfo.good.unit}}</td>
+                            <td>{{goodPurInfo.good.cost}}</td>
+                            <td>{{goodPurInfo.gooNum}}</td>
+                            <td>{{goodPurInfo.gooTax}}</td>
+                            <td>{{goodPurInfo.gooTaxPrc}}</td>
+                            <td>{{goodPurInfo.gooOtherPrice}}</td>
+                            <td>{{goodPurInfo.gooTotalPrice}}</td>
+                            <td>{{goodPurInfo.gooRemark}}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -245,12 +256,15 @@
             ],
             selectId: [],
             searchDeptName: "",
-            type: ""
+            type: "",
+            goodPurInfoList:[]
         },
         methods: {
 
             getValue(obj){
-                console.log(obj);
+                obj.id = this.goodPurInfoList.length+1;
+                this.goodPurInfoList.push(obj);
+                console.log(this.goodPurInfoList);
             },
 
             getAllDeptByPage(pageNum, pageSize, searchDeptName) {
@@ -312,7 +326,6 @@
         },
         created() {
             this.type = getUrlKey('type');
-            this.getAllDeptByPage(this.pageInfo.pageNum, this.pageInfo.pageSize, this.searchDeptName);
         }
     });
 </script>

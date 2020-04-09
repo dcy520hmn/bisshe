@@ -86,8 +86,8 @@
 
                 <div class="col-md-2 title">仓库</div>
                 <div class="col-md-4 data">
-                    <select type="text" class="form-control input-sm"
-                            placeholder="仓库" v-model="purchaseOrderDetail.posId">
+                    <select type="text" class="form-control input-sm" id="rId"
+                            placeholder="仓库" v-model="purchaseOrderDetail.repository.id">
                         <option v-for="repository in repositories" :value="repository.value">{{repository.text}}
                         </option>
                     </select>
@@ -95,75 +95,75 @@
 
                 <div class="col-md-2 title">商品编号</div>
                 <div class="col-md-4 data">
-                    <input type="text" class="form-control" name="purchaseOrderDetailName"
+                    <input type="text" class="form-control"
                            placeholder="商品编号" v-model="gooId"/>
                 </div>
 
                 <div class="col-md-2 title">商品名称</div>
                 <div class="col-md-4 data">
-                    <input readonly type="text" class="form-control" name="purchaseOrderDetailName"
+                    <input readonly type="text" class="form-control"
                            placeholder="商品名称" v-model="purchaseOrderDetail.good.name"/>
                 </div>
 
                 <div class="col-md-2 title">商品型号</div>
                 <div class="col-md-4 data">
-                    <input readonly type="text" class="form-control" name="purchaseOrderDetailName"
+                    <input readonly type="text" class="form-control"
                            placeholder="商品型号" v-model="purchaseOrderDetail.good.type"/>
                 </div>
 
                 <div class="col-md-2 title">规格</div>
                 <div class="col-md-4 data">
-                    <input readonly type="text" class="form-control" name="purchaseOrderDetailName"
+                    <input readonly type="text" class="form-control"
                            placeholder="规格" v-model="purchaseOrderDetail.good.size"/>
                 </div>
 
                 <div class="col-md-2 title">单位</div>
                 <div class="col-md-4 data">
-                    <input readonly type="text" class="form-control" name="purchaseOrderDetailName"
+                    <input readonly type="text" class="form-control"
                            placeholder="单位" v-model="purchaseOrderDetail.good.unit"/>
                 </div>
 
                 <div class="col-md-2 title">数量</div>
                 <div class="col-md-4 data">
-                    <input type="text" class="form-control" name="purchaseOrderDetailName"
-                           placeholder="数量" v-model="purchaseOrderDetail.purchaseOrderDetailName"/>
+                    <input type="text" class="form-control"
+                           placeholder="数量" v-model="gooNum"/>
                 </div>
 
 
                 <div class="col-md-2 title">单价</div>
                 <div class="col-md-4 data">
-                    <input readonly type="text" class="form-control" name="purchaseOrderDetailName"
+                    <input readonly type="text" class="form-control"
                            placeholder="单价" v-model="purchaseOrderDetail.good.cost"/>
                 </div>
 
                 <div class="col-md-2 title">税率（%）</div>
                 <div class="col-md-4 data">
-                    <input type="text" class="form-control" name="purchaseOrderDetailName"
-                           placeholder="税率（%）" v-model="purchaseOrderDetail.purchaseOrderDetailName"/>
+                    <input type="text" class="form-control"
+                           placeholder="税率（%）" v-model="gooTax"/>
                 </div>
 
                 <div class="col-md-2 title">含税单价</div>
                 <div class="col-md-4 data">
-                    <input readonly type="text" class="form-control" name="purchaseOrderDetailName"
-                           placeholder="含税单价" v-model="purchaseOrderDetail.purchaseOrderDetailName"/>
+                    <input readonly type="text" class="form-control"
+                           placeholder="含税单价" v-model="purchaseOrderDetail.gooTaxPrc"/>
                 </div>
 
                 <div class="col-md-2 title">其他金额</div>
                 <div class="col-md-4 data">
-                    <input type="text" class="form-control" name="purchaseOrderDetailName"
-                           placeholder="其他金额" v-model="purchaseOrderDetail.purchaseOrderDetailName"/>
+                    <input type="text" class="form-control"
+                           placeholder="其他金额" v-model="gooOtherPrice"/>
                 </div>
 
                 <div class="col-md-2 title">应付金额</div>
                 <div class="col-md-4 data">
-                    <input readonly type="text" class="form-control" name="purchaseOrderDetailName"
-                           placeholder="应付金额" v-model="purchaseOrderDetail.purchaseOrderDetailName"/>
+                    <input readonly type="text" class="form-control"
+                           placeholder="应付金额" v-model="purchaseOrderDetail.gooTotalPrice"/>
                 </div>
 
                 <div class="col-md-2 title">备注</div>
                 <div class="col-md-4 data">
-                    <input type="text" class="form-control" name="purchaseOrderDetailName"
-                           placeholder="备注" v-model="purchaseOrderDetail.purchaseOrderDetailName"/>
+                    <input type="text" class="form-control"
+                           placeholder="备注" v-model="purchaseOrderDetail.gooRemark"/>
                 </div>
             </div>
         </div>
@@ -195,6 +195,9 @@
             area: area,
             type: "",
             gooId: "",
+            gooTax: "",
+            gooNum: "",
+            gooOtherPrice: "",
             repositories: [
                 {text: "仓库选择", value: ""}
             ]
@@ -235,22 +238,73 @@
                 });
             },
 
+            //计算含税单价
+            getPrice() {
+                if (isNaN(parseFloat(this.gooTax))) {
+                    this.purchaseOrderDetail.gooTax = 0;
+                } else {
+                    this.purchaseOrderDetail.gooTax = parseFloat(this.gooTax)
+                }
+
+                this.purchaseOrderDetail.gooTaxPrc =
+                    (this.purchaseOrderDetail.good.cost * (parseFloat(1) + parseFloat(this.purchaseOrderDetail.gooTax))).toFixed(2);
+            },
+            //计算应付金额
+            getTotalPrice() {
+                if (isNaN(parseFloat(this.gooNum))) {
+                    this.purchaseOrderDetail.gooNum = 0;
+                } else {
+                    this.purchaseOrderDetail.gooNum = parseFloat(this.gooNum);
+                }
+                if (isNaN(parseFloat(this.gooOtherPrice))) {
+                    this.purchaseOrderDetail.gooOtherPrice = 0;
+                } else {
+                    this.purchaseOrderDetail.gooOtherPrice = parseFloat(this.gooOtherPrice);
+                }
+                this.purchaseOrderDetail.gooTotalPrice = this.purchaseOrderDetail.gooTaxPrc * 100 * this.purchaseOrderDetail.gooNum / 100 +
+                    this.purchaseOrderDetail.gooOtherPrice;
+            },
             //进行保存
             sure() {
-                parent.vm.getValue(1);
+                this.purchaseOrderDetail.repository.name = $("#rId option:selected").text();
+                parent.vm.getValue(this.purchaseOrderDetail);
                 var index = parent.layer.getFrameIndex(window.name);
                 parent.layer.close(index);
             },
             back() {
                 var index = parent.layer.getFrameIndex(window.name);
                 parent.layer.close(index);
-            }
+            },
         },
 
         watch: {
             gooId: {
                 handler() {
+                    this.getPrice();
+                    this.getTotalPrice();
                     this.getAllGoodByNoPage(this.gooId);
+                    this.purchaseOrderDetail.good.id = this.gooId;
+                },
+                deep: true
+            },
+            gooTax: {
+                handler() {
+                    this.getPrice();
+                    this.getTotalPrice();
+                },
+                deep: true
+            },
+            gooNum: {
+                handler() {
+                    this.getPrice();
+                    this.getTotalPrice();
+                },
+                deep: true
+            },
+            gooOtherPrice:{
+                handler() {
+                    this.getPrice();
+                    this.getTotalPrice();
                 },
                 deep: true
             }
