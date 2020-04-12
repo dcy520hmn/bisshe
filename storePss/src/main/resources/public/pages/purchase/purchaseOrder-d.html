@@ -87,20 +87,20 @@
             <div class="row data-type">
                 <div class="col-md-2 title">供货商</div>
                 <div class="col-md-2 data">
-                    <input type="text" class="form-control" name="deptName"
-                           placeholder="供货商" v-model="dept.deptName"/>
+                    <input type="text" class="form-control" name="PurchaseOrderName"
+                           placeholder="供货商" v-model="PurchaseOrder.PurchaseOrderName"/>
                 </div>
 
                 <div class="col-md-2 title">经手人</div>
                 <div class="col-md-2 data">
                     <input type="text" class="form-control" name="name"
-                           placeholder="经手人" v-model="dept.deptAddress">
+                           placeholder="经手人" v-model="PurchaseOrder.PurchaseOrderAddress">
                 </div>
 
                 <div class="col-md-2 title">总金额</div>
                 <div class="col-md-2 data">
                     <input type="text" class="form-control" name="name"
-                           placeholder="总金额" v-model="dept.deptAddress">
+                           placeholder="总金额" v-model="PurchaseOrder.PurchaseOrderAddress">
                 </div>
             </div>
         </div>
@@ -122,10 +122,10 @@
                                         onclick=Modalshow("goodPurInfo-d.html?type=0","新增")><i
                                         class="fa fa-trash-o"></i> 新增
                                 </button>
-                                <button type="button" class="btn btn-default" title="删除" @click="deleteDept"><i
+                                <button type="button" class="btn btn-default" title="删除" @click="deletePurchaseOrder"><i
                                         class="fa fa-trash-o"></i> 删除
                                 </button>
-                                <button type="button" class="btn btn-default" title="修改" @click="updateDept"><i
+                                <button type="button" class="btn btn-default" title="修改" @click="updatePurchaseOrder"><i
                                         class="fa fa-trash-o"></i> 修改
                                 </button>
                                 <button type="button" class="btn btn-default" title="刷新"
@@ -190,7 +190,7 @@
                     <div class="form-group form-inline">
                         总共{{pageInfo.pages}}页 每页
                         <select class="form-control" v-model="pageInfo.pageSize"
-                                @click="getAllDeptByPage(pageInfo.pageNum,pageInfo.pageSize)">
+                                @click="getAllPurchaseOrderByPage(pageInfo.pageNum,pageInfo.pageSize)">
                             <option v-for="opt in options" :value="opt.value">{{opt.text}}</option>
                         </select> 条
                     </div>
@@ -199,17 +199,17 @@
                 <div class="box-tools pull-right">
                     <ul class="pagination">
                         <li>
-                            <a href="javascript:;" @click="getAllDeptByPage(pageInfo.firstPage,pageInfo.pageSize)"
+                            <a href="javascript:;" @click="getAllPurchaseOrderByPage(pageInfo.firstPage,pageInfo.pageSize)"
                                aria-label="Previous">首页</a>
                         </li>
                         <li><a href="javascript:;"
-                               @click="getAllDeptByPage(pageInfo.prePage,pageInfo.pageSize)">上一页</a></li>
+                               @click="getAllPurchaseOrderByPage(pageInfo.prePage,pageInfo.pageSize)">上一页</a></li>
                         <li v-for="n in pageInfo.pages"><a href="javascript:;"
-                                                           @click="getAllDeptByPage(n,pageInfo.pageSize)">{{n}}</a></li>
+                                                           @click="getAllPurchaseOrderByPage(n,pageInfo.pageSize)">{{n}}</a></li>
                         <li><a href="javascript:;"
-                               @click="getAllDeptByPage(pageInfo.nextPage,pageInfo.pageSize)">下一页</a></li>
+                               @click="getAllPurchaseOrderByPage(pageInfo.nextPage,pageInfo.pageSize)">下一页</a></li>
                         <li>
-                            <a href="javascript:;" @click="getAllDeptByPage(pageInfo.lastPage,pageInfo.pageSize)"
+                            <a href="javascript:;" @click="getAllPurchaseOrderByPage(pageInfo.lastPage,pageInfo.pageSize)"
                                aria-label="Next">尾页</a>
                         </li>
                     </ul>
@@ -243,7 +243,7 @@
    var vm =  new Vue({
         el: "#div1",
         data: {
-            dept: dept,
+            PurchaseOrder: purchaseOrder,
             pageInfo: pageInfo,
             options: [
                 {text: '4', value: '4'},
@@ -252,7 +252,7 @@
                 {text: '10', value: '10'},
             ],
             selectId: [],
-            searchDeptName: "",
+            searchPurchaseOrderName: "",
             type: "",
             goodPurInfoList:[]
         },
@@ -263,59 +263,49 @@
                 this.goodPurInfoList.push(obj);
             },
 
-            getAllDeptByPage(pageNum, pageSize, searchDeptName) {
+            getAllPurchaseOrderByPage(pageNum, pageSize, searchPurchaseOrderName) {
                 _this = this;
-                axios.post("/dept/findDept",
-                    {pageNum: pageNum, pageSize: pageSize, helpNum: searchDeptName}
+                axios.post("/PurchaseOrder/findPurchaseOrder",
+                    {pageNum: pageNum, pageSize: pageSize, helpNum: searchPurchaseOrderName}
                 ).then(function (res) {
                     if (res.data.code == 0) {
                         _this.pageInfo = res.data.data;
                     }
                 });
             },
-
-            openDetail(deptId) {
-                return location.href = "purchaseOrder-d.html?type=1&deptId=" + deptId + "";
-            },
-
-            deleteDept() {
+            
+            //
+            deletePurchaseOrder() {
                 let _this = this;
                 if (this.selectId.length <= 0) {
                     alert("请选中商品");
                     return;
                 }
                 if (confirm("确定删除吗？")) {
-                    axios.post("/dept/delete", _this.selectId).then(function (res) {
-                        if (res.data.data == 0) {
-                            alert("删除成功");
-                            window.location.reload();
-                        } else if ((res.data.data == -1)) {
-                            alert("删除失败");
-                        } else {
-                            alert("删除失败！部门编号：" + res.data.data + "下，存在员工");
-                        }
-                    })
+                    for (let i = 0; i < this.selectId; i++) {
+                        this.goodPurInfoList.remove(this.selectId[i]);
+                    }
                 }
             },
 
-            updateDept() {
+            updatePurchaseOrder() {
                 let _this = this;
                 if (this.selectId.length <= 0) {
                     alert("请选中部门");
                     return;
                 }
-                return location.href = "purchaseOrder-d.html?type=1&deptId=" + this.selectId[0] + "";
+                return location.href = "purchaseOrder-d.html?type=1&PurchaseOrderId=" + this.selectId[0] + "";
             },
 
-            toAddDept(authId) {
+            toAddPurchaseOrder(authId) {
                 return "auth-permission-add.html?authId=" + authId + "";
             }
         },
 
         watch: {
-            searchDeptName: {
+            searchPurchaseOrderName: {
                 handler() {
-                    this.getAllDeptByPage(this.pageInfo.pageNum, this.pageInfo.pageSize, this.searchDeptName);
+                    this.getAllPurchaseOrderByPage(this.pageInfo.pageNum, this.pageInfo.pageSize, this.searchPurchaseOrderName);
                 },
                 deep: true
             },

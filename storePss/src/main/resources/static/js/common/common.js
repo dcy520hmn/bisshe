@@ -156,3 +156,15 @@ function Modalshow(url, title,arg) {
         }
     });
 }
+
+Array.prototype.remove = function remove(val) {
+    var index = -1;
+    for (var i = 0; i < this.length; i++) {
+        if (this[i].id == val) {
+            index = i;
+        }
+    }
+    if (index > -1) {
+        this.splice(index, 1);
+    }
+}
