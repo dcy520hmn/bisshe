@@ -115,7 +115,7 @@
                         <div class="form-group form-inline">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default" title="商品选择"
-                                        onclick=Modalshow("goodStockInfo-list.html","商品选择")>
+                                        onclick=Modalshow("goodStock-list.html","商品选择")>
                                     <i class="fa fa-file-o"></i> 商品选择
                                 </button>
                                 <button type="button" class="btn btn-default" title="删除"
@@ -240,9 +240,6 @@
 <script src="/js/common/entity.js"></script>
 <script src="/layui/layui.all.js"></script>
 <script>
-
-</script>
-<script>
    var vm =  new Vue({
         el: "#div1",
         data: {
@@ -264,7 +261,6 @@
             getValue(obj){
                 obj.id = this.goodPurInfoList.length+1;
                 this.goodPurInfoList.push(obj);
-                console.log(this.goodPurInfoList);
             },
 
             getAllDeptByPage(pageNum, pageSize, searchDeptName) {

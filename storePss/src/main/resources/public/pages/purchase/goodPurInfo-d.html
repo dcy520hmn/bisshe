@@ -186,6 +186,7 @@
 <script src="/js/vue/vuejs-2.5.16.js"></script>
 <script src="/js/common/common.js"></script>
 <script src="/js/common/entity.js"></script>
+
 <script>
     var vm = new Vue({
         el: "#div1",
@@ -310,6 +311,13 @@
             }
         }
     });
+</script>
+<script>
+    function child(data) {
+        vm.gooId = data.good.id;
+        vm.purchaseOrderDetail.repository.id = data.repository.id;
+        vm.purchaseOrderDetail.repository.name = data.repository.name;
+    }
 </script>
 </body>
 

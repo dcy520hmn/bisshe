@@ -137,7 +137,7 @@ function checkForm(obj,reg) {
 }
 
 //弹出窗口
-function Modalshow(url, title, w, h, type, upload) {
+function Modalshow(url, title,arg) {
     layer.open({
         type: 2,
         area: [($(window).width() * 0.9) + 'px', ($(window).height() - 50) + 'px'],
@@ -148,6 +148,11 @@ function Modalshow(url, title, w, h, type, upload) {
         shade: 0.4,
         title: title,
         content: url,
-        skin: 'layer-myskin'
+        skin: 'layer-myskin',
+        success: function(layero, index){
+            var iframe = window['layui-layer-iframe'+index];
+            //调用子页面的全局函数
+            iframe.child(arg);
+        }
     });
 }

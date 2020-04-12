@@ -93,7 +93,7 @@
                     <div class="form-group form-inline">
                         <div class="btn-group">
                             <button type="button" class="btn btn-default" title="加入订单"
-                                    onclick="location.href='purchaseOrderDetail-d.html?type=0'">
+                                    @click="insertOrder">
                                 <i class="fa fa-file-o"></i> 加入订单
                             </button>
                             <button type="button" class="btn btn-default" title="刷新"
@@ -232,8 +232,10 @@
 <script src="/js/vue/axios-0.18.0.js"></script>
 <script src="/js/vue/vuejs-2.5.16.js"></script>
 <script src="/js/common/entity.js"></script>
+<script src="/js/common/common.js"></script>
+<script src="/layui/layui.all.js"></script>
 <script>
-    new Vue({
+    var vm = new Vue({
         el: "#div1",
         data: {
             goodStockInfo: goodStockInfo,
@@ -264,10 +266,10 @@
             gHelpName: ""
         },
         methods: {
+
             //获得所有的商品库存信息
             getAllGoodStockByPage:  function(pageNum, pageSize, rId, posId, gName, gHelpName,selectStockState) {
                 _this = this;
-                console.log(selectStockState);
                 axios.post("/goodStockInfo/query",
                     {pageNum: pageNum, pageSize: pageSize, rId: rId, posId: posId, gName: gName, gHelpName: gHelpName,selectStockState:selectStockState}
                 ).then(function (res) {
@@ -276,6 +278,7 @@
                     }
                 });
             },
+
             //获得所有的仓库信息
             getAllRepository: function () {
                 _this = this;
@@ -291,6 +294,7 @@
                     }
                 });
             },
+
             //获得所有的厂家
             getAllProvider: function () {
                 _this = this;
@@ -309,7 +313,31 @@
             //进行搜索
             search:function () {
                 this.getAllGoodStockByPage(this.pageInfo.pageNum, this.pageInfo.pageSize, this.rId, this.posId, this.gName, this.gHelpName,this.selectStockState);
-            }
+            },
+
+            //加入订单
+            insertOrder: function(){
+                if(this.selectId.length>0){
+                    var goodStockList = _this.pageInfo.list;
+                    var goodStockInfo = new Object();
+                    for (let i = 0; i < goodStockList.length; i++) {
+                        if(goodStockList[i].id==this.selectId[0]){
+                            goodStockInfo = goodStockList[i];
+                            break;
+                        }
+                    }
+                    Modalshow("goodPurInfo-d.html?type=0","新增",goodStockInfo);
+                }else{
+                    alert("请选中商品");
+                }
+            },
+
+            //获得子页面传来的值
+            getValue(obj){
+                parent.vm.getValue(obj);
+                var index = parent.layer.getFrameIndex(window.name);
+            },
+
         },
 
         created() {
