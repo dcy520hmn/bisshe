@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="61be1ebb-4faa-42f2-8603-40ea841ebc4e" name="Default Changelist" comment="商品库存选择">
+    <list default="true" id="61be1ebb-4faa-42f2-8603-40ea841ebc4e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/log.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/goodPurInfo-d.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/goodPurInfo-d.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/purchaseOrder-d.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/purchaseOrder-d.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/common/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/common/common.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -524,14 +525,10 @@
       <workItem from="1586675921910" duration="1052000" />
       <workItem from="1586676984876" duration="313000" />
       <workItem from="1586677328594" duration="76000" />
-      <workItem from="1586677435293" duration="5236000" />
-    </task>
-    <task id="LOCAL-00008">
-      <created>1567825028297</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1567825028297</updated>
+      <workItem from="1586677435293" duration="5565000" />
+      <workItem from="1586825568911" duration="771000" />
+      <workItem from="1586828061415" duration="5547000" />
+      <workItem from="1586998255539" duration="2099000" />
     </task>
     <task id="LOCAL-00009">
       <created>1567843066112</created>
@@ -869,7 +866,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586682055912</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="商品库存删除功能">
+      <created>1586683730188</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1586683730188</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -906,7 +910,8 @@
     <MESSAGE value="商品库存信息查询" />
     <MESSAGE value="进货管理" />
     <MESSAGE value="商品库存选择" />
-    <option name="LAST_COMMIT_MESSAGE" value="商品库存选择" />
+    <MESSAGE value="商品库存删除功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="商品库存删除功能" />
   </component>
   <component name="WindowStateProjectService">
     <state x="259" y="41" key="#Custom_Plugin_Repositories" timestamp="1586677395216">
@@ -945,10 +950,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="403" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.738@0.0.1366.738" timestamp="1585965104118" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1586682272996">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1586683729410">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1586682272996" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1586683729410" />
     <state x="129" y="62" key="DiffContextDialog" timestamp="1583227212242">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -957,38 +962,38 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="440" y="113" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1586677783942" />
-    <state width="1323" height="167" key="GridCell.Tab.0.bottom" timestamp="1586682063186">
+    <state width="1323" height="167" key="GridCell.Tab.0.bottom" timestamp="1586998500118">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="167" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1586682063186" />
-    <state width="1323" height="167" key="GridCell.Tab.0.center" timestamp="1586682063186">
+    <state width="1323" height="167" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1586998500118" />
+    <state width="1323" height="167" key="GridCell.Tab.0.center" timestamp="1586998500118">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="167" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1586682063186" />
-    <state width="1323" height="167" key="GridCell.Tab.0.left" timestamp="1586682063186">
+    <state width="1323" height="167" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1586998500118" />
+    <state width="1323" height="167" key="GridCell.Tab.0.left" timestamp="1586998500118">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="167" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1586682063186" />
-    <state width="1323" height="167" key="GridCell.Tab.0.right" timestamp="1586682063186">
+    <state width="1323" height="167" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1586998500118" />
+    <state width="1323" height="167" key="GridCell.Tab.0.right" timestamp="1586998500118">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="167" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1586682063186" />
-    <state width="1323" height="167" key="GridCell.Tab.1.bottom" timestamp="1586682063186">
+    <state width="1323" height="167" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1586998500118" />
+    <state width="1323" height="167" key="GridCell.Tab.1.bottom" timestamp="1586853066734">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="167" key="GridCell.Tab.1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1586682063186" />
-    <state width="1323" height="167" key="GridCell.Tab.1.center" timestamp="1586682063186">
+    <state width="1323" height="167" key="GridCell.Tab.1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1586853066734" />
+    <state width="1323" height="167" key="GridCell.Tab.1.center" timestamp="1586853066733">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="167" key="GridCell.Tab.1.center/0.0.1366.738@0.0.1366.738" timestamp="1586682063186" />
-    <state width="1323" height="167" key="GridCell.Tab.1.left" timestamp="1586682063186">
+    <state width="1323" height="167" key="GridCell.Tab.1.center/0.0.1366.738@0.0.1366.738" timestamp="1586853066733" />
+    <state width="1323" height="167" key="GridCell.Tab.1.left" timestamp="1586853066733">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="167" key="GridCell.Tab.1.left/0.0.1366.738@0.0.1366.738" timestamp="1586682063186" />
-    <state width="1323" height="167" key="GridCell.Tab.1.right" timestamp="1586682063186">
+    <state width="1323" height="167" key="GridCell.Tab.1.left/0.0.1366.738@0.0.1366.738" timestamp="1586853066733" />
+    <state width="1323" height="167" key="GridCell.Tab.1.right" timestamp="1586853066733">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="167" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1586682063186" />
+    <state width="1323" height="167" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1586853066733" />
     <state width="220" height="477" key="HiddenNamespacesPopup" timestamp="1583376557519">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -1005,10 +1010,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="404" y="110" width="540" height="524" key="StructurePopup/0.0.1366.738@0.0.1366.738" timestamp="1585992696149" />
-    <state x="275" y="105" key="Vcs.Push.Dialog.v2" timestamp="1586683712308">
+    <state x="275" y="105" key="Vcs.Push.Dialog.v2" timestamp="1587000462936">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="105" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1586683712308" />
+    <state x="275" y="105" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1587000462936" />
     <state width="691" height="377" key="XDebugger.FullValuePopup" timestamp="1585967748873">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -1017,14 +1022,14 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="263" y="27" key="com.intellij.database.dbimport.ImportDialog/0.0.1366.738@0.0.1366.738" timestamp="1583392444129" />
-    <state x="92" y="92" width="1182" height="550" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1586055408389">
+    <state x="92" y="92" width="1182" height="550" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1586850694767">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="92" y="92" width="1182" height="550" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.738@0.0.1366.738" timestamp="1586055408389" />
-    <state x="92" y="92" width="1182" height="554" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog" timestamp="1586055408389">
+    <state x="92" y="92" width="1182" height="550" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.738@0.0.1366.738" timestamp="1586850694767" />
+    <state x="92" y="92" width="1182" height="554" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog" timestamp="1586851239105">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="92" y="92" width="1182" height="554" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog/0.0.1366.738@0.0.1366.738" timestamp="1586055408389" />
+    <state x="92" y="92" width="1182" height="554" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog/0.0.1366.738@0.0.1366.738" timestamp="1586851239105" />
     <state x="375" y="197" key="com.intellij.ide.util.TipDialog" timestamp="1586674232161">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

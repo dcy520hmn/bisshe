@@ -118,8 +118,7 @@
                                         onclick=Modalshow("goodStock-list.html","商品选择")>
                                     <i class="fa fa-file-o"></i> 商品选择
                                 </button>
-                                <button type="button" class="btn btn-default" title="删除"
-                                        onclick=Modalshow("goodPurInfo-d.html?type=0","新增")><i
+                                <button type="button" class="btn btn-default" title="删除" @click="addGoodPur()"><i
                                         class="fa fa-trash-o"></i> 新增
                                 </button>
                                 <button type="button" class="btn btn-default" title="删除" @click="deletePurchaseOrder"><i
@@ -185,37 +184,6 @@
             <!-- /.box-body -->
 
             <!-- .box-footer-->
-            <div class="box-footer">
-                <div class="pull-left">
-                    <div class="form-group form-inline">
-                        总共{{pageInfo.pages}}页 每页
-                        <select class="form-control" v-model="pageInfo.pageSize"
-                                @click="getAllPurchaseOrderByPage(pageInfo.pageNum,pageInfo.pageSize)">
-                            <option v-for="opt in options" :value="opt.value">{{opt.text}}</option>
-                        </select> 条
-                    </div>
-                </div>
-
-                <div class="box-tools pull-right">
-                    <ul class="pagination">
-                        <li>
-                            <a href="javascript:;" @click="getAllPurchaseOrderByPage(pageInfo.firstPage,pageInfo.pageSize)"
-                               aria-label="Previous">首页</a>
-                        </li>
-                        <li><a href="javascript:;"
-                               @click="getAllPurchaseOrderByPage(pageInfo.prePage,pageInfo.pageSize)">上一页</a></li>
-                        <li v-for="n in pageInfo.pages"><a href="javascript:;"
-                                                           @click="getAllPurchaseOrderByPage(n,pageInfo.pageSize)">{{n}}</a></li>
-                        <li><a href="javascript:;"
-                               @click="getAllPurchaseOrderByPage(pageInfo.nextPage,pageInfo.pageSize)">下一页</a></li>
-                        <li>
-                            <a href="javascript:;" @click="getAllPurchaseOrderByPage(pageInfo.lastPage,pageInfo.pageSize)"
-                               aria-label="Next">尾页</a>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
             <!-- /.box-footer-->
         </div>
         <div class="box-tools text-center">
@@ -254,27 +222,45 @@
             selectId: [],
             searchPurchaseOrderName: "",
             type: "",
+            typeC: 0,
             goodPurInfoList:[]
         },
         methods: {
 
             getValue(obj){
-                obj.id = this.goodPurInfoList.length+1;
-                this.goodPurInfoList.push(obj);
+                if(this.typeC == 0){
+                    obj.id = this.goodPurInfoList.length+1;
+                    this.goodPurInfoList.push(obj);
+                }else if(this.typeC ==1 ){
+                    var index = -1;
+                    for (let i = 0; i < this.goodPurInfoList.length; i++) {
+                        if(this.goodPurInfoList[i].id == obj.id){
+                            index = i;
+                            break;
+                        }
+                    }
+                    Vue.set(this.goodPurInfoList,index,{
+                        "gooNum":obj.gooNum,
+                        "gooOtherPrice":obj.gooOtherPrice,
+                        "gooRemark":obj.gooRemark,
+                        "gooTax":obj.gooTax,
+                        "gooTaxPrc":obj.gooTaxPrc,
+                        "gooTotalPrice":obj.gooTotalPrice,
+                        "good":obj.good,
+                        "id":obj.id,
+                        "repository":obj.repository
+                    });
+                }
             },
 
-            getAllPurchaseOrderByPage(pageNum, pageSize, searchPurchaseOrderName) {
-                _this = this;
-                axios.post("/PurchaseOrder/findPurchaseOrder",
-                    {pageNum: pageNum, pageSize: pageSize, helpNum: searchPurchaseOrderName}
-                ).then(function (res) {
-                    if (res.data.code == 0) {
-                        _this.pageInfo = res.data.data;
-                    }
-                });
+
+            //增加商品
+            addGoodPur(){
+                this.typeC = 0;
+                Modalshow("goodPurInfo-d.html?type=0","新增");
             },
-            
-            //
+
+            //删除商品明细
             deletePurchaseOrder() {
                 let _this = this;
                 if (this.selectId.length <= 0) {
@@ -288,28 +274,25 @@
                 }
             },
 
+            //更新商品明细
             updatePurchaseOrder() {
                 let _this = this;
+                let ret = new Object();
+                this.typeC = 1;
                 if (this.selectId.length <= 0) {
-                    alert("请选中部门");
+                    alert("请选中商品");
                     return;
                 }
-                return location.href = "purchaseOrder-d.html?type=1&PurchaseOrderId=" + this.selectId[0] + "";
-            },
-
-            toAddPurchaseOrder(authId) {
-                return "auth-permission-add.html?authId=" + authId + "";
-            }
-        },
-
-        watch: {
-            searchPurchaseOrderName: {
-                handler() {
-                    this.getAllPurchaseOrderByPage(this.pageInfo.pageNum, this.pageInfo.pageSize, this.searchPurchaseOrderName);
-                },
-                deep: true
+                for (let i = 0; i < this.goodPurInfoList.length; i++) {
+                    if(this.goodPurInfoList[i].id == this.selectId[0]){
+                        ret = this.goodPurInfoList[i];
+                        break;
+                    }
+                }
+                Modalshow("goodPurInfo-d.html?type=1","更新",ret);
             },
         },
+
         created() {
             this.type = getUrlKey('type');
         }

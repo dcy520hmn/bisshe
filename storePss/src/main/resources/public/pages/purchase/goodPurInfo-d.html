@@ -169,8 +169,8 @@
         </div>
         <!--订单信息/--> <!--工具栏-->
         <div class="box-tools text-center">
-            <button v-show="this.type==0" type="button" @click="sure()" id="operation" class="btn bg-maroon">确定</button>
-            <button v-show="this.type==1" type="button" @click="sure()" class="btn bg-maroon">修改</button>
+            <button v-show="this.typeC==0" type="button" @click="sure()" id="operation" class="btn bg-maroon">确定</button>
+            <button v-show="this.typeC==1" type="button" @click="sure()" class="btn bg-maroon">修改</button>
             <button type="button" @click="back()" class="btn bg-maroon">返回</button>
         </div>
         <!--工具栏/-->
@@ -194,7 +194,7 @@
         data: {
             purchaseOrderDetail: purchaseOrderDetail,
             area: area,
-            type: "",
+            typeC: "",
             gooId: "",
             gooTax: "",
             gooNum: "",
@@ -204,11 +204,12 @@
             ]
         },
         created: function () {
-            this.type = getUrlKey('type');
+            this.typeC = getUrlKey('type');
             this.getAllRepository();
         },
 
         methods: {
+
             getAllGoodByNoPage(goodId) {
                 _this = this;
                 axios.post("/good/findGoodByNoPage",
@@ -250,6 +251,7 @@
                 this.purchaseOrderDetail.gooTaxPrc =
                     (this.purchaseOrderDetail.good.cost * (parseFloat(1) + parseFloat(this.purchaseOrderDetail.gooTax))).toFixed(2);
             },
+
             //计算应付金额
             getTotalPrice() {
                 if (isNaN(parseFloat(this.gooNum))) {
@@ -265,13 +267,27 @@
                 this.purchaseOrderDetail.gooTotalPrice = this.purchaseOrderDetail.gooTaxPrc * 100 * this.purchaseOrderDetail.gooNum / 100 +
                     this.purchaseOrderDetail.gooOtherPrice;
             },
+
             //进行保存
             sure() {
-                this.purchaseOrderDetail.repository.name = $("#rId option:selected").text();
-                parent.vm.getValue(this.purchaseOrderDetail);
-                var index = parent.layer.getFrameIndex(window.name);
-                parent.layer.close(index);
+                if(this.typeC == 1){
+                    if(confirm("确认修改")){
+                        this.purchaseOrderDetail.repository.name = $("#rId option:selected").text();
+                        parent.vm.getValue(this.purchaseOrderDetail);
+                        var index = parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                    }else{
+                        var index = parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                    }
+                }else{
+                    this.purchaseOrderDetail.repository.name = $("#rId option:selected").text();
+                    parent.vm.getValue(this.purchaseOrderDetail);
+                    var index = parent.layer.getFrameIndex(window.name);
+                    parent.layer.close(index);
+                }
             },
+
             back() {
                 var index = parent.layer.getFrameIndex(window.name);
                 parent.layer.close(index);
@@ -317,6 +333,14 @@
         vm.gooId = data.good.id;
         vm.purchaseOrderDetail.repository.id = data.repository.id;
         vm.purchaseOrderDetail.repository.name = data.repository.name;
+        vm.purchaseOrderDetail.id = data.id;
+        vm.gooNum = data.gooNum;
+        vm.gooTax = data.gooTax;
+        vm.gooTaxPrc = data.gooTaxPrc;
+        vm.gooOtherPrice = data.gooOtherPrice;
+        vm.gooTotalPrice = data.gooTotalPrice;
+        vm.purchaseOrderDetail.gooRemark = data.gooRemark;
+        vm.type = data.type;
     }
 </script>
 </body>
