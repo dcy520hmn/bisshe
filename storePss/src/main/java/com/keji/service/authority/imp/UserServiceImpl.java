@@ -5,9 +5,11 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.keji.mapper.authority.RoleMapper;
 import com.keji.mapper.authority.UserMapper;
+import com.keji.mapper.baseMessage.EmpMapper;
 import com.keji.pojo.authority.Authority;
 import com.keji.pojo.authority.Role;
 import com.keji.pojo.authority.UserInfo;
+import com.keji.pojo.baseMessage.Emp;
 import com.keji.service.authority.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,9 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
     @Autowired
     private RoleMapper roleMapper;
+
+    @Autowired
+    private EmpMapper empMapper;
     /**
      * 分页查询用户
      * @param pageNum  第几页 从第1页开始
@@ -121,7 +126,16 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public Integer updateUser(UserInfo userInfo) {
-        return userMapper.updateUser(userInfo);
+        UserInfo info = userMapper.findUserByUserName(userInfo.getUserName());
+        if(userInfo.getType() == 1){
+            info.setStatus(1);
+        }else if(userInfo.getType() == 0){
+            info.setStatus(0);
+        }
+        Emp emp = empMapper.selectByPrimaryKey(info.getEmpId());
+        emp.setstate(info.getStatus());
+        empMapper.updateByPrimaryKey(emp);
+        return   userMapper.updateUser(info);
     }
 
     /**

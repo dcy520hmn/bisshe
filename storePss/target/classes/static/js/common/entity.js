@@ -130,7 +130,7 @@ purchaseOrder = {
     createDate:"",
     provider:"",
     operationEmp:"",
-    price:"",
+    price:0,
     createEmp:"",
     remark:"",
     sate:"",

@@ -15,7 +15,7 @@
         <result column="empAreaCode" property="areaCode"/>
         <result column="hiredate" property="hireDate"/>
         <result column="salary" property="salary"/>
-        <result column="sate" property="sate"/>
+        <result column="state" property="state"/>
         <collection property="dept" ofType="dept">
             <id column="deptId" property="id"/>
             <result column="deptName" property="deptName"/>
@@ -30,25 +30,25 @@
     </resultMap>
 
     <select id="findUserByConditions" resultMap="empMap">
-        SELECT emp.id AS userId,emp.identity,emp.address,emp.areaCode AS empAreaCode,emp.birthday,emp.gender,emp.hiredate,emp.name,emp.phone,emp.salary,emp.sate,
+        SELECT emp.id AS userId,emp.identity,emp.address,emp.areaCode AS
+        empAreaCode,emp.birthday,emp.gender,emp.hiredate,emp.name,emp.phone,emp.salary,emp.state,
         dept.*,role.role_roleId,role.role_roleName
         FROM t_emp emp
-        JOIN  t_dept dept
+        JOIN t_dept dept
         ON emp.deptId = dept.deptId AND dept.state = 1
         JOIN t_user tuser
-        ON tuser.emp_id = emp.id
+        ON tuser.emp_id = emp.id AND tuser.user_statu = 1
         LEFT JOIN t_user_role tur
         ON tur.ur_userId = tuser.user_id
         LEFT JOIn t_role role
-        ON role.role_roleId = tur.ur_roleId
-        <where>
-            <if test="deptId != null  and deptId != '' ">
-                AND emp.deptId = #{deptId}
-            </if>
-            <if test="empId !=null and empId != ''">
-                AND emp.id = #{empId}
-            </if>
-        </where>
+        ON role.role_roleId = tur.ur_roleId AND role.role_status = 1
+        WHERE emp.state = 1
+        <if test="deptId != null  and deptId != '' ">
+            AND emp.deptId = #{deptId}
+        </if>
+        <if test="empId !=null and empId != ''">
+            AND emp.id = #{empId}
+        </if>
     </select>
 
 </mapper>

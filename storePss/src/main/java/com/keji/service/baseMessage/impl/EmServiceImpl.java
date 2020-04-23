@@ -3,12 +3,10 @@ package com.keji.service.baseMessage.impl;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.keji.common.utils.StringUtils;
 import com.keji.mapper.authority.UserMapper;
 import com.keji.mapper.baseMessage.EmpMapper;
 import com.keji.pojo.authority.UserInfo;
 import com.keji.pojo.baseMessage.Emp;
-import com.keji.pojo.baseMessage.Good;
 import com.keji.service.baseMessage.EmpService;
 import org.apache.commons.collections.MapUtils;
 import org.apache.shiro.crypto.hash.SimpleHash;
@@ -47,6 +45,13 @@ public class EmServiceImpl implements EmpService {
         Page<Emp> providerPage =  empMapper.findUserByConditions(deptId, empId);
         PageInfo<Emp> pageInfo = new PageInfo<>(providerPage);
         return pageInfo;
+    }
+
+    @Override
+    public List<Emp> findAllEmpByNoPage() {
+        Example example = new Example(Emp.class);
+        example.createCriteria().andEqualTo("state",1);
+        return empMapper.selectByExample(example);
     }
 
     /**
@@ -102,10 +107,13 @@ public class EmServiceImpl implements EmpService {
         if (ids != null) {
             for (Integer id : ids) {
                 Emp emp = new Emp();
-                emp.setSate(0);
+                emp.setstate(0);
                 Example example = new Example(Emp.class);
                 example.createCriteria().andEqualTo("id",id);
-                result = empMapper.updateByExampleSelective(emp,example);
+                empMapper.updateByExampleSelective(emp,example);
+                UserInfo userInfo = userMapper.findUserByEmpId(id);
+                userInfo.setStatus(0);
+                result = userMapper.updateUser(userInfo);
             }
         }
         return result;

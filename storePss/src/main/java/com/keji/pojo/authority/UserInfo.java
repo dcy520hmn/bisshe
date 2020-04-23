@@ -7,9 +7,8 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @Author: 段春玉
- * @Date: 2019-8-27 12：55
- * @Version 1.0
+ * @Author:
+ * @Date:
  * User 表用户表
  */
 
@@ -24,8 +23,19 @@ public class UserInfo implements Serializable {
     private Integer deleteStatus;//删除状态
     private Integer modifierId;//修改人id
     private Integer status;//用户的启用状态
-    private long empId;//员工id
+    private Integer empId;//员工id
     private List<Role> roles;
+
+
+    private  Integer type;
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
 
     public Integer getId() {
         return id;
@@ -91,11 +101,11 @@ public class UserInfo implements Serializable {
         this.status = status;
     }
 
-    public long getEmpId() {
+    public Integer getEmpId() {
         return empId;
     }
 
-    public void setEmpId(long empId) {
+    public void setEmpId(Integer empId) {
         this.empId = empId;
     }
 

@@ -87,20 +87,31 @@
             <div class="row data-type">
                 <div class="col-md-2 title">供货商</div>
                 <div class="col-md-2 data">
-                    <input type="text" class="form-control" name="PurchaseOrderName"
-                           placeholder="供货商" v-model="PurchaseOrder.PurchaseOrderName"/>
+                    <select type="text" class="form-control input-sm"
+                            placeholder="厂家" v-model="purchaseOrder.provider">
+                        <option v-for="provider in providers" :value="provider.value">{{provider.text}}</option>
+                    </select>
                 </div>
 
                 <div class="col-md-2 title">经手人</div>
                 <div class="col-md-2 data">
-                    <input type="text" class="form-control" name="name"
-                           placeholder="经手人" v-model="PurchaseOrder.PurchaseOrderAddress">
+                    <select type="text" class="form-control input-sm"
+                            placeholder="厂家" v-model="purchaseOrder.operationEmp">
+                        <option v-for="emp in emps" :value="emp.value">{{emp.text}}</option>
+                    </select>
                 </div>
 
                 <div class="col-md-2 title">总金额</div>
                 <div class="col-md-2 data">
-                    <input type="text" class="form-control" name="name"
-                           placeholder="总金额" v-model="PurchaseOrder.PurchaseOrderAddress">
+                    <input readonly="readonly" type="text" class="form-control" name="name"
+                           placeholder="总金额" v-model="purchaseOrder.price">
+                </div>
+
+
+                <div class="col-md-2 title">备注</div>
+                <div class="col-md-2 data">
+                    <input  type="text" class="form-control" name="name"
+                           placeholder="备注" v-model="purchaseOrder.remark">
                 </div>
             </div>
         </div>
@@ -157,7 +168,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr v-for="(goodPurInfo) in  goodPurInfoList" @dblclick="">
+                        <tr v-for="(goodPurInfo) in  purchaseOrder.purchaseOrderDetailList" @dblclick="">
                             <td><input name="ids" v-model="selectId" :value="goodPurInfo.id" type="checkbox"></td>
                             <td>{{goodPurInfo.id}}</td>
                             <td>{{goodPurInfo.repository.name}}</td>
@@ -187,7 +198,7 @@
             <!-- /.box-footer-->
         </div>
         <div class="box-tools text-center">
-            <button v-show="this.type==0" type="button" id="operation" class="btn bg-maroon">保存</button>
+            <button v-show="this.type==0" type="button" id="operation" class="btn bg-maroon" @click="save()">保存</button>
             <button v-show="this.type==1" type="button" class="btn bg-maroon">修改</button>
             <button type="button" class="btn bg-default"
                     onclick="history.back(-1);">返回
@@ -208,56 +219,87 @@
 <script src="/js/common/entity.js"></script>
 <script src="/layui/layui.all.js"></script>
 <script>
-   var vm =  new Vue({
+    var vm = new Vue({
         el: "#div1",
         data: {
-            PurchaseOrder: purchaseOrder,
-            pageInfo: pageInfo,
-            options: [
-                {text: '4', value: '4'},
-                {text: '6', value: '6'},
-                {text: '8', value: '8'},
-                {text: '10', value: '10'},
+            purchaseOrder: purchaseOrder,
+            providers: [
+                {text: "请选择", value: ""}
+            ],
+            emps: [
+                {text: "请选择", value: ""}
             ],
             selectId: [],
-            searchPurchaseOrderName: "",
             type: "",
             typeC: 0,
-            goodPurInfoList:[]
         },
         methods: {
 
-            getValue(obj){
-                if(this.typeC == 0){
-                    obj.id = this.goodPurInfoList.length+1;
-                    this.goodPurInfoList.push(obj);
-                }else if(this.typeC ==1 ){
+            //获得子页面传来的值
+            getValue(obj) {
+                if (this.typeC == 0) {
+                    obj.id = this.purchaseOrder.purchaseOrderDetailList.length + 1;
+                    this.purchaseOrder.purchaseOrderDetailList.push(obj);
+                } else if (this.typeC == 1) {
                     var index = -1;
-                    for (let i = 0; i < this.goodPurInfoList.length; i++) {
-                        if(this.goodPurInfoList[i].id == obj.id){
+                    for (let i = 0; i < this.purchaseOrder.purchaseOrderDetailList.length; i++) {
+                        if (this.purchaseOrder.purchaseOrderDetailList[i].id == obj.id) {
                             index = i;
                             break;
                         }
                     }
-                    Vue.set(this.goodPurInfoList,index,{
-                        "gooNum":obj.gooNum,
-                        "gooOtherPrice":obj.gooOtherPrice,
-                        "gooRemark":obj.gooRemark,
-                        "gooTax":obj.gooTax,
-                        "gooTaxPrc":obj.gooTaxPrc,
-                        "gooTotalPrice":obj.gooTotalPrice,
-                        "good":obj.good,
-                        "id":obj.id,
-                        "repository":obj.repository
+                    Vue.set(this.purchaseOrder.purchaseOrderDetailList, index, {
+                        "gooNum": obj.gooNum,
+                        "gooOtherPrice": obj.gooOtherPrice,
+                        "gooRemark": obj.gooRemark,
+                        "gooTax": obj.gooTax,
+                        "gooTaxPrc": obj.gooTaxPrc,
+                        "gooTotalPrice": obj.gooTotalPrice,
+                        "good": obj.good,
+                        "id": obj.id,
+                        "repository": obj.repository
                     });
                 }
+                this.calculateTotalAmount();
+            },
+
+            //获得所有的厂家
+            getAllProvider: function () {
+                _this = this;
+                axios.post("/provider/findProviderByNoPage").then(function (res) {
+                    if (res.data.code == 0) {
+                        var ret = res.data.data;
+                        for (let i = 0; i < ret.length; i++) {
+                            var opt = new Object();
+                            opt.value = ret[i].id;
+                            opt.text = ret[i].name;
+                            _this.providers.push(opt);
+                        }
+                    }
+                });
+            },
+
+            //获得所有的员工信息
+            getAllEmpByNoPage() {
+                _this = this;
+                axios.post("/emp/queryByNoPage").then(function (res) {
+                    if (res.data.code == 0) {
+                        var ret = res.data.data;
+                        for (let i = 0; i < ret.length; i++) {
+                            var opt = new Object();
+                            opt.value = ret[i].id;
+                            opt.text = ret[i].id;
+                            _this.emps.push(opt);
+                        }
+                    }
+                });
             },
 
 
             //增加商品
-            addGoodPur(){
+            addGoodPur() {
                 this.typeC = 0;
-                Modalshow("goodPurInfo-d.html?type=0","新增");
+                Modalshow("goodPurInfo-d.html?type=0", "新增");
             },
 
             //删除商品明细
@@ -269,8 +311,9 @@
                 }
                 if (confirm("确定删除吗？")) {
                     for (let i = 0; i < this.selectId; i++) {
-                        this.goodPurInfoList.remove(this.selectId[i]);
+                        this.purchaseOrder.purchaseOrderDetailList.remove(this.selectId[i]);
                     }
+                    this.calculateTotalAmount();
                 }
             },
 
@@ -283,18 +326,36 @@
                     alert("请选中商品");
                     return;
                 }
-                for (let i = 0; i < this.goodPurInfoList.length; i++) {
-                    if(this.goodPurInfoList[i].id == this.selectId[0]){
-                        ret = this.goodPurInfoList[i];
+                for (let i = 0; i < this.purchaseOrder.purchaseOrderDetailList.length; i++) {
+                    if (this.purchaseOrder.purchaseOrderDetailList[i].id == this.selectId[0]) {
+                        ret = this.purchaseOrder.purchaseOrderDetailList[i];
                         break;
                     }
                 }
-                Modalshow("goodPurInfo-d.html?type=1","更新",ret);
+                Modalshow("goodPurInfo-d.html?type=1", "更新", ret);
             },
+
+            //计算总金额
+            calculateTotalAmount() {
+                this.purchaseOrder.price = 0;
+                for (let i = 0; i < this.purchaseOrder.purchaseOrderDetailList.length; i++) {
+                    this.purchaseOrder.price += this.purchaseOrder.purchaseOrderDetailList[i].gooTotalPrice;
+                }
+            },
+
+            //订单保存
+            save() {
+                var _this = this;
+                axios.post("/purchaseOrder/insert",_this.purchaseOrder).then(function (ret) {
+
+                })
+            }
         },
 
         created() {
             this.type = getUrlKey('type');
+            this.getAllEmpByNoPage();
+            this.getAllProvider();
         }
     });
 </script>

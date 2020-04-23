@@ -30,7 +30,7 @@ public class Emp {
   @Column(name = "deptId")
   private Integer deptId;
   private Double salary;
-  private Integer sate;
+  private Integer state;
 
   @Transient
   private Dept dept;
@@ -163,12 +163,12 @@ public class Emp {
     this.salary = salary;
   }
 
-  public Integer getSate() {
-    return sate;
+  public Integer getstate() {
+    return state;
   }
 
-  public void setSate(Integer sate) {
-    this.sate = sate;
+  public void setstate(Integer state) {
+    this.state = state;
   }
 
 

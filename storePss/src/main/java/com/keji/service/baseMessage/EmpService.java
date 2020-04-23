@@ -3,6 +3,7 @@ package com.keji.service.baseMessage;
 import com.github.pagehelper.PageInfo;
 import com.keji.pojo.baseMessage.Emp;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -14,6 +15,8 @@ import java.util.Map;
  */
 public interface EmpService {
     PageInfo<Emp> queryEmp(Map params);
+
+    List<Emp> findAllEmpByNoPage();
 
     int insertEmp(Map params);
 

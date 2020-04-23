@@ -64,15 +64,16 @@
 <!-- 内容头部 -->
 <section class="content-header">
     <h1>
-        员工管理
-        <small>全部员工</small>
+        用户管理
+        <small>全部用户</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="/index.html"><i
                 class="fa fa-dashboard"></i> 首页</a></li>
-        <li><a>员工管理</a></li>
+        <li><a
+                href="/user/findAll.do">用户管理</a></li>
 
-        <li class="active">全部员工</li>
+        <li class="active">全部用户</li>
     </ol>
 </section>
 <!-- 内容头部 /-->
@@ -89,15 +90,11 @@
             <!-- 数据表格 -->
             <div class="table-box">
 
-                <!--工具栏-->
+                <!--工具栏/-->
                 <div class="pull-left">
                     <div class="form-group form-inline">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-default" title="新建"
-                                    onclick="location.href='emp-d.html?type=0'">
-                                <i class="fa fa-file-o"></i> 新建
-                            </button>
-                            <button type="button" class="btn btn-default" title="删除" @click="deleteEmp"><i
+                            <button type="button" class="btn btn-default" title="修改" ><i
                                     class="fa fa-trash-o"></i> 删除
                             </button>
                             <button type="button" class="btn btn-default" title="刷新"
@@ -106,51 +103,38 @@
                         </div>
                     </div>
                 </div>
-                <div class="box-tools pull-right">
-                    <div class="has-feedback">
-                            <input type="text" class="form-control input-sm" v-model="searchEmpname"
-                                   @blur=""  placeholder="员工姓名"> <span
-                             class="glyphicon glyphicon-search form-control-feedback"></span>
-                    </div>
-                </div>
-                <!--工具栏/-->
-
                 <!--数据列表-->
                 <table id="dataList"
                        class="table table-bordered table-striped table-hover dataTable">
                     <thead>
                     <tr>
                         <th class="sorting_asc"></th>
-                        <th class="sorting_desc">员工编号</th>
-                        <th class="sorting_desc sorting_desc_disabled">员工姓名</th>
-                        <th class="sorting_desc sorting_desc_disabled">所属部门</th>
-                        <th class="sorting">性别</th>
-                        <th  >联系电话</th>
-                        <th class="text-center">入职日期</th>
+                        <th class="sorting_desc">用户名</th>
+                        <th class="sorting_desc sorting_desc_disabled">联系电话</th>
+                        <th class="sorting">状态</th>
+                        <th class="text-center">操作</th>
                     </tr>
                     </thead>
                     <tbody>
 
-                    <tr v-for="(emp) in  pageInfo.list" @dblclick="openDetail(emp.id)">
-                        <td class="text-center"><input v-model="deleteId" name="ids" :value="emp.id" type="checkbox"></td>
-                        <td class="text-center">{{emp.id}}</td>
-                        <td class="text-center">{{emp.name}}</td>
-                        <td class="text-center">{{emp.dept.deptName}}</td>
-                        <td class="text-center">{{emp.gender}}</td>
-                        <td class="text-center">{{emp.phone}}</td>
-                        <td class="text-center">{{emp.hireDateStr}}</td>
+                    <tr v-for="(user) in  pageInfo.list">
+                        <td><input v-model="deleteId" name="ids" :value="user.id" type="checkbox"></td>
+                        <td>{{user.userName}}</td>
+                        <td>{{user.phoneNumber}}</td>
+                        <td>{{user.status==0?'关闭':'开启'}}</td>
+                        <td class="text-center">
+                            <button  v-if="user.status==0" type="button" class="btn btn-info" title="启用"
+                                    @click="toUseOrStop(user.userName,1)"><i class="fa fa-refresh"></i> 启用
+                            </button>
+                            <button  v-if="user.status==1" type="button" class="btn btn-danger" title="禁用"
+                                     @click="toUseOrStop(user.userName,0)"><i class="fa fa-refresh"></i> 禁用
+                            </button>
+                            <a :href="detailUser(user.userName)" class="btn bg-olive btn-xs">详情</a>
+                            <a :href="toAddRole(user.id)" class="btn bg-olive btn-xs">添加角色</a>
+                        </td>
                     </tr>
                     </tbody>
-                    <!--
-                <tfoot>
-                <tr>
-                <th>Rendering engine</th>
-                <th>Browser</th>
-                <th>Platform(s)</th>
-                <th>Engine version</th>
-                <th>CSS grade</th>
-                </tr>
-                </tfoot>-->
+
                 </table>
                 <!--数据列表/-->
 
@@ -166,7 +150,7 @@
                 <div class="form-group form-inline">
                     总共{{pageInfo.pages}}页，共{{pageInfo.total-1}}条数据。 每页
                     <select class="form-control" v-model="pageInfo.pageSize"
-                            @click="getAllEmpByPage(pageInfo.pageNum,pageInfo.pageSize)">
+                            @click="getAllUserByPage(pageInfo.pageNum,pageInfo.pageSize)">
                         <option v-for="opt in options" :value="opt.value">{{opt.text}}</option>
                     </select> 条
                 </div>
@@ -175,17 +159,17 @@
             <div class="box-tools pull-right">
                 <ul class="pagination">
                     <li>
-                        <a href="javascript:;" @click="getAllEmpByPage(pageInfo.firstPage,pageInfo.pageSize)"
+                        <a href="javascript:;" @click="getAllUserByPage(pageInfo.firstPage,pageInfo.pageSize)"
                            aria-label="Previous">首页</a>
                     </li>
                     <li><a href="javascript:;"
-                           @click="getAllEmpByPage(pageInfo.prePage,pageInfo.pageSize)">上一页</a></li>
+                           @click="getAllUserByPage(pageInfo.prePage,pageInfo.pageSize)">上一页</a></li>
                     <li v-for="n in pageInfo.pages"><a href="javascript:;"
-                                                       @click="getAllEmpByPage(n,pageInfo.pageSize)">{{n}}</a></li>
+                                                       @click="getAllUserByPage(n,pageInfo.pageSize)">{{n}}</a></li>
                     <li><a href="javascript:;"
-                           @click="getAllEmpByPage(pageInfo.nextPage,pageInfo.pageSize)">下一页</a></li>
+                           @click="getAllUserByPage(pageInfo.nextPage,pageInfo.pageSize)">下一页</a></li>
                     <li>
-                        <a href="javascript:;" @click="getAllEmpByPage(pageInfo.lastPage,pageInfo.pageSize)"
+                        <a href="javascript:;" @click="getAllUserByPage(pageInfo.lastPage,pageInfo.pageSize)"
                            aria-label="Next">尾页</a>
                     </li>
                 </ul>
@@ -198,6 +182,7 @@
 <!-- 正文区域 /-->
 
 <script src="/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="/plugins/jQueryUI/jquery-ui.min.js"></script>
 <script src="/js/vue/axios-0.18.0.js"></script>
 <script src="/js/vue/vuejs-2.5.16.js"></script>
 <script src="/js/common/entity.js"></script>
@@ -214,47 +199,83 @@
                 {text: '10', value: '10'},
             ],
             deleteId:[],
-            searchEmpname:""
+            searchUsername:""
         },
         methods:{
-            getAllEmpByPage(pageNum, pageSize) {
+            //启用、禁用
+            toUseOrStop(userName,type){
+                var _this = this;
+                axios.post("/user/updateUser",{
+                    userName:userName,
+                    type:type
+                }).then(function (res) {
+                    if(res.data.data>0){
+                        if(type == 1){
+                            alert("启用成功")
+                        }else if(type == 0){
+                            alert("禁用成功");
+                        }
+                    }
+                    window.location.reload();
+                });
+            },
+            getAllUserByPage(pageNum, pageSize) {
                let _this = this;
-                axios.post("/emp/query", {pageNum: pageNum, pageSize: pageSize}).then(function (res) {
+                axios.get("/user/findAllUser", {
+                    params:
+                        {pageNum: pageNum, pageSize: pageSize}
+                }).then(function (res) {
                     if(res.data.code==0){
                         _this.pageInfo = res.data.data;
                     }
                 });
             },
-            openDetail(empId) {
-                console.log(empId);
-                return location.href="emp-d.html?type=1&empId=" + empId + "";
-            },
-            //删除员工
-            deleteEmp(){
+            searchUser(){
                 let _this = this;
-                if(this.deleteId.length<=0){
-                    alert("请选中员工");
-                    return;
-                }
-                if(confirm("确定删除吗？")) {
-                    axios.post("/emp/delete", _this.deleteId).then(function (res) {
-                        if (res.data.data == 1) {
-                            alert("删除成功");
-                            window.location.reload();
-                        } else {
-                            alert("删除失败");
-                        }
-                    });
-                }
+                axios.get("/user/findTheUserByUserName",{params:{userName:_this.searchUsername}}).then(function (res) {
+                    let pageInfo1 = {
+                        list: [],
+                        pageNum: 1,
+                        pageSize: 6,
+                        size: "",
+                        total: "",
+                        prePage: "",
+                        nextPage: ""
+                    };
+                    if(res.data.data!="null"){
+                        pageInfo1.list.push(res.data.data);
+                        _this.pageInfo =pageInfo1;
+                        return;
+                    }else{
+                        _this.getAllUserByPage(this.pageInfo.pageNum, this.pageInfo.pageSize);
+                    }
+
+                })
+            },
+            deleteUser(){
+                let _this = this;
+                axios.post("/user/deleteUser",_this.deleteId).then(function (res) {
+                    console.log(res.data)
+                    if(res.data.data==1){
+                        alert("删除成功");
+                        window.location.reload();
+                    }else{
+                        alert("删除失败");
+                    }
+                });
+            },
+            toUpdate(userName){
+                return "user_update.html?userName="+userName;
             },
             toAddRole(userId){
                 return "user-role-add.html?userId="+userId;
             },
+            detailUser(userName){
+                return "user-show.html?userName="+userName;
+            }
         },
-
-
         created() {
-            this.getAllEmpByPage(this.pageInfo.pageNum, this.pageInfo.pageSize);
+            this.getAllUserByPage(this.pageInfo.pageNum, this.pageInfo.pageSize);
         }
     });
 </script>

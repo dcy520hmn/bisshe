@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -30,6 +31,13 @@ public class EmpController extends BaseController {
         PageInfo<Emp> pageInfo = empService.queryEmp(params);
         return dealQueryResult(pageInfo,pageInfo);
     };
+
+    @RequestMapping("/queryByNoPage")
+    public String queryEmpByNoPage (){
+        List<Emp> info = empService.findAllEmpByNoPage();
+        return dealQueryResult(info,info);
+    };
+
 
     @RequestMapping("/insert")
     public String insertAuth(@RequestBody Map params){

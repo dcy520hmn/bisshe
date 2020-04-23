@@ -28,4 +28,53 @@ public class Authority {
 
     @Transient
     private Authority parentAuthority;//父模块名称
+
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescribe() {
+        return describe;
+    }
+
+    public void setDescribe(String describe) {
+        this.describe = describe;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public Integer getParId() {
+        return parId;
+    }
+
+    public void setParId(Integer parId) {
+        this.parId = parId;
+    }
+
+    public Authority getParentAuthority() {
+        return parentAuthority;
+    }
+
+    public void setParentAuthority(Authority parentAuthority) {
+        this.parentAuthority = parentAuthority;
+    }
 }
