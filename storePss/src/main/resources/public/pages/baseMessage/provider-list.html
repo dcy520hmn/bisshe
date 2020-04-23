@@ -123,8 +123,8 @@
                     <tr>
                         <td></td>
                         <th class="sorting_asc">供货商编号</th>
-                        <th class="sorting_desc">供货商性质</th>
-                        <th class="text-center">所属地区</th>
+<!--                        <th class="sorting_desc">供货商性质</th>-->
+<!--                        <th class="text-center">所属地区</th>-->
                         <th class="text-center">供货商名称</th>
                         <th class="text-center">供货商简称</th>
                         <th class="text-center">联系人名称</th>
@@ -141,8 +141,8 @@
                     <tr v-for="(provider) in  pageInfo.list" @dblclick="openDetail(provider.id)">
                         <td><input name="ids" v-model="selectId" :value="provider.id" type="checkbox"></td>
                         <td>{{provider.id}}</td>
-                        <td>{{provider.attribute}}</td>
-                        <td>{{provider.areaName}}</td>
+<!--                        <td>{{provider.attribute}}</td>-->
+<!--                        <td>{{provider.areaName}}</td>-->
                         <td>{{provider.name}}</td>
                         <td>{{provider.shortName}}</td>
                         <td>{{provider.messageName}}</td>

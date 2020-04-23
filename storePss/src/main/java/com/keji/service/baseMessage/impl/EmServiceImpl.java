@@ -136,6 +136,7 @@ public class EmServiceImpl implements EmpService {
             emp.setName(MapUtils.getString(params, "name"));
             emp.setPhone(MapUtils.getString(params, "phone"));
             emp.setSalary(MapUtils.getDoubleValue(params, "salary"));
+            emp.setstate(MapUtils.getInteger(params,"state"));
             empMapper.updateByPrimaryKey(emp);
             UserInfo userInfo = userMapper.findUserByEmpId(emp.getId());
             ret = userMapper.updateUserRole(userInfo.getId(), MapUtils.getInteger(params, "roleId"));

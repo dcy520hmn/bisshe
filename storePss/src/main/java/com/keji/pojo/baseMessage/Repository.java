@@ -8,7 +8,7 @@ public class Repository {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "rId")
-  private long id;
+  private Integer id;
   @Column(name = "rName")
   private String name;
   @Column(name = "rCode")
@@ -26,11 +26,11 @@ public class Repository {
     this.state = state;
   }
 
-  public long getId() {
+  public Integer getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Integer id) {
     this.id = id;
   }
 

@@ -34,7 +34,7 @@ public class GoodServiceImpl implements GoodService {
     public PageInfo<Good> queryGood(Map params) {
         PageHelper.startPage(MapUtils.getInteger(params, "pageNum"), MapUtils.getInteger(params, "pageSize"));
         Example example = new Example(Good.class);
-        Integer id = MapUtils.getInteger(params, "id");
+        Integer id = MapUtils.getInteger(params, "goodId");
         String helpNum = MapUtils.getString(params, "helpNum");
         if (StringUtils.isNotEmpty(id)) {
             example.createCriteria().andEqualTo("id", id);

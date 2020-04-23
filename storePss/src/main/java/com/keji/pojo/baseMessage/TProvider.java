@@ -43,4 +43,123 @@ public class TProvider implements Serializable {
   @Column(name = "state")
   private Integer state;
 
+  public Integer getId() {
+    return id;
+  }
+
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
+  public String getAttribute() {
+    return attribute;
+  }
+
+  public void setAttribute(String attribute) {
+    this.attribute = attribute;
+  }
+
+  public String getAreaId() {
+    return areaId;
+  }
+
+  public void setAreaId(String areaId) {
+    this.areaId = areaId;
+  }
+
+  public String getAreaName() {
+    return areaName;
+  }
+
+  public void setAreaName(String areaName) {
+    this.areaName = areaName;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getShortName() {
+    return shortName;
+  }
+
+  public void setShortName(String shortName) {
+    this.shortName = shortName;
+  }
+
+  public String getMessagePhone() {
+    return messagePhone;
+  }
+
+  public void setMessagePhone(String messagePhone) {
+    this.messagePhone = messagePhone;
+  }
+
+  public String getMessageName() {
+    return messageName;
+  }
+
+  public void setMessageName(String messageName) {
+    this.messageName = messageName;
+  }
+
+  public String getAddress() {
+    return address;
+  }
+
+  public void setAddress(String address) {
+    this.address = address;
+  }
+
+  public String getBank() {
+    return bank;
+  }
+
+  public void setBank(String bank) {
+    this.bank = bank;
+  }
+
+  public String getAccount() {
+    return account;
+  }
+
+  public void setAccount(String account) {
+    this.account = account;
+  }
+
+  public String getPresent() {
+    return present;
+  }
+
+  public void setPresent(String present) {
+    this.present = present;
+  }
+
+  public String getPostcode() {
+    return postcode;
+  }
+
+  public void setPostcode(String postcode) {
+    this.postcode = postcode;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public Integer getState() {
+    return state;
+  }
+
+  public void setState(Integer state) {
+    this.state = state;
+  }
 }

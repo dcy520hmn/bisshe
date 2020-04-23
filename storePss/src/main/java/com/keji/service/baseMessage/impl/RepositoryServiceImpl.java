@@ -34,8 +34,12 @@ public class RepositoryServiceImpl implements RepositoryService {
         PageHelper.startPage(MapUtils.getInteger(params,"pageNum"),MapUtils.getInteger(params,"pageSize"));
         Example example = new Example(Repository.class);
         String code = MapUtils.getString(params,"code");
+        Integer id = MapUtils.getInteger(params,"id");
         if(StringUtils.isNotEmpty(code)){
             example.createCriteria().andLike("rCode",code);
+        }
+        if(StringUtils.isNotEmpty(id)){
+            example.createCriteria().andEqualTo("id",id);
         }
         example.createCriteria().andEqualTo("state",1);
         Page<Repository> providerPage = (Page<Repository>) repositoryMapper.selectByExample(example);

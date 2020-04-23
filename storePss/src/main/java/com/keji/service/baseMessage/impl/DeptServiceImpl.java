@@ -45,13 +45,13 @@ public class DeptServiceImpl implements DeptService {
         Example example = new Example(Dept.class);
         Integer id = MapUtils.getInteger(params,"deptId");
         String deptName = MapUtils.getString(params,"deptName");
-        example.createCriteria().andEqualTo("state",1);
         if(StringUtils.isNotEmpty(id)){
             example.createCriteria().andEqualTo("id",id);
         }
         if(StringUtils.isNotEmpty(deptName)){
             example.createCriteria().andLike("deptName",deptName);
         }
+        example.createCriteria().andEqualTo("state",1);
         Page<Dept> providerPage = (Page<Dept>) deptMapper.selectByExample(example);
         PageInfo<Dept> pageInfo = new PageInfo<>(providerPage);
         return pageInfo;
