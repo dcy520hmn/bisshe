@@ -2,6 +2,7 @@ package com.keji.mapper.purchase;
 
 import com.github.pagehelper.Page;
 import com.keji.pojo.purchase.PurchaseOrder;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.Mapper;
 
@@ -15,4 +16,6 @@ import tk.mybatis.mapper.common.Mapper;
 @Repository
 public interface PurchaseOrderMapper extends Mapper<PurchaseOrder> {
     Page<PurchaseOrder> queryPurchaseOrder();
+
+    int insertPurchaseOrder(@Param("purchaseOrder") PurchaseOrder purchaseOrder);
 }

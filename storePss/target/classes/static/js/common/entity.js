@@ -128,10 +128,9 @@ repository = {
 purchaseOrder = {
     id:"",
     createDate:"",
-    provider:"",
-    operationEmp:"",
+    provider:provider,
+    operationEmp:empForm,
     price:0,
-    createEmp:"",
     remark:"",
     sate:"",
     purchaseOrderDetailList:[]

@@ -36,6 +36,10 @@
     </sql>
 
     <!--根据用户名查询用户-->
+    <select id="findUserByUserName1" resultMap="userMap">
+        <include refid="findAllUserAndRole"/> WHERE user_loginName = #{userName}
+    </select>
+
     <select id="findUserByUserName" resultMap="userMap">
         <include refid="findAllUserAndRole"/> WHERE user_loginName = #{userName}
     </select>

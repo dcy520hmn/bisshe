@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.keji.mapper.purchase.PurchaseOrderDetailMapper">
+    <resultMap id="purchaseOrderDetailMapper" type="purchaseOrderDetail">
+        <id column="tpod_id" property="id"/>
+        <result column="tpod_gooNum" property="gooNum"/>
+        <result column="tpod_gooTax" property="gooTax"/>
+        <result column="tpod_gooTaxPrc" property="gooTaxPrc"/>
+        <result column="tpod_gooOtherPrice" property="gooOtherPrice"/>
+        <result column="tpod_gooTotalPrice" property="gooTotalPrice"/>
+        <result column="tpod_gooRemark" property="gooRemark"/>
+        <association property="repository" javaType="repository">
+            <id column="rId" property="id"/>
+            <result column="rName" property="name"/>
+        </association>
+        <association property="good" javaType="good">
+            <id column="gID" property="id"/>
+            <result column="gName" property="name"/>
+        </association>
+    </resultMap>
+
+    <insert id="insertPurchaseOrderDetail">
+        INSERT INTO t_purchase_order_detail(
+            tpod_id,
+            tpod_rId,
+            tpod_gooId,
+            tpod_gooNum,
+            tpod_gooTax,
+            tpod_gooTaxPrc,
+            tpod_gooOtherPrice,
+            tpod_gooTotalPrice,
+            tpod_gooRemark)
+        VALUES (
+            #{purchaseOrderDetail.id},
+            #{purchaseOrderDetail.repository.id},
+            #{purchaseOrderDetail.good.id},
+            #{purchaseOrderDetail.gooNum},
+            #{purchaseOrderDetail.gooTax},
+            #{purchaseOrderDetail.gooTaxPrc},
+            #{purchaseOrderDetail.gooOtherPrice},
+            #{purchaseOrderDetail.gooTotalPrice},
+            #{purchaseOrderDetail.gooRemark})
+    </insert>
+</mapper>

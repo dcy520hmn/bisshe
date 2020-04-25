@@ -2,38 +2,61 @@ package com.keji.pojo.purchase;
 
 
 import com.keji.common.utils.DateUtil;
+import com.keji.pojo.baseMessage.Emp;
+import com.keji.pojo.baseMessage.TProvider;
 
 import javax.persistence.Column;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import com.keji.pojo.baseMessage.TProvider;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 @Table(name = "t_purchase_order")
 public class PurchaseOrder {
-  @Column(name = "tpoId")
-  private Integer id;
-  @Column(name = "tpoCreateDate")
+  @Column(name = "tpo_Id")
+  private String id;
+
+  @Column(name = "tpo_CreateDate")
   private Date createDate;
-  @Column(name = "tpoProvider")
-  private Integer provider;
-  @Column(name = "tpoOperationEmp")
-  private Integer operationEmp;
-  @Column(name = "tpoPrice")
+
+  @Column(name = "tpo_Price")
   private Double price;
-  @Column(name = "tpoCreateEmp")
-  private Integer createEmp;
-  @Column(name = "tpoRemark")
+
+  @Column(name = "tpo_Remark")
   private String remark;
-  @Column(name = "tpoSate")
+
+  @Column(name = "tpo_Sate")
   private Integer sate;
 
+  @Transient
+  private TProvider provider;
+  @Transient
+  private Emp operationEmp;
+  @Transient
+  private Emp createEmp;
   @Transient
   private String createDateStr;
   @Transient
   private List<PurchaseOrderDetail> purchaseOrderDetailList;
 
+
+  public TProvider getProvider() {
+    return provider;
+  }
+
+  public void setProvider(TProvider provider) {
+    this.provider = provider;
+  }
+
+  public Emp getOperationEmp() {
+    return operationEmp;
+  }
+
+  public void setOperationEmp(Emp operationEmp) {
+    this.operationEmp = operationEmp;
+  }
 
   public String getCreateDateStr() {
     return createDateStr;
@@ -55,11 +78,11 @@ public class PurchaseOrder {
     purchaseOrderDetailList = purchaseOrderDetailList;
   }
 
-  public Integer getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(String id) {
     this.id = id;
   }
 
@@ -73,25 +96,6 @@ public class PurchaseOrder {
     setCreateDateStr(DateUtil.dateToString(createDate,DateUtil.DATETIMEPATTERN24H));
   }
 
-
-  public Integer getProvider() {
-    return provider;
-  }
-
-  public void setProvider(Integer provider) {
-    this.provider = provider;
-  }
-
-
-  public Integer getOperationEmp() {
-    return operationEmp;
-  }
-
-  public void setOperationEmp(Integer operationEmp) {
-    this.operationEmp = operationEmp;
-  }
-
-
   public double getPrice() {
     return price;
   }
@@ -101,14 +105,13 @@ public class PurchaseOrder {
   }
 
 
-  public Integer getCreateEmp() {
+  public Emp getCreateEmp() {
     return createEmp;
   }
 
-  public void setCreateEmp(Integer createEmp) {
+  public void setCreateEmp(Emp createEmp) {
     this.createEmp = createEmp;
   }
-
 
   public String getRemark() {
     return remark;

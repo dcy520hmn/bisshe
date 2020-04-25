@@ -40,12 +40,12 @@ public class PurchaseOrderController extends BaseController {
 
     /**
      * 增加商品信息
-     * @param purchaseOrder
+     * @param
      * @return
      */
     @RequestMapping("/insert")
-    public String insertAuth(@RequestBody PurchaseOrder purchaseOrder){
-        int ret =  durchaseOrderServiceService.insertPurchaseOrder(purchaseOrder);
+    public String insertAuth(@RequestBody Map params){
+        int ret =  durchaseOrderServiceService.insertPurchaseOrder(params);
         return dealQueryResult(ret,ret);
     };
 

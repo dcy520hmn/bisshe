@@ -96,10 +96,10 @@
                                     onclick="location.href='purchaseOrder-d.html?type=0'">
                                 <i class="fa fa-file-o"></i> 新建订单
                             </button>
-                            <button type="button" class="btn btn-default" title="删除" @click="deleteDept"><i
+                            <button type="button" class="btn btn-default" title="删除" @click="deletePurchaseOrder"><i
                                     class="fa fa-trash-o"></i> 删除
                             </button>
-                            <button type="button" class="btn btn-default" title="修改" @click="updateDept"><i
+                            <button type="button" class="btn btn-default" title="修改" @click="updatePurchaseOrder"><i
                                     class="fa fa-trash-o"></i> 修改
                             </button>
                             <button type="button" class="btn btn-default" title="刷新"
@@ -111,7 +111,7 @@
                 <div class="box-tools pull-right">
                     <div class="has-feedback">
                         <input type="text" class="form-control input-sm"
-                               placeholder="商品简称" v-model="searchDeptName"> <span
+                               placeholder="商品简称" v-model="searchPurchaseOrderName"> <span
                             class="glyphicon glyphicon-search form-control-feedback"></span>
                     </div>
                 </div>
@@ -125,17 +125,18 @@
                         <th class="sorting_asc">进货订单编号</th>
                         <th class="sorting_desc">供应商</th>
                         <th class="sorting_desc">经手人</th>
+                        <th class="sorting_desc">经手人工号</th>
                         <th class="sorting_desc">金额</th>
                         <th class="sorting_desc">备注</th>
                         <th class="sorting_desc">状态</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr v-for="(dept) in  pageInfo.list" @dblclick="openDetail(dept.id)">
-                        <td><input name="ids" v-model="selectId" :value="dept.id" type="checkbox"></td>
-                        <td>{{dept.id}}</td>
-                        <td>{{dept.deptName}}</td>
-                        <td>{{dept.deptAreaName+dept.deptAddress}}</td>
+                    <tr v-for="(purchaseOrder) in  pageInfo.list" @dblclick="openDetail(purchaseOrder.id)">
+                        <td><input name="ids" v-model="selectId" :value="purchaseOrder.id" type="checkbox"></td>
+                        <td>{{purchaseOrder.id}}</td>
+                        <td>{{purchaseOrder.PurchaseOrderName}}</td>
+                        <td>{{purchaseOrder.PurchaseOrderAreaName+PurchaseOrder.PurchaseOrderAddress}}</td>
                     </tr>
                     </tbody>
                 </table>
@@ -152,7 +153,7 @@
                 <div class="form-group form-inline">
                     总共{{pageInfo.pages}}页 每页
                     <select class="form-control" v-model="pageInfo.pageSize"
-                            @click="getAllDeptByPage(pageInfo.pageNum,pageInfo.pageSize)">
+                            @click="getAllPurchaseOrderByPage(pageInfo.pageNum,pageInfo.pageSize)">
                         <option v-for="opt in options" :value="opt.value">{{opt.text}}</option>
                     </select> 条
                 </div>
@@ -161,17 +162,17 @@
             <div class="box-tools pull-right">
                 <ul class="pagination">
                     <li>
-                        <a href="javascript:;" @click="getAllDeptByPage(pageInfo.firstPage,pageInfo.pageSize)"
+                        <a href="javascript:;" @click="getAllPurchaseOrderByPage(pageInfo.firstPage,pageInfo.pageSize)"
                            aria-label="Previous">首页</a>
                     </li>
                     <li><a href="javascript:;"
-                           @click="getAllDeptByPage(pageInfo.prePage,pageInfo.pageSize)">上一页</a></li>
+                           @click="getAllPurchaseOrderByPage(pageInfo.prePage,pageInfo.pageSize)">上一页</a></li>
                     <li v-for="n in pageInfo.pages"><a href="javascript:;"
-                                                       @click="getAllDeptByPage(n,pageInfo.pageSize)">{{n}}</a></li>
+                                                       @click="getAllPurchaseOrderByPage(n,pageInfo.pageSize)">{{n}}</a></li>
                     <li><a href="javascript:;"
-                           @click="getAllDeptByPage(pageInfo.nextPage,pageInfo.pageSize)">下一页</a></li>
+                           @click="getAllPurchaseOrderByPage(pageInfo.nextPage,pageInfo.pageSize)">下一页</a></li>
                     <li>
-                        <a href="javascript:;" @click="getAllDeptByPage(pageInfo.lastPage,pageInfo.pageSize)"
+                        <a href="javascript:;" @click="getAllPurchaseOrderByPage(pageInfo.lastPage,pageInfo.pageSize)"
                            aria-label="Next">尾页</a>
                     </li>
                 </ul>
@@ -192,7 +193,7 @@
     new Vue({
         el: "#div1",
         data: {
-            dept: dept,
+            purchaseOrder: purchaseOrder,
             pageInfo: pageInfo,
             options: [
                 {text: '4', value: '4'},
@@ -201,14 +202,13 @@
                 {text: '10', value: '10'},
             ],
             selectId: [],
-            searchDeptName: ""
+            searchPurchaseOrderName: ""
         },
         methods: {
-            getAllDeptByPage(pageNum, pageSize, searchDeptName) {
-
+            getAllPurchaseOrderByPage(pageNum, pageSize, searchPurchaseOrderName) {
                 _this = this;
-                axios.post("/dept/findDept",
-                        {pageNum: pageNum, pageSize: pageSize, helpNum: searchDeptName}
+                axios.post("/purchaseOrder/findPurchaseOrder",
+                        {pageNum: pageNum, pageSize: pageSize, helpNum: searchPurchaseOrderName}
                 ).then(function (res) {
                     if(res.data.code==0){
                         _this.pageInfo = res.data.data;
@@ -216,18 +216,18 @@
                 });
             },
 
-            openDetail(deptId) {
-                return location.href="purchaseOrder-d.html?type=1&deptId=" + deptId + "";
+            openDetail(PurchaseOrderId) {
+                return location.href="purchaseOrder-d.html?type=1&PurchaseOrderId=" + PurchaseOrderId + "";
             },
 
-            deleteDept() {
+            deletePurchaseOrder() {
                 let _this = this;
                 if(this.selectId.length<=0){
                     alert("请选中商品");
                     return;
                 }
                 if(confirm("确定删除吗？")){
-                    axios.post("/dept/delete", _this.selectId).then(function (res) {
+                    axios.post("/PurchaseOrder/delete", _this.selectId).then(function (res) {
                         if (res.data.data == 0) {
                             alert("删除成功");
                             window.location.reload();
@@ -240,30 +240,30 @@
                 }
             },
 
-            updateDept(){
+            updatePurchaseOrder(){
                 let _this = this;
                 if(this.selectId.length<=0){
                     alert("请选中部门");
                     return;
                 }
-                return location.href="purchaseOrder-d.html?type=1&deptId=" + this.selectId[0] + "";
+                return location.href="purchaseOrder-d.html?type=1&PurchaseOrderId=" + this.selectId[0] + "";
             },
 
-            toAddDept(authId) {
+            toAddPurchaseOrder(authId) {
                 return "auth-permission-add.html?authId=" + authId + "";
             }
         },
 
         watch:{
-            searchDeptName:{
+            searchPurchaseOrderName:{
                 handler(){
-                    this.getAllDeptByPage(this.pageInfo.pageNum, this.pageInfo.pageSize, this.searchDeptName);
+                    this.getAllPurchaseOrderByPage(this.pageInfo.pageNum, this.pageInfo.pageSize, this.searchPurchaseOrderName);
                 },
                 deep:true
             },
         },
         created() {
-            // this.getAllDeptByPage(this.pageInfo.pageNum, this.pageInfo.pageSize, this.searchDeptName);
+            this.getAllPurchaseOrderByPage(this.pageInfo.pageNum, this.pageInfo.pageSize, this.searchPurchaseOrderName);
         }
     });
 </script>

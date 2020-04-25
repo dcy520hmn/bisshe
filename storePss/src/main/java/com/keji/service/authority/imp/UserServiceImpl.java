@@ -51,6 +51,11 @@ public class UserServiceImpl implements UserService {
         return userMapper.findUserByUserName(userName);
     }
 
+    @Override
+    public UserInfo findUserByUserName1(String userName) {
+        return userMapper.findUserByUserName1(userName);
+    }
+
     /**
      * 获得该用户所有的权限
      * @return

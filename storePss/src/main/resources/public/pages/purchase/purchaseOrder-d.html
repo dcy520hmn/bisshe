@@ -88,7 +88,7 @@
                 <div class="col-md-2 title">供货商</div>
                 <div class="col-md-2 data">
                     <select type="text" class="form-control input-sm"
-                            placeholder="厂家" v-model="purchaseOrder.provider">
+                            placeholder="厂家" v-model="purchaseOrder.provider.id">
                         <option v-for="provider in providers" :value="provider.value">{{provider.text}}</option>
                     </select>
                 </div>
@@ -96,7 +96,7 @@
                 <div class="col-md-2 title">经手人</div>
                 <div class="col-md-2 data">
                     <select type="text" class="form-control input-sm"
-                            placeholder="厂家" v-model="purchaseOrder.operationEmp">
+                            placeholder="经手人" v-model="purchaseOrder.operationEmp.id">
                         <option v-for="emp in emps" :value="emp.value">{{emp.text}}</option>
                     </select>
                 </div>
@@ -347,7 +347,10 @@
             save() {
                 var _this = this;
                 axios.post("/purchaseOrder/insert",_this.purchaseOrder).then(function (ret) {
-
+                    if(ret.data.data==1){
+                        alert("添加成功");
+                        location.href = "purchaseOrder-list.html";
+                    }
                 })
             }
         },

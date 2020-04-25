@@ -11,7 +11,7 @@ import javax.persistence.Transient;
 public class PurchaseOrderDetail {
 
   @Column(name = "tpod_id")
-  private Integer id;
+  private String id;
   @Column(name = "tpod_gooNum")
   private Integer gooNum;
   @Column(name = "tpod_gooTax")
@@ -46,11 +46,11 @@ public class PurchaseOrderDetail {
     this.good = good;
   }
 
-  public Integer getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(String id) {
     this.id = id;
   }
 

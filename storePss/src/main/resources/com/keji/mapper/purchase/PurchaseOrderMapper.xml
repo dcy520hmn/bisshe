@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.keji.mapper.purchase.PurchaseOrderMapper">
+
+    <resultMap id="purchaseOrderMap" type="PurchaseOrder">
+        <id column="tpo_Id" property="id"/>
+        <result column="tpo_CreateDate" property="createDate"/>
+        <result column="tpo_Price" property="price"/>
+        <result column="tpo_Remark" property="remark"/>
+        <result column="tpo_Sate" property="sate"/>
+        <association property="operationEmp" javaType="Emp">
+            <id property="id" column="id"/>
+            <result property="name" column="name"/>
+        </association>
+        <association property="createEmp" javaType="Emp">
+            <id property="id" column="id"/>
+            <result property="name" column="name"/>
+        </association>
+        <association property="provider" javaType="TProvider">
+            <id property="id" column="pId"/>
+            <id property="name" column="pName"/>
+        </association>
+        <collection property="purchaseOrderDetailList" ofType="PurchaseOrderDetail">
+            <id column="tpod_id" property="id"/>
+            <result column="tpod_posId" property="posId"/>
+            <result column="tpod_gooId" property="gooId"/>
+            <result column="tpod_gooNum" property="tpod_gooNum"/>
+            <result column="tpod_gooTax" property="tpod_gooTax"/>
+            <result column="tpod_gooTaxPrc" property="tpod_gooTaxPrc"/>
+            <result column="tpod_gooOtherPrice" property="tpod_gooOtherPrice"/>
+            <result column="tpod_gooTotalPrice" property="tpod_gooTotalPrice"/>
+            <result column="tpod_gooRemark" property="tpod_gooRemark"/>
+            <association property="repository" javaType="Repository">
+                <id column="rId" property="id"/>
+                <result column="rName" property="name"/>
+            </association>
+            <association property="good" javaType="Good">
+                <id column="gID" property="id"/>
+                <result column="gName" property="name"/>
+            </association>
+        </collection>
+    </resultMap>
+    
+    <insert id="insertPurchaseOrder">
+        INSERT INTO t_purchase_order(tpo_Id,tpo_CreateDate,tpo_posId,tpo_oEmpId,tpo_Price,tpo_cEmpId,tpo_Remark,tpo_Sate)
+        VALUES(#{purchaseOrder.id},#{purchaseOrder.createDate},#{purchaseOrder.provider.id},#{purchaseOrder.operationEmp.id},#{purchaseOrder.price},
+                #{purchaseOrder.createEmp.id},#{purchaseOrder.remark},#{purchaseOrder.sate}
+        )
+    </insert>
+
+    <select id="queryPurchaseOrder" resultMap="purchaseOrderMap">
+        SELECT tpo.*,tpod.*,tp.pId,tp.pName,te.name AS operationEmpName,te.gName
+        FROM t_purchase_order tpo
+        LEFT JOIN t_purchase_order_detail tpod ON tpo.tpoId=tpod.tpod_id
+        LEFT JOIN t_provider tp ON tpo.tpoProvider = tp.pId
+        LEFT JOIN t_emp te ON  tpo.tpoOperationEmp = te.id
+        <where>
+
+        </where>
+    </select>
+    
+
+
+</mapper>

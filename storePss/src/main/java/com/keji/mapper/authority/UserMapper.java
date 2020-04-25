@@ -26,6 +26,8 @@ public interface UserMapper {
      */
     UserInfo findUserByUserName(@Param("userName") String userName);
 
+    UserInfo findUserByUserName1(@Param("userName") String userName);
+
     /**
      * 增加用户
      * @param userInfo 要添加用户

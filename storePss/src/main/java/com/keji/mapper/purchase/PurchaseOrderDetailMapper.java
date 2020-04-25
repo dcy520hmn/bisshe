@@ -1,6 +1,7 @@
 package com.keji.mapper.purchase;
 
 import com.keji.pojo.purchase.PurchaseOrderDetail;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.Mapper;
 
@@ -13,5 +14,5 @@ import tk.mybatis.mapper.common.Mapper;
  */
 @Repository
 public interface PurchaseOrderDetailMapper extends Mapper<PurchaseOrderDetail> {
-
+    int insertPurchaseOrderDetail(@Param("purchaseOrderDetail")  PurchaseOrderDetail purchaseOrderDetail);
 }

@@ -30,6 +30,13 @@ public interface UserService  {
     UserInfo findUserByUserName(String userName);
 
     /**
+     * 根据用户名获得用户
+     * @param userName 用户名
+     * @return 符合用户名的用户
+     */
+    UserInfo findUserByUserName1(String userName);
+
+    /**
      * 获得该用户所有的权限
      * @return
      */
