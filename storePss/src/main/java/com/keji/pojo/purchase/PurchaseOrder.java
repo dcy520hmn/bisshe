@@ -8,8 +8,6 @@ import com.keji.pojo.baseMessage.TProvider;
 import javax.persistence.Column;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-import com.keji.pojo.baseMessage.TProvider;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -41,6 +39,13 @@ public class PurchaseOrder {
   @Transient
   private List<PurchaseOrderDetail> purchaseOrderDetailList;
 
+  public List<PurchaseOrderDetail> getPurchaseOrderDetailList() {
+    return purchaseOrderDetailList;
+  }
+
+  public void setPurchaseOrderDetailList(List<PurchaseOrderDetail> purchaseOrderDetailList) {
+    this.purchaseOrderDetailList = purchaseOrderDetailList;
+  }
 
   public TProvider getProvider() {
     return provider;
@@ -70,13 +75,7 @@ public class PurchaseOrder {
     this.price = price;
   }
 
-  public List<PurchaseOrderDetail> getPurchaseOrderDetailList() {
-    return purchaseOrderDetailList;
-  }
 
-  public void setPurchaseOrderDetailList(List<PurchaseOrderDetail> purchaseOrderDetailList) {
-    purchaseOrderDetailList = purchaseOrderDetailList;
-  }
 
   public String getId() {
     return id;

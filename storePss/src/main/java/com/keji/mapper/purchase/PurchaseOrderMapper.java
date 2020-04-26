@@ -15,7 +15,7 @@ import tk.mybatis.mapper.common.Mapper;
  */
 @Repository
 public interface PurchaseOrderMapper extends Mapper<PurchaseOrder> {
-    Page<PurchaseOrder> queryPurchaseOrder();
+    Page<PurchaseOrder> queryPurchaseOrder(@Param("orderId") String orderId,@Param("orderState") Integer state);
 
     int insertPurchaseOrder(@Param("purchaseOrder") PurchaseOrder purchaseOrder);
 }

@@ -110,9 +110,27 @@
                 </div>
                 <div class="box-tools pull-right">
                     <div class="has-feedback">
-                        <input type="text" class="form-control input-sm"
-                               placeholder="商品简称" v-model="searchPurchaseOrderName"> <span
-                            class="glyphicon glyphicon-search form-control-feedback"></span>
+                        <button type="button" class="btn btn-block btn-default btn-sm" title="搜索"
+                                @click="search"><i class="fa fa-search"></i> 搜索
+                        </button>
+                    </div>
+                </div>
+                <div class="box-tools pull-right">
+                    <div class="box-tools pull-right">
+                        <div class="has-feedback">
+
+                            <select type="text" class="form-control input-sm"
+                                    placeholder="状态" v-model="selectOrderStateCondition">
+                                <option v-for="orderState in orderState" :value="orderState.value">{{orderState.text}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="box-tools pull-right">
+                        <div class="has-feedback">
+                            <input type="text" class="form-control input-sm"
+                                   placeholder="订单编号" v-model="orderIdCondition">
+                        </div>
                     </div>
                 </div>
                 <!--工具栏/-->
@@ -135,8 +153,13 @@
                     <tr v-for="(purchaseOrder) in  pageInfo.list" @dblclick="openDetail(purchaseOrder.id)">
                         <td><input name="ids" v-model="selectId" :value="purchaseOrder.id" type="checkbox"></td>
                         <td>{{purchaseOrder.id}}</td>
-                        <td>{{purchaseOrder.PurchaseOrderName}}</td>
-                        <td>{{purchaseOrder.PurchaseOrderAreaName+PurchaseOrder.PurchaseOrderAddress}}</td>
+                        <td>{{purchaseOrder.provider.name}}</td>
+                        <td>{{purchaseOrder.operationEmp.name}}</td>
+                        <td>{{purchaseOrder.operationEmp.id}}</td>
+                        <td>{{purchaseOrder.price}}</td>
+                        <td>{{purchaseOrder.remark}}</td>
+                        <td v-if="purchaseOrder.sate==0" style="color: red;font-weight: bold">处理中</td>
+                        <td v-if="purchaseOrder.sate==1" style="color: green;font-weight: bold">完成</td>
                     </tr>
                     </tbody>
                 </table>
@@ -153,7 +176,7 @@
                 <div class="form-group form-inline">
                     总共{{pageInfo.pages}}页 每页
                     <select class="form-control" v-model="pageInfo.pageSize"
-                            @click="getAllPurchaseOrderByPage(pageInfo.pageNum,pageInfo.pageSize)">
+                            @click="getAllPurchaseOrderByPage(pageInfo.pageNum,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition)">
                         <option v-for="opt in options" :value="opt.value">{{opt.text}}</option>
                     </select> 条
                 </div>
@@ -162,17 +185,18 @@
             <div class="box-tools pull-right">
                 <ul class="pagination">
                     <li>
-                        <a href="javascript:;" @click="getAllPurchaseOrderByPage(pageInfo.firstPage,pageInfo.pageSize)"
+                        <a href="javascript:;" @click="getAllPurchaseOrderByPage(pageInfo.firstPage,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition)"
                            aria-label="Previous">首页</a>
                     </li>
                     <li><a href="javascript:;"
-                           @click="getAllPurchaseOrderByPage(pageInfo.prePage,pageInfo.pageSize)">上一页</a></li>
+                           @click="getAllPurchaseOrderByPage(pageInfo.prePage,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition)">上一页</a></li>
                     <li v-for="n in pageInfo.pages"><a href="javascript:;"
-                                                       @click="getAllPurchaseOrderByPage(n,pageInfo.pageSize)">{{n}}</a></li>
+                                                       @click="getAllPurchaseOrderByPage(n,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition)">{{n}}</a>
+                    </li>
                     <li><a href="javascript:;"
-                           @click="getAllPurchaseOrderByPage(pageInfo.nextPage,pageInfo.pageSize)">下一页</a></li>
+                           @click="getAllPurchaseOrderByPage(pageInfo.nextPage,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition)">下一页</a></li>
                     <li>
-                        <a href="javascript:;" @click="getAllPurchaseOrderByPage(pageInfo.lastPage,pageInfo.pageSize)"
+                        <a href="javascript:;" @click="getAllPurchaseOrderByPage(pageInfo.lastPage,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition)"
                            aria-label="Next">尾页</a>
                     </li>
                 </ul>
@@ -202,51 +226,65 @@
                 {text: '10', value: '10'},
             ],
             selectId: [],
-            searchPurchaseOrderName: ""
+            searchPurchaseOrderName: "",
+            orderState: [
+                {text: '状态选择', value: ""},
+                {text: '处理中', value: 0},
+                {text: '已完成', value: 1},
+            ],
+            selectOrderStateCondition: "",
+            orderIdCondition:"",
         },
         methods: {
-            getAllPurchaseOrderByPage(pageNum, pageSize, searchPurchaseOrderName) {
+            search:function(){
+                this.getAllPurchaseOrderByPage(this.pageInfo.pageNum, this.pageInfo.pageSize,this.orderIdCondition,this.selectOrderStateCondition);
+            },
+
+            getAllPurchaseOrderByPage(pageNum, pageSize, orderIdCondition,selectOrderStateCondition) {
                 _this = this;
                 axios.post("/purchaseOrder/findPurchaseOrder",
-                        {pageNum: pageNum, pageSize: pageSize, helpNum: searchPurchaseOrderName}
+                    {pageNum: pageNum,
+                        pageSize: pageSize,
+                        orderIdCondition: orderIdCondition,
+                        selectOrderStateCondition:selectOrderStateCondition}
                 ).then(function (res) {
-                    if(res.data.code==0){
+                    if (res.data.code == 0) {
                         _this.pageInfo = res.data.data;
                     }
                 });
             },
 
             openDetail(PurchaseOrderId) {
-                return location.href="purchaseOrder-d.html?type=1&PurchaseOrderId=" + PurchaseOrderId + "";
+                return location.href = "purchaseOrder-d.html?type=1&PurchaseOrderId=" + PurchaseOrderId + "";
             },
 
             deletePurchaseOrder() {
                 let _this = this;
-                if(this.selectId.length<=0){
+                if (this.selectId.length <= 0) {
                     alert("请选中商品");
                     return;
                 }
-                if(confirm("确定删除吗？")){
+                if (confirm("确定删除吗？")) {
                     axios.post("/PurchaseOrder/delete", _this.selectId).then(function (res) {
                         if (res.data.data == 0) {
                             alert("删除成功");
                             window.location.reload();
-                        } else if((res.data.data == -1)){
+                        } else if ((res.data.data == -1)) {
                             alert("删除失败");
-                        }else{
-                            alert("删除失败！部门编号："+res.data.data+"下，存在员工");
+                        } else {
+                            alert("删除失败！部门编号：" + res.data.data + "下，存在员工");
                         }
                     })
                 }
             },
 
-            updatePurchaseOrder(){
+            updatePurchaseOrder() {
                 let _this = this;
-                if(this.selectId.length<=0){
+                if (this.selectId.length <= 0) {
                     alert("请选中部门");
                     return;
                 }
-                return location.href="purchaseOrder-d.html?type=1&PurchaseOrderId=" + this.selectId[0] + "";
+                return location.href = "purchaseOrder-d.html?type=1&PurchaseOrderId=" + this.selectId[0] + "";
             },
 
             toAddPurchaseOrder(authId) {
@@ -254,12 +292,12 @@
             }
         },
 
-        watch:{
-            searchPurchaseOrderName:{
-                handler(){
+        watch: {
+            searchPurchaseOrderName: {
+                handler() {
                     this.getAllPurchaseOrderByPage(this.pageInfo.pageNum, this.pageInfo.pageSize, this.searchPurchaseOrderName);
                 },
-                deep:true
+                deep: true
             },
         },
         created() {

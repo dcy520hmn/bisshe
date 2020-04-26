@@ -12,27 +12,25 @@
         <result column="tpo_Remark" property="remark"/>
         <result column="tpo_Sate" property="sate"/>
         <association property="operationEmp" javaType="Emp">
-            <id property="id" column="id"/>
-            <result property="name" column="name"/>
+            <id property="id" column="oEmpId"/>
+            <result property="name" column="oName"/>
         </association>
         <association property="createEmp" javaType="Emp">
-            <id property="id" column="id"/>
-            <result property="name" column="name"/>
+            <id property="id" column="cEmpName"/>
+            <result property="name" column="cName"/>
         </association>
         <association property="provider" javaType="TProvider">
             <id property="id" column="pId"/>
             <id property="name" column="pName"/>
         </association>
-        <collection property="purchaseOrderDetailList" ofType="PurchaseOrderDetail">
+        <collection property="purchaseOrderDetailList" ofType="purchaseOrderDetail">
             <id column="tpod_id" property="id"/>
-            <result column="tpod_posId" property="posId"/>
-            <result column="tpod_gooId" property="gooId"/>
-            <result column="tpod_gooNum" property="tpod_gooNum"/>
-            <result column="tpod_gooTax" property="tpod_gooTax"/>
-            <result column="tpod_gooTaxPrc" property="tpod_gooTaxPrc"/>
-            <result column="tpod_gooOtherPrice" property="tpod_gooOtherPrice"/>
-            <result column="tpod_gooTotalPrice" property="tpod_gooTotalPrice"/>
-            <result column="tpod_gooRemark" property="tpod_gooRemark"/>
+            <result column="tpod_gooNum" property="gooNum"/>
+            <result column="tpod_gooTax" property="gooTax"/>
+            <result column="tpod_gooTaxPrc" property="gooTaxPrc"/>
+            <result column="tpod_gooOtherPrice" property="gooOtherPrice"/>
+            <result column="tpod_gooTotalPrice" property="gooTotalPrice"/>
+            <result column="tpod_gooRemark" property="gooRemark"/>
             <association property="repository" javaType="Repository">
                 <id column="rId" property="id"/>
                 <result column="rName" property="name"/>
@@ -52,16 +50,29 @@
     </insert>
 
     <select id="queryPurchaseOrder" resultMap="purchaseOrderMap">
-        SELECT tpo.*,tpod.*,tp.pId,tp.pName,te.name AS operationEmpName,te.gName
+        SELECT
+        tpo.tpo_Id, tpo.tpo_CreateDate, tpo.tpo_Price, tpo.tpo_Remark, tpo.tpo_Sate,
+        te.id AS oEmpId,te.name AS oName,te.id AS cEmpName,te.name AS cEmpName,
+        tp.pId,tp.pName,
+        tpod.tpod_id,tpod.tpod_gooNum,tpod.tpod_gooTax,tpod.tpod_gooTaxPrc,tpod.tpod_gooOtherPrice,tpod.tpod_gooTotalPrice,tpod.tpod_gooRemark,
+        tr.rId,tr.rName,tg.gID,tg.gName
         FROM t_purchase_order tpo
-        LEFT JOIN t_purchase_order_detail tpod ON tpo.tpoId=tpod.tpod_id
-        LEFT JOIN t_provider tp ON tpo.tpoProvider = tp.pId
-        LEFT JOIN t_emp te ON  tpo.tpoOperationEmp = te.id
+        LEFT JOIN t_emp te ON  tpo.tpo_oEmpId = te.id
+        LEFT JOIN t_emp te1 ON  tpo.tpo_cEmpId = te1.id
+        LEFT JOIN t_provider tp ON tpo.tpo_posId = tp.pId
+        LEFT JOIN t_purchase_order_detail tpod ON tpo.tpo_Id=tpod.tpod_id
+        LEFT JOIN t_repository tr ON tr.rId = tpod.tpod_rId
+        LEFT JOIN t_goods tg ON tg.gID = tpod.tpod_gooId
         <where>
-
+            <if test="orderId != null and orderId!=''">
+               AND tpo.tpo_Id = #{orderId}
+            </if>
+            <if test="orderState != null and orderState!=''">
+                AND tpo.tpo_Sate = #{orderState}
+            </if>
         </where>
     </select>
-    
+
 
 
 </mapper>

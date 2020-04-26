@@ -42,7 +42,9 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
     @Override
     public PageInfo<PurchaseOrder> queryPurchaseOrder(Map params) {
         PageHelper.startPage(MapUtils.getInteger(params,"pageNum"),MapUtils.getInteger(params,"pageSize"));
-        Page<PurchaseOrder> purchaseOrderPage = purchaseOrderMapper.queryPurchaseOrder();
+        String orderId = MapUtils.getString(params,"orderIdCondition");
+        Integer orderState = MapUtils.getInteger(params,"selectOrderStateCondition");
+        Page<PurchaseOrder> purchaseOrderPage = purchaseOrderMapper.queryPurchaseOrder(orderId,orderState);
         PageInfo<PurchaseOrder> purchaseOrderPageInfo = new PageInfo<>(purchaseOrderPage);
         return purchaseOrderPageInfo;
     }

@@ -2,28 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61be1ebb-4faa-42f2-8603-40ea841ebc4e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/keji/common/utils/OrderIdUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/purchase/PurchaseOrderDetailMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/purchase/PurchaseOrderMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_9_9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_9_9.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/log.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/controller/purchase/PurchaseOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/controller/purchase/PurchaseOrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/mapper/authority/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/mapper/authority/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/mapper/purchase/PurchaseOrderDetailMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/mapper/purchase/PurchaseOrderDetailMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/mapper/purchase/PurchaseOrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/mapper/purchase/PurchaseOrderMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/purchase/PurchaseOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/pojo/purchase/PurchaseOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/purchase/PurchaseOrderDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/pojo/purchase/PurchaseOrderDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/authority/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/authority/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/authority/imp/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/authority/imp/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/purcahse/PurchaseOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/purcahse/PurchaseOrderService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/purcahse/impl/PurchaseOrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/purcahse/impl/PurchaseOrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/authority/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/authority/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/purchase/PurchaseOrder.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/purchaseOrder-d.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/purchaseOrder-d.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/purchase/PurchaseOrderMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/purchase/PurchaseOrderMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/purchaseOrder-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/purchaseOrder-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/common/entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/common/entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/common/entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/common/entity.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -558,14 +544,8 @@
       <workItem from="1587606104450" duration="20487000" />
       <workItem from="1587642834564" duration="7411000" />
       <workItem from="1587779217662" duration="435000" />
-      <workItem from="1587779829225" duration="4367000" />
-    </task>
-    <task id="LOCAL-00012">
-      <created>1568036131459</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1568036131459</updated>
+      <workItem from="1587779829225" duration="8370000" />
+      <workItem from="1587910622551" duration="3545000" />
     </task>
     <task id="LOCAL-00013">
       <created>1568080601177</created>
@@ -903,7 +883,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587624822670</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="订单完成">
+      <created>1587784323400</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1587784323401</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -918,7 +905,6 @@
       <path value="$PROJECT_DIR$/../.." />
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="修改数据库连接" />
     <MESSAGE value="权限功能" />
     <MESSAGE value="供应商查询、删除功能" />
     <MESSAGE value="供应商添加功能" />
@@ -943,7 +929,8 @@
     <MESSAGE value="商品库存明细功能实现" />
     <MESSAGE value="用户启用、禁用" />
     <MESSAGE value="基本信息修改、增加用户列表" />
-    <option name="LAST_COMMIT_MESSAGE" value="基本信息修改、增加用户列表" />
+    <MESSAGE value="订单完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="订单完成" />
   </component>
   <component name="WindowStateProjectService">
     <state x="259" y="41" key="#Custom_Plugin_Repositories" timestamp="1586677395216">
@@ -962,10 +949,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="398" y="178" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.738@0.0.1366.738" timestamp="1587184550402" />
-    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser" timestamp="1587781506943">
+    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser" timestamp="1587806467681">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1587781506943" />
+    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1587806467681" />
     <state x="363" y="107" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1586311289638">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -986,10 +973,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="438" y="77" key="#xdebugger.evaluate/0.0.1366.738@0.0.1366.738" timestamp="1587642027384" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1587624817648">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1587784315592">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1587624817648" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1587784315592" />
     <state x="129" y="62" key="DiffContextDialog" timestamp="1583227212242">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -998,54 +985,54 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="440" y="113" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1587184585532" />
-    <state width="1323" height="376" key="GridCell.Tab.0.bottom" timestamp="1587783864403">
+    <state width="1323" height="208" key="GridCell.Tab.0.bottom" timestamp="1587913710733">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="376" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1587783864403" />
-    <state width="1323" height="376" key="GridCell.Tab.0.center" timestamp="1587783864403">
+    <state width="1323" height="208" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1587913710733" />
+    <state width="1323" height="208" key="GridCell.Tab.0.center" timestamp="1587913710732">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="376" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1587783864403" />
-    <state width="1323" height="376" key="GridCell.Tab.0.left" timestamp="1587783864403">
+    <state width="1323" height="208" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1587913710732" />
+    <state width="1323" height="208" key="GridCell.Tab.0.left" timestamp="1587913710732">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="376" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1587783864403" />
-    <state width="1323" height="376" key="GridCell.Tab.0.right" timestamp="1587783864403">
+    <state width="1323" height="208" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1587913710732" />
+    <state width="1323" height="208" key="GridCell.Tab.0.right" timestamp="1587913710733">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="376" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1587783864403" />
-    <state width="1323" height="176" key="GridCell.Tab.1.bottom" timestamp="1587784029105">
+    <state width="1323" height="208" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1587913710733" />
+    <state width="1323" height="213" key="GridCell.Tab.1.bottom" timestamp="1587913640373">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="176" key="GridCell.Tab.1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1587784029105" />
-    <state width="1323" height="176" key="GridCell.Tab.1.center" timestamp="1587784029105">
+    <state width="1323" height="213" key="GridCell.Tab.1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1587913640373" />
+    <state width="1323" height="213" key="GridCell.Tab.1.center" timestamp="1587913640373">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="176" key="GridCell.Tab.1.center/0.0.1366.738@0.0.1366.738" timestamp="1587784029105" />
-    <state width="1323" height="176" key="GridCell.Tab.1.left" timestamp="1587784029105">
+    <state width="1323" height="213" key="GridCell.Tab.1.center/0.0.1366.738@0.0.1366.738" timestamp="1587913640373" />
+    <state width="1323" height="213" key="GridCell.Tab.1.left" timestamp="1587913640373">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="176" key="GridCell.Tab.1.left/0.0.1366.738@0.0.1366.738" timestamp="1587784029105" />
-    <state width="1323" height="176" key="GridCell.Tab.1.right" timestamp="1587784029105">
+    <state width="1323" height="213" key="GridCell.Tab.1.left/0.0.1366.738@0.0.1366.738" timestamp="1587913640373" />
+    <state width="1323" height="213" key="GridCell.Tab.1.right" timestamp="1587913640373">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="176" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1587784029105" />
-    <state width="1323" height="278" key="GridCell.Tab.2.bottom" timestamp="1587783656145">
+    <state width="1323" height="213" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1587913640373" />
+    <state width="1323" height="99" key="GridCell.Tab.2.bottom" timestamp="1587911683202">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="278" key="GridCell.Tab.2.bottom/0.0.1366.738@0.0.1366.738" timestamp="1587783656145" />
-    <state width="1323" height="278" key="GridCell.Tab.2.center" timestamp="1587783656144">
+    <state width="1323" height="99" key="GridCell.Tab.2.bottom/0.0.1366.738@0.0.1366.738" timestamp="1587911683202" />
+    <state width="1323" height="99" key="GridCell.Tab.2.center" timestamp="1587911683202">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="278" key="GridCell.Tab.2.center/0.0.1366.738@0.0.1366.738" timestamp="1587783656144" />
-    <state width="1323" height="278" key="GridCell.Tab.2.left" timestamp="1587783656144">
+    <state width="1323" height="99" key="GridCell.Tab.2.center/0.0.1366.738@0.0.1366.738" timestamp="1587911683202" />
+    <state width="1323" height="99" key="GridCell.Tab.2.left" timestamp="1587911683202">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="278" key="GridCell.Tab.2.left/0.0.1366.738@0.0.1366.738" timestamp="1587783656144" />
-    <state width="1323" height="278" key="GridCell.Tab.2.right" timestamp="1587783656144">
+    <state width="1323" height="99" key="GridCell.Tab.2.left/0.0.1366.738@0.0.1366.738" timestamp="1587911683202" />
+    <state width="1323" height="99" key="GridCell.Tab.2.right" timestamp="1587911683202">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="278" key="GridCell.Tab.2.right/0.0.1366.738@0.0.1366.738" timestamp="1587783656144" />
+    <state width="1323" height="99" key="GridCell.Tab.2.right/0.0.1366.738@0.0.1366.738" timestamp="1587911683202" />
     <state width="220" height="477" key="HiddenNamespacesPopup" timestamp="1583376557519">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -1062,10 +1049,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="404" y="110" width="540" height="524" key="StructurePopup/0.0.1366.738@0.0.1366.738" timestamp="1585992696149" />
-    <state x="275" y="105" key="Vcs.Push.Dialog.v2" timestamp="1587624829939">
+    <state x="275" y="105" key="Vcs.Push.Dialog.v2" timestamp="1587784327666">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="105" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1587624829939" />
+    <state x="275" y="105" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1587784327666" />
     <state width="691" height="377" key="XDebugger.FullValuePopup" timestamp="1587641830876">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -1098,10 +1085,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="237" y="108" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1366.738@0.0.1366.738" timestamp="1584686461668" />
-    <state x="370" y="124" width="626" height="490" key="find.popup" timestamp="1587628001556">
+    <state x="370" y="124" width="626" height="532" key="find.popup" timestamp="1587913106530">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="370" y="124" width="626" height="490" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1587628001556" />
+    <state x="370" y="124" width="626" height="532" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1587913106530" />
     <state x="396" y="171" key="git4idea.merge.GitPullDialog" timestamp="1586682266408">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -1110,6 +1097,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="57" y="73" key="new project wizard/0.0.1366.738@0.0.1366.738" timestamp="1583580541551" />
+    <state x="464" y="114" key="refactoring.ChangeSignatureDialog" timestamp="1587806364198">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="464" y="114" key="refactoring.ChangeSignatureDialog/0.0.1366.738@0.0.1366.738" timestamp="1587806364198" />
     <state x="339" y="165" key="run.anything.popup" timestamp="1587782017251">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
