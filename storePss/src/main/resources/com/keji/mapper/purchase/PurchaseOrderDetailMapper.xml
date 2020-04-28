@@ -25,6 +25,7 @@
     <insert id="insertPurchaseOrderDetail">
         INSERT INTO t_purchase_order_detail(
             tpod_id,
+            tpo_id,
             tpod_rId,
             tpod_gooId,
             tpod_gooNum,
@@ -35,6 +36,7 @@
             tpod_gooRemark)
         VALUES (
             #{purchaseOrderDetail.id},
+            #{purchaseOrderDetail.tpoId},
             #{purchaseOrderDetail.repository.id},
             #{purchaseOrderDetail.good.id},
             #{purchaseOrderDetail.gooNum},

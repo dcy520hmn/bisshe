@@ -20,6 +20,7 @@ import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -34,75 +35,34 @@ import java.util.Map;
 public class PurchaseOrderServiceImpl implements PurchaseOrderService {
 
     @Autowired
-    private PurchaseOrderMapper purchaseOrderMapper ;
+    private PurchaseOrderMapper purchaseOrderMapper;
 
     @Autowired
     private PurchaseOrderDetailMapper purchaseOrderDetailMapper;
 
     @Override
     public PageInfo<PurchaseOrder> queryPurchaseOrder(Map params) {
-        PageHelper.startPage(MapUtils.getInteger(params,"pageNum"),MapUtils.getInteger(params,"pageSize"));
-        String orderId = MapUtils.getString(params,"orderIdCondition");
-        Integer orderState = MapUtils.getInteger(params,"selectOrderStateCondition");
-        Page<PurchaseOrder> purchaseOrderPage = purchaseOrderMapper.queryPurchaseOrder(orderId,orderState);
+        PageHelper.startPage(MapUtils.getInteger(params, "pageNum"), MapUtils.getInteger(params, "pageSize"));
+        String orderId = MapUtils.getString(params, "orderIdCondition");
+        Integer orderState = MapUtils.getInteger(params, "selectOrderStateCondition");
+        Page<PurchaseOrder> purchaseOrderPage = purchaseOrderMapper.queryPurchaseOrder(orderId, orderState);
         PageInfo<PurchaseOrder> purchaseOrderPageInfo = new PageInfo<>(purchaseOrderPage);
         return purchaseOrderPageInfo;
     }
 
     @Override
-    public int updatePurchaseOrder(Map  params) {
+    public int insertPurchaseOrder(Map params) {
         int result = 0;
-        try{
+        try {
             PurchaseOrder purchaseOrder = new PurchaseOrder();
-            String orderId = OrderIdUtil.getId();
-            purchaseOrder.setId(orderId);
-            purchaseOrder.setCreateDate(DateUtil.getCurrentDateTime());
-            TProvider provider = new TProvider();
-            //设置供应商
-            Map providerMap = MapUtils.getMap(params,"provider");
-            provider.setId(MapUtils.getInteger(providerMap,"id"));
-            purchaseOrder.setProvider(provider);
-            //设置经手人
-            Emp operationEmp = new Emp();
-            Map operationEmpMap = MapUtils.getMap(params,"operationEmp");
-            operationEmp.setId(MapUtils.getInteger(operationEmpMap,"id"));
-            purchaseOrder.setOperationEmp(operationEmp);
-
-            purchaseOrder.setPrice(MapUtils.getInteger(params,"price"));
-            UserInfo userInfo = (UserInfo) SecurityUtils.getSubject().getPrincipal();
-            Emp createEmp = new Emp();
-            createEmp.setId(userInfo.getEmpId());
-            purchaseOrder.setCreateEmp(createEmp);
-            purchaseOrder.setRemark(MapUtils.getString(params,"remark"));
-            purchaseOrder.setSate(0);
+            List<PurchaseOrderDetail> purchaseOrderDetailList = new ArrayList();
+            this.setPojo(params, purchaseOrder, purchaseOrderDetailList);
             purchaseOrderMapper.insertPurchaseOrder(purchaseOrder);
-
-            List purchaseOrderDetailList = (ArrayList)MapUtils.getObject(params,"purchaseOrderDetailList");
-            for (int i = 0; i < purchaseOrderDetailList.size(); i++) {
-                Map ret = (Map)purchaseOrderDetailList.get(i);
-                PurchaseOrderDetail purchaseOrderDetail = new PurchaseOrderDetail();
-                purchaseOrderDetail.setTpoId(orderId);
-                //设置库存信息
-                Map repositoryMap = (Map) ret.get("repository");
-                Repository repository = new Repository();
-                repository.setId(MapUtils.getInteger(repositoryMap,"id"));
-                purchaseOrderDetail.setRepository(repository);
-                //设置商品信息
-                Map goodMap = (Map)ret.get("good");
-                Good good = new Good();
-                good.setId(MapUtils.getInteger(goodMap,"id"));
-                purchaseOrderDetail.setGood(good);
-
-                purchaseOrderDetail.setGooNum(MapUtils.getInteger(ret,"gooNum"));
-                purchaseOrderDetail.setGooTax(MapUtils.getDouble(ret,"gooTax"));
-                purchaseOrderDetail.setGooTaxPrc(MapUtils.getDouble(ret,"gooTaxPrc"));
-                purchaseOrderDetail.setGooOtherPrice(MapUtils.getDouble(ret,"gooOtherPrice"));
-                purchaseOrderDetail.setGooTotalPrice(MapUtils.getDouble(ret,"gooTotalPrice"));
-                purchaseOrderDetail.setGooRemark(MapUtils.getString(ret,"gooRemark"));
+            for (PurchaseOrderDetail purchaseOrderDetail : purchaseOrderDetailList) {
                 purchaseOrderDetailMapper.insertPurchaseOrderDetail(purchaseOrderDetail);
             }
-            result =  1;
-        }catch (Exception e){
+            result = 1;
+        } catch (Exception e) {
             e.printStackTrace();
             result = 0;
         }
@@ -116,7 +76,99 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
     }
 
     @Override
-    public int updatePurchaseOrder(PurchaseOrder good) {
-        return 0;
+    public int updatePurchaseOrder(Map params) {
+        //删除该订单的 所有订单详情
+        Map orderMap = new HashMap();
+        orderMap.put("pageNum", 1);
+        orderMap.put("pageSize", 10);
+        orderMap.put("orderIdCondition", MapUtils.getString(params, "id"));
+        PageInfo<PurchaseOrder> orderPageInfo = this.queryPurchaseOrder(orderMap);
+        PurchaseOrder purchaseOrderSystem = orderPageInfo.getList().get(0);
+        List<PurchaseOrderDetail> purchaseOrderDetailListSystem = purchaseOrderSystem.getPurchaseOrderDetailList();
+        for (PurchaseOrderDetail purchaseOrderDetail : purchaseOrderDetailListSystem) {
+            purchaseOrderDetailMapper.deleteByPrimaryKey(purchaseOrderDetail);
+        }
+        //重新添加、更新订单信息
+        int ret = -1;
+        PurchaseOrder purchaseOrder = new PurchaseOrder();
+        List<PurchaseOrderDetail> purchaseOrderDetailList = new ArrayList();
+        this.setPojo(params, purchaseOrder, purchaseOrderDetailList);
+        try {
+            purchaseOrderMapper.updateByPrimaryKey(purchaseOrder);
+            //重新增加订单详情
+            for (PurchaseOrderDetail purchaseOrderDetail : purchaseOrderDetailList) {
+                purchaseOrderDetailMapper.insertPurchaseOrderDetail(purchaseOrderDetail);
+            }
+            ret = 1;
+        } catch (Exception e) {
+            e.printStackTrace();
+            ret = 0;
+        }
+        return ret;
+    }
+
+    /**
+     * @param params                  前端传来参数
+     * @param purchaseOrder           订单
+     * @param purchaseOrderDetailList 订单明细集合
+     */
+    private void setPojo(Map params, PurchaseOrder purchaseOrder, List purchaseOrderDetailList) {
+        String orderId = MapUtils.getString(params, "id");
+        if (orderId == null || orderId == "") {
+            orderId = OrderIdUtil.getId();
+        }
+        purchaseOrder.setId(orderId);
+        purchaseOrder.setCreateDate(DateUtil.getCurrentDateTime());
+        TProvider provider = new TProvider();
+
+        //设置供应商
+        Map providerMap = MapUtils.getMap(params, "provider");
+        Integer pId = MapUtils.getInteger(providerMap, "id");
+        provider.setId(pId);
+        purchaseOrder.setProvider(provider);
+        purchaseOrder.setProviderId(pId);
+
+        //设置经手人
+        Emp operationEmp = new Emp();
+        Map operationEmpMap = MapUtils.getMap(params, "operationEmp");
+        operationEmp.setId(MapUtils.getInteger(operationEmpMap, "id"));
+        purchaseOrder.setOperationEmp(operationEmp);
+        purchaseOrder.setoEmpId(operationEmp.getId());
+
+        purchaseOrder.setPrice(MapUtils.getInteger(params, "price"));
+        UserInfo userInfo = (UserInfo) SecurityUtils.getSubject().getPrincipal();
+        //创建人
+        Emp createEmp = new Emp();
+        createEmp.setId(userInfo.getEmpId());
+        purchaseOrder.setCreateEmp(createEmp);
+        purchaseOrder.setRemark(MapUtils.getString(params, "remark"));
+        purchaseOrder.setSate(0);
+        purchaseOrder.setcEmpId(createEmp.getId());
+
+        //设置订单详情
+        List purchaseOrderDetailListMap = (ArrayList) MapUtils.getObject(params, "purchaseOrderDetailList");
+        for (int i = 0; i < purchaseOrderDetailListMap.size(); i++) {
+            Map ret = (Map) purchaseOrderDetailListMap.get(i);
+            PurchaseOrderDetail purchaseOrderDetail = new PurchaseOrderDetail();
+            purchaseOrderDetail.setTpoId(orderId);
+            //设置库存信息
+            Map repositoryMap = (Map) ret.get("repository");
+            Repository repository = new Repository();
+            repository.setId(MapUtils.getInteger(repositoryMap, "id"));
+            purchaseOrderDetail.setRepository(repository);
+            //设置商品信息
+            Map goodMap = (Map) ret.get("good");
+            Good good = new Good();
+            good.setId(MapUtils.getInteger(goodMap, "id"));
+            purchaseOrderDetail.setGood(good);
+
+            purchaseOrderDetail.setGooNum(MapUtils.getInteger(ret, "gooNum"));
+            purchaseOrderDetail.setGooTax(MapUtils.getDouble(ret, "gooTax"));
+            purchaseOrderDetail.setGooTaxPrc(MapUtils.getDouble(ret, "gooTaxPrc"));
+            purchaseOrderDetail.setGooOtherPrice(MapUtils.getDouble(ret, "gooOtherPrice"));
+            purchaseOrderDetail.setGooTotalPrice(MapUtils.getDouble(ret, "gooTotalPrice"));
+            purchaseOrderDetail.setGooRemark(MapUtils.getString(ret, "gooRemark"));
+            purchaseOrderDetailList.add(purchaseOrderDetail);
+        }
     }
 }

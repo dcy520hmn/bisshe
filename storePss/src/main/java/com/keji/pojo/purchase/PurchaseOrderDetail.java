@@ -3,13 +3,13 @@ package com.keji.pojo.purchase;
 import com.keji.pojo.baseMessage.Good;
 import com.keji.pojo.baseMessage.Repository;
 
-import javax.persistence.Column;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.*;
 
 @Table(name = "t_purchase_order_detail")
 public class PurchaseOrderDetail {
 
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "tpod_id")
   private Integer id;
 

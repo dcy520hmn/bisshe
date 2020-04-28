@@ -39,29 +39,29 @@ public class PurchaseOrderController extends BaseController {
     }
 
     /**
-     * 增加商品信息
+     * 增加订单信息
      * @param
      * @return
      */
     @RequestMapping("/insert")
     public String insertAuth(@RequestBody Map params){
-        int ret =  durchaseOrderServiceService.updatePurchaseOrder(params);
+        int ret =  durchaseOrderServiceService.insertPurchaseOrder(params);
         return dealQueryResult(ret,ret);
     };
 
     /**
-     * 修改商品信息
-     * @param purchaseOrder
+     * 修改订单信息
+     * @param params
      * @return
      */
     @RequestMapping("/update")
-    public String updateAuth(@RequestBody PurchaseOrder purchaseOrder){
-        int ret =  durchaseOrderServiceService.updatePurchaseOrder(purchaseOrder);
+    public String updateAuth(@RequestBody Map params ){
+        int ret =  durchaseOrderServiceService.updatePurchaseOrder(params);
         return dealQueryResult(ret,ret);
     }
 
     /**
-     * 删除商品信息
+     * 删除订单信息
      * @param ids
      * @return
      */

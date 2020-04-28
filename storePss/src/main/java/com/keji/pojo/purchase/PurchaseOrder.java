@@ -5,14 +5,15 @@ import com.keji.common.utils.DateUtil;
 import com.keji.pojo.baseMessage.Emp;
 import com.keji.pojo.baseMessage.TProvider;
 
-import javax.persistence.Column;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
 @Table(name = "t_purchase_order")
 public class PurchaseOrder {
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "tpo_Id")
   private String id;
 

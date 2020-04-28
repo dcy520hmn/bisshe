@@ -199,7 +199,7 @@
         </div>
         <div class="box-tools text-center">
             <button v-show="this.type==0" type="button" id="operation" class="btn bg-maroon" @click="save()">保存</button>
-            <button v-show="this.type==1" type="button" class="btn bg-maroon">修改</button>
+            <button v-show="this.type==1" type="button" class="btn bg-maroon" @click="update()">修改</button>
             <button type="button" class="btn bg-default"
                     onclick="history.back(-1);">返回
             </button>
@@ -343,12 +343,12 @@
                     this.purchaseOrder.price += this.purchaseOrder.purchaseOrderDetailList[i].gooTotalPrice;
                 }
             },
-
+            //修改订单
             update(){
                 var _this = this;
                 axios.post("/purchaseOrder/update",_this.purchaseOrder).then(function (ret) {
                     if(ret.data.data==1){
-                        alert("添加成功");
+                        alert("修改成功");
                         location.href = "purchaseOrder-list.html";
                     }
                 })
