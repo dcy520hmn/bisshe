@@ -66,7 +66,7 @@ public class PurchaseOrderController extends BaseController {
      * @return
      */
     @RequestMapping("/delete")
-    public String deleteAuth(@RequestBody Integer[] ids){
+    public String deleteAuth(@RequestBody String[] ids){
         int ret =  durchaseOrderServiceService.deletePurchaseOrder(ids);
         return dealQueryResult(ret,ret);
     }

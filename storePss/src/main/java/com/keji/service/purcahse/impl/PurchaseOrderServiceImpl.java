@@ -71,8 +71,18 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
     }
 
     @Override
-    public int deletePurchaseOrder(Integer[] id) {
-        return 0;
+    public int deletePurchaseOrder(String[] ids) {
+        int ret = -1;
+        try {
+            for (int i = 0; i < ids.length; i++) {
+                purchaseOrderMapper.deleteByPrimaryKey(ids[i]);
+            }
+            ret = 1;
+        } catch (Exception e) {
+            e.printStackTrace();
+            ret = -1;
+        }
+        return ret;
     }
 
     @Override

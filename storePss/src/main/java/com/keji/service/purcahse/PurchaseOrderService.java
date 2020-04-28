@@ -18,7 +18,7 @@ public interface PurchaseOrderService {
 
     int insertPurchaseOrder(Map  params);
 
-    int deletePurchaseOrder(Integer[] id);
+    int deletePurchaseOrder(String[] ids);
 
     int updatePurchaseOrder(Map  params);
 }

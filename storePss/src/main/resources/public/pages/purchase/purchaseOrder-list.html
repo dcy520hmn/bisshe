@@ -259,20 +259,13 @@
             },
 
             deletePurchaseOrder() {
-                let _this = this;
-                if (this.selectId.length <= 0) {
-                    alert("请选中商品");
-                    return;
-                }
                 if (confirm("确定删除吗？")) {
-                    axios.post("/PurchaseOrder/delete", _this.selectId).then(function (res) {
-                        if (res.data.data == 0) {
+                    axios.post("/purchaseOrder/delete", _this.selectId).then(function (res) {
+                        if (res.data.data > 0) {
                             alert("删除成功");
                             window.location.reload();
-                        } else if ((res.data.data == -1)) {
-                            alert("删除失败");
                         } else {
-                            alert("删除失败！部门编号：" + res.data.data + "下，存在员工");
+                            alert("删除失败");
                         }
                     })
                 }
@@ -281,7 +274,7 @@
             updatePurchaseOrder() {
                 let _this = this;
                 if (this.selectId.length <= 0) {
-                    alert("请选中部门");
+                    alert("请选中订单");
                     return;
                 }
                 return location.href = "purchaseOrder-d.html?type=1&PurchaseOrderId=" + this.selectId[0] + "";

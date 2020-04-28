@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="61be1ebb-4faa-42f2-8603-40ea841ebc4e" name="Default Changelist" comment="" />
+    <list default="true" id="61be1ebb-4faa-42f2-8603-40ea841ebc4e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/log.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/controller/purchase/PurchaseOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/controller/purchase/PurchaseOrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/purcahse/PurchaseOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/purcahse/PurchaseOrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/purcahse/impl/PurchaseOrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/purcahse/impl/PurchaseOrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/goodPurInfo-d.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/goodPurInfo-d.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/purchaseOrder-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/purchaseOrder-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,12 +88,12 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\QQFile\bishe\project2\storePss\src\main\resources\public\pages\baseMessage" />
-      <recent name="D:\QQFile\bishe\project2\storePss\src\main\resources\public\pages\purchase" />
-      <recent name="D:\QQFile\bishe\project2\storePss\src\main\resources\static" />
-      <recent name="D:\QQFile\bishe\project2\storePss\src\main\resources\public\pages\repository" />
-      <recent name="D:\QQFile\bishe\project2\storePss\src\main\java\com\keji\pojo\authority" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\QQFile\bishe\project2\storePss\src\main\java\com\keji\pojo\purchase" />
+      <recent name="D:\QQFile\bishe\project2\storePss\src\main\resources\com\keji\mapper\role" />
+      <recent name="D:\compileStudy\salesystem\src\main\resources\static\js\common" />
+      <recent name="D:\compileStudy\salesystem\src\main\resources\static\js\vue" />
+      <recent name="D:\compileStudy\salesystem\src\main\resources\public" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.keji.pojo.authority" />
@@ -92,12 +102,12 @@
       <recent name="com.keji.service.baseMessage" />
       <recent name="com.keji.mapper.baseMessage" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\QQFile\bishe\project2\storePss\src\main\java\com\keji\pojo\purchase" />
-      <recent name="D:\QQFile\bishe\project2\storePss\src\main\resources\com\keji\mapper\role" />
-      <recent name="D:\compileStudy\salesystem\src\main\resources\static\js\common" />
-      <recent name="D:\compileStudy\salesystem\src\main\resources\static\js\vue" />
-      <recent name="D:\compileStudy\salesystem\src\main\resources\public" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\QQFile\bishe\project2\storePss\src\main\resources\public\pages\baseMessage" />
+      <recent name="D:\QQFile\bishe\project2\storePss\src\main\resources\public\pages\purchase" />
+      <recent name="D:\QQFile\bishe\project2\storePss\src\main\resources\static" />
+      <recent name="D:\QQFile\bishe\project2\storePss\src\main\resources\public\pages\repository" />
+      <recent name="D:\QQFile\bishe\project2\storePss\src\main\java\com\keji\pojo\authority" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.saleSystem">
@@ -494,14 +504,7 @@
       <workItem from="1588031728209" duration="9803000" />
       <workItem from="1588067408815" duration="198000" />
       <workItem from="1588067624932" duration="58000" />
-      <workItem from="1588067698363" duration="6489000" />
-    </task>
-    <task id="LOCAL-00017">
-      <created>1568107089734</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1568107089734</updated>
+      <workItem from="1588067698363" duration="10312000" />
     </task>
     <task id="LOCAL-00018">
       <created>1568107099853</created>
@@ -839,7 +842,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588079068001</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="订单修改功能完成">
+      <created>1588079082155</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1588079082156</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -922,10 +932,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="438" y="77" key="#xdebugger.evaluate/0.0.1366.738@0.0.1366.738" timestamp="1588078942847" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1588079062795">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1588079081037">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1588079062795" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1588079081037" />
     <state x="129" y="62" key="DiffContextDialog" timestamp="1583227212242">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -934,54 +944,54 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="440" y="113" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1587184585532" />
-    <state width="1323" height="353" key="GridCell.Tab.0.bottom" timestamp="1588078852047">
+    <state width="1323" height="267" key="GridCell.Tab.0.bottom" timestamp="1588080332812">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="353" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1588078852047" />
-    <state width="1323" height="353" key="GridCell.Tab.0.center" timestamp="1588078852047">
+    <state width="1323" height="267" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1588080332812" />
+    <state width="1323" height="267" key="GridCell.Tab.0.center" timestamp="1588080332812">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="353" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1588078852047" />
-    <state width="1323" height="353" key="GridCell.Tab.0.left" timestamp="1588078852046">
+    <state width="1323" height="267" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1588080332812" />
+    <state width="1323" height="267" key="GridCell.Tab.0.left" timestamp="1588080332811">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="353" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1588078852046" />
-    <state width="1323" height="353" key="GridCell.Tab.0.right" timestamp="1588078852047">
+    <state width="1323" height="267" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1588080332811" />
+    <state width="1323" height="267" key="GridCell.Tab.0.right" timestamp="1588080332812">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="353" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1588078852047" />
-    <state width="1323" height="353" key="GridCell.Tab.1.bottom" timestamp="1588078852794">
+    <state width="1323" height="267" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1588080332812" />
+    <state width="1323" height="267" key="GridCell.Tab.1.bottom" timestamp="1588080356201">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="353" key="GridCell.Tab.1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1588078852794" />
-    <state width="1323" height="353" key="GridCell.Tab.1.center" timestamp="1588078852793">
+    <state width="1323" height="267" key="GridCell.Tab.1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1588080356201" />
+    <state width="1323" height="267" key="GridCell.Tab.1.center" timestamp="1588080356201">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="353" key="GridCell.Tab.1.center/0.0.1366.738@0.0.1366.738" timestamp="1588078852793" />
-    <state width="1323" height="353" key="GridCell.Tab.1.left" timestamp="1588078852793">
+    <state width="1323" height="267" key="GridCell.Tab.1.center/0.0.1366.738@0.0.1366.738" timestamp="1588080356201" />
+    <state width="1323" height="267" key="GridCell.Tab.1.left" timestamp="1588080356201">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="353" key="GridCell.Tab.1.left/0.0.1366.738@0.0.1366.738" timestamp="1588078852793" />
-    <state width="1323" height="353" key="GridCell.Tab.1.right" timestamp="1588078852793">
+    <state width="1323" height="267" key="GridCell.Tab.1.left/0.0.1366.738@0.0.1366.738" timestamp="1588080356201" />
+    <state width="1323" height="267" key="GridCell.Tab.1.right" timestamp="1588080356201">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="353" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1588078852793" />
-    <state width="1323" height="2" key="GridCell.Tab.2.bottom" timestamp="1588074354120">
+    <state width="1323" height="267" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1588080356201" />
+    <state width="1323" height="267" key="GridCell.Tab.2.bottom" timestamp="1588080332615">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="2" key="GridCell.Tab.2.bottom/0.0.1366.738@0.0.1366.738" timestamp="1588074354120" />
-    <state width="1323" height="2" key="GridCell.Tab.2.center" timestamp="1588074354120">
+    <state width="1323" height="267" key="GridCell.Tab.2.bottom/0.0.1366.738@0.0.1366.738" timestamp="1588080332615" />
+    <state width="1323" height="267" key="GridCell.Tab.2.center" timestamp="1588080332615">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="2" key="GridCell.Tab.2.center/0.0.1366.738@0.0.1366.738" timestamp="1588074354120" />
-    <state width="1323" height="2" key="GridCell.Tab.2.left" timestamp="1588074354119">
+    <state width="1323" height="267" key="GridCell.Tab.2.center/0.0.1366.738@0.0.1366.738" timestamp="1588080332615" />
+    <state width="1323" height="267" key="GridCell.Tab.2.left" timestamp="1588080332614">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="2" key="GridCell.Tab.2.left/0.0.1366.738@0.0.1366.738" timestamp="1588074354119" />
-    <state width="1323" height="2" key="GridCell.Tab.2.right" timestamp="1588074354120">
+    <state width="1323" height="267" key="GridCell.Tab.2.left/0.0.1366.738@0.0.1366.738" timestamp="1588080332614" />
+    <state width="1323" height="267" key="GridCell.Tab.2.right" timestamp="1588080332615">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="2" key="GridCell.Tab.2.right/0.0.1366.738@0.0.1366.738" timestamp="1588074354120" />
+    <state width="1323" height="267" key="GridCell.Tab.2.right/0.0.1366.738@0.0.1366.738" timestamp="1588080332615" />
     <state width="220" height="477" key="HiddenNamespacesPopup" timestamp="1583376557519">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -1034,10 +1044,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="237" y="108" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1366.738@0.0.1366.738" timestamp="1584686461668" />
-    <state x="370" y="124" width="626" height="532" key="find.popup" timestamp="1587913106530">
+    <state x="370" y="124" width="626" height="606" key="find.popup" timestamp="1588081512109">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="370" y="124" width="626" height="532" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1587913106530" />
+    <state x="370" y="124" width="626" height="606" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1588081512109" />
     <state x="396" y="171" key="git4idea.merge.GitPullDialog" timestamp="1586682266408">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
