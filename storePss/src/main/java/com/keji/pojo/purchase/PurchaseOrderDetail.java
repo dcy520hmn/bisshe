@@ -11,7 +11,7 @@ import javax.persistence.Transient;
 public class PurchaseOrderDetail {
 
   @Column(name = "tpod_id")
-  private Integer id;`
+  private Integer id;
 
   @Column(name = "tpo_id")
   private String tpoId;

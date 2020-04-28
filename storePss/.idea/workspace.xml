@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61be1ebb-4faa-42f2-8603-40ea841ebc4e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/log.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/controller/purchase/PurchaseOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/controller/purchase/PurchaseOrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/purchase/PurchaseOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/pojo/purchase/PurchaseOrder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/purchase/PurchaseOrderDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/pojo/purchase/PurchaseOrderDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/purcahse/PurchaseOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/purcahse/PurchaseOrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/purcahse/impl/PurchaseOrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/purcahse/impl/PurchaseOrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/purchase/PurchaseOrderMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/purchase/PurchaseOrderMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/purchaseOrder-d.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/purchaseOrder-d.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/purchaseOrder-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/purchaseOrder-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/common/entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/common/entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/common/entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/common/entity.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -551,14 +540,7 @@
       <workItem from="1587779829225" duration="8370000" />
       <workItem from="1587910622551" duration="3606000" />
       <workItem from="1587988715207" duration="116000" />
-      <workItem from="1588031728209" duration="9143000" />
-    </task>
-    <task id="LOCAL-00014">
-      <created>1568107051946</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1568107051946</updated>
+      <workItem from="1588031728209" duration="9175000" />
     </task>
     <task id="LOCAL-00015">
       <created>1568107064500</created>
@@ -896,7 +878,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587914203903</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="订单修改">
+      <created>1588041046289</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1588041046289</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -911,7 +900,6 @@
       <path value="$PROJECT_DIR$/../.." />
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="供应商查询、删除功能" />
     <MESSAGE value="供应商添加功能" />
     <MESSAGE value="供应商详情查看" />
     <MESSAGE value="供应商详情查看优化" />
@@ -936,7 +924,8 @@
     <MESSAGE value="基本信息修改、增加用户列表" />
     <MESSAGE value="订单完成" />
     <MESSAGE value="订单查询完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="订单查询完成" />
+    <MESSAGE value="订单修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="订单修改" />
   </component>
   <component name="WindowStateProjectService">
     <state x="259" y="41" key="#Custom_Plugin_Repositories" timestamp="1586677395216">
@@ -979,10 +968,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="438" y="77" key="#xdebugger.evaluate/0.0.1366.738@0.0.1366.738" timestamp="1587642027384" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1587914198749">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1588041039571">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1587914198749" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1588041039571" />
     <state x="129" y="62" key="DiffContextDialog" timestamp="1583227212242">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -1055,10 +1044,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="404" y="110" width="540" height="524" key="StructurePopup/0.0.1366.738@0.0.1366.738" timestamp="1585992696149" />
-    <state x="275" y="105" key="Vcs.Push.Dialog.v2" timestamp="1587914208697">
+    <state x="275" y="105" key="Vcs.Push.Dialog.v2" timestamp="1588041018295">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="105" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1587914208697" />
+    <state x="275" y="105" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1588041018295" />
     <state width="691" height="377" key="XDebugger.FullValuePopup" timestamp="1587641830876">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
