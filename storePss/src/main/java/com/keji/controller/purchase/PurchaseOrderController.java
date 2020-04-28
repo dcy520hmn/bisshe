@@ -45,7 +45,7 @@ public class PurchaseOrderController extends BaseController {
      */
     @RequestMapping("/insert")
     public String insertAuth(@RequestBody Map params){
-        int ret =  durchaseOrderServiceService.insertPurchaseOrder(params);
+        int ret =  durchaseOrderServiceService.updatePurchaseOrder(params);
         return dealQueryResult(ret,ret);
     };
 

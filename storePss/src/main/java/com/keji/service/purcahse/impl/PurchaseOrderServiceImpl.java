@@ -50,7 +50,7 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
     }
 
     @Override
-    public int insertPurchaseOrder(Map  params) {
+    public int updatePurchaseOrder(Map  params) {
         int result = 0;
         try{
             PurchaseOrder purchaseOrder = new PurchaseOrder();
@@ -81,7 +81,7 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
             for (int i = 0; i < purchaseOrderDetailList.size(); i++) {
                 Map ret = (Map)purchaseOrderDetailList.get(i);
                 PurchaseOrderDetail purchaseOrderDetail = new PurchaseOrderDetail();
-                purchaseOrderDetail.setId(orderId);
+                purchaseOrderDetail.setTpoId(orderId);
                 //设置库存信息
                 Map repositoryMap = (Map) ret.get("repository");
                 Repository repository = new Repository();

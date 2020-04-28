@@ -16,7 +16,7 @@ public interface PurchaseOrderService {
 
     PageInfo<PurchaseOrder> queryPurchaseOrder(Map params);
 
-    int insertPurchaseOrder(Map  params);
+    int updatePurchaseOrder(Map  params);
 
     int deletePurchaseOrder(Integer[] id);
 

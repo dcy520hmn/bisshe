@@ -254,8 +254,8 @@
                 });
             },
 
-            openDetail(PurchaseOrderId) {
-                return location.href = "purchaseOrder-d.html?type=1&PurchaseOrderId=" + PurchaseOrderId + "";
+            openDetail(purchaseOrderId) {
+                return location.href = "purchaseOrder-d.html?type=1&purchaseOrderId=" + purchaseOrderId + "";
             },
 
             deletePurchaseOrder() {
@@ -292,14 +292,6 @@
             }
         },
 
-        watch: {
-            searchPurchaseOrderName: {
-                handler() {
-                    this.getAllPurchaseOrderByPage(this.pageInfo.pageNum, this.pageInfo.pageSize, this.searchPurchaseOrderName);
-                },
-                deep: true
-            },
-        },
         created() {
             this.getAllPurchaseOrderByPage(this.pageInfo.pageNum, this.pageInfo.pageSize, this.searchPurchaseOrderName);
         }

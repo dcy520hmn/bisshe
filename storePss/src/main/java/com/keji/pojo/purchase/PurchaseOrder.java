@@ -28,6 +28,16 @@ public class PurchaseOrder {
   @Column(name = "tpo_Sate")
   private Integer sate;
 
+  @Column(name = "tpo_posId")
+  private Integer providerId;
+
+  @Column(name = "tpo_oEmpId")
+  private Integer oEmpId;
+
+  @Column(name = "tpo_cEmpId")
+  private Integer cEmpId;
+
+
   @Transient
   private TProvider provider;
   @Transient
@@ -38,6 +48,31 @@ public class PurchaseOrder {
   private String createDateStr;
   @Transient
   private List<PurchaseOrderDetail> purchaseOrderDetailList;
+
+
+  public Integer getProviderId() {
+    return providerId;
+  }
+
+  public void setProviderId(Integer providerId) {
+    this.providerId = providerId;
+  }
+
+  public Integer getoEmpId() {
+    return oEmpId;
+  }
+
+  public void setoEmpId(Integer oEmpId) {
+    this.oEmpId = oEmpId;
+  }
+
+  public Integer getcEmpId() {
+    return cEmpId;
+  }
+
+  public void setcEmpId(Integer cEmpId) {
+    this.cEmpId = cEmpId;
+  }
 
   public List<PurchaseOrderDetail> getPurchaseOrderDetailList() {
     return purchaseOrderDetailList;

@@ -310,11 +310,12 @@
                     return;
                 }
                 if (confirm("确定删除吗？")) {
-                    for (let i = 0; i < this.selectId; i++) {
+                    for (let i = 0; i < this.selectId.length; i++) {
                         this.purchaseOrder.purchaseOrderDetailList.remove(this.selectId[i]);
                     }
                     this.calculateTotalAmount();
                 }
+                this.selectId.splice(0,this.selectId.length);
             },
 
             //更新商品明细
@@ -343,6 +344,15 @@
                 }
             },
 
+            update(){
+                var _this = this;
+                axios.post("/purchaseOrder/update",_this.purchaseOrder).then(function (ret) {
+                    if(ret.data.data==1){
+                        alert("添加成功");
+                        location.href = "purchaseOrder-list.html";
+                    }
+                })
+            },
             //订单保存
             save() {
                 var _this = this;
@@ -352,13 +362,40 @@
                         location.href = "purchaseOrder-list.html";
                     }
                 })
-            }
+            },
+
+            //从系统中获得订单
+            getAllPurchaseOrderByPage(pageNum, pageSize, orderIdCondition,selectOrderStateCondition) {
+                _this = this;
+                axios.post("/purchaseOrder/findPurchaseOrder",
+                    {pageNum: pageNum,
+                        pageSize: pageSize,
+                        orderIdCondition: orderIdCondition,
+                        selectOrderStateCondition:selectOrderStateCondition}
+                ).then(function (res) {
+                    if (res.data.code == 0) {
+                        var purchaseOrder = res.data.data.list[0];
+                        var purchaseOrderDataList = purchaseOrder.purchaseOrderDetailList;
+                        for (let i = 0; i < purchaseOrderDataList.length; i++) {
+                            purchaseOrderDataList[i].id = i+1;
+                        }
+                        _this.purchaseOrder = purchaseOrder;
+                    }
+                });
+            },
         },
 
         created() {
             this.type = getUrlKey('type');
-            this.getAllEmpByNoPage();
-            this.getAllProvider();
+            if( this.type == 0){
+                this.getAllEmpByNoPage();
+                this.getAllProvider();
+            }else if(this.type == 1){
+                var purchaseOrderId = getUrlKey('purchaseOrderId');
+                this.getAllPurchaseOrderByPage(1, 20,purchaseOrderId);
+                this.getAllEmpByNoPage();
+                this.getAllProvider();
+            }
         }
     });
 </script>

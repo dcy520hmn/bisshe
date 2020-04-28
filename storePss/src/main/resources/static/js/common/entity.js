@@ -139,6 +139,7 @@ purchaseOrder = {
 //采购订单详情
  purchaseOrderDetail = {
      id:"",
+     tpoId:"",
      repository:repository,
      good:good,
      gooNum:"",

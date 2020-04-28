@@ -11,7 +11,11 @@ import javax.persistence.Transient;
 public class PurchaseOrderDetail {
 
   @Column(name = "tpod_id")
-  private String id;
+  private Integer id;`
+
+  @Column(name = "tpo_id")
+  private String tpoId;
+
   @Column(name = "tpod_gooNum")
   private Integer gooNum;
   @Column(name = "tpod_gooTax")
@@ -24,11 +28,32 @@ public class PurchaseOrderDetail {
   private Double gooTotalPrice;
   @Column(name = "tpod_gooRemark")
   private String gooRemark;
+  @Column(name = "tpod_rId")
+  private Integer rId;
+  @Column(name = "tpod_gooId")
+  private Integer gooId;
 
   @Transient
   private Repository repository;
   @Transient
   private Good good;
+
+
+  public Integer getrId() {
+    return rId;
+  }
+
+  public void setrId(Integer rId) {
+    this.rId = rId;
+  }
+
+  public Integer getGooId() {
+    return gooId;
+  }
+
+  public void setGooId(Integer gooId) {
+    this.gooId = gooId;
+  }
 
   public Repository getRepository() {
     return repository;
@@ -46,12 +71,20 @@ public class PurchaseOrderDetail {
     this.good = good;
   }
 
-  public String getId() {
+  public Integer getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(Integer id) {
     this.id = id;
+  }
+
+  public String getTpoId() {
+    return tpoId;
+  }
+
+  public void setTpoId(String tpoId) {
+    this.tpoId = tpoId;
   }
 
   public Integer getGooNum() {
