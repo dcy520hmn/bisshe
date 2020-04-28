@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="61be1ebb-4faa-42f2-8603-40ea841ebc4e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/log.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/controller/purchase/PurchaseOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/controller/purchase/PurchaseOrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/purchase/PurchaseOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/pojo/purchase/PurchaseOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/purchase/PurchaseOrderDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/pojo/purchase/PurchaseOrderDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/purcahse/PurchaseOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/purcahse/PurchaseOrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/purcahse/impl/PurchaseOrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/purcahse/impl/PurchaseOrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/purchase/PurchaseOrderDetailMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/purchase/PurchaseOrderDetailMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/purchaseOrder-d.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/purchaseOrder-d.html" afterDir="false" />
-    </list>
+    <list default="true" id="61be1ebb-4faa-42f2-8603-40ea841ebc4e" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -504,14 +494,7 @@
       <workItem from="1588031728209" duration="9803000" />
       <workItem from="1588067408815" duration="198000" />
       <workItem from="1588067624932" duration="58000" />
-      <workItem from="1588067698363" duration="6403000" />
-    </task>
-    <task id="LOCAL-00016">
-      <created>1568107072509</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1568107072510</updated>
+      <workItem from="1588067698363" duration="6489000" />
     </task>
     <task id="LOCAL-00017">
       <created>1568107089734</created>
@@ -849,7 +832,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588041054124</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="订单修改功能完成">
+      <created>1588079068000</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1588079068001</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -864,7 +854,6 @@
       <path value="$PROJECT_DIR$/../.." />
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="供应商添加功能" />
     <MESSAGE value="供应商详情查看" />
     <MESSAGE value="供应商详情查看优化" />
     <MESSAGE value="供应商详更新功能完成" />
@@ -889,7 +878,8 @@
     <MESSAGE value="订单完成" />
     <MESSAGE value="订单查询完成" />
     <MESSAGE value="订单修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="订单修改" />
+    <MESSAGE value="订单修改功能完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="订单修改功能完成" />
   </component>
   <component name="WindowStateProjectService">
     <state x="259" y="41" key="#Custom_Plugin_Repositories" timestamp="1586677395216">
@@ -932,10 +922,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="438" y="77" key="#xdebugger.evaluate/0.0.1366.738@0.0.1366.738" timestamp="1588078942847" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1588041053157">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1588079062795">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1588041053157" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1588079062795" />
     <state x="129" y="62" key="DiffContextDialog" timestamp="1583227212242">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -1008,10 +998,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="404" y="110" width="540" height="524" key="StructurePopup/0.0.1366.738@0.0.1366.738" timestamp="1585992696149" />
-    <state x="275" y="105" key="Vcs.Push.Dialog.v2" timestamp="1588041058833">
+    <state x="275" y="105" key="Vcs.Push.Dialog.v2" timestamp="1588079075111">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="105" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1588041058833" />
+    <state x="275" y="105" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1588079075111" />
     <state width="691" height="377" key="XDebugger.FullValuePopup" timestamp="1588074826636">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -1108,16 +1098,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/keji/pojo/baseMessage/Emp.java</url>
           <line>38</line>
           <option name="timeStamp" value="39" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/keji/service/purcahse/impl/PurchaseOrderServiceImpl.java</url>
-          <line>96</line>
-          <option name="timeStamp" value="49" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/keji/service/purcahse/impl/PurchaseOrderServiceImpl.java</url>
-          <line>115</line>
-          <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/main/resources/public/pages/baseMessage/goodMessage.html</url>
