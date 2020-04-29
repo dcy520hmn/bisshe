@@ -144,7 +144,7 @@
 
                 <div class="col-md-2 title">含税单价</div>
                 <div class="col-md-4 data">
-                    <input readonly type="text" class="form-control"
+                    <input readonly type="text" class="form-control" id="gooTaxPrcInput"
                            placeholder="含税单价" v-model="purchaseOrderDetail.gooTaxPrc"/>
                 </div>
 
@@ -156,7 +156,7 @@
 
                 <div class="col-md-2 title">应付金额</div>
                 <div class="col-md-4 data">
-                    <input readonly type="text" class="form-control"
+                    <input readonly type="text" class="form-control" id="gooTotalPriceInput"
                            placeholder="应付金额" v-model="purchaseOrderDetail.gooTotalPrice"/>
                 </div>
 
@@ -297,8 +297,10 @@
         watch: {
             gooId: {
                 handler() {
-                    this.getPrice();
-                    this.getTotalPrice();
+                    if(this.typeC == 0){
+                        this.getPrice();
+                        this.getTotalPrice();
+                    }
                     this.getAllGoodByNoPage(this.gooId);
                     this.purchaseOrderDetail.good.id = this.gooId;
                 },
@@ -306,22 +308,22 @@
             },
             gooTax: {
                 handler() {
-                    this.getPrice();
-                    this.getTotalPrice();
+                        this.getPrice();
+                        this.getTotalPrice();
                 },
                 deep: true
             },
             gooNum: {
                 handler() {
-                    this.getPrice();
-                    this.getTotalPrice();
+                        this.getPrice();
+                        this.getTotalPrice();
                 },
                 deep: true
             },
             gooOtherPrice:{
                 handler() {
-                    this.getPrice();
-                    this.getTotalPrice();
+                        this.getPrice();
+                        this.getTotalPrice();
                 },
                 deep: true
             }
@@ -336,6 +338,7 @@
         vm.purchaseOrderDetail.id = data.id;
         vm.gooNum = data.gooNum;
         vm.gooTax = data.gooTax;
+        vm.purchaseOrderDetail.good.cost = data.good.cost;
         vm.purchaseOrderDetail.gooTaxPrc = data.gooTaxPrc;
         vm.gooOtherPrice = data.gooOtherPrice;
         vm.purchaseOrderDetail.gooTotalPrice = data.gooTotalPrice;
