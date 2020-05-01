@@ -2,26 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61be1ebb-4faa-42f2-8603-40ea841ebc4e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/pages/qrCode/qrCode.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/qrCode/qrcode.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/log.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/controller/purchase/PurchaseOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/controller/purchase/PurchaseOrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/mapper/purchase/PurchaseOrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/mapper/purchase/PurchaseOrderMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/mapper/repository/GoodStockInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/mapper/repository/GoodStockInfoMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/purchase/PurchaseOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/pojo/purchase/PurchaseOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/stock/GoodStockInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/pojo/stock/GoodStockInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/purcahse/PurchaseOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/purcahse/PurchaseOrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/purcahse/impl/PurchaseOrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/purcahse/impl/PurchaseOrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/repository/impl/GoodStockInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/repository/impl/GoodStockInfoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/purchase/PurchaseOrderMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/purchase/PurchaseOrderMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/repository/GoodStockInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/repository/GoodStockInfoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/goodPurInfo-d.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/goodPurInfo-d.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/purchaseOrder-d.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/purchaseOrder-d.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/purchaseOrder-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/purchaseOrder-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/stock/goodStockInfo-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/stock/goodStockInfo-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/common/entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/common/entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/common/entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/common/entity.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/common/config/UserRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/common/config/UserRealm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -518,14 +501,7 @@
       <workItem from="1588067698363" duration="10439000" />
       <workItem from="1588123657692" duration="15714000" />
       <workItem from="1588167108490" duration="2569000" />
-      <workItem from="1588225307060" duration="16620000" />
-    </task>
-    <task id="LOCAL-00020">
-      <created>1568107139429</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1568107139429</updated>
+      <workItem from="1588225307060" duration="17419000" />
     </task>
     <task id="LOCAL-00021">
       <created>1568107150642</created>
@@ -863,7 +839,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588126157875</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="进货订单完成">
+      <created>1588313691508</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1588313691509</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -878,7 +861,6 @@
       <path value="$PROJECT_DIR$/../.." />
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="供应商详更新功能完成" />
     <MESSAGE value="商品的曾删查完成" />
     <MESSAGE value="商品的曾删改查完成" />
     <MESSAGE value="完成密码加密" />
@@ -903,7 +885,8 @@
     <MESSAGE value="订单修改功能完成" />
     <MESSAGE value="订单刪除功能完成" />
     <MESSAGE value="订单修改bug，完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="订单修改bug，完成" />
+    <MESSAGE value="进货订单完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="进货订单完成" />
   </component>
   <component name="WindowStateProjectService">
     <state x="259" y="41" key="#Custom_Plugin_Repositories" timestamp="1586677395216">
@@ -946,10 +929,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="19" y="141" key="#xdebugger.evaluate/0.0.1366.738@0.0.1366.738" timestamp="1588312592808" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1588126150557">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1588313686196">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1588126150557" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1588313686196" />
     <state width="444" height="466" key="DebuggerActiveHint" timestamp="1588310833100">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -962,54 +945,54 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="440" y="113" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1587184585532" />
-    <state width="1323" height="244" key="GridCell.Tab.0.bottom" timestamp="1588313202340">
+    <state width="1323" height="67" key="GridCell.Tab.0.bottom" timestamp="1588314378466">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="244" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1588313202340" />
-    <state width="1323" height="244" key="GridCell.Tab.0.center" timestamp="1588313202340">
+    <state width="1323" height="67" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1588314378466" />
+    <state width="1323" height="67" key="GridCell.Tab.0.center" timestamp="1588314378465">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="244" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1588313202340" />
-    <state width="1323" height="244" key="GridCell.Tab.0.left" timestamp="1588313202340">
+    <state width="1323" height="67" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1588314378465" />
+    <state width="1323" height="67" key="GridCell.Tab.0.left" timestamp="1588314378465">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="244" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1588313202340" />
-    <state width="1323" height="244" key="GridCell.Tab.0.right" timestamp="1588313202340">
+    <state width="1323" height="67" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1588314378465" />
+    <state width="1323" height="67" key="GridCell.Tab.0.right" timestamp="1588314378466">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="244" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1588313202340" />
-    <state width="1323" height="30" key="GridCell.Tab.1.bottom" timestamp="1588313197994">
+    <state width="1323" height="67" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1588314378465" />
+    <state width="1323" height="67" key="GridCell.Tab.1.bottom" timestamp="1588314411957">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="30" key="GridCell.Tab.1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1588313197994" />
-    <state width="1323" height="30" key="GridCell.Tab.1.center" timestamp="1588313197994">
+    <state width="1323" height="67" key="GridCell.Tab.1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1588314411957" />
+    <state width="1323" height="67" key="GridCell.Tab.1.center" timestamp="1588314411957">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="30" key="GridCell.Tab.1.center/0.0.1366.738@0.0.1366.738" timestamp="1588313197994" />
-    <state width="1323" height="30" key="GridCell.Tab.1.left" timestamp="1588313197994">
+    <state width="1323" height="67" key="GridCell.Tab.1.center/0.0.1366.738@0.0.1366.738" timestamp="1588314411957" />
+    <state width="1323" height="67" key="GridCell.Tab.1.left" timestamp="1588314411957">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="30" key="GridCell.Tab.1.left/0.0.1366.738@0.0.1366.738" timestamp="1588313197994" />
-    <state width="1323" height="30" key="GridCell.Tab.1.right" timestamp="1588313197994">
+    <state width="1323" height="67" key="GridCell.Tab.1.left/0.0.1366.738@0.0.1366.738" timestamp="1588314411957" />
+    <state width="1323" height="67" key="GridCell.Tab.1.right" timestamp="1588314411957">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="30" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1588313197994" />
-    <state width="1323" height="30" key="GridCell.Tab.2.bottom" timestamp="1588313166640">
+    <state width="1323" height="67" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1588314411957" />
+    <state width="1323" height="67" key="GridCell.Tab.2.bottom" timestamp="1588314378264">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="30" key="GridCell.Tab.2.bottom/0.0.1366.738@0.0.1366.738" timestamp="1588313166640" />
-    <state width="1323" height="30" key="GridCell.Tab.2.center" timestamp="1588313166640">
+    <state width="1323" height="67" key="GridCell.Tab.2.bottom/0.0.1366.738@0.0.1366.738" timestamp="1588314378264" />
+    <state width="1323" height="67" key="GridCell.Tab.2.center" timestamp="1588314378264">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="30" key="GridCell.Tab.2.center/0.0.1366.738@0.0.1366.738" timestamp="1588313166640" />
-    <state width="1323" height="30" key="GridCell.Tab.2.left" timestamp="1588313166640">
+    <state width="1323" height="67" key="GridCell.Tab.2.center/0.0.1366.738@0.0.1366.738" timestamp="1588314378264" />
+    <state width="1323" height="67" key="GridCell.Tab.2.left" timestamp="1588314378264">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="30" key="GridCell.Tab.2.left/0.0.1366.738@0.0.1366.738" timestamp="1588313166640" />
-    <state width="1323" height="30" key="GridCell.Tab.2.right" timestamp="1588313166640">
+    <state width="1323" height="67" key="GridCell.Tab.2.left/0.0.1366.738@0.0.1366.738" timestamp="1588314378264" />
+    <state width="1323" height="67" key="GridCell.Tab.2.right" timestamp="1588314378264">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="30" key="GridCell.Tab.2.right/0.0.1366.738@0.0.1366.738" timestamp="1588313166640" />
+    <state width="1323" height="67" key="GridCell.Tab.2.right/0.0.1366.738@0.0.1366.738" timestamp="1588314378264" />
     <state width="220" height="477" key="HiddenNamespacesPopup" timestamp="1583376557519">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -1026,10 +1009,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="404" y="110" width="540" height="524" key="StructurePopup/0.0.1366.738@0.0.1366.738" timestamp="1585992696149" />
-    <state x="275" y="105" key="Vcs.Push.Dialog.v2" timestamp="1588126253470">
+    <state x="275" y="105" key="Vcs.Push.Dialog.v2" timestamp="1588313697720">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="105" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1588126253470" />
+    <state x="275" y="105" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1588313697720" />
     <state width="691" height="377" key="XDebugger.FullValuePopup" timestamp="1588311953446">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
