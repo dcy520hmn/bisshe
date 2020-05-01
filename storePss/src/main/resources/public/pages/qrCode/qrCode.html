@@ -1,0 +1,112 @@
+<html>
+<head>
+    <!-- 页面meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>社区商店进销存系统</title>
+    <meta name="description" content="AdminLTE2定制版">
+    <meta name="keywords" content="AdminLTE2定制版">
+
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta
+            content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
+            name="viewport">
+
+
+    <link rel="stylesheet"
+          href="/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet"
+          href="/plugins/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet"
+          href="/plugins/iCheck/square/blue.css">
+    <link rel="stylesheet"
+          href="/plugins/morris/morris.css">
+    <link rel="stylesheet"
+          href="/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+    <link rel="stylesheet"
+          href="/plugins/datepicker/datepicker3.css">
+    <link rel="stylesheet"
+          href="/plugins/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet"
+          href="/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+    <link rel="stylesheet"
+          href="/plugins/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet"
+          href="/plugins/treeTable/jquery.treetable.css">
+    <link rel="stylesheet"
+          href="/plugins/treeTable/jquery.treetable.theme.default.css">
+    <link rel="stylesheet"
+          href="/plugins/select2/select2.css">
+    <link rel="stylesheet"
+          href="/plugins/colorpicker/bootstrap-colorpicker.min.css">
+    <link rel="stylesheet"
+          href="/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
+    <link rel="stylesheet"
+          href="/plugins/adminLTE/css/AdminLTE.css">
+    <link rel="stylesheet"
+          href="/plugins/adminLTE/css/skins/_all-skins.min.css">
+    <link rel="stylesheet"
+          href="/css/style.css">
+    <link rel="stylesheet"
+          href="/plugins/ionslider/ion.rangeSlider.css">
+    <link rel="stylesheet"
+          href="/plugins/ionslider/ion.rangeSlider.skinNice.css">
+    <link rel="stylesheet"
+          href="/plugins/bootstrap-slider/slider.css">
+    <link rel="stylesheet"
+          href="/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
+    <link rel="stylesheet" href="/css/vueDefine.css">
+</head>
+
+<body class="hold-transition skin-purple sidebar-mini">
+
+
+<!-- 内容头部 -->
+<section class="content-header">
+    <div id="qrcode" class="row data-type" style="margin: 100px 550px;">
+
+    </div>
+    <div class="box-tools text-center">
+        <button type="button" id="operation" class="btn bg-maroon"  onclick="payRet(1)">支付</button>
+        <button type="button" class="btn bg-default" onclick="payRet(-1)">取消支付</button>
+    </div>
+</section>
+<!-- 内容头部 /-->
+
+<!-- 内容区域 /-->
+
+
+<script
+        src="/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="/js/vue/axios-0.18.0.js"></script>
+<script src="/js/vue/vuejs-2.5.16.js"></script>
+<script src="/js/common/common.js"></script>
+<script src="/js/common/entity.js"></script>
+<script src="/js/qrCode/qrcode.min.js"></script>
+<script>
+    function child(data) {
+        var qrcode = new QRCode(document.getElementById('qrcode'), {
+            text: 'your content',
+            width: 256,
+            height: 256,
+            colorDark : '#000000',
+            colorLight : '#ffffff',
+            correctLevel : QRCode.CorrectLevel.H
+        });
+        qrcode.clear();
+        qrcode.makeCode(""+data+"");
+    }
+
+    //支付结果
+    function payRet(ret) {
+        parent.vm.getQrCodeRet(ret);
+        setTimeout(function(){var index = parent.layer.getFrameIndex(window.name);
+            parent.layer.close(index);},1000);
+
+    }
+</script>
+</body>
+
+</html>

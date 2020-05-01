@@ -70,4 +70,27 @@ public class PurchaseOrderController extends BaseController {
         int ret =  durchaseOrderServiceService.deletePurchaseOrder(ids);
         return dealQueryResult(ret,ret);
     }
+
+    /**
+     * 更新订单的状态
+     * @param params
+     * @return
+     */
+    @RequestMapping("/updateState")
+    public String updateState(@RequestBody Map params){
+        int ret = durchaseOrderServiceService.updatePurchaseOrderState(params);
+        return dealQueryResult(ret,ret);
+    }
+
+    /**
+     * 处理完成订单进行入库
+     * @param params
+     * @return
+     */
+    @RequestMapping("/orderOver")
+    public String orderOver(@RequestBody Map params){
+        int ret = durchaseOrderServiceService.orderOver(params);
+        return dealQueryResult(ret,ret);
+    }
+
 }

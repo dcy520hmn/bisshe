@@ -21,4 +21,8 @@ public interface PurchaseOrderService {
     int deletePurchaseOrder(String[] ids);
 
     int updatePurchaseOrder(Map  params);
+
+    int updatePurchaseOrderState(Map params);
+
+    int orderOver(Map params);
 }

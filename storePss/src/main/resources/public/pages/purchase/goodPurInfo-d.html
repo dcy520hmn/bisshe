@@ -201,10 +201,12 @@
             gooOtherPrice: "",
             repositories: [
                 {text: "仓库选择", value: ""}
-            ]
+            ],
+            orderType:""
         },
         created: function () {
             this.typeC = getUrlKey('type');
+            this.orderType = getUrlKey('orderType');
             this.getAllRepository();
         },
 
@@ -213,7 +215,7 @@
             getAllGoodByNoPage(goodId) {
                 _this = this;
                 axios.post("/good/findGoodByNoPage",
-                    {id: goodId}
+                    {id: goodId,orderType:this.orderType}
                 ).then(function (res) {
                     if (res.data.code == 0) {
                         var ret = res.data.data;

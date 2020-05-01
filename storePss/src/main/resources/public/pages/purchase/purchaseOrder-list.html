@@ -92,18 +92,21 @@
                 <div class="pull-left">
                     <div class="form-group form-inline">
                         <div class="btn-group">
+                            <button type="button" class="btn  btn-info btn-sm" @click="searchMyOrder">我的订单</button>
+                            <button type="button" class="btn  btn-warning btn-sm" @click="searchAllOrder">所有订单</button>
+                            <button type="button" class="btn  btn-info btn-sm"  @click="orderPay">订单支付</button>
+                            <button type="button" class="btn btn-success btn-sm"  @click="complete">订单完成处理</button>
                             <button type="button" class="btn btn-default" title="新建"
-                                    onclick="location.href='purchaseOrder-d.html?type=0'">
+                                    @click="addPurchaseOrder">
                                 <i class="fa fa-file-o"></i> 新建订单
                             </button>
-                            <button type="button" class="btn btn-default" title="删除" @click="deletePurchaseOrder"><i
-                                    class="fa fa-trash-o"></i> 删除
-                            </button>
+
                             <button type="button" class="btn btn-default" title="修改" @click="updatePurchaseOrder"><i
                                     class="fa fa-trash-o"></i> 修改
                             </button>
-                            <button type="button" class="btn btn-default" title="刷新"
-                                    onclick="window.location.reload();"><i class="fa fa-refresh"></i> 刷新
+
+                            <button type="button" class="btn btn-default" title="删除" @click="deletePurchaseOrder"><i
+                                    class="fa fa-trash-o"></i> 删除
                             </button>
                         </div>
                     </div>
@@ -150,7 +153,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr v-for="(purchaseOrder) in  pageInfo.list" @dblclick="openDetail(purchaseOrder.id)">
+                    <tr v-for="(purchaseOrder) in  pageInfo.list" @dblclick="openDetail(purchaseOrder.id,purchaseOrder.sate)">
                         <td><input name="ids" v-model="selectId" :value="purchaseOrder.id" type="checkbox"></td>
                         <td>{{purchaseOrder.id}}</td>
                         <td>{{purchaseOrder.provider.name}}</td>
@@ -158,7 +161,8 @@
                         <td>{{purchaseOrder.operationEmp.id}}</td>
                         <td>{{purchaseOrder.price}}</td>
                         <td>{{purchaseOrder.remark}}</td>
-                        <td v-if="purchaseOrder.sate==0" style="color: red;font-weight: bold">处理中</td>
+                        <td v-if="purchaseOrder.sate==-1" style="color: grey;font-weight: bold">待支付</td>
+                        <td v-if="purchaseOrder.sate==2" style="color: red;font-weight: bold">处理中</td>
                         <td v-if="purchaseOrder.sate==1" style="color: green;font-weight: bold">完成</td>
                     </tr>
                     </tbody>
@@ -213,8 +217,11 @@
 <script src="/js/vue/axios-0.18.0.js"></script>
 <script src="/js/vue/vuejs-2.5.16.js"></script>
 <script src="/js/common/entity.js"></script>
+<script src="/js/common/common.js"></script>
+<script src="/layui/layui.all.js"></script>
+<script src="/js/qrCode/qrcode.min.js"></script>
 <script>
-    new Vue({
+    var vm = new Vue({
         el: "#div1",
         data: {
             purchaseOrder: purchaseOrder,
@@ -229,24 +236,53 @@
             searchPurchaseOrderName: "",
             orderState: [
                 {text: '状态选择', value: ""},
-                {text: '处理中', value: 0},
+                {text: '待支付', value: -1},
+                {text: '处理中', value: 2},
                 {text: '已完成', value: 1},
             ],
             selectOrderStateCondition: "",
             orderIdCondition:"",
+            //订单类型主要用与区分进货订单还是退货订单
+            orderType:"",
+            isMySelf:"",
+            //选中的订单
+            theOrder: ""
         },
         methods: {
-            search:function(){
-                this.getAllPurchaseOrderByPage(this.pageInfo.pageNum, this.pageInfo.pageSize,this.orderIdCondition,this.selectOrderStateCondition);
+            //新建订单
+            addPurchaseOrder() {
+                return location.href = "purchaseOrder-d.html?type=0&orderType=" + this.orderType + "";
             },
 
-            getAllPurchaseOrderByPage(pageNum, pageSize, orderIdCondition,selectOrderStateCondition) {
+            //搜索
+            search: function () {
+                this.getAllPurchaseOrderByPage(this.pageInfo.pageNum, this.pageInfo.pageSize, this.orderIdCondition, this.selectOrderStateCondition, this.isMySelf);
+            },
+
+            //查询所有 订单
+            searchAllOrder() {
+                this.isMySelf = false;
+                this.getAllPurchaseOrderByPage(this.pageInfo.pageNum, this.pageInfo.pageSize, this.orderIdCondition, this.selectOrderStateCondition, this.isMySelf);
+            },
+            //我的订单
+            searchMyOrder() {
+                this.isMySelf = true;
+                this.getAllPurchaseOrderByPage(this.pageInfo.pageNum, this.pageInfo.pageSize, this.orderIdCondition, this.selectOrderStateCondition, this.isMySelf);
+            },
+
+
+            //获得订单
+            getAllPurchaseOrderByPage(pageNum, pageSize, orderIdCondition, selectOrderStateCondition, isMySelf) {
                 _this = this;
                 axios.post("/purchaseOrder/findPurchaseOrder",
-                    {pageNum: pageNum,
+                    {
+                        pageNum: pageNum,
                         pageSize: pageSize,
                         orderIdCondition: orderIdCondition,
-                        selectOrderStateCondition:selectOrderStateCondition}
+                        selectOrderStateCondition: selectOrderStateCondition,
+                        orderType: _this.orderType,
+                        isMySelf: isMySelf
+                    }
                 ).then(function (res) {
                     if (res.data.code == 0) {
                         _this.pageInfo = res.data.data;
@@ -254,11 +290,26 @@
                 });
             },
 
-            openDetail(purchaseOrderId) {
-                return location.href = "purchaseOrder-d.html?type=1&purchaseOrderId=" + purchaseOrderId + "";
+            //打开订单详情
+            openDetail(purchaseOrderId,orderState) {
+                return location.href = "purchaseOrder-d.html?type=1&purchaseOrderId=" + purchaseOrderId +
+                    "&orderType=" + this.orderType +
+                    "&orderState="+orderState+"";
             },
 
+            //删除订单
             deletePurchaseOrder() {
+                let _this = this;
+                if (this.selectId.length <= 0) {
+                    alert("请选中订单");
+                    return;
+                }
+                //查询所选订单
+                this.getSelectOrder();
+                if(_this.theOrder.sate == 2){
+                    alert("订单处理中，无法进行删除");
+                    return;
+                }
                 if (confirm("确定删除吗？")) {
                     axios.post("/purchaseOrder/delete", _this.selectId).then(function (res) {
                         if (res.data.data > 0) {
@@ -271,21 +322,104 @@
                 }
             },
 
+            //更新订单
             updatePurchaseOrder() {
                 let _this = this;
                 if (this.selectId.length <= 0) {
                     alert("请选中订单");
                     return;
                 }
-                return location.href = "purchaseOrder-d.html?type=1&PurchaseOrderId=" + this.selectId[0] + "";
+                //查询所选订单
+                this.getSelectOrder();
+                if(_this.theOrder.sate != -1){
+                    alert("订单已支付，无法进行修改");
+                    return;
+                }
+                return location.href = "purchaseOrder-d.html?type=1&PurchaseOrderId=" + this.selectId[0] + "&orderType=" + this.orderType + "";
             },
 
-            toAddPurchaseOrder(authId) {
-                return "auth-permission-add.html?authId=" + authId + "";
+            //订单支付
+            orderPay() {
+                let _this = this;
+                if (_this.selectId.length <= 0) {
+                    alert("请选中订单");
+                    return;
+                }
+                //查询所选订单
+                this.getSelectOrder();
+                if(_this.theOrder.sate != -1){
+                    alert("订单已支付");
+                    return;
+                }
+                _this.selectId.splice(0,_this.selectId.length);
+                if(confirm("确认支付？支付成功后不可更改")){
+                    Modalshow("/pages/qrCode/qrCode.html", "支付", _this.theOrder.price);
+                }
+            },
+
+            //获得扫码支付情况
+            getQrCodeRet(obj){
+                if(obj == 1){
+                        var _this = this;
+                        axios.post("/purchaseOrder/updateState",{
+                            orderId:_this.theOrder.id,
+                            orderState:2//处理中状态
+                        }).then(function (ret) {
+                            if (ret.data.data == 1) {
+                                alert("支付成功");
+                                location.href = "purchaseOrder-list.html?orderType=" + _this.orderType + "";
+                            }
+                        })
+                }else{
+                    setTimeout(function(){alert("支付失败")},1000);
+                }
+            },
+
+            //获得选中订单
+            getSelectOrder(){
+                var purchaseOrderList = _this.pageInfo.list;
+                //查询该订单
+                for (let i = 0; i < purchaseOrderList.length; i++) {
+                    if(_this.selectId[0] == purchaseOrderList[i].id){
+                        _this.theOrder = purchaseOrderList[i]
+                        break;
+                    }
+                }
+            },
+
+            //订单完成处理
+            complete(){
+                let _this = this;
+                if (_this.selectId.length <= 0) {
+                    alert("请选中订单");
+                    return;
+                }
+                //查询所选订单
+                this.getSelectOrder();
+                if(_this.theOrder.sate == -1){
+                    alert("订单未支付");
+                }else if(_this.theOrder.sate == 1){
+                    alert("订单已经处理");
+                }else{//开始处理
+                    if(confirm("订单确认完成？")){
+                        axios.post("/purchaseOrder/orderOver",{
+                            id:_this.theOrder.id,
+                            selectOrderStateCondition:2,
+                            orderType:_this.orderType
+                        }).then(function (ret) {
+                            if (ret.data.data == 1) {
+                                alert("处理成功，已成功入库");
+                                location.href = "purchaseOrder-list.html?orderType=" + _this.orderType + "";
+                            }
+                        })
+                    }
+                }
             }
+
         },
 
         created() {
+            this.orderType = getUrlKey('orderType');
             this.getAllPurchaseOrderByPage(this.pageInfo.pageNum, this.pageInfo.pageSize, this.searchPurchaseOrderName);
         }
     });

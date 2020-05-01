@@ -38,6 +38,8 @@ public class PurchaseOrder {
   @Column(name = "tpo_cEmpId")
   private Integer cEmpId;
 
+  @Column(name = "tpo_type")
+  private Integer type;
 
   @Transient
   private TProvider provider;
@@ -50,6 +52,14 @@ public class PurchaseOrder {
   @Transient
   private List<PurchaseOrderDetail> purchaseOrderDetailList;
 
+
+  public Integer getType() {
+    return type;
+  }
+
+  public void setType(Integer type) {
+    this.type = type;
+  }
 
   public Integer getProviderId() {
     return providerId;

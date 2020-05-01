@@ -51,6 +51,9 @@
             <if test="posId != null  and posId != '' ">
                 AND tp.posId = #{posId}
             </if>
+            <if test="gooId != null  and gooId != '' ">
+                AND tg.gID = #{gooId}
+            </if>
             <if test="gName != null  and gName != '' ">
                 AND tg.gName LIKE '%${gName}%'
             </if>
@@ -69,4 +72,7 @@
         </where>
     </select>
 
+    <update id="updateStock">
+        UPDATE  t_goods_repsoritory SET iniStoNum = #{number} WHERE tgrId = #{id} AND gID = #{gooId} AND rId = #{rId}
+    </update>
 </mapper>

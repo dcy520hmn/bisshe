@@ -6,15 +6,19 @@ import com.github.pagehelper.PageInfo;
 import com.keji.common.utils.DateUtil;
 import com.keji.common.utils.MapUtil;
 import com.keji.common.utils.OrderIdUtil;
+import com.keji.mapper.baseMessage.RepositoryMapper;
 import com.keji.mapper.purchase.PurchaseOrderDetailMapper;
 import com.keji.mapper.purchase.PurchaseOrderMapper;
+import com.keji.mapper.repository.GoodStockInfoMapper;
 import com.keji.pojo.authority.UserInfo;
 import com.keji.pojo.baseMessage.*;
 import com.keji.pojo.purchase.PurchaseOrder;
 import com.keji.pojo.purchase.PurchaseOrderDetail;
+import com.keji.pojo.stock.GoodStockInfo;
 import com.keji.service.purcahse.PurchaseOrderService;
 import org.apache.commons.collections.MapUtils;
 import org.apache.shiro.SecurityUtils;
+import org.omg.PortableInterceptor.INACTIVE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
@@ -40,12 +44,22 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
     @Autowired
     private PurchaseOrderDetailMapper purchaseOrderDetailMapper;
 
+    @Autowired
+    private GoodStockInfoMapper goodStockInfoMapper;
+
     @Override
     public PageInfo<PurchaseOrder> queryPurchaseOrder(Map params) {
         PageHelper.startPage(MapUtils.getInteger(params, "pageNum"), MapUtils.getInteger(params, "pageSize"));
         String orderId = MapUtils.getString(params, "orderIdCondition");
         Integer orderState = MapUtils.getInteger(params, "selectOrderStateCondition");
-        Page<PurchaseOrder> purchaseOrderPage = purchaseOrderMapper.queryPurchaseOrder(orderId, orderState);
+        Integer orderType = MapUtils.getInteger(params, "orderType");
+        Boolean isMySelf = MapUtils.getBoolean(params, "isMySelf");
+        Integer myselfId = null;
+        if(isMySelf!=null&&isMySelf){
+            UserInfo userInfo = (UserInfo) SecurityUtils.getSubject().getPrincipal();
+            myselfId = userInfo.getEmpId();
+        }
+        Page<PurchaseOrder> purchaseOrderPage = purchaseOrderMapper.queryPurchaseOrder(orderId, orderState,orderType,myselfId);
         PageInfo<PurchaseOrder> purchaseOrderPageInfo = new PageInfo<>(purchaseOrderPage);
         return purchaseOrderPageInfo;
     }
@@ -92,6 +106,7 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
         orderMap.put("pageNum", 1);
         orderMap.put("pageSize", 10);
         orderMap.put("orderIdCondition", MapUtils.getString(params, "id"));
+        orderMap.put("orderType", MapUtils.getString(params, "type"));
         PageInfo<PurchaseOrder> orderPageInfo = this.queryPurchaseOrder(orderMap);
         PurchaseOrder purchaseOrderSystem = orderPageInfo.getList().get(0);
         List<PurchaseOrderDetail> purchaseOrderDetailListSystem = purchaseOrderSystem.getPurchaseOrderDetailList();
@@ -117,6 +132,54 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
         return ret;
     }
 
+    @Override
+    public int updatePurchaseOrderState(Map params) {
+        String orderId = MapUtils.getString(params,"orderId");
+        Integer orderState = MapUtils.getInteger(params,"orderState");
+        return purchaseOrderMapper.updatePurchaseOrderState(orderId,orderState);
+    }
+
+
+    /**
+     * 订单处理完成
+     * @param params
+     * @return
+     */
+    @Override
+    public int orderOver(Map params) {
+        int ret = -1;
+        try{
+            //查询对应的订单
+            Map orderMap = new HashMap();
+            orderMap.put("pageNum", 1);
+            orderMap.put("pageSize", 10);
+            orderMap.put("orderIdCondition", MapUtils.getString(params, "id"));
+            orderMap.put("selectOrderStateCondition", MapUtils.getString(params, "selectOrderStateCondition"));
+            orderMap.put("orderType", MapUtils.getString(params, "orderType"));
+            PageInfo<PurchaseOrder> orderPageInfo = this.queryPurchaseOrder(orderMap);
+            //遍历订单详情
+            PurchaseOrder purchaseOrderSystem = orderPageInfo.getList().get(0);
+            List<PurchaseOrderDetail> purchaseOrderDetailListSystem = purchaseOrderSystem.getPurchaseOrderDetailList();
+            for (PurchaseOrderDetail purchaseOrderDetail : purchaseOrderDetailListSystem) {
+                //进行入库操作
+                Page<GoodStockInfo>  goodStockInfoPage = goodStockInfoMapper.findGoodStockInfo(purchaseOrderDetail.getRepository().getId(),null,purchaseOrderDetail.getGood().getId(),null,null,null);
+                GoodStockInfo  goodStockInfo = goodStockInfoPage.getResult().get(0);
+                if(purchaseOrderSystem.getType()==0){//进货订单
+                    goodStockInfo.setNumber(goodStockInfo.getNumber()+purchaseOrderDetail.getGooNum());
+                    goodStockInfoMapper.updateStock(goodStockInfo.getId(),goodStockInfo.getRepository().getId(),goodStockInfo.getGood().getId(),goodStockInfo.getNumber());
+                }
+            }
+            //订单完成
+            ret = 1;
+            purchaseOrderMapper.updatePurchaseOrderState(purchaseOrderSystem.getId(),1);
+        }catch (Exception e){
+            ret = -1;
+            e.printStackTrace();
+        }
+        return ret;
+    }
+
+
     /**
      * @param params                  前端传来参数
      * @param purchaseOrder           订单
@@ -127,8 +190,11 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
         if (orderId == null || orderId == "") {
             orderId = OrderIdUtil.getId();
         }
+
         purchaseOrder.setId(orderId);
+        purchaseOrder.setType(MapUtils.getInteger(params, "type"));
         purchaseOrder.setCreateDate(DateUtil.getCurrentDateTime());
+        purchaseOrder.setSate(-1);
         TProvider provider = new TProvider();
 
         //设置供应商
@@ -152,7 +218,6 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
         createEmp.setId(userInfo.getEmpId());
         purchaseOrder.setCreateEmp(createEmp);
         purchaseOrder.setRemark(MapUtils.getString(params, "remark"));
-        purchaseOrder.setSate(0);
         purchaseOrder.setcEmpId(createEmp.getId());
 
         //设置订单详情
@@ -181,4 +246,6 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
             purchaseOrderDetailList.add(purchaseOrderDetail);
         }
     }
+
+
 }

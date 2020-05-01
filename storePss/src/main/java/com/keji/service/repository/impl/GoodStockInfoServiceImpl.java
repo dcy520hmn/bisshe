@@ -31,9 +31,10 @@ public class GoodStockInfoServiceImpl implements GoodStockInfoService {
         Integer rId = MapUtils.getIntValue(params, "rId");
         Integer posId = MapUtils.getIntValue(params, "posId");
         String gName = MapUtils.getString(params, "gName");
+        Integer gooId = MapUtils.getInteger(params, "gooId");
         String gHelpName = MapUtils.getString(params, "gHelpName");
         Integer selectStockState = MapUtils.getInteger(params, "selectStockState");
-        Page<GoodStockInfo> GoodsRepositoryInfoPage =  goodsRepositoryInfoMapper.findGoodStockInfo(rId, posId,gName,gHelpName,selectStockState);
+        Page<GoodStockInfo> GoodsRepositoryInfoPage =  goodsRepositoryInfoMapper.findGoodStockInfo(rId, posId,gooId,gName,gHelpName,selectStockState);
         PageInfo<GoodStockInfo> pageInfo = new PageInfo<>(GoodsRepositoryInfoPage);
         return pageInfo;
     }

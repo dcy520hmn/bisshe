@@ -24,7 +24,7 @@ public class GoodStockInfo {
     @Column(name = "iniStoNum")
     private Integer number;
 
-    @Column(name = "total")
+    @Transient
     private Integer total;
 
     @Transient

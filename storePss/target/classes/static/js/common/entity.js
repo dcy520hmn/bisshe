@@ -133,6 +133,7 @@ purchaseOrder = {
     price:0,
     remark:"",
     sate:"",
+    type:"",
     purchaseOrderDetailList:[]
 }
 

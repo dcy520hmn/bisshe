@@ -125,20 +125,20 @@
                     <div class="pull-left">
                         <div class="form-group form-inline">
                             <div class="btn-group">
-                                <button type="button" class="btn btn-default" title="商品选择"
+                                <button v-show="this.orderState!=2&&this.orderState!=1" type="button" class="btn btn-default" title="商品选择"
                                         onclick=Modalshow("goodStock-list.html","商品选择")>
                                     <i class="fa fa-file-o"></i> 商品选择
                                 </button>
-                                <button type="button" class="btn btn-default" title="删除" @click="addGoodPur()"><i
+                                <button  v-show="this.orderState!=2&&this.orderState!=1" type="button" class="btn btn-default" title="删除" @click="addGoodPur()"><i
                                         class="fa fa-trash-o"></i> 新增
                                 </button>
-                                <button type="button" class="btn btn-default" title="删除" @click="deletePurchaseOrder"><i
+                                <button  v-show="this.orderState!=2&&this.orderState!=1" type="button" class="btn btn-default" title="删除" @click="deletePurchaseOrder"><i
                                         class="fa fa-trash-o"></i> 删除
                                 </button>
-                                <button type="button" class="btn btn-default" title="修改" @click="updatePurchaseOrder"><i
+                                <button  v-show="this.orderState!=2&&this.orderState!=1" type="button" class="btn btn-default" title="修改" @click="updatePurchaseOrder"><i
                                         class="fa fa-trash-o"></i> 修改
                                 </button>
-                                <button type="button" class="btn btn-default" title="刷新"
+                                <button  v-show="this.orderState!=2&&this.orderState!=1" type="button" class="btn btn-default" title="刷新"
                                         onclick="window.location.reload();"><i class="fa fa-refresh"></i> 刷新
                                 </button>
                             </div>
@@ -197,15 +197,16 @@
             <!-- .box-footer-->
             <!-- /.box-footer-->
         </div>
-        <div class="box-tools text-center">
-            <button v-show="this.type==0" type="button" id="operation" class="btn bg-maroon" @click="save()">保存</button>
-            <button v-show="this.type==1" type="button" class="btn bg-maroon" @click="update()">修改</button>
+        <div id="footBtn" class="box-tools text-center">
+            <button v-show="this.type==0&&this.orderState!=2&&this.orderState!=1" type="button" id="saveBtn" class="btn bg-maroon" @click="save()">保存</button>
+            <button v-show="this.type==1&&this.orderState!=2&&this.orderState!=1" type="button" id="updateBtn" class="btn bg-maroon" @click="update()">修改</button>
             <button type="button" class="btn bg-default"
                     onclick="history.back(-1);">返回
             </button>
         </div>
         <!--工具栏/-->
     </section>
+
     <!-- 正文区域 /-->
 </div>
 <!-- 内容区域 /-->
@@ -218,6 +219,19 @@
 <script src="/js/common/common.js"></script>
 <script src="/js/common/entity.js"></script>
 <script src="/layui/layui.all.js"></script>
+<script src="/js/qrCode/qrcode.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#province').click(function () {
+            var pId = this.value;
+            if (pId == 2 || pId == 19 || pId == 857) {
+                vm.loadArea(pId, 'z', vm.area)
+            } else {
+                vm.loadArea(pId, 'city', vm.area)
+            }
+        });
+    });
+</script>
 <script>
     var vm = new Vue({
         el: "#div1",
@@ -232,10 +246,12 @@
             selectId: [],
             type: "",
             typeC: 0,
+            orderType:"",
+            orderState:""
         },
         methods: {
 
-            //获得子页面传来的值
+            //获得子页goodPurInfo-d.html（添加商品）面传来的值
             getValue(obj) {
                 if (this.typeC == 0) {
                     obj.id = this.purchaseOrder.purchaseOrderDetailList.length + 1;
@@ -261,6 +277,23 @@
                     });
                 }
                 this.calculateTotalAmount();
+            },
+
+            //获得扫码支付情况
+            getQrCodeRet(obj){
+                if(obj == 1){
+                    setTimeout(function(){alert("支付成功")},1000);
+                    setTimeout(function(){
+                        var _this = this;
+                        axios.post("/purchaseOrder/insert",_this.purchaseOrder).then(function (ret) {
+                            if(ret.data.data==1){
+                                alert("下单成功");
+                                location.href = "purchaseOrder-list.html?orderType="+_this.orderType+"";
+                            }
+                        })},1000);
+                }else{
+                    setTimeout(function(){alert("请支付")},1000);
+                }
             },
 
             //获得所有的厂家
@@ -333,7 +366,7 @@
                         break;
                     }
                 }
-                Modalshow("goodPurInfo-d.html?type=1", "更新", ret);
+                Modalshow("goodPurInfo-d.html?type=1&orderType="+_this.orderType+"", "更新", ret);
             },
 
             //计算总金额
@@ -349,20 +382,22 @@
                 axios.post("/purchaseOrder/update",_this.purchaseOrder).then(function (ret) {
                     if(ret.data.data==1){
                         alert("修改成功");
-                        location.href = "purchaseOrder-list.html";
+                        location.href = "purchaseOrder-list.html?orderType="+_this.orderType+"";
                     }
                 })
             },
+
             //订单保存
             save() {
-                var _this = this;
+               var _this = this;
                 axios.post("/purchaseOrder/insert",_this.purchaseOrder).then(function (ret) {
                     if(ret.data.data==1){
-                        alert("添加成功");
-                        location.href = "purchaseOrder-list.html";
+                        alert("添加成功，请尽快支付");
+                        location.href = "purchaseOrder-list.html?orderType="+_this.orderType+"";
                     }
                 })
             },
+
 
             //从系统中获得订单
             getAllPurchaseOrderByPage(pageNum, pageSize, orderIdCondition,selectOrderStateCondition) {
@@ -371,7 +406,9 @@
                     {pageNum: pageNum,
                         pageSize: pageSize,
                         orderIdCondition: orderIdCondition,
-                        selectOrderStateCondition:selectOrderStateCondition}
+                        selectOrderStateCondition:selectOrderStateCondition,
+                        orderType:this.orderType
+                    }
                 ).then(function (res) {
                     if (res.data.code == 0) {
                         var purchaseOrder = res.data.data.list[0];
@@ -387,6 +424,12 @@
 
         created() {
             this.type = getUrlKey('type');
+            this.orderType = getUrlKey('orderType');
+            this.orderState = getUrlKey("orderState");
+            if(this.orderState == 2 || this.orderState == 1){
+                $(".form-control").attr('readonly',true)
+            }
+            this.purchaseOrder.type =  this.orderType;
             if( this.type == 0){
                 this.getAllEmpByNoPage();
                 this.getAllProvider();
@@ -399,18 +442,7 @@
         }
     });
 </script>
-<script>
-    $(document).ready(function () {
-        $('#province').click(function () {
-            var pId = this.value;
-            if (pId == 2 || pId == 19 || pId == 857) {
-                vm.loadArea(pId, 'z', vm.area)
-            } else {
-                vm.loadArea(pId, 'city', vm.area)
-            }
-        });
-    });
-</script>
+
 </body>
 
 </html>
