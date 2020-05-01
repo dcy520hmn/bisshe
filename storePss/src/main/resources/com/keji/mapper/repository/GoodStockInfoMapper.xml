@@ -49,7 +49,7 @@
                 AND tr.rId = #{rId}
             </if>
             <if test="posId != null  and posId != '' ">
-                AND tp.posId = #{posId}
+                AND tp.pId = #{posId}
             </if>
             <if test="gooId != null  and gooId != '' ">
                 AND tg.gID = #{gooId}

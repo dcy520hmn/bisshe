@@ -64,18 +64,6 @@
 
 
 <!-- 内容头部 -->
-<section class="content-header">
-    <h1>
-        基本信息
-        <small>部门信息</small>
-    </h1>
-    <ol class="breadcrumb">
-        <li><a href="#"><i
-                class="fa fa-dashboard"></i> 首页</a></li>
-        <li><a href="#">基本信息</a></li>
-        <li class="active">部门信息</li>
-    </ol>
-</section>
 <!-- 内容头部 /-->
 
 <div id="div1" v-cloak>
@@ -207,7 +195,9 @@
         created: function () {
             this.typeC = getUrlKey('type');
             this.orderType = getUrlKey('orderType');
-            this.getAllRepository();
+            if(this.orderType == 0){
+                this.getAllRepository();
+            }
         },
 
         methods: {

@@ -86,11 +86,15 @@
             <h3 class="panel-heading">进货订单信息</h3>
             <div class="row data-type">
                 <div class="col-md-2 title">供货商</div>
-                <div class="col-md-2 data">
+                <div v-if="this.orderType==0" class="col-md-2 data">
                     <select type="text" class="form-control input-sm"
                             placeholder="厂家" v-model="purchaseOrder.provider.id">
                         <option v-for="provider in providers" :value="provider.value">{{provider.text}}</option>
                     </select>
+                </div>
+
+                <div v-if="this.orderType==1" class="col-md-2 data">
+                    <input type="text" class="form-control input-sm"placeholder="厂家"  readonly v-model="purchaseOrder.provider.id"/>
                 </div>
 
                 <div class="col-md-2 title">经手人</div>
@@ -101,8 +105,8 @@
                     </select>
                 </div>
 
-                <div class="col-md-2 title">总金额</div>
-                <div class="col-md-2 data">
+                <div  v-if="this.orderType==0" class="col-md-2 title">总金额</div>
+                <div  v-if="this.orderType==0" class="col-md-2 data">
                     <input readonly="readonly" type="text" class="form-control" name="name"
                            placeholder="总金额" v-model="purchaseOrder.price">
                 </div>
@@ -126,10 +130,10 @@
                         <div class="form-group form-inline">
                             <div class="btn-group">
                                 <button v-show="this.orderState!=2&&this.orderState!=1" type="button" class="btn btn-default" title="商品选择"
-                                        onclick=Modalshow("goodStock-list.html","商品选择")>
+                                        @click="selectGoods()">
                                     <i class="fa fa-file-o"></i> 商品选择
                                 </button>
-                                <button  v-show="this.orderState!=2&&this.orderState!=1" type="button" class="btn btn-default" title="删除" @click="addGoodPur()"><i
+                                <button  v-show="this.orderState!=2&&this.orderState!=1&&this.orderType==0" type="button" class="btn btn-default" title="删除" @click="addGoodPur()"><i
                                         class="fa fa-trash-o"></i> 新增
                                 </button>
                                 <button  v-show="this.orderState!=2&&this.orderState!=1" type="button" class="btn btn-default" title="删除" @click="deletePurchaseOrder"><i
@@ -137,9 +141,6 @@
                                 </button>
                                 <button  v-show="this.orderState!=2&&this.orderState!=1" type="button" class="btn btn-default" title="修改" @click="updatePurchaseOrder"><i
                                         class="fa fa-trash-o"></i> 修改
-                                </button>
-                                <button  v-show="this.orderState!=2&&this.orderState!=1" type="button" class="btn btn-default" title="刷新"
-                                        onclick="window.location.reload();"><i class="fa fa-refresh"></i> 刷新
                                 </button>
                             </div>
                         </div>
@@ -250,6 +251,13 @@
             orderState:""
         },
         methods: {
+            selectGoods(){
+                if(this.orderType == 0){
+                    Modalshow("goodStock-list.html","商品选择");
+                }else{
+                    Modalshow("goodStock-list-back.html","商品选择");
+                }
+            },
 
             //获得子页goodPurInfo-d.html（添加商品）面传来的值
             getValue(obj) {
