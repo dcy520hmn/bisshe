@@ -351,9 +351,13 @@
                             break;
                         }
                     }
-                    //获得仓库信息
+                    //获得供应商信息
                     goodStockInfo.posId = this.posId;
-                    goodStockInfo.posName = $("#pos option:selected").text();
+                    if(this.posName == "" || this.posName == null){
+                        goodStockInfo.posName = $("#pos option:selected").text();
+                    }else{
+                        goodStockInfo.posName = this.posName;
+                    }
                     Modalshow("goodPurInfo-back.html?type=0", "新增", goodStockInfo);
                 } else {
                     alert("请选中商品");
@@ -382,7 +386,6 @@
         this.vm.fPosId = data.id;
         this.vm.posId = data.id;
         this.vm.posName = data.name;
-        console.log(data);
     }
 </script>
 </body>

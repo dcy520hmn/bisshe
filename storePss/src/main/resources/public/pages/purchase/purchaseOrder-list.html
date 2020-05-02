@@ -291,8 +291,8 @@
             },
 
             //打开订单详情
-            openDetail(purchaseOrderId,orderState) {
-                return location.href = "purchaseOrder-d.html?type=1&purchaseOrderId=" + purchaseOrderId +
+            openDetail(orderIdCondition,orderState) {
+                return location.href = "purchaseOrder-d.html?type=1&orderIdCondition=" + orderIdCondition +
                     "&orderType=" + this.orderType +
                     "&orderState="+orderState+"";
             },
@@ -335,7 +335,7 @@
                     alert("订单已支付，无法进行修改");
                     return;
                 }
-                return location.href = "purchaseOrder-d.html?type=1&PurchaseOrderId=" + this.selectId[0] + "&orderType=" + this.orderType + "";
+                return location.href = "purchaseOrder-d.html?type=1&orderIdCondition=" + this.selectId[0] + "&orderType=" + this.orderType + "";
             },
 
             //订单支付

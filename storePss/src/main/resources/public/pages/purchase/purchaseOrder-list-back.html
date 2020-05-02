@@ -288,8 +288,8 @@
             },
 
             //打开订单详情
-            openDetail(purchaseOrderId,orderState) {
-                return location.href = "purchaseOrder-d-back.html?type=1&purchaseOrderId=" + purchaseOrderId +
+            openDetail(orderIdCondition,orderState) {
+                return location.href = "purchaseOrder-d-back.html?type=1&orderIdCondition=" + orderIdCondition +
                     "&orderType=" + this.orderType +
                     "&orderState="+orderState+"";
             },
@@ -322,7 +322,7 @@
                     return;
                 }
 
-                return location.href = "purchaseOrder-d-back.html?type=1&PurchaseOrderId=" + this.selectId[0] +
+                return location.href = "purchaseOrder-d-back.html?type=1&orderIdCondition=" + this.selectId[0] +
                     "&orderType=" + this.orderType + "&posId="+this.theOrder.provider.id+"&posName="+this.theOrder.provider.name+"";
             },
 
@@ -345,23 +345,6 @@
                 }
             },
 
-            //获得扫码支付情况
-            getQrCodeRet(obj){
-                if(obj == 1){
-                        var _this = this;
-                        axios.post("/purchaseOrder/updateState",{
-                            orderId:_this.theOrder.id,
-                            orderState:2//处理中状态
-                        }).then(function (ret) {
-                            if (ret.data.data == 1) {
-                                alert("支付成功");
-                                location.href = "purchaseOrder-list.html?orderType=" + _this.orderType + "";
-                            }
-                        })
-                }else{
-                    setTimeout(function(){alert("支付失败")},1000);
-                }
-            },
 
             //获得选中订单
             getSelectOrder(){
@@ -397,7 +380,7 @@
                         }).then(function (ret) {
                             if (ret.data.data == 1) {
                                 alert("处理成功，已成功入库");
-                                location.href = "purchaseOrder-list.html?orderType=" + _this.orderType + "";
+                                location.href = "purchaseOrder-list-back.html?orderType=" + _this.orderType + "";
                             }
                         })
                     }

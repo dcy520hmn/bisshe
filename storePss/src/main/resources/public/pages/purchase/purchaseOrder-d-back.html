@@ -66,13 +66,13 @@
 <!-- 内容头部 -->
 <section class="content-header">
     <h1>
-        进货管理
+        退货管理
         <small>添加订单</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i
                 class="fa fa-dashboard"></i> 首页</a></li>
-        <li><a href="#">进货管理</a></li>
+        <li><a href="#">退货管理</a></li>
         <li class="active">添加订单</li>
     </ol>
 </section>
@@ -83,7 +83,7 @@
 
     <section class="content">
         <div classs="panel panel-default">
-            <h3 class="panel-heading">进货订单信息</h3>
+            <h3 class="panel-heading">退货订单信息</h3>
             <div class="row data-type">
                 <div class="col-md-2 title">供货商</div>
                 <div class="col-md-2 data">
@@ -113,7 +113,7 @@
             </div>
         </div>
         <div classs="panel panel-default">
-            <h3 class="panel-heading">进货商品明细</h3>
+            <h3 class="panel-heading">退货商品明细</h3>
             <div class="box-body">
                 <!-- 数据表格 -->
                 <div class="table-box">
@@ -235,12 +235,12 @@
             typeC: 0,
             orderType: "",
             orderState: "",
-            provider:""
         },
         methods: {
             selectGoods() {
-                this.provider.id = this.purchaseOrder.provider.id;
-                this.provider.name = this.purchaseOrder.provider.name;
+                var provider = new Object();
+                provider.id = this.purchaseOrder.provider.id;
+                provider.name = this.purchaseOrder.provider.name;
                 Modalshow("goodStock-list-back.html", "商品选择",provider);
             },
 
@@ -273,28 +273,6 @@
                     });
                 }
                 this.calculateTotalAmount();
-            },
-
-            //获得扫码支付情况
-            getQrCodeRet(obj) {
-                if (obj == 1) {
-                    setTimeout(function () {
-                        alert("支付成功")
-                    }, 1000);
-                    setTimeout(function () {
-                        var _this = this;
-                        axios.post("/purchaseOrder/insert", _this.purchaseOrder).then(function (ret) {
-                            if (ret.data.data == 1) {
-                                alert("下单成功");
-                                location.href = "purchaseOrder-list.html?orderType=" + _this.orderType + "";
-                            }
-                        })
-                    }, 1000);
-                } else {
-                    setTimeout(function () {
-                        alert("请支付")
-                    }, 1000);
-                }
             },
 
             //获得所有的厂家
@@ -403,7 +381,7 @@
                 axios.post("/purchaseOrder/insert", _this.purchaseOrder).then(function (ret) {
                     if (ret.data.data == 1) {
                         alert("添加成功，请尽快处理");
-                        location.href = "purchaseOrder-list.html?orderType=" + _this.orderType + "";
+                        location.href = "purchaseOrder-list-back.html?orderType=" + _this.orderType + "";
                     }
                 })
             },
@@ -448,8 +426,8 @@
                 this.getAllEmpByNoPage();
                 this.getAllProvider();
             } else if (this.type == 1) {
-                var purchaseOrderId = getUrlKey('purchaseOrderId');
-                this.getAllPurchaseOrderByPage(1, 20, purchaseOrderId);
+                var orderIdCondition = getUrlKey('orderIdCondition');
+                this.getAllPurchaseOrderByPage(1, 20, orderIdCondition);
                 this.getAllEmpByNoPage();
                 this.getAllProvider();
             }

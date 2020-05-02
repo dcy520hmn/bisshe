@@ -442,8 +442,8 @@
                 this.getAllEmpByNoPage();
                 this.getAllProvider();
             }else if(this.type == 1){
-                var purchaseOrderId = getUrlKey('purchaseOrderId');
-                this.getAllPurchaseOrderByPage(1, 20,purchaseOrderId);
+                var orderIdCondition = getUrlKey('orderIdCondition');
+                this.getAllPurchaseOrderByPage(1, 20, orderIdCondition);
                 this.getAllEmpByNoPage();
                 this.getAllProvider();
             }
