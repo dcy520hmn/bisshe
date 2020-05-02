@@ -157,7 +157,8 @@
         </div>
         <!--订单信息/--> <!--工具栏-->
         <div class="box-tools text-center">
-            <button v-show="this.typeC==0" type="button" @click="sure()" id="operation" class="btn bg-maroon">确定</button>
+            <button v-show="this.typeC==0" type="button" @click="sure()" id="operation" class="btn bg-maroon">确定
+            </button>
             <button v-show="this.typeC==1" type="button" @click="sure()" class="btn bg-maroon">修改</button>
             <button type="button" @click="back()" class="btn bg-maroon">返回</button>
         </div>
@@ -190,14 +191,12 @@
             repositories: [
                 {text: "仓库选择", value: ""}
             ],
-            orderType:""
+            orderType: ""
         },
         created: function () {
             this.typeC = getUrlKey('type');
             this.orderType = getUrlKey('orderType');
-            if(this.orderType == 0){
-                this.getAllRepository();
-            }
+            this.getAllRepository();
         },
 
         methods: {
@@ -205,7 +204,7 @@
             getAllGoodByNoPage(goodId) {
                 _this = this;
                 axios.post("/good/findGoodByNoPage",
-                    {id: goodId,orderType:this.orderType}
+                    {id: goodId, orderType: this.orderType}
                 ).then(function (res) {
                     if (res.data.code == 0) {
                         var ret = res.data.data;
@@ -262,17 +261,17 @@
 
             //进行保存
             sure() {
-                if(this.typeC == 1){
-                    if(confirm("确认修改")){
+                if (this.typeC == 1) {
+                    if (confirm("确认修改")) {
                         this.purchaseOrderDetail.repository.name = $("#rId option:selected").text();
                         parent.vm.getValue(this.purchaseOrderDetail);
                         var index = parent.layer.getFrameIndex(window.name);
                         parent.layer.close(index);
-                    }else{
+                    } else {
                         var index = parent.layer.getFrameIndex(window.name);
                         parent.layer.close(index);
                     }
-                }else{
+                } else {
                     this.purchaseOrderDetail.repository.name = $("#rId option:selected").text();
                     parent.vm.getValue(this.purchaseOrderDetail);
                     var index = parent.layer.getFrameIndex(window.name);
@@ -289,7 +288,7 @@
         watch: {
             gooId: {
                 handler() {
-                    if(this.typeC == 0){
+                    if (this.typeC == 0) {
                         this.getPrice();
                         this.getTotalPrice();
                     }
@@ -300,22 +299,22 @@
             },
             gooTax: {
                 handler() {
-                        this.getPrice();
-                        this.getTotalPrice();
+                    this.getPrice();
+                    this.getTotalPrice();
                 },
                 deep: true
             },
             gooNum: {
                 handler() {
-                        this.getPrice();
-                        this.getTotalPrice();
+                    this.getPrice();
+                    this.getTotalPrice();
                 },
                 deep: true
             },
-            gooOtherPrice:{
+            gooOtherPrice: {
                 handler() {
-                        this.getPrice();
-                        this.getTotalPrice();
+                    this.getPrice();
+                    this.getTotalPrice();
                 },
                 deep: true
             }

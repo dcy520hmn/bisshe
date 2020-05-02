@@ -1,0 +1,299 @@
+<html>
+<head>
+    <!-- 页面meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>数据 - AdminLTE2定制版</title>
+    <meta name="description" content="AdminLTE2定制版">
+    <meta name="keywords" content="AdminLTE2定制版">
+
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta
+            content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
+            name="viewport">
+
+    <link rel="stylesheet"
+          href="/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet"
+          href="/plugins/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet"
+          href="/plugins/iCheck/square/blue.css">
+    <link rel="stylesheet"
+          href="/plugins/morris/morris.css">
+    <link rel="stylesheet"
+          href="/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+    <link rel="stylesheet"
+          href="/plugins/datepicker/datepicker3.css">
+    <link rel="stylesheet"
+          href="/plugins/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet"
+          href="/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+    <link rel="stylesheet"
+          href="/plugins/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet"
+          href="/plugins/treeTable/jquery.treetable.css">
+    <link rel="stylesheet"
+          href="/plugins/treeTable/jquery.treetable.theme.default.css">
+    <link rel="stylesheet"
+          href="/plugins/select2/select2.css">
+    <link rel="stylesheet"
+          href="/plugins/colorpicker/bootstrap-colorpicker.min.css">
+    <link rel="stylesheet"
+          href="/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
+    <link rel="stylesheet"
+          href="/plugins/adminLTE/css/AdminLTE.css">
+    <link rel="stylesheet"
+          href="/plugins/adminLTE/css/skins/_all-skins.min.css">
+    <link rel="stylesheet"
+          href="/css/style.css">
+    <link rel="stylesheet"
+          href="/plugins/ionslider/ion.rangeSlider.css">
+    <link rel="stylesheet"
+          href="/plugins/ionslider/ion.rangeSlider.skinNice.css">
+    <link rel="stylesheet"
+          href="/plugins/bootstrap-slider/slider.css">
+    <link rel="stylesheet" href="/css/vueDefine.css">
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+
+
+<!-- 内容头部 -->
+<section class="content-header">
+    <h1>
+        销售
+        <small>销售</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i
+                class="fa fa-dashboard"></i> 首页</a></li>
+        <li><a
+                href="#">销售</a></li>
+
+        <li class="active">销售</li>
+    </ol>
+</section>
+<!-- 内容头部 /-->
+<!-- 正文区域 -->
+<section class="content"> <!-- .box-body -->
+    <div id="div1" class="box box-primary" v-cloak>
+        <div class="box-header with-border">
+            <h3 class="box-title">列表</h3>
+        </div>
+
+        <div class="box-body">
+            <!-- 数据表格 -->
+            <div class="table-box">
+
+                <!--工具栏-->
+                <div class="pull-right">
+                    <div class="form-group form-inline">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default" title="修改"><i
+                                    class="fa fa fa-file-o"></i> 结算
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box-tools pull-left">
+                    <div class="box-tools pull-left">
+                        <div class="has-feedback">
+                            <input style="margin-top: 3px;" type="text" class="form-control input-sm"
+                                   placeholder="商品编码" v-model="gooCode">
+                        </div>
+                    </div>
+                    <div class="box-tools pull-left">
+                        <div class="has-feedback">
+                            <input  style="margin-top: 3px;margin-right: 10px;" type="text" class="form-control input-sm"
+                                   placeholder="购买数量" v-model="buyNum">
+                        </div>
+                    </div>
+                    <div class="box-tools pull-left">
+                        <div class="has-feedback">
+                            <button type="button"  class="btn  btn-default btn-sm" title="搜索"
+                                    @click="search"><i class="fa fa-search"></i> 购买
+                            </button>
+                            <button type="button"  class="btn  btn-default btn-sm" title="搜索"
+                                    @click="update"><i class=" fa fa-file-o"></i> 修改
+                            </button>
+                            <button type="button"  class="btn  btn-default btn-sm" title="搜索"
+                                    @click="deleteGoo"><i class="fa  fa-trash-o"></i> 删除
+                            </button>
+                        </div>
+                    </div>
+                    <div class="box-tools pull-right">
+                        <div class="has-feedback" style="margin-left: 500px;margin-top: 4px;">
+                            <input type="text" class="form-control input-sm"
+                                   placeholder="总计" readonly v-model="totalNum">
+                        </div>
+                    </div>
+
+                </div>
+                <!--工具栏/-->
+                <!--数据列表-->
+                <table id="dataList"
+                       class="table table-bordered table-striped table-hover dataTable">
+                    <thead>
+                    <tr>
+                        <td></td>
+                        <th class="sorting_asc">商品编码</th>
+                        <th class="sorting_desc">商品名</th>
+                        <th class="text-center">商品类别</th>
+                        <th class="text-center">商品型号</th>
+                        <th class="text-center">商品规格</th>
+                        <th class="text-center">计量单位</th>
+                        <th class="text-center">单价</th>
+                        <th class="text-center">购买数量</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="(buyGood) in  buyGoods">
+                        <td><input name="ids" v-model="selectId" :value="buyGood.helpNum" type="checkbox"></td>
+                        <td style="text-align: center">{{buyGood.helpNum}}</td>
+                        <td style="text-align: center" >{{buyGood.name}}</td>
+                        <td style="text-align: center">{{buyGood.className}}</td>
+                        <td style="text-align: center">{{buyGood.type}}</td>
+                        <td style="text-align: center">{{buyGood.size}}</td>
+                        <td style="text-align: center">{{buyGood.unit}}</td>
+                        <td style="text-align: center">{{buyGood.prePrice}}</td>
+                        <td style="color:red;font-weight: bold;text-align: center" >{{buyGood.buyNum}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <!--数据列表/-->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- 正文区域 /-->
+
+<script src="/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="/js/vue/axios-0.18.0.js"></script>
+<script src="/js/vue/vuejs-2.5.16.js"></script>
+<script src="/js/common/entity.js"></script>
+<script src="/js/common/common.js"></script>
+<script src="/layui/layui.all.js"></script>
+<script src="/js/qrCode/qrcode.min.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#div1",
+        data: {
+            options: [
+                {text: '4', value: '4'},
+                {text: '6', value: '6'},
+                {text: '8', value: '8'},
+                {text: '10', value: '10'},
+            ],
+            selectId: [],
+            gooCode:"",
+            buyNum:1,
+            buyGoods:[],
+            totalNum:0
+        },
+        methods: {
+            //搜索
+            search(){
+                if(this.gooCode==""){
+                    alert("请扫描商品编号");
+                }else{
+                    this.getAllGoodByPage(1,2,this.gooCode);
+                }
+            },
+
+            //查询商品
+            getAllGoodByPage(pageNum, pageSize, searchGoodName) {
+                _this = this;
+                axios.post("/good/findGood",
+                    {pageNum: pageNum, pageSize: pageSize, helpNum: searchGoodName}
+                ).then(function (res) {
+                    if(res.data.code==0){
+                        var good = new Object();
+                        if(res.data.data.list.length > 0){
+                            good = res.data.data.list[0];
+                            good.buyNum = _this.buyNum;
+                            var con = -1;
+                            for (let i = 0; i < _this.buyGoods.length; i++) {
+                                if(good.helpNum == _this.buyGoods[i].helpNum){
+                                    _this.buyGoods[i].buyNum++;
+                                    con =  1;
+                                    break;
+                                }
+                            }
+                            if(con == -1){
+                                _this.buyGoods.push(good);
+                            }
+                            _this.colTotal();
+                        }else{
+                            alert("商品不存在");
+                        }
+                    }
+                });
+            },
+
+            //计算商品价格
+            colTotal(){
+                for (let i = 0; i < this.buyGoods.length; i++) {
+                    this.totalNum+=this.buyGoods[i].prePrice;
+                }
+            },
+
+            //修改
+            update(){
+
+            },
+
+            //删除
+            deleteGoo(){
+
+            },
+
+            //订单支付
+            orderPay() {
+                let _this = this;
+                if (_this.selectId.length <= 0) {
+                    alert("请选中订单");
+                    return;
+                }
+                //查询所选订单
+                this.getSelectOrder();
+                if(_this.theOrder.sate != -1){
+                    alert("订单已支付");
+                    return;
+                }
+                _this.selectId.splice(0,_this.selectId.length);
+                if(confirm("确认支付？支付成功后不可更改")){
+                    Modalshow("/pages/qrCode/qrCode.html", "支付", _this.theOrder.price);
+                }
+            },
+
+            //获得扫码支付情况
+            getQrCodeRet(obj){
+                if(obj == 1){
+                        var _this = this;
+                        axios.post("/purchaseOrder/updateState",{
+                            orderId:_this.theOrder.id,
+                            orderState:2//处理中状态
+                        }).then(function (ret) {
+                            if (ret.data.data == 1) {
+                                alert("支付成功");
+                                location.href = "purchaseOrder-list.html?orderType=" + _this.orderType + "";
+                            }
+                        })
+                }else{
+                    setTimeout(function(){alert("支付失败")},1000);
+                }
+            },
+        },
+
+        created() {
+
+        }
+    });
+</script>
+</body>
+
+</html>
