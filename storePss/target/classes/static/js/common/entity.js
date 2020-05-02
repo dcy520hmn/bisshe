@@ -141,6 +141,7 @@ purchaseOrder = {
  purchaseOrderDetail = {
      id:"",
      tpoId:"",
+     tpoName:"",
      repository:repository,
      good:good,
      gooNum:"",

@@ -147,7 +147,6 @@
                         <th class="sorting_desc">供应商</th>
                         <th class="sorting_desc">经手人</th>
                         <th class="sorting_desc">经手人工号</th>
-                        <th class="sorting_desc">金额</th>
                         <th class="sorting_desc">备注</th>
                         <th class="sorting_desc">状态</th>
                     </tr>
@@ -159,7 +158,6 @@
                         <td>{{purchaseOrder.provider.name}}</td>
                         <td>{{purchaseOrder.operationEmp.name}}</td>
                         <td>{{purchaseOrder.operationEmp.id}}</td>
-                        <td>{{purchaseOrder.price}}</td>
                         <td>{{purchaseOrder.remark}}</td>
                         <td v-if="purchaseOrder.sate==-1" style="color: grey;font-weight: bold">待支付</td>
                         <td v-if="purchaseOrder.sate==2" style="color: red;font-weight: bold">处理中</td>
@@ -236,7 +234,6 @@
             searchPurchaseOrderName: "",
             orderState: [
                 {text: '状态选择', value: ""},
-                {text: '待支付', value: -1},
                 {text: '处理中', value: 2},
                 {text: '已完成', value: 1},
             ],
@@ -292,24 +289,13 @@
 
             //打开订单详情
             openDetail(purchaseOrderId,orderState) {
-                return location.href = "purchaseOrder-d.html?type=1&purchaseOrderId=" + purchaseOrderId +
+                return location.href = "purchaseOrder-d-back.html?type=1&purchaseOrderId=" + purchaseOrderId +
                     "&orderType=" + this.orderType +
                     "&orderState="+orderState+"";
             },
 
             //删除订单
             deletePurchaseOrder() {
-                let _this = this;
-                if (this.selectId.length <= 0) {
-                    alert("请选中订单");
-                    return;
-                }
-                //查询所选订单
-                this.getSelectOrder();
-                if(_this.theOrder.sate == 2){
-                    alert("订单处理中，无法进行删除");
-                    return;
-                }
                 if (confirm("确定删除吗？")) {
                     axios.post("/purchaseOrder/delete", _this.selectId).then(function (res) {
                         if (res.data.data > 0) {
@@ -331,11 +317,13 @@
                 }
                 //查询所选订单
                 this.getSelectOrder();
-                if(_this.theOrder.sate != -1){
-                    alert("订单已支付，无法进行修改");
+                if(_this.theOrder.sate == 1){
+                    alert("订单已完成，无法进行修改");
                     return;
                 }
-                return location.href = "purchaseOrder-d.html?type=1&PurchaseOrderId=" + this.selectId[0] + "&orderType=" + this.orderType + "";
+
+                return location.href = "purchaseOrder-d-back.html?type=1&PurchaseOrderId=" + this.selectId[0] +
+                    "&orderType=" + this.orderType + "&posId="+this.theOrder.provider.id+"&posName="+this.theOrder.provider.name+"";
             },
 
             //订单支付

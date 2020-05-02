@@ -141,11 +141,15 @@
                     </div>
                 </div>
                 <div class="box-tools pull-right">
-                    <div class="has-feedback">
-                        <select type="text" class="form-control input-sm"
+                    <div v-if="fPosId==''||fPosId==null" class="has-feedback">
+                        <select id="pos" type="text" class="form-control input-sm"
                                 placeholder="厂家" v-model="posId">
                             <option v-for="provider in providers" :value="provider.value">{{provider.text}}</option>
                         </select>
+                    </div>
+                    <div v-if="fPosId!=''&&fPosId!=null" class="has-feedback">
+                        <input type="text" class="form-control input-sm" readonly
+                               placeholder="厂家名称" v-model="posName">
                     </div>
                 </div>
                 <!--工具栏/-->
@@ -267,7 +271,9 @@
             providers: [
                 {text: "厂家选择", value: ""}
             ],
+            fPosId:"",//父页面传来的供应商id
             posId: "",
+            posName: "",
             gName: "",
             gHelpName: ""
         },
@@ -338,12 +344,16 @@
                 if (this.selectId.length > 0) {
                     var goodStockList = _this.pageInfo.list;
                     var goodStockInfo = new Object();
+                    //获得对应的订单信息
                     for (let i = 0; i < goodStockList.length; i++) {
                         if (goodStockList[i].id == this.selectId[0]) {
                             goodStockInfo = goodStockList[i];
                             break;
                         }
                     }
+                    //获得仓库信息
+                    goodStockInfo.posId = this.posId;
+                    goodStockInfo.posName = $("#pos option:selected").text();
                     Modalshow("goodPurInfo-back.html?type=0", "新增", goodStockInfo);
                 } else {
                     alert("请选中商品");
@@ -359,11 +369,21 @@
         },
 
         created() {
-            // this.getAllGoodStockByPage(this.pageInfo.pageNum, this.pageInfo.pageSize,this.rId, this.posId, this.gName, this.gHelpName,this.selectStockState);
+            if(this.posId != ""){
+                this.getAllGoodStockByPage(this.pageInfo.pageNum, this.pageInfo.pageSize,this.rId, this.posId, this.gName, this.gHelpName,this.selectStockState);
+            }
             this.getAllRepository();
             this.getAllProvider();
         }
     });
+</script>
+<script>
+    function child(data) {
+        this.vm.fPosId = data.id;
+        this.vm.posId = data.id;
+        this.vm.posName = data.name;
+        console.log(data);
+    }
 </script>
 </body>
 

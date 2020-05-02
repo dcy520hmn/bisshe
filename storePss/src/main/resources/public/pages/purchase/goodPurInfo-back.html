@@ -102,6 +102,11 @@
                     <input readonly type="text" class="form-control"
                            placeholder="单位" v-model="purchaseOrderDetail.good.unit"/>
                 </div>
+                <div class="col-md-2 title">库存数量</div>
+                <div class="col-md-4 data">
+                    <input type="text" readonly class="form-control"
+                           placeholder="库存数量" v-model="number"/>
+                </div>
 
                 <div class="col-md-2 title">数量</div>
                 <div class="col-md-4 data">
@@ -151,7 +156,8 @@
             repositories: [
                 {text: "仓库选择", value: ""}
             ],
-            orderType:""
+            orderType:"",
+            number:""//库存数量
         },
         created: function () {
             this.typeC = getUrlKey('type');
@@ -225,7 +231,7 @@
             sure() {
                 if(this.typeC == 1){
                     if(confirm("确认修改")){
-                        this.purchaseOrderDetail.repository.name = $("#rId option:selected").text();
+                        // this.purchaseOrderDetail.repository.name = $("#rId option:selected").text();
                         parent.vm.getValue(this.purchaseOrderDetail);
                         var index = parent.layer.getFrameIndex(window.name);
                         parent.layer.close(index);
@@ -234,7 +240,11 @@
                         parent.layer.close(index);
                     }
                 }else{
-                    this.purchaseOrderDetail.repository.name = $("#rId option:selected").text();
+                    // this.purchaseOrderDetail.repository.name = $("#rId option:selected").text();
+                    if(this.gooNum > this.number){
+                        alert("退货量大于库存量");
+                        return
+                    }
                     parent.vm.getValue(this.purchaseOrderDetail);
                     var index = parent.layer.getFrameIndex(window.name);
                     parent.layer.close(index);
@@ -290,6 +300,7 @@
         vm.purchaseOrderDetail.repository.name = data.repository.name;
         vm.purchaseOrderDetail.id = data.id;
         vm.gooNum = data.gooNum;
+        vm.number = data.number;
         vm.gooTax = data.gooTax;
         vm.purchaseOrderDetail.good.cost = data.good.cost;
         vm.purchaseOrderDetail.gooTaxPrc = data.gooTaxPrc;
@@ -297,6 +308,8 @@
         vm.purchaseOrderDetail.gooTotalPrice = data.gooTotalPrice;
         vm.purchaseOrderDetail.gooRemark = data.gooRemark;
         vm.type = data.type;
+        vm.purchaseOrderDetail.tpoId = data.posId;
+        vm.purchaseOrderDetail.tpoName = data.posName;
     }
 </script>
 </body>

@@ -167,6 +167,9 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
                 if(purchaseOrderSystem.getType()==0){//进货订单
                     goodStockInfo.setNumber(goodStockInfo.getNumber()+purchaseOrderDetail.getGooNum());
                     goodStockInfoMapper.updateStock(goodStockInfo.getId(),goodStockInfo.getRepository().getId(),goodStockInfo.getGood().getId(),goodStockInfo.getNumber());
+                }else if(purchaseOrderSystem.getType()==1){//退货订单
+                    goodStockInfo.setNumber(goodStockInfo.getNumber()-purchaseOrderDetail.getGooNum());
+                    goodStockInfoMapper.updateStock(goodStockInfo.getId(),goodStockInfo.getRepository().getId(),goodStockInfo.getGood().getId(),goodStockInfo.getNumber());
                 }
             }
             //订单完成
@@ -194,7 +197,11 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
         purchaseOrder.setId(orderId);
         purchaseOrder.setType(MapUtils.getInteger(params, "type"));
         purchaseOrder.setCreateDate(DateUtil.getCurrentDateTime());
-        purchaseOrder.setSate(-1);
+        if(purchaseOrder.getType()==1){
+            purchaseOrder.setSate(2);
+        }else{
+            purchaseOrder.setSate(-1);
+        }
         TProvider provider = new TProvider();
 
         //设置供应商
