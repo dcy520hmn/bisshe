@@ -168,3 +168,16 @@ Array.prototype.remove = function remove(val) {
         this.splice(index, 1);
     }
 }
+
+
+Array.prototype.remove2 = function remove(val) {
+    var index = -1;
+    for (var i = 0; i < this.length; i++) {
+        if (this[i].helpNum == val) {
+            index = i;
+        }
+    }
+    if (index > -1) {
+        this.splice(index, 1);
+    }
+}
