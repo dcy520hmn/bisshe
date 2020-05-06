@@ -204,32 +204,52 @@
 
             //查询商品
             getAllGoodByPage(pageNum, pageSize, searchGoodName) {
-                _this = this;
-                axios.post("/good/findGood",
-                    {pageNum: pageNum, pageSize: pageSize, helpNum: searchGoodName}
-                ).then(function (res) {
-                    if (res.data.code == 0) {
-                        var good = new Object();
-                        if (res.data.data.list.length > 0) {
-                            good = res.data.data.list[0];
-                            good.buyNum = _this.buyNum;
-                            var con = -1;
-                            for (let i = 0; i < _this.buyGoods.length; i++) {
-                                if (good.helpNum == _this.buyGoods[i].helpNum) {
-                                    _this.buyGoods[i].buyNum = _this.buyNum;
-                                    con = 1;
-                                    break;
-                                }
-                            }
-                            if (con == -1) {
-                                _this.buyGoods.push(good);
-                            }
-                            _this.colTotal('+');
-                        } else {
-                            alert("商品不存在");
+                var good = new Object();
+                var stockCheck = -1;
+
+                $.ajaxSettings.async = false;
+                $.post("/goodStockInfo/queryGoodsRepositoryByEmp",{"helpNum":""+searchGoodName+"" },function (res) {
+                    var ret = $.parseJSON(res);
+                    if(ret.code == 0){
+                        if(ret.data.number==0){
+                            stockCheck = -1;
+                        }else{
+                            stockCheck = 1;
                         }
                     }
                 });
+                $.ajaxSettings.async = true;
+
+                if(stockCheck == 1){
+                    _this = this;
+                    axios.post("/good/findGood",
+                        {pageNum: pageNum, pageSize: pageSize, helpNum: searchGoodName}
+                    ).then(function (res) {
+                        if (res.data.code == 0) {
+                            var good = new Object();
+                            if (res.data.data.list.length > 0) {
+                                good = res.data.data.list[0];
+                                good.buyNum = _this.buyNum;
+                                var con = -1;
+                                for (let i = 0; i < _this.buyGoods.length; i++) {
+                                    if (good.helpNum == _this.buyGoods[i].helpNum) {
+                                        _this.buyGoods[i].buyNum = _this.buyNum;
+                                        con = 1;
+                                        break;
+                                    }
+                                }
+                                if (con == -1) {
+                                    _this.buyGoods.push(good);
+                                }
+                                _this.colTotal('+');
+                            } else {
+                                alert("商品不存在");
+                            }
+                        }
+                    });
+                }else{
+                    alert("该商品库存为0！");
+                }
             },
 
             //计算商品价格

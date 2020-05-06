@@ -7,6 +7,7 @@ import com.keji.service.repository.GoodStockInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
@@ -32,4 +33,9 @@ public class GoodStockInfoController extends BaseController {
         return dealQueryResult(pageInfo,pageInfo);
     }
 
+    @RequestMapping(value = "/queryGoodsRepositoryByEmp")
+    public String queryGoodsRepositoryByEmp(@RequestParam Map params){
+        GoodStockInfo goodStockInfo = goodsRepositoryService.queryGoodsRepositoryByUser(params);
+        return dealQueryResult(goodStockInfo,goodStockInfo);
+    }
 }

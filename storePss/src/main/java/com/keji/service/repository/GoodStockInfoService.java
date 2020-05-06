@@ -3,6 +3,7 @@ package com.keji.service.repository;
 import com.github.pagehelper.PageInfo;
 import com.keji.pojo.stock.GoodStockInfo;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -14,4 +15,7 @@ import java.util.Map;
  */
 public interface GoodStockInfoService {
     PageInfo<GoodStockInfo> queryGoodsRepository(Map params);
+
+
+    GoodStockInfo queryGoodsRepositoryByUser(Map params);
 }
