@@ -3,6 +3,7 @@ package com.keji.service.baseMessage.impl;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.keji.common.utils.StringUtils;
 import com.keji.mapper.authority.UserMapper;
 import com.keji.mapper.baseMessage.EmpMapper;
 import com.keji.pojo.authority.UserInfo;
@@ -48,8 +49,12 @@ public class EmServiceImpl implements EmpService {
     }
 
     @Override
-    public List<Emp> findAllEmpByNoPage() {
+    public List<Emp> findAllEmpByNoPage(Map params) {
         Example example = new Example(Emp.class);
+        if(MapUtils.getObject(params,"empId")!=null){
+            Integer empId = MapUtils.getIntValue(params, "empId");
+            example.createCriteria().andEqualTo("id",empId);
+        }
         example.createCriteria().andEqualTo("state",1);
         return empMapper.selectByExample(example);
     }

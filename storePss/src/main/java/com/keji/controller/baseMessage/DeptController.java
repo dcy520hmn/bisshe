@@ -7,6 +7,7 @@ import com.keji.service.baseMessage.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -34,6 +35,12 @@ public class DeptController extends BaseController {
 
     @RequestMapping("/findDept")
     public String findDept(@RequestBody  Map params){
+        PageInfo<Dept> pageInfo = deptService.queryDept(params);
+        return dealQueryResult(pageInfo,pageInfo);
+    }
+
+    @RequestMapping("/findDept1")
+    public String findDept1(@RequestParam Map params){
         PageInfo<Dept> pageInfo = deptService.queryDept(params);
         return dealQueryResult(pageInfo,pageInfo);
     }

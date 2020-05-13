@@ -16,7 +16,7 @@ import java.util.Map;
 public interface EmpService {
     PageInfo<Emp> queryEmp(Map params);
 
-    List<Emp> findAllEmpByNoPage();
+    List<Emp> findAllEmpByNoPage(Map params);
 
     int insertEmp(Map params);
 

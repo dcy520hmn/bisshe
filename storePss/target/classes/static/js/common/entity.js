@@ -150,11 +150,30 @@ purchaseOrderDetail = {
     gooOtherPrice: "",
     gooTotalPrice: "",
     gooRemark: "",
-}
-
+},
+//调拨订单
+    allot = {
+        id: "",
+        inDept: "",
+        inRep: "",
+        outDept: "",
+        outRep: "",
+        operationEmpId: "",
+        state: "",
+        remark: "",
+        allotOrderDetail:[]
+    },
+//调拨订单详情
+    allotOrderDetail = {
+        id: "",
+        taoid: "",
+        good: good,
+        gooNum: "",
+        gooRemark: ""
+    },
 
 //性别下拉选
-selectGender = [{value: '男', text: '男'}, {value: '女', text: '女'}]
+    selectGender = [{value: '男', text: '男'}, {value: '女', text: '女'}]
 
 //区域
 area = {provinces: [], cities: [], districts: []}
@@ -215,3 +234,4 @@ months = [
     {value: '11', text: '11'},
     {value: '12', text: '12'},
 ];
+

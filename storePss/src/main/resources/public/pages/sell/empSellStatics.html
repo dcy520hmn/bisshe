@@ -52,10 +52,9 @@
             </div>
 
 
-
             <div style="margin: 10px">
                 <div class="box-tools pull-right" style="margin-top: 5px;font-size: 20px">
-                    <span>号</span>
+                    <span>月</span>
                 </div>
                 <div class="box-tools pull-right" style="margin: 2px 10px">
                     <div class="has-feedback">
@@ -75,7 +74,7 @@
                 <div class="box-tools pull-right" style="margin: 2px 10px">
                     <div class="has-feedback">
                         <select type="text" class="form-control input-sm"
-                               placeholder="" v-model="year">
+                                placeholder="" v-model="year">
                             <option v-for="year in years" :value="year.value">{{year.text}}</option>
                         </select>
                     </div>
@@ -83,7 +82,7 @@
             </div>
 
             <div style="margin: 10px">
-                <div class="box-tools pull-right"  style="margin: 2px 10px">
+                <div class="box-tools pull-right" style="margin: 2px 10px">
                     <div class="has-feedback">
                         <input type="text" class="form-control input-sm"
                                placeholder="员工编号" v-model="empId">
@@ -95,11 +94,11 @@
             </div>
 
             <div style="margin: 10px">
-                <div class="box-tools pull-right"  style="margin: 2px 10px">
+                <div class="box-tools pull-right" style="margin: 2px 10px">
                     <div class="has-feedback">
                         <select type="text" class="form-control input-sm"
-                                placeholder="部门" v-model="rId">
-                            <option v-for="repository in repositories" :value="repository.value">{{repository.text}}
+                                placeholder="部门" v-model="deptId">
+                            <option v-for="repository in depts" :value="repository.value">{{repository.text}}
                             </option>
                         </select>
                     </div>
@@ -114,11 +113,11 @@
         <div class="row">
             <div class="col-md-6">
                 <!-- bar char -->
-                <div class="box box-success" >
+                <div class="box box-success">
                     <div class="box-header with-border" style="width: 1480px">
                         <h3 class="box-title">员工销售业绩</h3>
                     </div>
-                    <div class="box-body"  style="width: 1480px">
+                    <div class="box-body" style="width: 1480px">
                         <div class="chart">
                             <canvas id="barChart" style="height:500px"></canvas>
                         </div>
@@ -141,37 +140,114 @@
 <script src="/js/common/common.js"></script>
 <script src="/plugins/chartjs/Chart.min.js"></script>
 <script>
+    var areaChartData = new Object();
+    $(function () {
+        areaChartData = {
+            labels: ["1号", "2号", "3号", "4号", "5号",
+                "6号", "7号", "8号", "9号", "10号",
+                "11号", "12号", "13号", "14号", "15号",
+                "16号", "17号", "18号", "19号", "20号",
+                "21号", "22号", "23号", "24号", "25号",
+                "26号", "27号", "28号", "29号", "30号", "31号"],
+            datasets: []
+        };
+    });
+</script>
+<script>
     var vm = new Vue({
         el: "#div1",
         data: {
-            repositories: [
+            depts: [
                 {text: "选择部门", value: ""}
             ],
-            rId: "",
-            years:years,
-            year:"",
-            months:months,
-            month:"",
-            empId:"",
+            deptId: "",
+            years: years,
+            year: "",
+            months: months,
+            month: "",
+            empId: "",
         },
         methods: {
             //获得所有的仓库信息
             getAllRepository: function () {
                 _this = this;
-                axios.post("/repository/findRepositoryByNoPage").then(function (res) {
+                axios.post("/dept/findAllDept").then(function (res) {
                     if (res.data.code == 0) {
                         var ret = res.data.data;
                         for (let i = 0; i < ret.length; i++) {
                             var opt = new Object();
                             opt.value = ret[i].id;
-                            opt.text = ret[i].code;
-                            _this.repositories.push(opt);
+                            opt.text = ret[i].deptName;
+                            _this.depts.push(opt);
                         }
                     }
                 });
             },
             search() {
+                $(".chart").html('');
+                $(".chart").html('');
+                areaChartData.datasets.splice(0,areaChartData.datasets.length);
+                var _this = this;
+                var beginDate = _this.year + '-' + _this.month + '-01';
+                var endDate = _this.year + '-' + _this.month + '-31';
+                axios.post("/sellOrderStatics/query",
+                    {empId: _this.empId, deptId: _this.deptId, beginDate: beginDate, endDate: endDate}
+                ).then(function (res) {
+                    if (res.data.code == 0) {
+                        var ret = res.data.data;
+                        for (let i = 0; i < ret.length; i++) {
+                            var obj = {};
+                            obj.label = ret[i].name;
+                            obj.fillColor = "rgba(210, 214, 222, 1)";
+                            obj.strokeColor = "rgba(210, 214, 222, 1)";
+                            obj.pointColor = "rgba(210, 214, 222, 1)";
+                            obj.pointStrokeColor = "#c1c7d1";
+                            obj.pointHighlightFill = "#fff";
+                            obj.pointHighlightStroke = "rgba(220,220,220,1)";
+                            obj.data = ret[i].totalNumOfMonth;
+                            areaChartData.datasets.push(obj);
+                        }
+                        //-------------
+                        //- BAR CHART -
+                        //-------------
+                        var barChartCanvas = $("#barChart").get(0).getContext("2d");
+                        var barChart = new Chart(barChartCanvas);
+                        var barChartData = areaChartData;
+                        barChartData.datasets[1].fillColor = "#00a65a";
+                        barChartData.datasets[1].strokeColor = "#00a65a";
+                        barChartData.datasets[1].pointColor = "#00a65a";
+                        var barChartOptions = {
+                            //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
+                            scaleBeginAtZero: true,
+                            //Boolean - Whether gdeptId lines are shown across the chart
+                            scaleShowGdeptIdLines: true,
+                            //String - Colour of the gdeptId lines
+                            scaleGdeptIdLineColor: "rgba(0,0,0,.05)",
+                            //Number - Width of the gdeptId lines
+                            scaleGdeptIdLineWidth: 1,
+                            //Boolean - Whether to show horizontal lines (except X axis)
+                            scaleShowHorizontalLines: true,
+                            //Boolean - Whether to show vertical lines (except Y axis)
+                            scaleShowVerticalLines: true,
+                            //Boolean - If there is a stroke on each bar
+                            barShowStroke: true,
+                            //Number - Pixel width of the bar stroke
+                            barStrokeWidth: 2,
+                            //Number - Spacing between each of the X value sets
+                            barValueSpacing: 5,
+                            //Number - Spacing between data sets within X values
+                            barDatasetSpacing: 1,
+                            //String - A legend template
+                            legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
+                            //Boolean - whether to make the chart responsive
+                            responsive: true,
+                            maintainAspectRatio: true
+                        };
 
+                        barChartOptions.datasetFill = false;
+                        barChart.Bar(barChartData, barChartOptions);
+                    }
+                });
             },
         },
 
@@ -180,81 +256,6 @@
         }
     });
 </script>
-<script>
-    var areaChartData = new Object();
-    $(function () {
-         areaChartData = {
-            labels: ["1号", "2号", "3号", "4号", "5号",
-                     "6号", "7号", "8号", "9号", "10号",
-                     "11号","12号", "13号", "14号", "15号",
-                     "16号","17号", "18号", "19号", "20号",
-                     "21号","22号", "23号", "24号", "25号",
-                     "26号","27号", "28号", "29号", "30号","31号"],
-            datasets: [{
-                label: "Electronics",
-                fillColor: "rgba(210, 214, 222, 1)",
-                strokeColor: "rgba(210, 214, 222, 1)",
-                pointColor: "rgba(210, 214, 222, 1)",
-                pointStrokeColor: "#c1c7d1",
-                pointHighlightFill: "#fff",
-                pointHighlightStroke: "rgba(220,220,220,1)",
-                data: [65, 59, 80, 81, 56, 55, 40]
-            },
-                {
-                    label: "Digital Goods",
-                    fillColor: "rgba(60,141,188,0.9)",
-                    strokeColor: "rgba(60,141,188,0.8)",
-                    pointColor: "#3b8bba",
-                    pointStrokeColor: "rgba(60,141,188,1)",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(60,141,188,1)",
-                    data: [200, 400, 800, 1000, 1200, 1400, 1600]
-                }
-            ]
-        };
-
-        //-------------
-        //- BAR CHART -
-        //-------------
-        var barChartCanvas = $("#barChart").get(0).getContext("2d");
-        var barChart = new Chart(barChartCanvas);
-        var barChartData = areaChartData;
-        barChartData.datasets[1].fillColor = "#00a65a";
-        barChartData.datasets[1].strokeColor = "#00a65a";
-        barChartData.datasets[1].pointColor = "#00a65a";
-        var barChartOptions = {
-            //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
-            scaleBeginAtZero: true,
-            //Boolean - Whether grid lines are shown across the chart
-            scaleShowGridLines: true,
-            //String - Colour of the grid lines
-            scaleGridLineColor: "rgba(0,0,0,.05)",
-            //Number - Width of the grid lines
-            scaleGridLineWidth: 1,
-            //Boolean - Whether to show horizontal lines (except X axis)
-            scaleShowHorizontalLines: true,
-            //Boolean - Whether to show vertical lines (except Y axis)
-            scaleShowVerticalLines: true,
-            //Boolean - If there is a stroke on each bar
-            barShowStroke: true,
-            //Number - Pixel width of the bar stroke
-            barStrokeWidth: 2,
-            //Number - Spacing between each of the X value sets
-            barValueSpacing: 5,
-            //Number - Spacing between data sets within X values
-            barDatasetSpacing: 1,
-            //String - A legend template
-            legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
-            //Boolean - whether to make the chart responsive
-            responsive: true,
-            maintainAspectRatio: true
-        };
-
-        barChartOptions.datasetFill = false;
-        barChart.Bar(barChartData, barChartOptions);
-    });
-</script>
-
 </body>
 
 </html>

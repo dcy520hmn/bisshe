@@ -16,7 +16,7 @@ import java.util.Map;
 public interface RepositoryService {
     PageInfo<Repository> queryRepository(Map params);
 
-    List<Repository> queryRepositoryByNoPage();
+    List<Repository> queryRepositoryByNoPage(Map params);
 
     int insertRepository(Repository good);
 

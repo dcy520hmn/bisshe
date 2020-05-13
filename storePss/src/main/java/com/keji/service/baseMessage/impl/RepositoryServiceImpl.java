@@ -52,8 +52,20 @@ public class RepositoryServiceImpl implements RepositoryService {
     }
 
     @Override
-    public List<Repository> queryRepositoryByNoPage() {
+    public List<Repository> queryRepositoryByNoPage(Map params) {
         Example example = new Example(Repository.class);
+        String code = MapUtils.getString(params,"code");
+        Integer id = MapUtils.getInteger(params,"id");
+        Integer deptId = MapUtils.getInteger(params,"deptId");
+        if(StringUtils.isNotEmpty(code)){
+            example.createCriteria().andLike("rCode",code);
+        }
+        if(StringUtils.isNotEmpty(id)){
+            example.createCriteria().andEqualTo("id",id);
+        }
+        if(StringUtils.isNotEmpty(deptId)){
+            example.createCriteria().andEqualTo("deptId",deptId);
+        }
         example.createCriteria().andEqualTo("state",1);
         return repositoryMapper.selectByExample(example);
     }

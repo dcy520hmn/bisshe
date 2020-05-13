@@ -92,10 +92,6 @@
                 <div class="pull-left">
                     <div class="form-group form-inline">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-default" title="新建"
-                                    onclick="location.href='purchaseOrder-d.html?type=0'">
-                                <i class="fa fa-file-o"></i> 调拨
-                            </button>
                             <button type="button" class="btn btn-default" title="刷新"
                                     onclick="window.location.reload();"><i class="fa fa-refresh"></i> 刷新
                             </button>
@@ -253,7 +249,7 @@
             selectId: [],
             selectStockState:"",
             repositories:[
-                {text:"部门选择",value:""}
+                {text:"仓库选择",value:""}
             ],
             rId: "",
             providers:[
@@ -278,7 +274,7 @@
             //获得所有的仓库信息
             getAllRepository: function () {
                 _this = this;
-                axios.post("/repository/findRepositoryByNoPage").then(function (res) {
+                axios.post("/repository/findRepositoryByNoPage",{}).then(function (res) {
                     if (res.data.code == 0) {
                         var ret =  res.data.data;
                         for (let i = 0; i < ret.length; i++) {
@@ -315,7 +311,6 @@
             this.getAllGoodStockByPage(this.pageInfo.pageNum, this.pageInfo.pageSize,this.rId, this.posId, this.gName, this.gHelpName,this.selectStockState);
             this.getAllRepository();
             this.getAllProvider();
-
         }
     });
 </script>

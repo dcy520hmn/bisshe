@@ -33,8 +33,8 @@ public class RepositoryController extends BaseController {
     }
 
     @RequestMapping("/findRepositoryByNoPage")
-    public String findRepository(){
-        List<Repository> info = repositoryService.queryRepositoryByNoPage();
+    public String findRepositoryByNoPage(@RequestBody Map params){
+        List<Repository> info = repositoryService.queryRepositoryByNoPage(params);
         return dealQueryResult(info,info);
     }
 

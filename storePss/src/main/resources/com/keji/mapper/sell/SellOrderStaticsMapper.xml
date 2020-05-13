@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.keji.mapper.sell.SellOrderStaticsMapper">
+    <resultMap id="sellOrderStaticsMap" type="SellOrderStatics">
+        <result column="totalNum" property="totalNum"/>
+        <result column="empName" property="empName"/>
+        <result column="empId" property="empId"/>
+        <result column="t_create_date" property="createDate"/>
+    </resultMap>
+    <select id="querySellOrderStatics" resultMap="sellOrderStaticsMap">
+        SELECT SUM(t_totalNum) AS totalNum,t_create_date,t_emp.name AS empName,t_emp.id AS empId
+        FROM t_sell_order
+        LEFT JOIN t_emp ON t_emp.id = t_sell_order.t_empId
+        GROUP BY t_create_date,t_empId,t_deptId
+        HAVING t_deptId = #{deptId} AND t_create_date between #{beginDate} AND #{endDate}
+        <if test="empId">
+            t_empId = #{empId}
+        </if>
+    </select>
+</mapper>

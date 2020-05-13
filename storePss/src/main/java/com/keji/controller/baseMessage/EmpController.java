@@ -7,6 +7,7 @@ import com.keji.service.baseMessage.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -33,8 +34,8 @@ public class EmpController extends BaseController {
     };
 
     @RequestMapping("/queryByNoPage")
-    public String queryEmpByNoPage (){
-        List<Emp> info = empService.findAllEmpByNoPage();
+    public String queryEmpByNoPage (@RequestParam Map params){
+        List<Emp> info = empService.findAllEmpByNoPage(params);
         return dealQueryResult(info,info);
     };
 

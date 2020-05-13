@@ -181,3 +181,36 @@ Array.prototype.remove2 = function remove(val) {
         this.splice(index, 1);
     }
 }
+
+//获得当前登陆人
+function getEmp() {
+    var emp = new Object();
+    var _this = this;
+    $.ajaxSettings.async = false;
+    $.post("/user/getLogInUser").then(function (res) {
+        var ret1 = JSON.parse(res)
+        if (ret1.code == 0) {
+            //查春员工
+            $.post("/emp/queryByNoPage",{
+                empId:JSON.parse(ret1.data.empId)
+            }).then(function (res) {
+                var ret2 = JSON.parse(res)
+                if (ret2.code == 0) {
+                    emp = ret2.data[0];
+                }
+            });
+            //查询员工所在部门
+            $.post("/dept/findDept1",{
+                pageNum:1,
+                pageSize:10,
+                deptId:emp.deptId
+            }).then(function (res) {
+                var ret = JSON.parse(res);
+                emp.dept = ret.data.list[0];
+            })
+        }
+    });
+    $.ajaxSettings.async = true;
+    return emp;
+}
+
