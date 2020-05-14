@@ -197,10 +197,13 @@
                         var ret = res.data.data;
                         for (let i = 0; i < ret.length; i++) {
                             var obj = {};
+                            var r = Math.ceil(Math.random()*150);
+                            var g = Math.ceil(Math.random()*150);
+                            var b = Math.ceil(Math.random()*150);
                             obj.label = ret[i].name;
-                            obj.fillColor = "rgba(210, 214, 222, 1)";
-                            obj.strokeColor = "rgba(210, 214, 222, 1)";
-                            obj.pointColor = "rgba(210, 214, 222, 1)";
+                            obj.fillColor = "rgba("+r+", "+g+", "+b+", 1)";
+                            obj.strokeColor =  "rgba("+r+", "+g+", "+b+", 1)";
+                            obj.pointColor = "rgba("+r+", "+g+", "+b+", 1)";
                             obj.pointStrokeColor = "#c1c7d1";
                             obj.pointHighlightFill = "#fff";
                             obj.pointHighlightStroke = "rgba(220,220,220,1)";
