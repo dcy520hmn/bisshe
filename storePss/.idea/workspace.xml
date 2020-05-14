@@ -1,30 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="61be1ebb-4faa-42f2-8603-40ea841ebc4e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/keji/controller/sell/SellOrderStaticsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/keji/mapper/sell/SellOrderStaticsMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/keji/pojo/sell/SellOrderStatics.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/keji/pojo/sell/SellOrderStaticsRet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/sell/SellOrderStaticsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/sell/impl/SellOrderStaticsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/sell/SellOrderStaticsMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/pages/stock/allotGoodPurInfo-d.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/pages/stock/allotGoodStock-list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/pages/stock/allotOrder-d.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/pages/stock/allotOrder-list.html" afterDir="false" />
+    <list default="true" id="61be1ebb-4faa-42f2-8603-40ea841ebc4e" name="Default Changelist" comment="调拨订单的">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/keji/controller/repository/AllotOrderController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/keji/mapper/repository/AllotOrderDetailMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/keji/mapper/repository/AllotOrderMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/keji/pojo/stock/AllotOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/keji/pojo/stock/AllotOrderDetail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/repository/AllotOrderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/repository/impl/AllotOrderServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/repository/AllotOrderMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/log.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/controller/baseMessage/DeptController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/controller/baseMessage/DeptController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/controller/baseMessage/EmpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/controller/baseMessage/EmpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/controller/baseMessage/RepositoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/controller/baseMessage/RepositoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/EmpService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/EmpService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/RepositoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/RepositoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/impl/EmServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/impl/EmServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/impl/RepositoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/baseMessage/impl/RepositoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/sell/SellOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/pojo/sell/SellOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/pojo/stock/GoodStockInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/pojo/stock/GoodStockInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/purcahse/impl/PurchaseOrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/purcahse/impl/PurchaseOrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/sell/impl/SellOrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/sell/impl/SellOrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/repository/GoodStockInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/repository/GoodStockInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/goodPurInfo-back.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/goodPurInfo-back.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/goodPurInfo-d.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/goodPurInfo-d.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/goodStock-list-back.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/goodStock-list-back.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/goodStock-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/goodStock-list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/sell/empSellStatics.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/sell/empSellStatics.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/stock/allotGoodPurInfo-d.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/stock/allotGoodPurInfo-d.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/stock/allotGoodStock-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/stock/allotGoodStock-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/stock/allotOrder-d.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/stock/allotOrder-d.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/stock/allotOrder-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/stock/allotOrder-list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/stock/goodStockInfo-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/stock/goodStockInfo-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/common/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/common/common.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/common/entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/common/entity.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/static/js/common/entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/common/entity.js" afterDir="false" />
     </list>
@@ -45,8 +47,8 @@
         <option value="HTML File" />
         <option value="Kotlin File" />
         <option value="MyBatisMapper" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -112,11 +114,11 @@
       <recent name="D:\compileStudy\salesystem\src\main\resources\static\js\vue" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.keji.pojo.stock" />
       <recent name="com.keji.service.sell" />
       <recent name="com.keji.mapper.sell" />
       <recent name="com.keji.pojo.authority" />
       <recent name="com.keji.controller.baseMessage" />
-      <recent name="com.keji.service.baseMessage.impl" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\QQFile\bishe\project2\storePss\src\main\resources\public\pages\stock" />
@@ -126,7 +128,7 @@
       <recent name="D:\QQFile\bishe\project2\storePss\src\main\resources\static\js\qrCode" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.StorePssApplication">
+  <component name="RunManager" selected="Spring Boot.saleSystem">
     <configuration name="EmServiceImpl" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.keji.service.baseMessage.impl.EmServiceImpl" />
       <module name="storePss" />
@@ -525,14 +527,9 @@
       <workItem from="1588938113708" duration="11549000" />
       <workItem from="1589274678658" duration="340000" />
       <workItem from="1589324157940" duration="2596000" />
-      <workItem from="1589333708213" duration="15991000" />
-    </task>
-    <task id="LOCAL-00028">
-      <created>1568107259451</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1568107259451</updated>
+      <workItem from="1589333708213" duration="24290000" />
+      <workItem from="1589376702652" duration="1540000" />
+      <workItem from="1589409108701" duration="19514000" />
     </task>
     <task id="LOCAL-00029">
       <created>1568109824535</created>
@@ -870,7 +867,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588755587292</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="调拨">
+      <created>1589356418190</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1589356418191</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -885,7 +889,6 @@
       <path value="$PROJECT_DIR$/../.." />
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="区域、部门区域功能改善" />
     <MESSAGE value="员工增删改查完成" />
     <MESSAGE value="仓库基础信息完成" />
     <MESSAGE value="增加状态" />
@@ -910,7 +913,8 @@
     <MESSAGE value="销售功能" />
     <MESSAGE value="销售功能完成" />
     <MESSAGE value="销售功能bug&#10;销售统计" />
-    <option name="LAST_COMMIT_MESSAGE" value="销售功能bug&#10;销售统计" />
+    <MESSAGE value="调拨" />
+    <option name="LAST_COMMIT_MESSAGE" value="调拨" />
   </component>
   <component name="WindowStateProjectService">
     <state x="259" y="41" key="#Custom_Plugin_Repositories" timestamp="1586677395216">
@@ -933,10 +937,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="398" y="178" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.738@0.0.1366.738" timestamp="1587184550402" />
-    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser" timestamp="1588945557969">
+    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser" timestamp="1589441008747">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1588945557969" />
+    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1589441008747" />
     <state x="363" y="107" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1586311289638">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -953,14 +957,14 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="403" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.738@0.0.1366.738" timestamp="1585965104118" />
-    <state x="19" y="141" key="#xdebugger.evaluate" timestamp="1588947063506">
+    <state x="819" y="141" key="#xdebugger.evaluate" timestamp="1589359346461">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="19" y="141" key="#xdebugger.evaluate/0.0.1366.738@0.0.1366.738" timestamp="1588947063506" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1588755582017">
+    <state x="819" y="141" key="#xdebugger.evaluate/0.0.1366.738@0.0.1366.738" timestamp="1589359346461" />
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1589425381665">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1588755582017" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1589425381665" />
     <state width="444" height="466" key="DebuggerActiveHint" timestamp="1588310833100">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -973,54 +977,54 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="440" y="113" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1587184585532" />
-    <state width="1323" height="210" key="GridCell.Tab.0.bottom" timestamp="1589353982333">
+    <state width="1323" height="55" key="GridCell.Tab.0.bottom" timestamp="1589441318139">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="210" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1589353982333" />
-    <state width="1323" height="210" key="GridCell.Tab.0.center" timestamp="1589353982333">
+    <state width="1323" height="55" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1589441318139" />
+    <state width="1323" height="55" key="GridCell.Tab.0.center" timestamp="1589441318139">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="210" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1589353982333" />
-    <state width="1323" height="210" key="GridCell.Tab.0.left" timestamp="1589353982333">
+    <state width="1323" height="55" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1589441318139" />
+    <state width="1323" height="55" key="GridCell.Tab.0.left" timestamp="1589441318139">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="210" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1589353982333" />
-    <state width="1323" height="210" key="GridCell.Tab.0.right" timestamp="1589353982333">
+    <state width="1323" height="55" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1589441318139" />
+    <state width="1323" height="55" key="GridCell.Tab.0.right" timestamp="1589441318139">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="210" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1589353982333" />
-    <state width="1323" height="210" key="GridCell.Tab.1.bottom" timestamp="1589353982333">
+    <state width="1323" height="55" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1589441318139" />
+    <state width="1323" height="55" key="GridCell.Tab.1.bottom" timestamp="1589441318139">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="210" key="GridCell.Tab.1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1589353982333" />
-    <state width="1323" height="210" key="GridCell.Tab.1.center" timestamp="1589353982333">
+    <state width="1323" height="55" key="GridCell.Tab.1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1589441318139" />
+    <state width="1323" height="55" key="GridCell.Tab.1.center" timestamp="1589441318139">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="210" key="GridCell.Tab.1.center/0.0.1366.738@0.0.1366.738" timestamp="1589353982333" />
-    <state width="1323" height="210" key="GridCell.Tab.1.left" timestamp="1589353982333">
+    <state width="1323" height="55" key="GridCell.Tab.1.center/0.0.1366.738@0.0.1366.738" timestamp="1589441318139" />
+    <state width="1323" height="55" key="GridCell.Tab.1.left" timestamp="1589441318139">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="210" key="GridCell.Tab.1.left/0.0.1366.738@0.0.1366.738" timestamp="1589353982333" />
-    <state width="1323" height="210" key="GridCell.Tab.1.right" timestamp="1589353982333">
+    <state width="1323" height="55" key="GridCell.Tab.1.left/0.0.1366.738@0.0.1366.738" timestamp="1589441318139" />
+    <state width="1323" height="55" key="GridCell.Tab.1.right" timestamp="1589441318139">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="210" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1589353982333" />
-    <state width="1323" height="68" key="GridCell.Tab.2.bottom" timestamp="1588946585167">
+    <state width="1323" height="55" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1589441318139" />
+    <state width="1323" height="55" key="GridCell.Tab.2.bottom" timestamp="1589441318140">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="68" key="GridCell.Tab.2.bottom/0.0.1366.738@0.0.1366.738" timestamp="1588946585167" />
-    <state width="1323" height="68" key="GridCell.Tab.2.center" timestamp="1588946585167">
+    <state width="1323" height="55" key="GridCell.Tab.2.bottom/0.0.1366.738@0.0.1366.738" timestamp="1589441318140" />
+    <state width="1323" height="55" key="GridCell.Tab.2.center" timestamp="1589441318139">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="68" key="GridCell.Tab.2.center/0.0.1366.738@0.0.1366.738" timestamp="1588946585167" />
-    <state width="1323" height="68" key="GridCell.Tab.2.left" timestamp="1588946585167">
+    <state width="1323" height="55" key="GridCell.Tab.2.center/0.0.1366.738@0.0.1366.738" timestamp="1589441318139" />
+    <state width="1323" height="55" key="GridCell.Tab.2.left" timestamp="1589441318139">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="68" key="GridCell.Tab.2.left/0.0.1366.738@0.0.1366.738" timestamp="1588946585167" />
-    <state width="1323" height="68" key="GridCell.Tab.2.right" timestamp="1588946585167">
+    <state width="1323" height="55" key="GridCell.Tab.2.left/0.0.1366.738@0.0.1366.738" timestamp="1589441318139" />
+    <state width="1323" height="55" key="GridCell.Tab.2.right" timestamp="1589441318140">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="68" key="GridCell.Tab.2.right/0.0.1366.738@0.0.1366.738" timestamp="1588946585167" />
+    <state width="1323" height="55" key="GridCell.Tab.2.right/0.0.1366.738@0.0.1366.738" timestamp="1589441318140" />
     <state width="220" height="477" key="HiddenNamespacesPopup" timestamp="1583376557519">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -1037,22 +1041,22 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="404" y="110" width="540" height="524" key="StructurePopup/0.0.1366.738@0.0.1366.738" timestamp="1585992696149" />
-    <state x="275" y="105" key="Vcs.Push.Dialog.v2" timestamp="1588755590778">
+    <state x="275" y="105" key="Vcs.Push.Dialog.v2" timestamp="1589425373816">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="105" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1588755590778" />
-    <state width="691" height="377" key="XDebugger.FullValuePopup" timestamp="1588947021073">
+    <state x="275" y="105" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1589425373816" />
+    <state width="691" height="377" key="XDebugger.FullValuePopup" timestamp="1589441104159">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="691" height="377" key="XDebugger.FullValuePopup/0.0.1366.738@0.0.1366.738" timestamp="1588947021073" />
+    <state width="691" height="377" key="XDebugger.FullValuePopup/0.0.1366.738@0.0.1366.738" timestamp="1589441104159" />
     <state x="263" y="27" key="com.intellij.database.dbimport.ImportDialog" timestamp="1583392444129">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="263" y="27" key="com.intellij.database.dbimport.ImportDialog/0.0.1366.738@0.0.1366.738" timestamp="1583392444129" />
-    <state x="92" y="92" width="1182" height="550" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1588665692667">
+    <state x="92" y="92" width="1182" height="550" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1589441403929">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="92" y="92" width="1182" height="550" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.738@0.0.1366.738" timestamp="1588665692667" />
+    <state x="92" y="92" width="1182" height="550" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.738@0.0.1366.738" timestamp="1589441403929" />
     <state x="92" y="92" width="1182" height="554" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog" timestamp="1588227334308">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -1073,10 +1077,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="237" y="108" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1366.738@0.0.1366.738" timestamp="1584686461668" />
-    <state x="370" y="124" width="688" height="606" key="find.popup" timestamp="1589351021828">
+    <state x="370" y="124" width="688" height="606" key="find.popup" timestamp="1589436359963">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="370" y="124" width="688" height="606" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1589351021828" />
+    <state x="370" y="124" width="688" height="606" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1589436359963" />
     <state x="396" y="171" key="git4idea.merge.GitPullDialog" timestamp="1586682266408">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -1093,10 +1097,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="339" y="165" width="672" height="677" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1589353073782" />
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1589349802813">
+    <state x="346" y="59" width="672" height="160" key="search.everywhere.popup" timestamp="1589437629489">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1589349802813" />
+    <state x="346" y="59" width="672" height="160" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1589437629489" />
     <state x="484" y="275" key="svn.passwordDialog" timestamp="1583226637918">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -1137,6 +1141,41 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/keji/pojo/baseMessage/Emp.java</url>
           <line>38</line>
           <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/keji/service/purcahse/impl/PurchaseOrderServiceImpl.java</url>
+          <line>167</line>
+          <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/keji/service/repository/impl/AllotOrderServiceImpl.java</url>
+          <line>132</line>
+          <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/keji/service/repository/impl/AllotOrderServiceImpl.java</url>
+          <line>122</line>
+          <option name="timeStamp" value="80" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/keji/controller/sell/SellOrderController.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/keji/controller/sell/SellOrderController.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="87" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/keji/service/sell/impl/SellOrderServiceImpl.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="88" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/keji/service/sell/impl/SellOrderServiceImpl.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="89" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/main/resources/public/pages/baseMessage/goodMessage.html</url>

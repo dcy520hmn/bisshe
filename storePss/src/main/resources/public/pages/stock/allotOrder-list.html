@@ -95,17 +95,17 @@
                             <button type="button" class="btn  btn-info btn-sm" @click="searchMyOrder">我的订单</button>
                             <button type="button" class="btn  btn-warning btn-sm" @click="searchAllOrder">所有订单</button>
                             <button v-if="this.orderType==0" type="button" class="btn  btn-info btn-sm"  @click="orderPay">订单支付</button>
-                            <button type="button" class="btn btn-success btn-sm"  @click="complete">订单完成处理</button>
+                            <button type="button" class="btn btn-success btn-sm"  @click="complete">入库</button>
                             <button type="button" class="btn btn-default" title="新建"
-                                    @click="addPurchaseOrder">
+                                    @click="addAllotOrder">
                                 <i class="fa fa-file-o"></i> 新建调拨
                             </button>
 
-                            <button type="button" class="btn btn-default" title="修改" @click="updatePurchaseOrder"><i
+                            <button type="button" class="btn btn-default" title="修改" @click="updateAllotOrder"><i
                                     class="fa fa-trash-o"></i> 修改
                             </button>
 
-                            <button type="button" class="btn btn-default" title="删除" @click="deletePurchaseOrder"><i
+                            <button type="button" class="btn btn-default" title="删除" @click="deleteAllotOrder"><i
                                     class="fa fa-trash-o"></i> 删除
                             </button>
                         </div>
@@ -144,26 +144,23 @@
                     <tr>
                         <td></td>
                         <th class="sorting_asc">进货订单编号</th>
-                        <th class="sorting_desc">供应商</th>
                         <th class="sorting_desc">经手人</th>
                         <th class="sorting_desc">经手人工号</th>
-                        <th class="sorting_desc">金额</th>
                         <th class="sorting_desc">备注</th>
+                        <th class="sorting_desc">日期</th>
                         <th class="sorting_desc">状态</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr v-for="(purchaseOrder) in  pageInfo.list" @dblclick="openDetail(purchaseOrder.id,purchaseOrder.sate)">
-                        <td><input name="ids" v-model="selectId" :value="purchaseOrder.id" type="checkbox"></td>
-                        <td>{{purchaseOrder.id}}</td>
-                        <td>{{purchaseOrder.provider.name}}</td>
-                        <td>{{purchaseOrder.operationEmp.name}}</td>
-                        <td>{{purchaseOrder.operationEmp.id}}</td>
-                        <td>{{purchaseOrder.price}}</td>
-                        <td>{{purchaseOrder.remark}}</td>
-                        <td v-if="purchaseOrder.sate==-1" style="color: grey;font-weight: bold">待支付</td>
-                        <td v-if="purchaseOrder.sate==2" style="color: red;font-weight: bold">处理中</td>
-                        <td v-if="purchaseOrder.sate==1" style="color: green;font-weight: bold">完成</td>
+                    <tr v-for="(allotOrder) in  pageInfo.list" @dblclick="openDetail(allotOrder.id,allotOrder.sate)">
+                        <td><input name="ids" v-model="selectId" :value="allotOrder.id" type="checkbox"></td>
+                        <td>{{allotOrder.id}}</td>
+                        <td>{{allotOrder.emp.name}}</td>
+                        <td>{{allotOrder.emp.id}}</td>
+                        <td>{{allotOrder.remark}}</td>
+                        <td>{{allotOrder.createDateStr}}</td>
+                        <td v-if="allotOrder.state==0" style="color: grey;font-weight: bold">保存待入库</td>
+                        <td v-if="allotOrder.state==1" style="color: red;font-weight: bold">以完成</td>
                     </tr>
                     </tbody>
                 </table>
@@ -180,7 +177,7 @@
                 <div class="form-group form-inline">
                     总共{{pageInfo.pages}}页 每页
                     <select class="form-control" v-model="pageInfo.pageSize"
-                            @click="getAllPurchaseOrderByPage(pageInfo.pageNum,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition)">
+                            @click="getAllAllotOrderByPage(pageInfo.pageNum,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition)">
                         <option v-for="opt in options" :value="opt.value">{{opt.text}}</option>
                     </select> 条
                 </div>
@@ -189,18 +186,18 @@
             <div class="box-tools pull-right">
                 <ul class="pagination">
                     <li>
-                        <a href="javascript:;" @click="getAllPurchaseOrderByPage(pageInfo.firstPage,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition)"
+                        <a href="javascript:;" @click="getAllAllotOrderByPage(pageInfo.firstPage,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition)"
                            aria-label="Previous">首页</a>
                     </li>
                     <li><a href="javascript:;"
-                           @click="getAllPurchaseOrderByPage(pageInfo.prePage,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition)">上一页</a></li>
+                           @click="getAllAllotOrderByPage(pageInfo.prePage,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition)">上一页</a></li>
                     <li v-for="n in pageInfo.pages"><a href="javascript:;"
-                                                       @click="getAllPurchaseOrderByPage(n,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition)">{{n}}</a>
+                                                       @click="getAllAllotOrderByPage(n,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition)">{{n}}</a>
                     </li>
                     <li><a href="javascript:;"
-                           @click="getAllPurchaseOrderByPage(pageInfo.nextPage,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition)">下一页</a></li>
+                           @click="getAllAllotOrderByPage(pageInfo.nextPage,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition)">下一页</a></li>
                     <li>
-                        <a href="javascript:;" @click="getAllPurchaseOrderByPage(pageInfo.lastPage,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition)"
+                        <a href="javascript:;" @click="getAllAllotOrderByPage(pageInfo.lastPage,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition)"
                            aria-label="Next">尾页</a>
                     </li>
                 </ul>
@@ -224,7 +221,7 @@
     var vm = new Vue({
         el: "#div1",
         data: {
-            purchaseOrder: purchaseOrder,
+            allot: allot,
             pageInfo: pageInfo,
             options: [
                 {text: '4', value: '4'},
@@ -233,7 +230,7 @@
                 {text: '10', value: '10'},
             ],
             selectId: [],
-            searchPurchaseOrderName: "",
+            searchAllotOrderName: "",
             orderState: [
                 {text: '状态选择', value: ""},
                 {text: '未入库', value: 0},
@@ -248,31 +245,31 @@
         },
         methods: {
             //新建订单
-            addPurchaseOrder() {
+            addAllotOrder() {
                 return location.href = "allotOrder-d.html?type=0";
             },
 
             //搜索
             search: function () {
-                this.getAllPurchaseOrderByPage(this.pageInfo.pageNum, this.pageInfo.pageSize, this.orderIdCondition, this.selectOrderStateCondition, this.isMySelf);
+                this.getAllAllotOrderByPage(this.pageInfo.pageNum, this.pageInfo.pageSize, this.orderIdCondition, this.selectOrderStateCondition, this.isMySelf);
             },
 
             //查询所有 订单
             searchAllOrder() {
                 this.isMySelf = false;
-                this.getAllPurchaseOrderByPage(this.pageInfo.pageNum, this.pageInfo.pageSize, this.orderIdCondition, this.selectOrderStateCondition, this.isMySelf);
+                this.getAllAllotOrderByPage(this.pageInfo.pageNum, this.pageInfo.pageSize, this.orderIdCondition, this.selectOrderStateCondition, this.isMySelf);
             },
             //我的订单
             searchMyOrder() {
                 this.isMySelf = true;
-                this.getAllPurchaseOrderByPage(this.pageInfo.pageNum, this.pageInfo.pageSize, this.orderIdCondition, this.selectOrderStateCondition, this.isMySelf);
+                this.getAllAllotOrderByPage(this.pageInfo.pageNum, this.pageInfo.pageSize, this.orderIdCondition, this.selectOrderStateCondition, this.isMySelf);
             },
 
 
             //获得订单
-            getAllPurchaseOrderByPage(pageNum, pageSize, orderIdCondition, selectOrderStateCondition, isMySelf) {
+            getAllAllotOrderByPage(pageNum, pageSize, orderIdCondition, selectOrderStateCondition, isMySelf) {
                 _this = this;
-                axios.post("/purchaseOrder/findPurchaseOrder",
+                axios.post("/allotOrder/query",
                     {
                         pageNum: pageNum,
                         pageSize: pageSize,
@@ -289,12 +286,12 @@
 
             //打开订单详情
             openDetail(orderIdCondition,orderState) {
-                return location.href = "purchaseOrder-d.html?type=1&orderIdCondition=" + orderIdCondition +
+                return location.href = "AllotOrder-d.html?type=1&orderIdCondition=" + orderIdCondition +
                     "&orderState="+orderState+"";
             },
 
             //删除订单
-            deletePurchaseOrder() {
+            deleteAllotOrder() {
                 let _this = this;
                 if (this.selectId.length <= 0) {
                     alert("请选中订单");
@@ -302,12 +299,8 @@
                 }
                 //查询所选订单
                 this.getSelectOrder();
-                if(_this.theOrder.sate == 2){
-                    alert("订单处理中，无法进行删除");
-                    return;
-                }
                 if (confirm("确定删除吗？")) {
-                    axios.post("/purchaseOrder/delete", _this.selectId).then(function (res) {
+                    axios.post("/allotOrder/delete", _this.selectId).then(function (res) {
                         if (res.data.data > 0) {
                             alert("删除成功");
                             window.location.reload();
@@ -319,7 +312,7 @@
             },
 
             //更新订单
-            updatePurchaseOrder() {
+            updateAllotOrder() {
                 let _this = this;
                 if (this.selectId.length <= 0) {
                     alert("请选中订单");
@@ -327,11 +320,11 @@
                 }
                 //查询所选订单
                 this.getSelectOrder();
-                if(_this.theOrder.sate != -1){
-                    alert("订单已支付，无法进行修改");
+                if(_this.theOrder.state == 1){
+                    alert("订单已完成法进行修改");
                     return;
                 }
-                return location.href = "purchaseOrder-d.html?type=1&orderIdCondition=" + this.selectId[0] + "&orderType=" + this.orderType + "";
+                return location.href = "allotOrder-d.html?type=1&orderIdCondition=" + this.selectId[0];
             },
 
             //订单支付
@@ -357,13 +350,13 @@
             getQrCodeRet(obj){
                 if(obj == 1){
                         var _this = this;
-                        axios.post("/purchaseOrder/updateState",{
+                        axios.post("/AllotOrder/updateState",{
                             orderId:_this.theOrder.id,
                             orderState:2//处理中状态
                         }).then(function (ret) {
                             if (ret.data.data == 1) {
                                 alert("支付成功");
-                                location.href = "purchaseOrder-list.html?orderType=" + _this.orderType + "";
+                                location.href = "AllotOrder-list.html?orderType=" + _this.orderType + "";
                             }
                         })
                 }else{
@@ -373,11 +366,11 @@
 
             //获得选中订单
             getSelectOrder(){
-                var purchaseOrderList = _this.pageInfo.list;
+                var AllotOrderList = _this.pageInfo.list;
                 //查询该订单
-                for (let i = 0; i < purchaseOrderList.length; i++) {
-                    if(_this.selectId[0] == purchaseOrderList[i].id){
-                        _this.theOrder = purchaseOrderList[i]
+                for (let i = 0; i < AllotOrderList.length; i++) {
+                    if(_this.selectId[0] == AllotOrderList[i].id){
+                        _this.theOrder = AllotOrderList[i]
                         break;
                     }
                 }
@@ -392,20 +385,18 @@
                 }
                 //查询所选订单
                 this.getSelectOrder();
-                if(_this.theOrder.sate == -1){
-                    alert("订单未支付");
-                }else if(_this.theOrder.sate == 1){
-                    alert("订单已经处理");
+                if(_this.theOrder.sate == 1){
+                    alert("已入库");
                 }else{//开始处理
-                    if(confirm("订单确认完成？")){
-                        axios.post("/purchaseOrder/orderOver",{
+                    if(confirm("是否入库")){
+                        axios.post("/allotOrder/deal",{
                             id:_this.theOrder.id,
-                            selectOrderStateCondition:2,
+                            selectOrderStateCondition:1,
                             orderType:_this.orderType
                         }).then(function (ret) {
                             if (ret.data.data == 1) {
                                 alert("处理成功，已成功入库");
-                                location.href = "purchaseOrder-list.html?orderType=" + _this.orderType + "";
+                                location.href = "AllotOrder-list.html?orderType=" + _this.orderType + "";
                             }
                         })
                     }
@@ -416,7 +407,7 @@
 
         created() {
             this.orderType = getUrlKey('orderType');
-            this.getAllPurchaseOrderByPage(this.pageInfo.pageNum, this.pageInfo.pageSize, this.searchPurchaseOrderName);
+            this.getAllAllotOrderByPage(this.pageInfo.pageNum, this.pageInfo.pageSize, this.searchAllotOrderName);
         }
     });
 </script>

@@ -24,6 +24,15 @@ public class GoodStockInfo {
     @Column(name = "iniStoNum")
     private Integer number;
 
+    @Column(name = "gId")
+    private Integer gooId;
+
+    @Column(name = "rId")
+    private Integer repId;
+
+    @Column(name = "posId")
+    private Integer posId;
+
     @Transient
     private Integer total;
 
@@ -36,6 +45,30 @@ public class GoodStockInfo {
     @Transient
     private TProvider tProvider;
 
+
+    public Integer getGooId() {
+        return gooId;
+    }
+
+    public void setGooId(Integer gooId) {
+        this.gooId = gooId;
+    }
+
+    public Integer getRepId() {
+        return repId;
+    }
+
+    public void setRepId(Integer repId) {
+        this.repId = repId;
+    }
+
+    public Integer getPosId() {
+        return posId;
+    }
+
+    public void setPosId(Integer posId) {
+        this.posId = posId;
+    }
 
     public Integer getTotal() {
         return total;

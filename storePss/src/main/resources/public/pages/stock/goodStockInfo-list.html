@@ -149,10 +149,10 @@
                     <tr>
                         <td></td>
                         <th class="sorting_asc">仓库</th>
+                        <th class="sorting_desc">商品名称</th>
                         <th class="sorting_desc">厂家</th>
                         <th class="sorting_desc">商品类别</th>
                         <th class="sorting_desc">商品代码</th>
-                        <th class="sorting_desc">商品名称</th>
                         <th class="sorting_desc">型号</th>
                         <th class="sorting_desc">规格</th>
                         <th class="sorting_desc">库存数量</th>
@@ -164,10 +164,10 @@
                     <tr v-for="(goodStock) in  pageInfo.list">
                         <td><input name="ids" v-model="selectId" :value="goodStock.id" type="checkbox"></td>
                         <td>{{goodStock.repository.name}}</td>
-                        <td>{{goodStock.tProvider.name}}</td>
+                        <td>{{goodStock.good.name}}</td>
+                        <td>{{goodStock.tProvider==null?"":goodStock.tProvider.name}}</td>
                         <td>{{goodStock.good.className}}</td>
                         <td>{{goodStock.good.id}}</td>
-                        <td>{{goodStock.good.name}}</td>
                         <td>{{goodStock.good.type}}</td>
                         <td>{{goodStock.good.size}}</td>
                         <td style="color: green;font-weight: bold">{{goodStock.number}}</td>

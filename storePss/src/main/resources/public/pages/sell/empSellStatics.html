@@ -185,7 +185,7 @@
             },
             search() {
                 $(".chart").html('');
-                $(".chart").html('');
+                $(".chart").html('<canvas id="barChart" style="height:500px"></canvas>');
                 areaChartData.datasets.splice(0,areaChartData.datasets.length);
                 var _this = this;
                 var beginDate = _this.year + '-' + _this.month + '-01';

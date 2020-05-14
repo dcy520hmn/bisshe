@@ -112,7 +112,7 @@
                 <div class="col-md-2 title">备注</div>
                 <div class="col-md-4 data">
                     <input type="text" class="form-control"
-                           placeholder="备注" v-model="allotOrderDetail.gooRemark"/>
+                           placeholder="备注" v-model="allotOrderDetail.remark"/>
                 </div>
             </div>
         </div>
@@ -220,14 +220,17 @@
 <script>
     function child(data) {
         vm.gooId = data.good.id;
-        vm.allotOrderDetail.id = data.id;
+        if(vm.typeC == 1){
+            vm.allotOrderDetail.id = data.id;
+        }
+        vm.allotOrderDetail.rowId = data.rowId;
         vm.gooNum = data.gooNum;
         vm.gooTax = data.gooTax;
         vm.allotOrderDetail.good.cost = data.good.cost;
         vm.allotOrderDetail.gooTaxPrc = data.gooTaxPrc;
         vm.gooOtherPrice = data.gooOtherPrice;
         vm.allotOrderDetail.gooTotalPrice = data.gooTotalPrice;
-        vm.allotOrderDetail.gooRemark = data.gooRemark;
+        vm.allotOrderDetail.remark = data.remark;
         vm.type = data.type;
     }
 </script>

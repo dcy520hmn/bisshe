@@ -154,11 +154,16 @@ purchaseOrderDetail = {
 //调拨订单
     allot = {
         id: "",
-        inDept: "",
-        inRep: "",
-        outDept: "",
-        outRep: "",
-        operationEmpId: "",
+        inDeptId:"",
+        inDept: dept,
+        inRepId:"",
+        inRep: repository,
+        outDeptId:"",
+        outDept: dept,
+        outRepId:"",
+        outRep: repository,
+        empId: "",
+        emp:empForm,
         state: "",
         remark: "",
         allotOrderDetail:[]
@@ -166,10 +171,12 @@ purchaseOrderDetail = {
 //调拨订单详情
     allotOrderDetail = {
         id: "",
-        taoid: "",
+        rowId:"",
+        aoId: "",
+        gooId: "",
         good: good,
         gooNum: "",
-        gooRemark: ""
+        remark: ""
     },
 
 //性别下拉选

@@ -55,11 +55,11 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
         Integer orderType = MapUtils.getInteger(params, "orderType");
         Boolean isMySelf = MapUtils.getBoolean(params, "isMySelf");
         Integer myselfId = null;
-        if(isMySelf!=null&&isMySelf){
+        if (isMySelf != null && isMySelf) {
             UserInfo userInfo = (UserInfo) SecurityUtils.getSubject().getPrincipal();
             myselfId = userInfo.getEmpId();
         }
-        Page<PurchaseOrder> purchaseOrderPage = purchaseOrderMapper.queryPurchaseOrder(orderId, orderState,orderType,myselfId);
+        Page<PurchaseOrder> purchaseOrderPage = purchaseOrderMapper.queryPurchaseOrder(orderId, orderState, orderType, myselfId);
         PageInfo<PurchaseOrder> purchaseOrderPageInfo = new PageInfo<>(purchaseOrderPage);
         return purchaseOrderPageInfo;
     }
@@ -134,21 +134,22 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
 
     @Override
     public int updatePurchaseOrderState(Map params) {
-        String orderId = MapUtils.getString(params,"orderId");
-        Integer orderState = MapUtils.getInteger(params,"orderState");
-        return purchaseOrderMapper.updatePurchaseOrderState(orderId,orderState);
+        String orderId = MapUtils.getString(params, "orderId");
+        Integer orderState = MapUtils.getInteger(params, "orderState");
+        return purchaseOrderMapper.updatePurchaseOrderState(orderId, orderState);
     }
 
 
     /**
      * 订单处理完成
+     *
      * @param params
      * @return
      */
     @Override
     public int orderOver(Map params) {
         int ret = -1;
-        try{
+        try {
             //查询对应的订单
             Map orderMap = new HashMap();
             orderMap.put("pageNum", 1);
@@ -162,20 +163,31 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
             List<PurchaseOrderDetail> purchaseOrderDetailListSystem = purchaseOrderSystem.getPurchaseOrderDetailList();
             for (PurchaseOrderDetail purchaseOrderDetail : purchaseOrderDetailListSystem) {
                 //进行入库操作
-                Page<GoodStockInfo>  goodStockInfoPage = goodStockInfoMapper.findGoodStockInfo(purchaseOrderDetail.getRepository().getId(),null,purchaseOrderDetail.getGood().getId(),null,null,null);
-                GoodStockInfo  goodStockInfo = goodStockInfoPage.getResult().get(0);
-                if(purchaseOrderSystem.getType()==0){//进货订单
-                    goodStockInfo.setNumber(goodStockInfo.getNumber()+purchaseOrderDetail.getGooNum());
-                    goodStockInfoMapper.updateStock(goodStockInfo.getId(),goodStockInfo.getRepository().getId(),goodStockInfo.getGood().getId(),goodStockInfo.getNumber());
-                }else if(purchaseOrderSystem.getType()==1){//退货订单
-                    goodStockInfo.setNumber(goodStockInfo.getNumber()-purchaseOrderDetail.getGooNum());
-                    goodStockInfoMapper.updateStock(goodStockInfo.getId(),goodStockInfo.getRepository().getId(),goodStockInfo.getGood().getId(),goodStockInfo.getNumber());
+                Page<GoodStockInfo> goodStockInfoPage = goodStockInfoMapper.findGoodStockInfo(purchaseOrderDetail.getRepository().getId(), null, purchaseOrderDetail.getGood().getId(), null, null, null);
+                if (purchaseOrderSystem.getType() == 0) {//进货订单
+                    List<GoodStockInfo> goodStockInfoList = goodStockInfoPage.getResult();
+                    if (goodStockInfoList.size() <= 0) {//库存中没有商品库存。新增商品库存
+                        GoodStockInfo goodStockInfo = new GoodStockInfo();
+                        goodStockInfo.setGooId(purchaseOrderDetail.getGood().getId());
+                        goodStockInfo.setNumber(purchaseOrderDetail.getGooNum());
+                        goodStockInfo.setRepId(purchaseOrderDetail.getRepository().getId());
+                        goodStockInfo.setPosId(purchaseOrderSystem.getProvider().getId());
+                        goodStockInfoMapper.insert(goodStockInfo);
+                    } else {//库存中有商品库存，直接进行更新库存
+                        GoodStockInfo goodStockInfo =goodStockInfoList.get(0);
+                        goodStockInfo.setNumber(goodStockInfo.getNumber() + purchaseOrderDetail.getGooNum());
+                        goodStockInfoMapper.updateStock(goodStockInfo.getId(), goodStockInfo.getRepository().getId(), goodStockInfo.getGood().getId(), goodStockInfo.getNumber());
+                    }
+                } else if (purchaseOrderSystem.getType() == 1) {//退货订单
+                    GoodStockInfo goodStockInfo = goodStockInfoPage.getResult().get(0);
+                    goodStockInfo.setNumber(goodStockInfo.getNumber() - purchaseOrderDetail.getGooNum());
+                    goodStockInfoMapper.updateStock(goodStockInfo.getId(), goodStockInfo.getRepository().getId(), goodStockInfo.getGood().getId(), goodStockInfo.getNumber());
                 }
             }
             //订单完成
             ret = 1;
-            purchaseOrderMapper.updatePurchaseOrderState(purchaseOrderSystem.getId(),1);
-        }catch (Exception e){
+            purchaseOrderMapper.updatePurchaseOrderState(purchaseOrderSystem.getId(), 1);
+        } catch (Exception e) {
             ret = -1;
             e.printStackTrace();
         }
@@ -197,9 +209,9 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
         purchaseOrder.setId(orderId);
         purchaseOrder.setType(MapUtils.getInteger(params, "type"));
         purchaseOrder.setCreateDate(DateUtil.getCurrentDateTime());
-        if(purchaseOrder.getType()==1){
+        if (purchaseOrder.getType() == 1) {
             purchaseOrder.setSate(2);
-        }else{
+        } else {
             purchaseOrder.setSate(-1);
         }
         TProvider provider = new TProvider();

@@ -89,7 +89,7 @@
                     <div class="col-md-2 title">调出部门</div>
                     <div class="col-md-2 data">
                         <select type="text" class="form-control input-sm"
-                                placeholder="调出部门" v-model="allot.outDept" @click="getAllRepository(allot.outDept,outRepositories,allot.outRep)">
+                                placeholder="调出部门" v-model="allot.outDeptId" @click="getAllRepository(allot.outDeptId,outRepositories,allot.outRep)">
                             <option v-for="outDept in outDepts" :value="outDept.value">{{outDept.text}}</option>
                         </select>
                     </div>
@@ -99,7 +99,7 @@
                     <div class="col-md-2 title">调出仓库</div>
                     <div class="col-md-2 data">
                         <select type="text" class="form-control input-sm"
-                                placeholder="调出仓库" v-model="allot.outRep">
+                                placeholder="调出仓库" v-model="allot.outRepId">
                             <option v-for="outTheRepository in outRepositories" :value="outTheRepository.value">
                                 {{outTheRepository.text}}
                             </option>
@@ -110,8 +110,8 @@
                 <div>
                     <div class="col-md-2 title">调入部门</div>
                     <div class="col-md-2 data">
-                        <input type="text" class="form-control" name="allot.inDept"
-                               placeholder="调入部门" v-model="allot.inDept" readonly>
+                        <input type="text" class="form-control" name="allot.inDeptId"
+                               placeholder="调入部门" v-model="allot.inDept.deptName" readonly>
                     </div>
                 </div>
 
@@ -119,7 +119,7 @@
                     <div class="col-md-2 title">调入仓库</div>
                     <div class="col-md-2 data">
                         <select type="text" class="form-control input-sm"
-                                placeholder="调入仓库" v-model="allot.inRep">
+                                placeholder="调入仓库" v-model="allot.inRepId">
                             <option v-for="inTheRepository in inRepositories" :value="inTheRepository.value">{{inTheRepository.text}}</option>
                         </select>
                     </div>
@@ -129,7 +129,7 @@
                     <div class="col-md-2 title">经手人</div>
                     <div class="col-md-2 data">
                         <select type="text" class="form-control input-sm"
-                                placeholder="经手人" v-model="allot.operationEmpId">
+                                placeholder="经手人" v-model="allot.empId">
                             <option v-for="emp in emps" :value="emp.value">{{emp.text}}</option>
                         </select>
                     </div>
@@ -193,14 +193,14 @@
                         <tbody>
                         <tr v-for="(goodPurInfo) in  allot.allotOrderDetail" @dblclick="">
                             <td><input name="ids" v-model="selectId" :value="goodPurInfo.id" type="checkbox"></td>
-                            <td>{{goodPurInfo.id}}</td>
+                            <td>{{goodPurInfo.rowId}}</td>
                             <td>{{goodPurInfo.good.name}}</td>
                             <td>{{goodPurInfo.good.id}}</td>
                             <td>{{goodPurInfo.good.type}}</td>
                             <td>{{goodPurInfo.good.size}}</td>
                             <td>{{goodPurInfo.good.unit}}</td>
                             <td>{{goodPurInfo.gooNum}}</td>
-                            <td>{{goodPurInfo.gooRemark}}</td>
+                            <td>{{goodPurInfo.remark}}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -289,12 +289,12 @@
             //获得子页goodPurInfo-d.html（添加商品）面传来的值
             getValue(obj) {
                 if (this.typeC == 0) {
-                    obj.id = this.allot.allotOrderDetail.length + 1;
+                    obj.rowId = this.allot.allotOrderDetail.length + 1;
                     this.allot.allotOrderDetail.push(obj);
                 } else if (this.typeC == 1) {
                     var index = -1;
                     for (let i = 0; i < this.allot.allotOrderDetail.length; i++) {
-                        if (this.allot.allotOrderDetail[i].id == obj.id) {
+                        if (this.allot.allotOrderDetail[i].rowId == obj.rowId) {
                             index = i;
                             break;
                         }
@@ -302,11 +302,12 @@
                     Vue.set(this.allot.allotOrderDetail, index, {
                         "gooNum": obj.gooNum,
                         "gooOtherPrice": obj.gooOtherPrice,
-                        "gooRemark": obj.gooRemark,
+                        "remark": obj.remark,
                         "gooTax": obj.gooTax,
                         "gooTaxPrc": obj.gooTaxPrc,
                         "gooTotalPrice": obj.gooTotalPrice,
                         "good": obj.good,
+                        "rowId": obj.rowId,
                         "id": obj.id,
                         "repository": obj.repository
                     });
@@ -407,10 +408,10 @@
             //修改订单
             update() {
                 var _this = this;
-                axios.post("/allot/update", _this.allot).then(function (ret) {
+                axios.post("/allotOrder/update", _this.allot).then(function (ret) {
                     if (ret.data.data == 1) {
                         alert("修改成功");
-                        location.href = "allot-list.html";
+                        location.href = "allotOrder-list.html";
                     }
                 })
             },
@@ -418,18 +419,18 @@
             //订单保存
             save() {
                 var _this = this;
-                axios.post("/allot/insert", _this.allot).then(function (ret) {
+                axios.post("/allotOrder/insert", _this.allot).then(function (ret) {
                     if (ret.data.data == 1) {
                         alert("添加成功");
-                        location.href = "allot-list.html";
+                        location.href = "allotOrder-list.html";
                     }
                 })
             },
 
             //从系统中获得订单
             getAllallotByPage(pageNum, pageSize, orderIdCondition, selectOrderStateCondition) {
-                _this = this;
-                axios.post("/allot/findallot",
+                var _this = this;
+                axios.post("/allotOrder/query",
                     {
                         pageNum: pageNum,
                         pageSize: pageSize,
@@ -439,9 +440,10 @@
                 ).then(function (res) {
                     if (res.data.code == 0) {
                         var allot = res.data.data.list[0];
+                        _this.getAllRepository(allot.outDeptId,_this.outRepositories,allot.outRepId);
                         var allotDataList = allot.allotOrderDetail;
                         for (let i = 0; i < allotDataList.length; i++) {
-                            allotDataList[i].id = i + 1;
+                            allotDataList[i].rowId = i + 1;
                         }
                         _this.allot = allot;
                     }
@@ -454,7 +456,8 @@
             this.orderState = getUrlKey("orderState");
             //获得员工
             this.emp = getEmp();
-            this.allot.inDept = this.emp.dept.deptName;
+            this.allot.inDept.deptName = this.emp.dept.deptName;
+            this.allot.inDeptId = this.emp.dept.id;
             //获得调入仓库
             this.getAllRepository(this.emp.deptId,this.inRepositories,this.allot.inDept);
             //获得员工部门

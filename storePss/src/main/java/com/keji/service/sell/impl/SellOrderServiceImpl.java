@@ -54,8 +54,8 @@ public class SellOrderServiceImpl implements SellOrderService {
             Emp emp = empMapper.findUserByConditions(null,userInfo.getEmpId()).get(0);
             //增加订单
             sellOrder.setEmpId(userInfo.getEmpId());
+            sellOrder.setDeptId(emp.getDept().getId());
             sellOrderMapper.insert(sellOrder);
-
             //设置订单详情。
             List<Map> allGoods = (List<Map>) params.get("sellOrder");
             for (Map allGood : allGoods) {

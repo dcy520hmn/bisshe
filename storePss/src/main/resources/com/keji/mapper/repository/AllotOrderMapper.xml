@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.keji.mapper.repository.AllotOrderMapper">
+    <resultMap id="allotOrderRetMapper" type="AllotOrder">
+        <id column="t_aoid" property="id"/>
+        <result column="t_state" property="state"/>
+        <result column="t_remark" property="remark"/>
+        <result column="t_inRepId" property="inRepId"/>
+        <result column="t_outRepId" property="outRepId"/>
+        <result column="t_empId" property="empId"/>
+        <result column="t_inDeptId" property="inDeptId"/>
+        <result column="t_outDeptId" property="outDeptId"/>
+        <result column="t_create_date" property="createDate"/>
+        <association property="emp" javaType="Emp">
+            <id column="empId" property="id"/>
+            <id column="empName" property="name"/>
+        </association>
+
+        <association property="inDept" javaType="Dept">
+            <id column="inDeptId" property="id"/>
+            <id column="inDeptName" property="deptName"/>
+        </association>
+
+        <association property="outDept" javaType="Dept">
+            <id column="outDeptId" property="id"/>
+            <id column="outDeptName" property="deptName"/>
+        </association>
+
+        <association property="inRep" javaType="Repository">
+            <id column="inRId" property="id"/>
+            <id column="inRName" property="name"/>
+        </association>
+
+        <association property="outRep" javaType="Repository">
+            <id column="outRId" property="id"/>
+            <id column="outRName" property="name"/>
+        </association>
+
+        <collection property="allotOrderDetail" ofType="AllotOrderDetail">
+            <id column="t_aodId" property="id"/>
+            <result column="t_aoidd" property="aoId"/>
+            <result column="t_gooNum" property="gooNum"/>
+            <result column="dRemark" property="remark"/>
+            <association property="good" javaType="Good">
+                <id column="gID" property="id"/>
+                <result column="gName" property="name"/>
+                <result column="gSize" property="size"/>
+                <result column="gName" property="type"/>
+                <result column="gName" property="unit"/>
+            </association>
+        </collection>
+    </resultMap>
+
+    <select id="queryAllotOrder" resultMap="allotOrderRetMapper">
+        SELECT tao.`t_aoid`,tao.`t_state`,tao.`t_remark`,tao.`t_create_date`,tao.`t_empId`,tao.`t_inDeptId`,tao.`t_inRepId`,tao.`t_outDeptId`,tao.`t_outRepId`,
+        emp.`id` AS empID,emp.`name` AS empName,
+        inDept.`deptId` AS inDeptId,inDept.`deptName` AS inDeptName,
+        outDept.`deptId` AS outDeptId,outDept.`deptName` AS outDeptName,
+        inRep.rId AS inRId,inRep.rName AS inRName,
+        outRep.rId AS outRId,outRep.rName AS outRName,
+        taod.`t_aodId`,taod.`t_aoid` AS t_aoidd,taod.`t_gooNum`,taod.`t_remark` AS  dRemark,
+        goo.`gID`,goo.`gName`,goo.`gType`,goo.`gSize`,goo.`gUnit`
+        FROM t_allot_order tao
+        LEFT JOIN t_emp emp ON tao.`t_empId` = emp.`id`
+        LEFT JOIN t_dept inDept ON tao.`t_inDeptId` = inDept.`deptId`
+        LEFT JOIN t_dept outDept ON tao.`t_outDeptId` = outDept.`deptId`
+        LEFT JOIN t_repository inRep ON tao.`t_inRepId` = inRep.`rId`
+        LEFT JOIN t_repository outRep ON tao.`t_outRepId` = outRep.`rId`
+        LEFT JOIN t_allot_order_detail taod ON tao.`t_aoid` = taod.`t_aoid`
+        LEFT JOIN t_goods goo ON taod.`t_gooId` = goo.`gID`
+        <where>
+            <if test="orderId != null and orderId!=''">
+                AND tao.`t_aoid` = #{orderId}
+            </if>
+            <if test="orderState != null and orderState!=''">
+                AND tao.`t_state` = #{orderState}
+            </if>
+            <if test="myselfId != null and myselfId!=''">
+                AND tao.`t_empId` = #{orderState}
+            </if>
+        </where>
+    </select>
+</mapper>

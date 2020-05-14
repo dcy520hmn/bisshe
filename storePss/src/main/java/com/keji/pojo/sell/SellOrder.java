@@ -2,6 +2,7 @@ package com.keji.pojo.sell;
 
 import com.keji.common.utils.DateUtil;
 import com.keji.pojo.baseMessage.Emp;
+import lombok.Cleanup;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -18,12 +19,21 @@ public class SellOrder {
     private Double totalNum;
     @Column(name = "t_empId")
     private Integer empId;
+    @Column(name = "t_deptId")
+    private Integer deptId;
 
     @Transient
     private String createDateStr;
     @Transient
     private Emp emp;
 
+    public Integer getDeptId() {
+        return deptId;
+    }
+
+    public void setDeptId(Integer deptId) {
+        this.deptId = deptId;
+    }
 
     public String getId() {
         return id;

@@ -38,7 +38,7 @@
         FROM t_goods_repsoritory tgr
         JOIN t_repository tr on tgr.rId = tr.rId AND tr.state = 1
         JOIN t_goods tg on tgr.gID = tg.gID AND tg.state = 1
-        JOIN t_provider tp on tgr.posId = tp.pId AND tp.state = 1
+        LEFT JOIN  t_provider tp on tgr.posId = tp.pId AND tp.state = 1
         JOIN (
             SELECT gid,SUM(iniStoNum) total
             FROM  t_goods_repsoritory
