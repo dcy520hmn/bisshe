@@ -168,7 +168,7 @@
                     <tr v-for="(goodStock) in  pageInfo.list">
                         <td><input name="ids" v-model="selectId" :value="goodStock.id" type="checkbox"></td>
                         <td>{{goodStock.repository.name}}</td>
-                        <td>{{goodStock.tProvider.name}}</td>
+                        <td>{{goodStock.tProvider == null ? '':goodStock.tProvider.name}}</td>
                         <td>{{goodStock.good.className}}</td>
                         <td>{{goodStock.good.id}}</td>
                         <td>{{goodStock.good.name}}</td>

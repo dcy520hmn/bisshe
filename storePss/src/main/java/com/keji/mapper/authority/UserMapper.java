@@ -68,4 +68,6 @@ public interface UserMapper {
      * @return
      */
     Integer updateUserRole(@Param("userId") Integer userId,@Param("roleId") Integer roleId);
+
+    Integer modifyPassword(@Param("userId") Integer userId,@Param("password") String password);
 }

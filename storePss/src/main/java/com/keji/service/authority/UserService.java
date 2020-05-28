@@ -70,4 +70,11 @@ public interface UserService  {
      * @return 增加结果
      */
     Integer addRole(Integer userId,List<Integer> roleIds);
+
+    /**
+     * 修改用户密码
+     * @param
+     * @return
+     */
+    Integer modifyPassword(String userName,String idCard,String newPassword);
 }

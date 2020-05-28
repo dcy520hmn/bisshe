@@ -7,16 +7,19 @@ import com.keji.common.utils.StringUtils;
 import com.keji.common.web.BaseController;
 import com.keji.pojo.authority.UserInfo;
 import com.keji.service.authority.UserService;
+import org.apache.commons.collections.MapUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author dcy
@@ -78,7 +81,7 @@ public class UserController extends BaseController {
         return dealQueryResult(userInfo,userInfo);
     }
     /**
-     * 查询锁有的用户
+     * 查询所有的用户
      * @param pageNum
      * @param pageSize
      * @return
@@ -174,5 +177,15 @@ public class UserController extends BaseController {
         }
     }
 
-
+    /**
+     * 修改密码
+     * @return
+     */
+    @RequestMapping("/modifyPassword")
+    public String modifyPassword(@RequestBody Map param){
+        int ret = userService.modifyPassword(MapUtils.getString(param,"userName"),
+                MapUtils.getString(param,"idCard"),
+                MapUtils.getString(param,"newPassword"));
+        return dealQueryResult(ret,ret);
+    }
 }

@@ -11,7 +11,10 @@ import com.keji.pojo.authority.Role;
 import com.keji.pojo.authority.UserInfo;
 import com.keji.pojo.baseMessage.Emp;
 import com.keji.service.authority.UserService;
+import org.apache.commons.collections.MapUtils;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.crypto.hash.SimpleHash;
+import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -161,6 +164,27 @@ public class UserServiceImpl implements UserService {
         return 1;
     }
 
-
-
+    /**
+     * 修改密码
+     * @return  -2：身份证不正确、-1：用户不存在 、 0：修改失败、>0 修改成
+     */
+    @Override
+    public Integer modifyPassword(String userName,String idCard,String newPassword) {
+        int ret = 0;
+        UserInfo userInfo = userMapper.findUserByUserName(userName);
+        if(userInfo != null){
+            Emp emp = empMapper.findUserByConditions(null,userInfo.getEmpId()).get(0);
+            //判断身份证是否一样
+             if(idCard.equals(emp.getIdentity())){
+                ByteSource credentialsSalt = ByteSource.Util.bytes(userName);
+                SimpleHash passwordMD5 = new SimpleHash("MD5",newPassword, credentialsSalt, 1024);
+                ret = userMapper.modifyPassword(userInfo.getId(),passwordMD5.toString());
+            }else{
+                ret = -2;
+            }
+        }else{
+            ret = -1;
+        }
+        return  ret;
+    }
 }

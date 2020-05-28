@@ -78,4 +78,8 @@
     <update id="updateUserRole">
         UPDATE  t_user_role SET ur_roleId = #{roleId} WHERE ur_userId = #{userId}
     </update>
+
+    <update id="modifyPassword">
+        UPDATE t_user SET user_loginPwd=#{password},user_updateDate=current_timestamp WHERE user_id = #{userId}
+    </update>
 </mapper>

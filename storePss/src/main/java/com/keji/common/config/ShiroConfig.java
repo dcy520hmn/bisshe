@@ -46,6 +46,8 @@ public class ShiroConfig {
         Map<String ,String> filterMap = new LinkedHashMap<String,String>();
         //拦截设置
         filterMap.put("/user/login","anon");
+        filterMap.put("/user/modifyPassword","anon");
+        filterMap.put("/user-d.html","anon");
         filterMap.put("/css/**","anon");
         filterMap.put("/js/**","anon");
         filterMap.put("/img/**","anon");

@@ -271,7 +271,7 @@
             providers: [
                 {text: "厂家选择", value: ""}
             ],
-            fPosId:"",//父页面传来的供应商id
+            fPosId: "",//父页面传来的供应商id
             posId: "",
             posName: "",
             gName: "",
@@ -302,7 +302,7 @@
             //获得所有的仓库信息
             getAllRepository: function () {
                 _this = this;
-                axios.post("/repository/findRepositoryByNoPage",{}).then(function (res) {
+                axios.post("/repository/findRepositoryByNoPage", {}).then(function (res) {
                     if (res.data.code == 0) {
                         var ret = res.data.data;
                         for (let i = 0; i < ret.length; i++) {
@@ -353,9 +353,9 @@
                     }
                     //获得供应商信息
                     goodStockInfo.posId = this.posId;
-                    if(this.posName == "" || this.posName == null){
+                    if (this.posName == "" || this.posName == null) {
                         goodStockInfo.posName = $("#pos option:selected").text();
-                    }else{
+                    } else {
                         goodStockInfo.posName = this.posName;
                     }
                     Modalshow("goodPurInfo-back.html?type=0", "新增", goodStockInfo);
@@ -373,8 +373,8 @@
         },
 
         created() {
-            if(this.posId != ""){
-                this.getAllGoodStockByPage(this.pageInfo.pageNum, this.pageInfo.pageSize,this.rId, this.posId, this.gName, this.gHelpName,this.selectStockState);
+            if (this.posId != "") {
+                this.getAllGoodStockByPage(this.pageInfo.pageNum, this.pageInfo.pageSize, this.rId, this.posId, this.gName, this.gHelpName, this.selectStockState);
             }
             this.getAllRepository();
             this.getAllProvider();
