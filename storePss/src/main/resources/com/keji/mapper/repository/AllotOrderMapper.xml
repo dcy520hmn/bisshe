@@ -78,7 +78,7 @@
                 AND tao.`t_state` = #{orderState}
             </if>
             <if test="myselfId != null and myselfId!=''">
-                AND tao.`t_empId` = #{orderState}
+                AND tao.`t_empId` = #{myselfId}
             </if>
         </where>
     </select>

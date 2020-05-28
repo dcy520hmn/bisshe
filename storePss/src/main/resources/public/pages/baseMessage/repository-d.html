@@ -96,6 +96,15 @@
                            placeholder="仓库编号" v-model="repository.code">
                 </div>
 
+                <div class="col-md-2 title">所属部门</div>
+                <div class="col-md-4 data">
+                    <select type="text" class="form-control input-sm"
+                            placeholder="部门" v-model="repository.deptId">
+                        <option v-for="repository in depts" :value="repository.value">{{repository.text}}
+                        </option>
+                    </select>
+                </div>
+
 
                 <div class="col-md-2 title">备注</div>
                 <div class="col-md-4 data">
@@ -130,18 +139,37 @@
         el: "#div1",
 
         data: {
+            depts: [
+                {text: "选择部门", value: ""}
+            ],
             repository: repository,
             type: ""
         },
 
         created: function () {
             this.type = getUrlKey('type');
+            this.getAllDept();
             if (this.type == 1) {//修改、详情
                 this.findRepository(getUrlKey('repositoryId'));
             }
         },
 
         methods: {
+            //获得所有的仓库信息
+            getAllDept: function () {
+                _this = this;
+                axios.post("/dept/findAllDept").then(function (res) {
+                    if (res.data.code == 0) {
+                        var ret = res.data.data;
+                        for (let i = 0; i < ret.length; i++) {
+                            var opt = new Object();
+                            opt.value = ret[i].id;
+                            opt.text = ret[i].deptName;
+                            _this.depts.push(opt);
+                        }
+                    }
+                });
+            },
 
             //进行验证
             saveCheck() {
@@ -203,8 +231,7 @@
                     });
                 }
             },
-        }
-
+        },
 
     });
 </script>
