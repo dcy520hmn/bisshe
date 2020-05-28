@@ -122,7 +122,15 @@
                 return this.newPassword1 === this.newPassword2;
             },
             updatePassword(){//修改密码
+                if(this.user.userName==""){
+                    alert("请输入用户名！");
+                    return false;
+                }
                 if(this.checkInputPassword()){
+                    if(this.newPassword1 == ""){
+                        alert("密码不能为空！");
+                        return;
+                    }
                     let _this = this;
                     axios.post("/user/modifyPassword",{
                         userName:_this.user.userName,
@@ -143,6 +151,8 @@
                                 alert("修改失败！");
                             }
                         })
+                }else {
+                    alert("密码输入不一致");
                 }
             },
             back(){

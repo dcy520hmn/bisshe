@@ -2,23 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61be1ebb-4faa-42f2-8603-40ea841ebc4e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/user-d.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/log.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/common/config/ShiroConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/common/config/ShiroConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/controller/authority/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/controller/authority/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/mapper/authority/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/mapper/authority/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/authority/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/authority/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keji/service/authority/imp/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keji/service/authority/imp/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/authority/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/keji/mapper/authority/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/goodStock-list-back.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/goodStock-list-back.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/goodStock-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/purchase/goodStock-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/qrCode/qrCode.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/qrCode/qrCode.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/stock/allotOrder-d.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/stock/allotOrder-d.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/pages/stock/allotOrder-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/pages/stock/allotOrder-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/keji/common/config/ShiroConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/keji/common/config/ShiroConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/user-d.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/user-d.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -539,14 +524,7 @@
       <workItem from="1590546100191" duration="1973000" />
       <workItem from="1590635523398" duration="85000" />
       <workItem from="1590637344206" duration="150000" />
-      <workItem from="1590637521946" duration="6568000" />
-    </task>
-    <task id="LOCAL-00031" summary="毕业设计">
-      <created>1583227185412</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1583227185413</updated>
+      <workItem from="1590637521946" duration="6968000" />
     </task>
     <task id="LOCAL-00032" summary="毕业设计">
       <created>1583227999656</created>
@@ -884,7 +862,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589468187532</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="修改密码功能完成">
+      <created>1590654099737</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1590654099738</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -899,7 +884,6 @@
       <path value="$PROJECT_DIR$/../.." />
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="增加状态" />
     <MESSAGE value="商品库存后台完成" />
     <MESSAGE value="商品库存信息查询" />
     <MESSAGE value="进货管理" />
@@ -924,7 +908,8 @@
     <MESSAGE value="调拨" />
     <MESSAGE value="库存调拨" />
     <MESSAGE value="统计完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="统计完成" />
+    <MESSAGE value="修改密码功能完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改密码功能完成" />
   </component>
   <component name="WindowStateProjectService">
     <state x="259" y="41" key="#Custom_Plugin_Repositories" timestamp="1586677395216">
@@ -971,10 +956,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="824" y="141" key="#xdebugger.evaluate/0.0.1366.738@0.0.1366.738" timestamp="1589464990638" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1589468165819">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1590654093368">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1589468165819" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1590654093368" />
     <state width="444" height="466" key="DebuggerActiveHint" timestamp="1588310833100">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -1051,10 +1036,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="404" y="110" width="540" height="524" key="StructurePopup/0.0.1366.738@0.0.1366.738" timestamp="1585992696149" />
-    <state x="275" y="105" key="Vcs.Push.Dialog.v2" timestamp="1589468204658">
+    <state x="275" y="105" key="Vcs.Push.Dialog.v2" timestamp="1590654034652">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="105" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1589468204658" />
+    <state x="275" y="105" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1590654034652" />
     <state width="691" height="377" key="XDebugger.FullValuePopup" timestamp="1589441104159">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -1107,10 +1092,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="339" y="165" width="672" height="677" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1589467481030" />
-    <state x="346" y="59" width="672" height="160" key="search.everywhere.popup" timestamp="1589437629489">
+    <state x="346" y="59" width="672" height="160" key="search.everywhere.popup" timestamp="1590654196903">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="346" y="59" width="672" height="160" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1589437629489" />
+    <state x="346" y="59" width="672" height="160" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1590654196903" />
     <state x="484" y="275" key="svn.passwordDialog" timestamp="1583226637918">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
