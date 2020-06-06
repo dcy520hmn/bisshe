@@ -35,7 +35,7 @@ public class GoodStockInfoController extends BaseController {
 
     @RequestMapping(value = "/queryGoodsRepositoryByEmp")
     public String queryGoodsRepositoryByEmp(@RequestParam Map params){
-        GoodStockInfo goodStockInfo = goodsRepositoryService.queryGoodsRepositoryByUser(params);
-        return dealQueryResult(goodStockInfo,goodStockInfo);
+        int ret = goodsRepositoryService.queryGoodsRepositoryByUser(params);
+        return dealQueryResult(ret,ret);
     }
 }

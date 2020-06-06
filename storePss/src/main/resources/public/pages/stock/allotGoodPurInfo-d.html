@@ -75,7 +75,7 @@
 
                 <div class="col-md-2 title">商品编号</div>
                 <div class="col-md-4 data">
-                    <input type="text" class="form-control"
+                    <input readonly type="text" class="form-control"
                            placeholder="商品编号" v-model="gooId"/>
                 </div>
 
@@ -103,7 +103,8 @@
                            placeholder="单位" v-model="allotOrderDetail.good.unit"/>
                 </div>
 
-                <div class="col-md-2 title">数量</div>
+
+                <div class="col-md-2 title">调入数量</div>
                 <div class="col-md-4 data">
                     <input type="text" class="form-control"
                            placeholder="数量" v-model="gooNum"/>
@@ -147,6 +148,7 @@
             gooId: "",
             gooTax: "",
             gooNum: "",
+            number: "",
             gooOtherPrice: "",
             repositories: [
                 {text: "仓库选择", value: ""}
@@ -186,10 +188,15 @@
 
             //进行保存
             sure() {
+                if(this.number < this.gooNum){
+                    alert("库存量不够");
+                    return;
+                }
                 if (isNaN(parseFloat(this.gooNum))) {
                     this.allotOrderDetail.gooNum = 0;
                 } else {
                     this.allotOrderDetail.gooNum = parseFloat(this.gooNum);
+                    this.allotOrderDetail.number = this.number;
                 }
                 if (this.typeC == 1) {
                     if (confirm("确认修改")) {
@@ -223,11 +230,9 @@
         if(vm.typeC == 1){
             vm.allotOrderDetail.id = data.id;
         }
+        vm.number = data.number;
         vm.allotOrderDetail.rowId = data.rowId;
-        vm.gooNum = data.gooNum;
-        vm.gooTax = data.gooTax;
         vm.allotOrderDetail.good.cost = data.good.cost;
-        vm.allotOrderDetail.gooTaxPrc = data.gooTaxPrc;
         vm.gooOtherPrice = data.gooOtherPrice;
         vm.allotOrderDetail.gooTotalPrice = data.gooTotalPrice;
         vm.allotOrderDetail.remark = data.remark;

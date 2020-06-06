@@ -66,13 +66,13 @@
 <!-- 内容头部 -->
 <section class="content-header">
     <h1>
-        进货管理
+        调拨管理
         <small>添加订单</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i
                 class="fa fa-dashboard"></i> 首页</a></li>
-        <li><a href="#">进货管理</a></li>
+        <li><a href="#">调拨管理</a></li>
         <li class="active">添加订单</li>
     </ol>
 </section>
@@ -147,7 +147,7 @@
 
         </div>
         <div classs="panel panel-default">
-            <h3 class="panel-heading">进货商品明细</h3>
+            <h3 class="panel-heading">调拨商品明细</h3>
             <div class="box-body">
                 <!-- 数据表格 -->
                 <div class="table-box">
@@ -280,10 +280,13 @@
         },
         methods: {
             selectGoods() {
-                if(this.allot.outDept==""){
+                if(this.allot.outRepId==""){
                     alert("请选择调出仓库");
+                }else if(this.allot.inRepId==""){
+                    alert("请选择调入仓库");
+                }else{
+                    Modalshow("allotGoodStock-list.html", "商品选择",this.allot.outRepId);
                 }
-                Modalshow("allotGoodStock-list.html", "商品选择",this.allot.outDeptId);
             },
 
             //获得子页goodPurInfo-d.html（添加商品）面传来的值
@@ -357,13 +360,16 @@
             //获得所有的员工信息
             getAllEmpByNoPage() {
                 _this = this;
-                axios.post("/emp/queryByNoPage").then(function (res) {
+                var emp = getEmp();
+                axios.post("/emp/queryByNoPage1",{
+                    deptId:emp.dept.id
+                }).then(function (res) {
                     if (res.data.code == 0) {
                         var ret = res.data.data;
                         for (let i = 0; i < ret.length; i++) {
                             var opt = new Object();
                             opt.value = ret[i].id;
-                            opt.text = ret[i].id;
+                            opt.text = ret[i].name;
                             _this.emps.push(opt);
                         }
                     }

@@ -302,8 +302,10 @@
             //更新
             update() {
                 if(confirm("是否修改")) {
-                    if (this.saveCheck()) {
+                    if (true) {
                         let _this = this;
+                        _this.good.gClass = _this.selectGoodClass.bigClassCode+"."+ _this.selectGoodClass.midClassCode+"."+ _this.selectGoodClass.littleClassCode;
+                        _this.good.className = $("#big option:selected").text()+'/'+$("#mid option:selected").text()+"/"+$("#lettle option:selected").text();
                         axios.post("/good/update", _this.good).then(function (res) {
                             if (res.data.data > 0) {
                                 alert("修改成功");
@@ -318,7 +320,7 @@
 
             //进行保存
             save() {
-                if (this.saveCheck()) {
+                if (true) {
                     let _this = this;
                     _this.good.gClass = _this.selectGoodClass.bigClassCode+"."+ _this.selectGoodClass.midClassCode+"."+ _this.selectGoodClass.littleClassCode;
                     _this.good.className = $("#big option:selected").text()+'/'+$("#mid option:selected").text()+"/"+$("#lettle option:selected").text();

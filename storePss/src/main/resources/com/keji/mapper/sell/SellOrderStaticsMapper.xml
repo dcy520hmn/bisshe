@@ -14,9 +14,12 @@
         FROM t_sell_order
         LEFT JOIN t_emp ON t_emp.id = t_sell_order.t_empId
         GROUP BY t_create_date,t_empId,t_deptId
-        HAVING t_deptId = #{deptId} AND t_create_date between #{beginDate} AND #{endDate}
-        <if test="empId">
-            t_empId = #{empId}
+        HAVING  t_create_date between #{beginDate} AND #{endDate}
+        <if test="deptId!=null and deptId!=''">
+            AND t_deptId = #{deptId}
+        </if>
+        <if test="empId!=null and empId!=''">
+           AND t_empId = #{empId}
         </if>
     </select>
 </mapper>

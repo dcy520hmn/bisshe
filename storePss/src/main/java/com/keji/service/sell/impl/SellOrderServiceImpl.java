@@ -38,20 +38,21 @@ public class SellOrderServiceImpl implements SellOrderService {
     private RepositoryService repositoryService;
     @Autowired
     private EmpMapper empMapper;
+
     //新增销售订单
     @Override
     public int insertSellOrder(Map params) {
-        int ret =  -1;
-        try{
+        int ret = -1;
+        try {
             //设置订单
             SellOrder sellOrder = new SellOrder();
             String orderId = OrderIdUtil.getId();
             sellOrder.setId(orderId);
             sellOrder.setCreateDate(DateUtil.getCurrentDateTime());
-            sellOrder.setTotalNum(MapUtils.getDouble(params,"totalNum"));
+            sellOrder.setTotalNum(MapUtils.getDouble(params, "totalNum"));
             //查询对应的用户
             UserInfo userInfo = (UserInfo) SecurityUtils.getSubject().getPrincipal();
-            Emp emp = empMapper.findUserByConditions(null,userInfo.getEmpId()).get(0);
+            Emp emp = empMapper.findUserByConditions(null, userInfo.getEmpId()).get(0);
             //增加订单
             sellOrder.setEmpId(userInfo.getEmpId());
             sellOrder.setDeptId(emp.getDept().getId());
@@ -60,24 +61,34 @@ public class SellOrderServiceImpl implements SellOrderService {
             List<Map> allGoods = (List<Map>) params.get("sellOrder");
             for (Map allGood : allGoods) {
                 SellOrderDetail sellOrderDetail = new SellOrderDetail();
-                sellOrderDetail.setGooId(MapUtils.getInteger(allGood,"id"));
+                sellOrderDetail.setGooId(MapUtils.getInteger(allGood, "id"));
                 sellOrderDetail.setOrderId(orderId);
-                sellOrderDetail.setSellNum(MapUtils.getInteger(allGood,"buyNum"));
-                sellOrderDetail.setTotalNum(MapUtils.getDouble(allGood,"prePrice")*MapUtils.getInteger(allGood,"buyNum"));
+                sellOrderDetail.setSellNum(MapUtils.getInteger(allGood, "buyNum"));
+                sellOrderDetail.setTotalNum(MapUtils.getDouble(allGood, "prePrice") * MapUtils.getInteger(allGood, "buyNum"));
                 sellOrderDetailMapper.insert(sellOrderDetail);
                 //更新仓库库存信息。
-                Map reMap = new LinkedHashMap();
-                reMap.put("pageNum",1);
-                reMap.put("pageSize",10);
-                reMap.put("deptId",emp.getDeptId());
-                Repository repository = repositoryService.queryRepository(reMap).getList().get(0);
-                Page<GoodStockInfo> goodStockInfoPage = goodStockInfoMapper.findGoodStockInfo(repository.getId(),null,MapUtils.getInteger(allGood,"id"),null,null,null);
-                GoodStockInfo  goodStockInfo = goodStockInfoPage.getResult().get(0);
-                goodStockInfo.setNumber(goodStockInfo.getNumber()-MapUtils.getInteger(allGood,"buyNum"));
-                goodStockInfoMapper.updateStock(goodStockInfo.getId(),goodStockInfo.getRepository().getId(),goodStockInfo.getGood().getId(),goodStockInfo.getNumber());
+
+                //查询出当前部门所有的仓库
+                Page<GoodStockInfo> goodStockInfoPage = goodStockInfoMapper.findGoodStockInfo(null, emp.getDept().getId(),null, MapUtils.getInteger(allGood, "id"), null, null, null);
+                List<GoodStockInfo> goodStockInfos = goodStockInfoPage.getResult();
+                GoodStockInfo goodStockInfo =  null;
+                for (GoodStockInfo stockInfo : goodStockInfos) {
+                    if(stockInfo.getNumber() > 0 ){
+                        goodStockInfo = stockInfo;
+                        break;
+                    }
+                }
+                if(goodStockInfo != null){
+                    synchronized (this) {
+                        if (goodStockInfo.getNumber() > 0) {
+                            goodStockInfo.setNumber(goodStockInfo.getNumber() - MapUtils.getInteger(allGood, "buyNum"));
+                            goodStockInfoMapper.updateStock(goodStockInfo.getId(), goodStockInfo.getRepository().getId(), goodStockInfo.getGood().getId(), goodStockInfo.getNumber());
+                        }
+                    }
+                }
             }
             ret = 1;
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return ret;

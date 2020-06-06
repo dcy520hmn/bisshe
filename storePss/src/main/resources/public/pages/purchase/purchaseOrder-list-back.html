@@ -187,18 +187,18 @@
             <div class="box-tools pull-right">
                 <ul class="pagination">
                     <li>
-                        <a href="javascript:;" @click="getAllPurchaseOrderByPage(pageInfo.firstPage,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition)"
+                        <a href="javascript:;" @click="getAllPurchaseOrderByPage(pageInfo.firstPage,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition,isMySelf)"
                            aria-label="Previous">首页</a>
                     </li>
                     <li><a href="javascript:;"
-                           @click="getAllPurchaseOrderByPage(pageInfo.prePage,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition)">上一页</a></li>
+                           @click="getAllPurchaseOrderByPage(pageInfo.prePage,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition,isMySelf)">上一页</a></li>
                     <li v-for="n in pageInfo.pages"><a href="javascript:;"
-                                                       @click="getAllPurchaseOrderByPage(n,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition)">{{n}}</a>
+                                                       @click="getAllPurchaseOrderByPage(n,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition,isMySelf)">{{n}}</a>
                     </li>
                     <li><a href="javascript:;"
-                           @click="getAllPurchaseOrderByPage(pageInfo.nextPage,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition)">下一页</a></li>
+                           @click="getAllPurchaseOrderByPage(pageInfo.nextPage,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition,isMySelf)">下一页</a></li>
                     <li>
-                        <a href="javascript:;" @click="getAllPurchaseOrderByPage(pageInfo.lastPage,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition)"
+                        <a href="javascript:;" @click="getAllPurchaseOrderByPage(pageInfo.lastPage,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition,isMySelf)"
                            aria-label="Next">尾页</a>
                     </li>
                 </ul>

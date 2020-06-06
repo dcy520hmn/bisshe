@@ -16,6 +16,7 @@ import tk.mybatis.mapper.common.Mapper;
 @Repository
 public interface GoodStockInfoMapper extends Mapper<GoodStockInfo> {
     Page<GoodStockInfo>  findGoodStockInfo(@Param("rId") Integer rId,
+                                           @Param("deptId") Integer deptId,
                                            @Param("posId")Integer posId,
                                            @Param("gooId")Integer gooId,
                                            @Param("gName") String gName,

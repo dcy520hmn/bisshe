@@ -45,12 +45,13 @@ public class GoodStockInfoServiceImpl implements GoodStockInfoService {
     public PageInfo<GoodStockInfo> queryGoodsRepository(Map params) {
         PageHelper.startPage(MapUtils.getInteger(params, "pageNum"), MapUtils.getInteger(params, "pageSize"));
         Integer rId = MapUtils.getIntValue(params, "rId");
+        Integer deptId = MapUtils.getIntValue(params, "deptId");
         Integer posId = MapUtils.getIntValue(params, "posId");
         String gName = MapUtils.getString(params, "gName");
         Integer gooId = MapUtils.getInteger(params, "gooId");
         String gHelpName = MapUtils.getString(params, "gHelpName");
         Integer selectStockState = MapUtils.getInteger(params, "selectStockState");
-        Page<GoodStockInfo> GoodsRepositoryInfoPage =  goodsRepositoryInfoMapper.findGoodStockInfo(rId, posId,gooId,gName,gHelpName,selectStockState);
+        Page<GoodStockInfo> GoodsRepositoryInfoPage =  goodsRepositoryInfoMapper.findGoodStockInfo(rId,deptId,posId,gooId,gName,gHelpName,selectStockState);
         PageInfo<GoodStockInfo> pageInfo = new PageInfo<>(GoodsRepositoryInfoPage);
         return pageInfo;
     }
@@ -61,19 +62,20 @@ public class GoodStockInfoServiceImpl implements GoodStockInfoService {
      * @return
      */
     @Override
-    public GoodStockInfo queryGoodsRepositoryByUser(Map params) {
+    public int queryGoodsRepositoryByUser(Map params) {
+        int num = 0;
         UserInfo userInfo = (UserInfo) SecurityUtils.getSubject().getPrincipal();
-        Emp emp = empMapper.findUserByConditions(null,userInfo.getEmpId()).get(0);
-        Map reMap = new LinkedHashMap();
-        reMap.put("pageNum",1);
-        reMap.put("pageSize",10);
-        reMap.put("deptId",emp.getDeptId());
-        Repository repository = repositoryService.queryRepository(reMap).getList().get(0);
-        String helpNum = MapUtils.getString(params,"helpNum");
-        Integer rId = repository.getId();
-        Page<GoodStockInfo> goodStockInfoPage = goodsRepositoryInfoMapper.findGoodStockInfo(rId,
-                null,null,null,helpNum,null);
-        GoodStockInfo  goodStockInfo = goodStockInfoPage.getResult().get(0);
-        return goodStockInfo;
+        Integer deptId = MapUtils.getIntValue(params, "deptId");
+        String gHelpName = MapUtils.getString(params, "gHelpName");
+        Page<GoodStockInfo> goodStockInfoPage = goodsRepositoryInfoMapper.findGoodStockInfo(null,deptId,
+                null,null,null,gHelpName,null);
+        List<GoodStockInfo> goodStockInfos = goodStockInfoPage.getResult();
+        for (GoodStockInfo goodStockInfo : goodStockInfos) {
+            if(goodStockInfo.getNumber() > 0){
+                num = goodStockInfo.getNumber() ;
+                break;
+            }
+        }
+        return num;
     }
 }

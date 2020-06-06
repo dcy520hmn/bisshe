@@ -33,6 +33,12 @@ public class EmpController extends BaseController {
         return dealQueryResult(pageInfo,pageInfo);
     };
 
+    @RequestMapping("/queryByNoPage1")
+    public String queryEmpByNoPage1 (@RequestBody Map params){
+        List<Emp> info = empService.findAllEmpByNoPage(params);
+        return dealQueryResult(info,info);
+    };
+
     @RequestMapping("/queryByNoPage")
     public String queryEmpByNoPage (@RequestParam Map params){
         List<Emp> info = empService.findAllEmpByNoPage(params);

@@ -282,8 +282,11 @@
             //获得所有的商品库存信息
             getAllGoodStockByPage: function (pageNum, pageSize, rId, posId, gName, gHelpName, selectStockState) {
                 _this = this;
+                emp = getEmp();
+
                 axios.post("/goodStockInfo/query",
                     {
+                        deptId: emp.dept.id,
                         pageNum: pageNum,
                         pageSize: pageSize,
                         rId: rId,
@@ -302,9 +305,10 @@
             //获得所有的仓库信息
             getAllRepository: function () {
                 _this = this;
-                axios.post("/repository/findRepositoryByNoPage", {}).then(function (res) {
+                emp = getEmp();
+                axios.post("/repository/findRepositoryByNoPage",{deptId: emp.dept.id}).then(function (res) {
                     if (res.data.code == 0) {
-                        var ret = res.data.data;
+                        var ret =  res.data.data;
                         for (let i = 0; i < ret.length; i++) {
                             var opt = new Object();
                             opt.value = ret[i].id;

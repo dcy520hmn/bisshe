@@ -163,7 +163,7 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
             List<PurchaseOrderDetail> purchaseOrderDetailListSystem = purchaseOrderSystem.getPurchaseOrderDetailList();
             for (PurchaseOrderDetail purchaseOrderDetail : purchaseOrderDetailListSystem) {
                 //进行入库操作
-                Page<GoodStockInfo> goodStockInfoPage = goodStockInfoMapper.findGoodStockInfo(purchaseOrderDetail.getRepository().getId(), null, purchaseOrderDetail.getGood().getId(), null, null, null);
+                Page<GoodStockInfo> goodStockInfoPage = goodStockInfoMapper.findGoodStockInfo(purchaseOrderDetail.getRepository().getId(), null,null, purchaseOrderDetail.getGood().getId(), null, null, null);
                 if (purchaseOrderSystem.getType() == 0) {//进货订单
                     List<GoodStockInfo> goodStockInfoList = goodStockInfoPage.getResult();
                     if (goodStockInfoList.size() <= 0) {//库存中没有商品库存。新增商品库存

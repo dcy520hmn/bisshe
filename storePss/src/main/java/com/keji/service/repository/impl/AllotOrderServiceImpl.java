@@ -130,8 +130,8 @@ public class AllotOrderServiceImpl implements AllotOrderService {
 
             for (AllotOrderDetail allotOrderDetail : allotOrderDetailListSystem) {
                 //进行出入库操作
-                Page<GoodStockInfo>  outRep = goodStockInfoMapper.findGoodStockInfo(allotOrderSystem.getOutRepId(),null,allotOrderDetail.getGood().getId(),null,null,null);
-                Page<GoodStockInfo>  inRep = goodStockInfoMapper.findGoodStockInfo(allotOrderSystem.getInRepId(),null,allotOrderDetail.getGood().getId(),null,null,null);
+                Page<GoodStockInfo>  outRep = goodStockInfoMapper.findGoodStockInfo(allotOrderSystem.getOutRepId(),null,null,allotOrderDetail.getGood().getId(),null,null,null);
+                Page<GoodStockInfo>  inRep = goodStockInfoMapper.findGoodStockInfo(allotOrderSystem.getInRepId(),null,null,allotOrderDetail.getGood().getId(),null,null,null);
                 List<GoodStockInfo> outRepList = outRep.getResult();
                 List<GoodStockInfo> inRepList = inRep.getResult();
 
@@ -178,7 +178,7 @@ public class AllotOrderServiceImpl implements AllotOrderService {
         allotOrder.setEmpId(MapUtils.getInteger(params,"empId"));
         allotOrder.setState(0);
         allotOrder.setCreateDate(DateUtil.getCurrentDateTime());
-        allotOrder.setRemark(MapUtils.getString(params,"remark"));
+        allotOrder.setRemark(MapUtils.getString(params,"remark")==null?"":MapUtils.getString(params,"remark"));
         List<LinkedMap> allotOrderDetailMapList = (List) MapUtils.getObject(params,"allotOrderDetail");
         for (Map allotOrderDetailMap : allotOrderDetailMapList) {
             AllotOrderDetail allotOrderDetail = new AllotOrderDetail();
@@ -191,7 +191,7 @@ public class AllotOrderServiceImpl implements AllotOrderService {
             allotOrderDetail.setAoId(id);
             allotOrderDetail.setGooId(gooId);
             allotOrderDetail.setGooNum(MapUtils.getInteger(allotOrderDetailMap,"gooNum"));
-            allotOrderDetail.setRemark(MapUtils.getString(allotOrderDetailMap,"remark"));
+            allotOrderDetail.setRemark(MapUtils.getString(allotOrderDetailMap,"remark")==null?"":MapUtils.getString(allotOrderDetailMap,"remark"));
             allotOrderDetailList.add(allotOrderDetail);
         }
     }

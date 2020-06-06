@@ -17,5 +17,5 @@ public interface GoodStockInfoService {
     PageInfo<GoodStockInfo> queryGoodsRepository(Map params);
 
 
-    GoodStockInfo queryGoodsRepositoryByUser(Map params);
+    int queryGoodsRepositoryByUser(Map params);
 }

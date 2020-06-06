@@ -140,20 +140,6 @@
 <script src="/js/common/common.js"></script>
 <script src="/plugins/chartjs/Chart.min.js"></script>
 <script>
-    var areaChartData = new Object();
-    $(function () {
-        areaChartData = {
-            labels: ["1号", "2号", "3号", "4号", "5号",
-                "6号", "7号", "8号", "9号", "10号",
-                "11号", "12号", "13号", "14号", "15号",
-                "16号", "17号", "18号", "19号", "20号",
-                "21号", "22号", "23号", "24号", "25号",
-                "26号", "27号", "28号", "29号", "30号", "31号"],
-            datasets: []
-        };
-    });
-</script>
-<script>
     var vm = new Vue({
         el: "#div1",
         data: {
@@ -186,6 +172,15 @@
             search() {
                 $(".chart").html('');
                 $(".chart").html('<canvas id="barChart" style="height:500px"></canvas>');
+                var areaChartData = {
+                    labels: ["1号", "2号", "3号", "4号", "5号",
+                        "6号", "7号", "8号", "9号", "10号",
+                        "11号", "12号", "13号", "14号", "15号",
+                        "16号", "17号", "18号", "19号", "20号",
+                        "21号", "22号", "23号", "24号", "25号",
+                        "26号", "27号", "28号", "29号", "30号", "31号"],
+                    datasets: []
+                };
                 areaChartData.datasets.splice(0,areaChartData.datasets.length);
                 var _this = this;
                 var beginDate = _this.year + '-' + _this.month + '-01';
@@ -216,9 +211,9 @@
                         var barChartCanvas = $("#barChart").get(0).getContext("2d");
                         var barChart = new Chart(barChartCanvas);
                         var barChartData = areaChartData;
-                        barChartData.datasets[1].fillColor = "#00a65a";
-                        barChartData.datasets[1].strokeColor = "#00a65a";
-                        barChartData.datasets[1].pointColor = "#00a65a";
+                        // barChartData.datasets[1].fillColor = "#00a65a";
+                        // barChartData.datasets[1].strokeColor = "#00a65a";
+                        // barChartData.datasets[1].pointColor = "#00a65a";
                         var barChartOptions = {
                             //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
                             scaleBeginAtZero: true,

@@ -91,6 +91,16 @@ function findArea(parentId, type, arr) {
     });
 }
 
+//获得当前员工
+function queryCurrentEmp(){
+    var obj = new Object();
+    axios.post("/emp/queryCurrentEmp").then(function (res) {
+        if (res.data.code == 0) {
+            obj = res.data.data;
+        }
+    });
+    return obj;
+}
 
 /**
  * 通用加载商品类别

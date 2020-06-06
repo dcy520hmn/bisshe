@@ -55,6 +55,10 @@ public class EmServiceImpl implements EmpService {
             Integer empId = MapUtils.getIntValue(params, "empId");
             example.createCriteria().andEqualTo("id",empId);
         }
+        if(MapUtils.getObject(params,"deptId")!=null){
+            Integer deptId = MapUtils.getIntValue(params, "deptId");
+            example.createCriteria().andEqualTo("deptId",deptId);
+        }
         example.createCriteria().andEqualTo("state",1);
         return empMapper.selectByExample(example);
     }
@@ -77,6 +81,7 @@ public class EmServiceImpl implements EmpService {
             }
             //添加员工
             Emp emp = new Emp();
+            emp.setstate(1);
             emp.setAddress(MapUtils.getString(params, "address"));
             emp.setAreaCode(MapUtils.getString(params, "areaCode"));
             emp.setBirthday(new SimpleDateFormat("yyyy年MM月dd日").parse(MapUtils.getString(params, "birthday")));

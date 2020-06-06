@@ -51,6 +51,9 @@
             <if test="posId != null  and posId != '' ">
                 AND tp.pId = #{posId}
             </if>
+            <if test="deptId != null  and deptId != '' ">
+                AND tr.deptId = #{deptId}
+            </if>
             <if test="gooId != null  and gooId != '' ">
                 AND tg.gID = #{gooId}
             </if>

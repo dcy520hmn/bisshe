@@ -267,11 +267,12 @@
         },
         methods: {
 
-            //获得所有的商品库存信息
+            //获得当前部门中的所有的商品库存信息
             getAllGoodStockByPage:  function(pageNum, pageSize, rId, posId, gName, gHelpName,selectStockState) {
                 _this = this;
+                var emp = getEmp();
                 axios.post("/goodStockInfo/query",
-                    {pageNum: pageNum, pageSize: pageSize, rId: rId, posId: posId, gName: gName, gHelpName: gHelpName,selectStockState:selectStockState}
+                    {pageNum: pageNum, pageSize: pageSize, rId: rId, deptId:emp.dept.id,posId: posId, gName: gName, gHelpName: gHelpName,selectStockState:selectStockState}
                 ).then(function (res) {
                     if (res.data.code == 0) {
                         _this.pageInfo = res.data.data;
@@ -282,7 +283,8 @@
             //获得所有的仓库信息
             getAllRepository: function () {
                 _this = this;
-                axios.post("/repository/findRepositoryByNoPage",{}).then(function (res) {
+                emp = getEmp();
+                axios.post("/repository/findRepositoryByNoPage",{deptId: emp.dept.id}).then(function (res) {
                     if (res.data.code == 0) {
                         var ret =  res.data.data;
                         for (let i = 0; i < ret.length; i++) {

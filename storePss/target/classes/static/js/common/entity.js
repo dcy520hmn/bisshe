@@ -121,7 +121,8 @@ repository = {
     name: "",
     code: "",
     remark: "",
-    state: 1
+    state: 1,
+    deptId:""
 }
 
 //采购订单

@@ -152,7 +152,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr v-for="(allotOrder) in  pageInfo.list" @dblclick="openDetail(allotOrder.id,allotOrder.sate)">
+                    <tr v-for="(allotOrder) in  pageInfo.list" >
                         <td><input name="ids" v-model="selectId" :value="allotOrder.id" type="checkbox"></td>
                         <td>{{allotOrder.id}}</td>
                         <td>{{allotOrder.emp.name}}</td>
@@ -177,7 +177,7 @@
                 <div class="form-group form-inline">
                     总共{{pageInfo.pages}}页 每页
                     <select class="form-control" v-model="pageInfo.pageSize"
-                            @click="getAllAllotOrderByPage(pageInfo.pageNum,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition)">
+                            @click="getAllAllotOrderByPage(pageInfo.pageNum,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition,isMySelf)">
                         <option v-for="opt in options" :value="opt.value">{{opt.text}}</option>
                     </select> 条
                 </div>
@@ -186,18 +186,18 @@
             <div class="box-tools pull-right">
                 <ul class="pagination">
                     <li>
-                        <a href="javascript:;" @click="getAllAllotOrderByPage(pageInfo.firstPage,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition)"
+                        <a href="javascript:;" @click="getAllAllotOrderByPage(pageInfo.firstPage,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition,isMySelf)"
                            aria-label="Previous">首页</a>
                     </li>
                     <li><a href="javascript:;"
-                           @click="getAllAllotOrderByPage(pageInfo.prePage,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition)">上一页</a></li>
+                           @click="getAllAllotOrderByPage(pageInfo.prePage,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition,isMySelf)">上一页</a></li>
                     <li v-for="n in pageInfo.pages"><a href="javascript:;"
-                                                       @click="getAllAllotOrderByPage(n,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition)">{{n}}</a>
+                                                       @click="getAllAllotOrderByPage(n,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition,isMySelf)">{{n}}</a>
                     </li>
                     <li><a href="javascript:;"
-                           @click="getAllAllotOrderByPage(pageInfo.nextPage,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition)">下一页</a></li>
+                           @click="getAllAllotOrderByPage(pageInfo.nextPage,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition,isMySelf)">下一页</a></li>
                     <li>
-                        <a href="javascript:;" @click="getAllAllotOrderByPage(pageInfo.lastPage,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition)"
+                        <a href="javascript:;" @click="getAllAllotOrderByPage(pageInfo.lastPage,pageInfo.pageSize,orderIdCondition,selectOrderStateCondition,isMySelf)"
                            aria-label="Next">尾页</a>
                     </li>
                 </ul>

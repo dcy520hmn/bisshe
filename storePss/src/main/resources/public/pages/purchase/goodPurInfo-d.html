@@ -215,12 +215,12 @@
                 });
             },
 
-            //获得所有的仓库信息
             getAllRepository: function () {
                 _this = this;
-                axios.post("/repository/findRepositoryByNoPage",{}).then(function (res) {
+                emp = getEmp();
+                axios.post("/repository/findRepositoryByNoPage",{deptId: emp.dept.id}).then(function (res) {
                     if (res.data.code == 0) {
-                        var ret = res.data.data;
+                        var ret =  res.data.data;
                         for (let i = 0; i < ret.length; i++) {
                             var opt = new Object();
                             opt.value = ret[i].id;

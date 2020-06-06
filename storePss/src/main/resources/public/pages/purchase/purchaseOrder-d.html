@@ -251,6 +251,8 @@
             orderState:""
         },
         methods: {
+
+
             selectGoods(){
                 if(this.orderType == 0){
                     Modalshow("goodStock-list.html","商品选择");
@@ -320,16 +322,19 @@
                 });
             },
 
-            //获得所有的员工信息
+            //获得当前部门下的员工信息
             getAllEmpByNoPage() {
                 _this = this;
-                axios.post("/emp/queryByNoPage").then(function (res) {
+                var emp = getEmp();
+                axios.post("/emp/queryByNoPage1",{
+                    deptId:emp.dept.id
+                }).then(function (res) {
                     if (res.data.code == 0) {
                         var ret = res.data.data;
                         for (let i = 0; i < ret.length; i++) {
                             var opt = new Object();
                             opt.value = ret[i].id;
-                            opt.text = ret[i].id;
+                            opt.text = ret[i].name;
                             _this.emps.push(opt);
                         }
                     }
